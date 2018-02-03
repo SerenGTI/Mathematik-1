@@ -11,6 +11,10 @@
 \renewcommand{\Im}{\ensuremath\mathfrak{Im}}
 \renewcommand{\Re}{\ensuremath\mathfrak{Re}}
 
+%Malpunkte
+\mathcode`\*="8000
+{\catcode`\*\active\gdef*{\cdot}}
+
 \newcommand{\set}[2]{\ensuremath \left\{ #1 \,\middle|\, #2 \right\}}%Menge
 \renewcommand{\emptyset}{\ensuremath\varnothing}
 
