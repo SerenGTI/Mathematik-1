@@ -136,3 +136,73 @@ Seien $v_1,v_2,\ldots,v_k$ Vektoren aus dem $K$-Vektorraum $V$ und seien $\lambd
 Die Skalare $\lambda_1,\lambda_2,\ldots,\lambda_k$ heißen \emph{Koeffizienten} der Linearkombination.
 
 Sind in der Linearkombination alle Koeffizienten gleich Null, handelt es sich um die \emph{triviale Linearkombination}. Gibt es hingegen mindestens einen Koeffizienten $\lambda_j \neq 0$, handelt es sich um einee \emph{nichttriviale Linearkombination}.
+
+
+\definition{}
+Sei $V$ ein $K$-Vektorraum, $M\subseteq V$ eine Teilmenge. Dann heißt die Menge aller Linearkombinationen
+\begin{equation*}
+  \set{\lambda_1v_1+\ldots+\lambda_kv_k}{v_1,v_2,\ldots,v_k \in M, \lambda_1,\lambda_2,\ldots,\lambda_k \in K}
+\end{equation*}
+der \emph{Spann} oder die lineare Hülle von M.
+
+\begin{equation*}
+  \spann{M}\coloneqq \set{\sum\limits_{j=1}^k\lambda_jv_j}{\lambda_j \in K, v_j\in M}
+\end{equation*}
+
+\paragraph{Beispiele}
+\begin{itemize}
+  \item $v=\vector{1\\1\\0}$ in $\R^3$ $\leadsto \spann{\{v\}} = \set{\vector{\lambda\\\lambda\\0}}{\lambda \in \R}$
+  \item $\spann{\simpleset{\vector{1\\0\\0},\vector{0\\1\\0}}} = \set{\vector{x_1\\x_2\\0}}{x_1,x_2\in\R}$ ($x_1,x_2$-Ebene)
+\end{itemize}
+
+\satz{}
+Sei $V$ ein $K$-Vektorraum und $M\subseteq V$. Dann ist $\spann{M}$ ein Untervektorraum von $V$.
+\beweis
+\begin{enumerate}
+  \item $\spann{M}$ ist nicht leer, da der Nullvektor als leere Linearkombination mindestens enthalten ist.
+  \item Abschluss unter skalarer Multiplikation, sei $\lambda \in K, v\in \spann{M}$:
+  \begin{align*}
+    v &= \lambda_1v_1+\ldots+\lambda_kv_k \quad\text{wobei } v_1,\ldots,v_k \in M\\
+    \lambda v &= \lambda(\lambda_1v_1+\ldots+\lambda_kv_k)\\
+    &= \lambda(\lambda_1v_1)+\ldots+\lambda(\lambda_kv_k)\\
+    &= (\lambda\lambda_1)v_1+\ldots+(\lambda\lambda_k)v_k\\
+  \end{align*}
+  \item Abschluss unter Addition:
+
+\end{enumerate}
+
+
+\definition{Erzeugendensystem}
+Gilt $V=\spann{M}$ für einen $K$-Vektorraum $V$ und eine Teilmenge $M\subseteq V$, so sagt man $M$ ist ein \emph{Erzeugendensystem} von $V$.
+
+Interessant ist die minimale Anzahl an Vektoren in einem Erzeugendensystem, bzw. ein \emph{minimales Erzeugendensystem}.
+
+\definition{Lineare Abhängigkeit}
+Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}!
+
+\satz{}
+Eine Menge von Vektoren ist genau dann linear abhängig, wenn einen Vektor $v\in M$ gibt, der sich als Linearkombination mit Vektoren aus $M\setminus\simpleset{v}$ darstellen lässt.
+
+\begin{description}
+  \newcommand{\lv}[1]{\ensuremath\lambda_{#1}v_{#1}}
+  \item[\glqq$\Rightarrow$\grqq] Angenommen, $M$ ist linear abhängig. Dann gibt es Vektoren $v_1,\ldots,v_n$ und Koeffizienten $\lambda_1,\ldots,\lambda_n \in K$, so dass die Linearkombination \emph{nichttrivial} den Nullvektor ergibt. Dann folgt:
+  \begin{align*}
+    \lv{j} &= -\lv{1}-\lv{2}-\ldots-\lv{j-1}-\lv{j+1}-\ldots-\lv{n} \quad |\lambda_j\neq0\\
+    v_j &= \frac{1}{\lambda_j} * \left( -\lv{1}-\lv{2}-\ldots-\lv{j-1}-\lv{j+1}-\ldots-\lv{n} \right)
+  \end{align*}
+  Damit ist $v_j$ als nichttriviale Linearkombination von Vektoren aus $M\setminus\simpleset{v_j}$ dargestellt.
+
+
+  \item[\glqq$\Leftarrow$\grqq] Angenommen, es gibt einen Vektor $v\in M$ sowie Vektoren $v_1,\ldots,v_n\in M\setminus\simpleset{v}$ und Koeffizienten $\lambda_1,\ldots,\lambda_n \in K$, so dass gilt:
+  \begin{align*}
+    v &= \lv{1}+\ldots+\lv{n}\\
+    0 &= \lv{1}+\ldots+\lv{n} - 1*v
+  \end{align*}
+  Dies ist eine nichttriviale Linearkombination mit Vektoren aus $M$, die $0$ ergibt.
+\end{description}
+
+
+\definition{Basis}
+Eine Teilmenge $B$ eines Vektorraums $V$ heißt \emph{Basis} von $V$ falls $B$ ein linear unabhängiges Erzeugendensystem ist.
+
+\paragraph{Beispiele}

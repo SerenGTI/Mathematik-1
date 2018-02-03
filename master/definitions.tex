@@ -11,11 +11,15 @@
 \renewcommand{\Im}{\ensuremath\mathfrak{Im}}
 \renewcommand{\Re}{\ensuremath\mathfrak{Re}}
 
+\newcommand{\spann}[1]{\ensuremath\mathrm{Span}\! \left(#1\right)}
+\renewcommand{\vector}[1]{\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
+
 %Malpunkte
 \mathcode`\*="8000
 {\catcode`\*\active\gdef*{\cdot}}
 
 \newcommand{\set}[2]{\ensuremath \left\{ #1 \,\middle|\, #2 \right\}}%Menge
+\newcommand{\simpleset}[1]{\ensuremath \left\{ #1 \right\}}%aufzählende Menge
 \renewcommand{\emptyset}{\ensuremath\varnothing}
 
 \newcounter{satz}
