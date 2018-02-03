@@ -1,5 +1,4 @@
 
-
 \titleformat{\chapter}[hang]
 {\setcounter{def}{1}
 \setcounter{lemma}{1}
@@ -8,30 +7,41 @@
 {\bfseries\thechapter\Large: }
 {0pt}
 {\huge}
+\titlespacing*{\chapter}{0pt}{0pt}{7em}
 
+%SECTIONING
 \titleformat{\section}[hang]
 {\LARGE\raggedright\bfseries}
 {\thesection\Large: }
 {0pt}
 {\Large}
+\titlespacing*{\section}{0pt}{3em}{1.2em}
 
+
+%SECTIONING, SATZ, LEMMA, DEFINITION
 \titleformat{\subsection}[hang]
 {\large\raggedright\bfseries}
 {\thesubsection: }
 {0pt}
 {\large}
+\titlespacing*{\subsection}{0pt}{1.6em}{1em}
 
+
+%BEWEIS, BEMERKUNG,
 \titleformat{\subsubsection}[hang]
 {}
 {}
 {3pt}
 {\large\bfseries}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.7em}
 
+%Beispiel
 \titleformat{\paragraph}[runin]
 {}
 {}
 {3pt}
 {\scshape\bfseries}
+\titlespacing*{\paragraph}{0pt}{0.5em}{1em}
 
 
 
