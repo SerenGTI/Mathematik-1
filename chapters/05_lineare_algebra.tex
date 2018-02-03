@@ -45,10 +45,94 @@ Sei $x\coloneq \begin{pmatrix}
   x_1\\
   \vdots\\
   x_n
-\end{pmatrix} \in \R$ und $\lambda\in\R$. Dann ist die \emph{skalare Multiplikation} $x\cdot\lambda$ definiert durch $x\cdot\lambda \coloneqq \begin{pmatrix}
-  \lambda\cdot x_1\\
+\end{pmatrix} \in \R$ und $\lambda\in\R$. Dann ist die \emph{skalare Multiplikation} $x*\lambda$ definiert durch $x*\lambda \coloneqq \begin{pmatrix}
+  \lambda* x_1\\
   \vdots\\
-  \lambda\cdot x_n
+  \lambda* x_n
 \end{pmatrix}$
 
 Die beiden Operationen Vektoraddition und skalare Multiplikation sind kennzeichnend für einen Vektorraum.
+
+
+\definition{Vektorraum}
+Sei $K$ ein Körper, dessen neutrales Element bezüglich der Multiplikation mit $1_K$ bezeichnet wird. Sei $V$ eine Menge mit einer Verknüpfung $+$, so dass $(V,+)$ eine abel'sche Gruppe bildet.
+
+Sei weiter eine Abbildung, genannt \emph{skalare Multiplikation} $K\times V\rightarrow V$ gegeben, so dass folgende Bedingungen $\forall \alpha,\beta \in K; x,y\in V$ gelten:
+
+\begin{description}
+  \item[V 1] $(\alpha*\beta)* x=\alpha*(\beta* x)$ (assoziativ)
+  \item[V 2] $1_K* x = x$ (neutrales Element des Körpers ist das neutrale bzgl $*$)
+  \item[V 3] $(\alpha+\beta)* x=\alpha * x + \beta* x$ (distributiv 1)
+  \item[V 4] $\alpha* (x+y)=\alpha * x + \alpha* y$ (distributiv 2)
+\end{description}
+Dann ist $V$ ein \emph{Vektorraum} über dem Körper $K$. Kurz auch $K$-Vektorraum. Die Verknüpfung $+$ wird Vektoraddition genannt. Für $K=\R$ bzw. $K=\C$ spricht man auch von einem reellen, bzw. komplexen Vektorraum.
+
+Elemente von $V$ nennt man Vektoren.
+
+\paragraph{Beispiele}
+\begin{multicols}{2}
+  \begin{itemize}
+    \item $\R^2, \R^3, \ldots$
+    \item $\C^2$
+    \item $\{0\}$ ist ein Vektorraum für jeden Körper $K$.
+    \columnbreak
+    \item Sei $V=\set{f}{f:\R\rightarrow\R}$ die Menge der reellen Funktionen in einer Variable. Durch die punktweise Addition
+
+    $(f+g)(x)=f(x)+g(x)$
+
+    und die punktweise skalare Multiplikation
+
+    $(\lambda f)(x)=\lambda* f(x)$
+
+    wird $V$ zu einem Vektorraum.
+  \end{itemize}
+\end{multicols}
+
+
+\definition{Untervektorraum}
+Sei $V$ ein $K$-Vektorraum. Eine nichtleere Teilmenge $U\subseteq V$ heißt Untervektorraum bzw. Teilvektorraum, falls gilt:
+\begin{description}
+  \item[UV 1] Abschluss unter Vektoraddition:
+  \begin{equation*}
+    \forall u,v : u,v \in U \Rightarrow u+v\in U
+  \end{equation*}
+  \item[UV 2] Abschluss unter skalarer Multiplikation:
+  \begin{equation*}
+    \forall u\in U, \lambda\in K : \lambda* u \in U
+  \end{equation*}
+\end{description}
+
+\paragraph{Beispiele}
+Die folgenden sind Untervektorräume von $\R^2$:
+\begin{itemize}
+  \item $U_1\coloneqq \set{\begin{pmatrix}x\\0\end{pmatrix}}{x\in\R}$ (die $x$-Achse)
+  \item $U_2\coloneqq \set{\begin{pmatrix}x\\x\end{pmatrix}}{x\in\R}$ (die Winkelhalbierende des 1. und 3. Quadranten)
+\end{itemize}
+
+
+\lemma{}
+Für alle $\lambda \in K, v\in V$ wobei $V$ ein $K$-Vektorraum ist, gilt:
+\begin{enumerate}
+  \item $0_K* v = 0_V$
+  \item $(-\lambda)* v = -(\lambda* v)$
+\end{enumerate}
+\beweis
+\begin{enumerate}
+  \item Es gilt:
+  \begin{align*}
+    0* v = (0+0)* v &\underset{\text{\textbf{(V 3)}}}{=}0* v+ 0* v\\
+    0* v + (-(0* v)) &=(0* v + 0* v)+(-(0*v))\\
+    &\underset{\text{\textbf{(V 1)}}}{=} 0*v+(0*v+(-0*v))\\
+    0=0*v +0&=0*v
+  \end{align*}
+\end{enumerate}
+
+\definition{Linearkombination}
+Seien $v_1,v_2,\ldots,v_k$ Vektoren aus dem $K$-Vektorraum $V$ und seien $\lambda_1,\lambda_2,\ldots,\lambda_k \in K$. Dann heißt der Vektor
+\begin{equation*}
+  u=\lambda_1v_1+\lambda_2v_2+\ldots+\lambda_kv_k = \sum\limits_{j=1}^k\lambda_jv_j
+\end{equation*}
+\emph{Linearkombination} von den Vektoren $v_1,v_2,\ldots,v_k$.
+Die Skalare $\lambda_1,\lambda_2,\ldots,\lambda_k$ heißen \emph{Koeffizienten} der Linearkombination.
+
+Sind in der Linearkombination alle Koeffizienten gleich Null, handelt es sich um die \emph{triviale Linearkombination}. Gibt es hingegen mindestens einen Koeffizienten $\lambda_j \neq 0$, handelt es sich um einee \emph{nichttriviale Linearkombination}.
