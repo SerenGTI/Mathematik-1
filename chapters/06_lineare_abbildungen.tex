@@ -1,0 +1,47 @@
+\chapter{Lineare Abbildungen}
+Lineare Abbildungen sind Strukturerhaltende Abbildungen zwischen Vektorräumen, sie werden deshalb auch Vektorraumhomomorphismen genannt.
+\definition{Lineare Abbildungen}
+Seien $V$ und $W$ Vektorräume über dem selben Körper $K$. Eine Abbildung $f:V\rightarrow W$ heißt \emph{linear}, falls
+\begin{description}
+  \item[L 1] $\forall u,v \in V : f(u+v)= f(u)+f(v)$ (Additivität)
+  \item[L 2] $\forall v\in V, \lambda \in K : f(\lambda v) = \lambda * f(v)$ (Homogenität)
+\end{description}
+
+\bemerkung
+\textbf{L 1} ist dazu äquivalent, dass $f$ ein Gruppenhomomorphismus zwischen den abel'schen Gruppen $(V,+)$ und $(W,+)$ ist.
+
+\paragraph{Beispiele}
+\begin{itemize}
+  \item Für alle $\lambda \in K$ ist $f:V\rightarrow V, v\mapsto \lambda v$ eine Lineare Abbildung
+  \item Insbesondere sind die identische Abbildung
+  \begin{equation*}
+    \mathrm{id}_V:V\rightarrow V, v\mapsto v
+  \end{equation*}
+  und die Nullabbildung
+  \begin{equation*}
+    \mathrm{n}_V:V\rightarrow V, v\mapsto 0
+  \end{equation*}
+  linere Abbildungen.
+
+  \item $f:\R\rightarrow\R, x\mapsto x^2$ ist \emph{nicht} linear, denn
+  \begin{equation*}
+    4=f(2)=f(1+1)\neq f(1)+f(1) = 2
+  \end{equation*}
+\end{itemize}
+
+\section{Matrizen}
+Allgemein lassen sich lineare Abbildungen durch sog. \emph{Matrizen} darstellen.
+
+Sei $A$ eine $m\times n$-Matrix, d.h. ein rechteckiges Zahlenschema mit $m$ Zeilen und $n$ Spalten:
+\begin{equation*}
+  \newcommand{\ma}[1]{\ensuremath a_{#1}}
+  A=
+  \matrix{
+  \ma{11} & \ma{12} & \cdots & \ma{1n}\\
+  \ma{21} & \ma{22} & \cdots & \ma{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  \ma{21} & \ma{22} & \cdots & \ma{2n}\\
+  }
+  = ((a_{ij}))_{\substack{1\leq i\leq m\\1\leq j\leq n}}
+\end{equation*}
+Jede lineare Abbildung $f:K^n\rightarrow K^m$ lässt sich auf diese Weise mit einer $m\times n$-Matrix mit Einträgen in $K$ darstellen.
