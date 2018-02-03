@@ -1,4 +1,30 @@
-\chapter{Prädikatenlogik und Quantoren}
+\chapter{Grundlagen}
+\section{Logik}
+\definition{Aussage}
+Eine Aussage ist ein Satz, von dem es Sinn macht, zu fragen, ob er wahr oder falsch ist.
+
+\subsection{Logische Junktoren}
+Wir verknüpfen mehrere Aussagen zu größeren aussagelogischen Formeln mithilfe von logischen Junktoren:
+\begin{multicols}{3}
+  \paragraph{Negation:}
+  $\neg A$
+  \columnbreak
+  \paragraph{Konjuktion:}
+  $A \wedge B$
+  \columnbreak
+  \paragraph{Disjunktion:}
+  $A \vee B$
+\end{multicols}
+Durch verwenden dieser grundlegenden Junkoren kann man alle Verknüpfungen darstellen. Um Schreibarbeit zu sparen gibt es verkürzende Schreibweisen
+
+\paragraph{Implikation:}
+$A\Rightarrow B \equiv \neg(A\wedge \neg B)$
+\paragraph{Äquivalenz:}
+$A\Leftrightarrow B \equiv (A\wedge B)\vee (\neg A\wedge \neg B)$
+
+
+
+\section{Prädikatenlogik und Quantoren}
 Ein Prädikat ist ein Ausdruck, der die Form einer Aussage hat, aber Variablen enthält.
 
 $P(m)\coloneqq$\glqq m ist eine gerade Zahl. \grqq
@@ -6,8 +32,39 @@ $P(m)\coloneqq$\glqq m ist eine gerade Zahl. \grqq
 \noindent
 Eine Aussage wird daraus erst, wenn wir angeben, für welche m das Prädikat gelten soll.
 
-Sei $M$ eine Menge und $P(m)$ für jedes $m\in M$ eine Aussage. Wir beschreiben die Aussage mit dem Allquantor:
-
-\begin{equation}
+Sei $M$ eine Menge und $P(m)$ für jedes $m\in M$ eine Aussage. Wir beschreiben die Aussage mit dem \emph{Allquantor}:
+\begin{equation*}
   \forall m\in M: P(m)
-\end{equation}
+\end{equation*}
+d.h. $P(m)$ soll für \emph{jedes} $m\in M$ gelten.
+
+Mit dem \emph{Existenzquantor} bekommt das Prädikat eine andere Bedeutung:
+\begin{equation*}
+  \exists m\in M: P(m)
+\end{equation*}
+d.h. es soll mindestens ein $m\in M$ existieren, für das $P(m)$ gilt.
+
+\paragraph{Beispiel}
+$M=\N, P(m)$: \glqq $m$ ist eine gerade Zahl.\grqq
+
+$(\forall m\in M: P(m))$ ist falsch. $(\exists m\in M: P(m))$ ist jedoch wahr.
+
+\bemerkung
+\begin{itemize}
+  \item Verneinung von quantifizieren Prädikat-Aussagen:
+  \glqq Prädikat verneinen und Quantoren tauschen.\grqq
+  \begin{equation*}
+    \neg(\forall m\in M: P(m)) \equiv  \exists m\in M: \neg P(m)
+  \end{equation*}
+  \item Bei Quantoren kommt es auf die Reihenfolge an:
+  \begin{align*}
+    \forall n\in\N \quad\exists m\in \N &: m\geq n \quad\text{ist wahr}\\
+    \exists n\in\N \quad\forall m\in \N &: m\geq n \quad\text{ist falsch}\\
+  \end{align*}
+\end{itemize}
+
+
+\section{Beweise}
+\subsection{Direkter Beweis}
+\subsection{Indirekter Beweis}
+\subsection{Widerspruchsbeweis}
