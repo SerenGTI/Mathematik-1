@@ -8,14 +8,14 @@ Wobei wir folgende Abbildungen mit $\C\times\C\rightarrow\C$ auf $\C$ festlegen:
 \end{equation*}
 \paragraph{Multiplikation}
 \begin{equation*}
-  (a,b) * (c,d) \coloneqq (ac-bd,ad+bc)
+  (a,b) \cdot (c,d) \coloneqq (ac-bd,ad+bc)
 \end{equation*}
 
 \bemerkung
 Die Menge der reellen Zahlen kann als Teilmenge von $\C$ aufgefasst werden. $\R\subset\C$ indem man die injektive Abbildung $\R\rightarrow\C, a\mapsto (a,0)$ benutzt. Die oben definierten Verknüpfungen schränken sich dann auf die Verknüpfungen in $\R$ ein:
 \begin{itemize}
   \item $(a,0)+(b,0)=(a+b,0)$
-  \item $(a,0)*(b,0)=(a* b - 0, a* 0+ b* 0) = (a* b,0)$
+  \item $(a,0)\cdot(b,0)=(a\cdot b - 0, a\cdot 0+ b\cdot 0) = (a\cdot b,0)$
 \end{itemize}
 In diesem Sinne ist $\C$ eine \emph{Erweiterung} des Körpers $\R$.
 
@@ -24,9 +24,9 @@ Wir führen die imaginäre Einheit ein.
 $\i\coloneqq (0,1)$ damit gilt:
 
 \begin{equation*}
-  (0,1)*(0,1) = (0*0 -1*1,0*1+0*1)=(-1,0)=\i^2=-1
+  (0,1)\cdot(0,1) = (0\cdot0 -1\cdot1,0\cdot1+0\cdot1)=(-1,0)=\i^2=-1
 \end{equation*}
-Es gilt also $\i^2=-1$, daher schreibt man auch $\i=\sqrt{-1}$. Die Zahlen $(0,y)=y*\i, y\in\R$ heißten imaginäre Zahlen.
+Es gilt also $\i^2=-1$, daher schreibt man auch $\i=\sqrt{-1}$. Die Zahlen $(0,y)=y\cdot\i, y\in\R$ heißten imaginäre Zahlen.
 Wir können uns wegen $\C=\R\times\R$ komplexe Zahlen als Punkte bzw. Vektoren in der \emph{Gauß'schen Zahlenebene} vorstellen.
 
 \satz{}
@@ -36,8 +36,8 @@ Für jede komplexe Zahl $(a,b)\in\C$ gilt:
 \end{equation*}
 \beweis durch ausrechnen der rechten Seite:
 \begin{align*}
-  a+b\i &= (a,0)+(b,0)*(0,1)\\
-  &=(a,0)+(b*0-0*1,b*1+0*0)\\
+  a+b\i &= (a,0)+(b,0)\cdot(0,1)\\
+  &=(a,0)+(b\cdot0-0\cdot1,b\cdot1+0\cdot0)\\
   &=(a,0)+(0,b)=(a,b) &\Box
 \end{align*}
 
@@ -51,21 +51,21 @@ Sei $z=a+b\i\in\C$. Dann heißt $\overline z$ die konjugiert komplexe Zahl $\ove
 Seien $z,w\in\C$ dann gilt:
 \begin{enumerate}
   \item $\overline{z+w}=\overline z+\overline w$
-  \item $\overline{z* w}=\overline z * \overline w$
+  \item $\overline{z\cdot w}=\overline z \cdot \overline w$
   \item $\frac 1 2 (z+\overline z)=\Re(z)$
   \item $\frac 1 2 (z-\overline z)=\Im(z)$
-  \item $z* \overline z > 0 \in\R$ falls $z\neq0$
+  \item $z\cdot \overline z > 0 \in\R$ falls $z\neq0$
 \end{enumerate}
 
 \definition{Betrag einer komplexen Zahl}
 Mit der komplexen Zahl $z=a+b\i$ und $a,b\in\R$ gilt für den Betrag von $z$:
 \begin{align*}
-  |z|&=\sqrt{z*\overline z}=\sqrt{a^2+b^2}\\
+  |z|&=\sqrt{z\cdot\overline z}=\sqrt{a^2+b^2}\\
   |z|&=|\overline z|
 \end{align*}
 Insbesondere lässt sich das multiplikative Inverse wie folgt ausdrücken:
 \begin{equation*}
-  z^{-1}=\frac 1 z=\frac{\overline z}{z*\overline z}=\frac{a-b\i}{a^2+b^2}
+  z^{-1}=\frac 1 z=\frac{\overline z}{z\cdot\overline z}=\frac{a-b\i}{a^2+b^2}
 \end{equation*}
 
 \section{Polarkoordinaten-Darstellung}
