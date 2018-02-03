@@ -1,0 +1,8 @@
+
+main.fls
+main.log
+main.out
+main.toc
+*.bat
+main.aux
+main.fdb_latexmk
