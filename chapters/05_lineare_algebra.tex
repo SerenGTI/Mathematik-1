@@ -1,0 +1,54 @@
+\chapter{Lineare Algebra}
+\section{Vektorräume}
+\paragraph{Beispiel}
+\begin{align*}
+  \R^2&=\R\times\R=\set{(x,y)}{x,y\in\R}\\
+  \R^3&=\set{(x,y,z)}{x,y,z\in\R}\\
+  &\vdots\\
+  \R^n&=\set{(x_1,x_2,\ldots,x_n)}{x_1,\ldots,x_n\in\R}\\
+\end{align*}
+Wir schreiben die Elemente von $\R^n$ auch als sogenannte Spaltenvektoren:
+\begin{equation*}
+  \begin{pmatrix}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n
+  \end{pmatrix} \text{ anstatt von } (x_1,x_2,\ldots,x_n)
+\end{equation*}
+
+Mit der komponentenweisen Addition, der Vektoraddition:
+\begin{equation*}
+  \begin{pmatrix}
+    x_1\\
+    \vdots\\
+    x_n
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    y_1\\
+    \vdots\\
+    y_n
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    x_1+y_1\\
+    \vdots\\
+    x_n+y_n
+  \end{pmatrix}
+\end{equation*}
+wird $\R^n$ zu einer abel'schen Gruppe mit dem Nullvektor als neutrales Element und dem negierten Vektor als inverses Element bezüglich der Addition.
+
+In der Vektorrechnung nennt man Zahlen (z.B. Elemente aus $\R,\C,\Q$) \emph{Skalare}, um Zahlen und Vektoren deutlich zu unterscheiden.
+
+Sei $x\coloneq \begin{pmatrix}
+  x_1\\
+  \vdots\\
+  x_n
+\end{pmatrix} \in \R$ und $\lambda\in\R$. Dann ist die \emph{skalare Multiplikation} $x\cdot\lambda$ definiert durch $x\cdot\lambda \coloneqq \begin{pmatrix}
+  \lambda\cdot x_1\\
+  \vdots\\
+  \lambda\cdot x_n
+\end{pmatrix}$
+
+Die beiden Operationen Vektoraddition und skalare Multiplikation sind kennzeichnend für einen Vektorraum.

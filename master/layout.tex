@@ -1,0 +1,55 @@
+
+
+\titleformat{\chapter}[hang]
+{\setcounter{def}{1}
+\setcounter{lemma}{1}
+\setcounter{satz}{1}
+\Huge\centering\scshape}
+{\bfseries\thechapter\Large: }
+{0pt}
+{\huge}
+
+\titleformat{\section}[hang]
+{\LARGE\raggedright\bfseries}
+{\thesection\Large: }
+{0pt}
+{\Large}
+
+\titleformat{\subsection}[hang]
+{\large\raggedright\bfseries}
+{\thesubsection: }
+{0pt}
+{\large}
+
+\titleformat{\subsubsection}[hang]
+{}
+{}
+{3pt}
+{\large\bfseries}
+
+\titleformat{\paragraph}[runin]
+{}
+{}
+{3pt}
+{\scshape\bfseries}
+
+
+
+
+%FANCYHDR
+\pagestyle{fancy}
+\lhead{Simon König}
+\cfoot{Seite \thepage\thinspace von\thinspace\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{Seite \thepage\thinspace von\thinspace\pageref{LastPage}}%
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\title{Matheskript}
+\date{\today}
+\author{Simon König}
