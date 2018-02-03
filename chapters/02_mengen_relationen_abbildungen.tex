@@ -97,7 +97,12 @@ Die Mächtigkeit einer Menge ist die Anzahl ihrer Elemente. Man schreibt $|M|$ f
 Zwei Mengen $A$ und $B$ sind gleich mächtig, wenn es eine bijektive Abbildung $f:A\rightarrow B$ gibt.
 
 Eine Menge heißt \emph{abzählbar unendlich}, falls $|A|=|\N|$ d.h. falls es eine bijektive Abbildung $f:A\rightarrow \N$ gibt.
+
 Sie heißt \emph{überabzählbar unendlich}, falls $|A|>|\N|$.
+
+Es gilt immer auch für unendliche Mengen, dass $|M| < |\Pot(M)|$.
+
+Für endliche Mengen gilt $|\Pot(M)| = 2^{|M|}$
 
 
 
@@ -117,8 +122,16 @@ Die natürlichen Zahlen sind eine Menge $\N$, auf der eine Abbildung $f:\N\right
   D.h. $M\subseteq \N : 1\in M \wedge (m\in M \Rightarrow f(m)\in M) \Rightarrow M=\N$
 \end{description}
 
-Man kann zeigen, dass die natürlichen Zahlen durch diese Eigenschaften (die \textsc{Peano-Axiome}) gekennzeichnet sind. Das heißt, dass es im wesentlichen nur eine solche Menge mit einer solchen Abbildung $f$ gibt, nämlich $\N$.
+Man kann zeigen, dass die natürlichen Zahlen durch diese Eigenschaften (die \textsc{Peano}-Axiome) gekennzeichnet sind. Das heißt, dass es im wesentlichen nur eine solche Menge mit einer solchen Abbildung $f$ gibt, nämlich $\N$.
 
+Das Axiom $\N 3$ heißt auch Induktionsaxiom. Aus ihm folgt:
+\satz{Vollständige Induktion}
+Sei $A(n)$ für jede natürliche Zahl $n \in\N$ eine Aussage, für die gilt:
+\begin{itemize}
+  \item $A(1)$ ist wahr
+  \item $\forall n\in\N : A(n) \Rightarrow A(n+1)$
+\end{itemize}
+dann ist $A(n)$ für alle $n\in\N$ wahr.
 
 \definition{Graph einer Abbildung}
 Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge $\set{(x,f(x))}{x\in M}\subseteq M\times N$.
@@ -146,7 +159,7 @@ die identische Abbildung auf $M$.
 \end{equation*}
 Bei der Summe ist $k$ der Summationsindex, $m$ die untere und $n$ die obere Summationsgrenze
 \begin{equation*}
-  \prod\limits_{k=m}^n a_k\coloneqq a_m \cdot a_{m+1} \cdot \ldots \cdot a_n
+  \prod\limits_{k=m}^n a_k\coloneqq a_m * a_{m+1} * \ldots * a_n
 \end{equation*}
 
 \bemerkung
@@ -157,7 +170,7 @@ Bei der Summe ist $k$ der Summationsindex, $m$ die untere und $n$ die obere Summ
 
 \section{Teilbarkeit und Primzahlen}
 \definition{Teilbarkeit}
-Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k\cdot m=n$, wenn es ein $k\in\Z$ gibt, so dass $k\cdot m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
+Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k* m=n$, wenn es ein $k\in\Z$ gibt, so dass $k* m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
 Die Zahl $0$ ist durch alle $m\in\Z$ teilbar.
 
 Falls $m|n_1$ und $m|n_2$, dann folgt $m|n_1+n_2$.
@@ -186,7 +199,7 @@ $A(n)$ : \glqq Jede natürliche Zahl kleiner oder gleich $n$ ist das Produkt von
   \item[IS] Fallunterscheidung:
   \begin{enumerate}
     \item $n+1$ ist prim. Dann ist $A(n+1)$ wahr.
-    \item $n+1$ ist nicht prim. Dann gibt es natürliche Zahlen $1$ und $m$, sodass $n+1=l\cdot m$, wobei $l,m<n+1$.
+    \item $n+1$ ist nicht prim. Dann gibt es natürliche Zahlen $1$ und $m$, sodass $n+1=l* m$, wobei $l,m<n+1$.
   \end{enumerate}
   Nach Induktionsvoraussetzung sind somit $l$ und $m$ Produkte von Primzahlen, somit auch $n+1$.
 \end{description}
