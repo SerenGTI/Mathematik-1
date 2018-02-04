@@ -33,8 +33,8 @@ Seien $V$ und $W$ Vektorräume über dem selben Körper $K$. Eine Abbildung $f:V
 Allgemein lassen sich lineare Abbildungen durch sog. \emph{Matrizen} darstellen.
 
 Sei $A$ eine $m\times n$-Matrix, d.h. ein rechteckiges Zahlenschema mit $m$ Zeilen und $n$ Spalten:
+\newcommand{\ma}[1]{\ensuremath a_{#1}}
 \begin{equation*}
-  \newcommand{\ma}[1]{\ensuremath a_{#1}}
   A=
   \matrix{
   \ma{11} & \ma{12} & \cdots & \ma{1n}\\
@@ -44,4 +44,107 @@ Sei $A$ eine $m\times n$-Matrix, d.h. ein rechteckiges Zahlenschema mit $m$ Zeil
   }
   = ((a_{ij}))_{\substack{1\leq i\leq m\\1\leq j\leq n}}
 \end{equation*}
+Dann ist durch
+\begin{equation*}
+  f(x_1,x_2,\ldots,x_n)\coloneqq A*\matrix{x_1\\x_2\\\vdots\\x_n}
+  =\matrix{
+  \ma{11}x_1+\ma{12}x_2+\ldots+\ma{1n}x_n\\
+  \ma{21}x_1+\ma{22}x_2+\ldots+\ma{2n}x_n\\
+  \vdots\\
+  \ma{m1}x_1+\ma{m2}x_2+\ldots+\ma{mn}x_n\\
+  }
+\end{equation*}
+eine lineare Abbildung $f:K^n\rightarrow K^m$ gegeben.
+
+\bemerkung
 Jede lineare Abbildung $f:K^n\rightarrow K^m$ lässt sich auf diese Weise mit einer $m\times n$-Matrix mit Einträgen in $K$ darstellen.
+
+\begin{satz}{}
+  Sei $B$ eine Basis des $K$-Vektorraums $V$ und sei $W$ ein weiterer $K$-Vektorraum.
+  Sei eine Abbildung $g:B\rightarrow W$ gegeben. Dann gibt es genau eine lineare Abbildung $f:V\rightarrow W$, die $g$ in dem Sinne fortsetzt, dass $f(b)=g(b) \quad\forall b\in B$ gilt.
+\end{satz}
+
+
+\beweis
+Sei $v$ ein beliebiger Vektor aus $V$. Dann kann man diesen durch Linearkombination der Basisvektoren $b_1,\ldots,b_k \in B$ darstellen:
+\begin{equation*}
+  v=\lambda_1b_1+\ldots+\lambda_kb_k
+\end{equation*}
+Angenommen, $f$ sei eine lineare Abbildung $f:V\rightarrow W$, dann gilt:
+\begin{align*}
+  f(v) &= f(\lambda_1b_1+\ldots+\lambda_kb_k)\\
+  &= f(\lambda_1b_1)+\ldots+f(\lambda_kb_k)\\
+  &= \lambda_1f(b_1)+\ldots+\lambda_kf(b_k)\\
+  &= \lambda_1g(b_1)+\ldots+\lambda_kg(b_k)
+\end{align*}
+Damit ist der Wert von $f(v)$ bestimmt, dies zeigt die Eindeutigkeit.
+\par\medskip
+Um die Existenz einer solchen Abbildung zu zeigen, bemerken wir, dass die Linearkombination von $v$ mit $B$ eindeutig ist, da $B$ eine Basis von $V$ ist.
+Dies zeigt, dass $f:V\rightarrow W$ wohldefiniert ist, wenn wir die Formel von $f(v)$ als Definition von $f$ verwenden.
+Es ist noch zu zeigen, dass die so definierte Abbildung linear ist.
+\par\smallskip
+Seien zwei Vektoren $u,v\in V$ gegeben.
+
+Dann gibt es $\lambda_1,\ldots,\lambda_k$, $\mu_1,\ldots,\mu_l$, $v_1,\ldots,v_k$ und $w_1,\ldots,w_l$ so dass gilt:
+\begin{equation*}
+  u=\lambda_1v_1 + \ldots + \lambda_kv_k
+\end{equation*}
+\begin{equation*}
+  v=\mu_1v_1 + \ldots + \mu_lw_l
+\end{equation*}
+Insbesondere gibt es Vektoren $b_1,\ldots,b_m \in B$ und Skalare $\alpha_1,\ldots,\alpha_m \in K$, $\beta_1,\ldots,\beta_m \in K$ so dass
+\begin{equation*}
+  u=\alpha_1b_1 + \ldots + \alpha_mb_m
+\end{equation*}
+\begin{equation*}
+  v=\beta_1b_1 + \ldots + \beta_mb_m
+\end{equation*}
+
+Dann folgt mit unserer Definition:
+\begin{align*}
+  f(u+v) &= f(\alpha_1b_1 + \ldots + \alpha_mb_m + \beta_1b_1 + \ldots + \beta_mb_m)\\
+  &= f((\alpha_1\beta_1)b_1)+\ldots+f((\alpha_m\beta_m)b_m)\\
+  &= (\alpha_1\beta_1)g(b_1)+\ldots+(\alpha_m\beta_m)g(b_m)\\
+  &= f(u)+f(v)
+\end{align*}
+Damit ist die Additivität gezeigt.
+
+Um die Homogenität zu zeigen, bemerken wir, falls $v=\lambda_1b_1+\ldots+\lambda_kb_k$ und $\mu\in K$:
+\begin{equation*}
+  f(\mu*v)=f(\mu(\lambda_1b_1+\ldots+\lambda_kb_k))=\mu*f(v)
+\end{equation*}
+
+\section{Darstellende Matrix}
+Wenn wir nun annehmen, dass $V$ und $W$ endlich dimensional sind, d.h es gibt endlich viele Basisvektoren $v_1,\ldots,v_n$ von $V$ und $w_1,\ldots,w_m$ von $W$. Dann genügt es, dass man zu jedem Basisvektor $v_j$ die eindeutig bestimmte Darstellung des Vektors $f(v_j)$ bezüglich der Basis $\simpleset{w_1,\ldots,w_m}$ kennt.
+
+Seien also durch
+\begin{equation*}
+  f(v_j) = \ma{1j}w_1+\ldots+\ma{mj}w_m
+\end{equation*}
+die Einträge einer Matrix mit Koeffizietn $a_{ij} \in K$ gegeben:
+\begin{equation*}
+  A=\matrix{
+  \ma{11}x_1+\ma{12}x_2+\ldots+\ma{1n}x_n\\
+  \ma{21}x_1+\ma{22}x_2+\ldots+\ma{2n}x_n\\
+  \vdots\\
+  \ma{m1}x_1+\ma{m2}x_2+\ldots+\ma{mn}x_n\\
+  }
+\end{equation*}
+Dann ist in der Matrix die gesamte Information über die lineare Abbildung $f$ enthalten.
+
+Umgekehrt ist durch eine beliebige $m\times n$-Matrix (m Zeilen, n Spalten) mit Einträgen aus $K$ eine lineare Abbildung $V\rightarrow W$ bezüglich der Basen $\simpleset{v_1,\ldots,v_n}$ und $\simpleset{w_1,\ldots,w_m}$ gegeben.
+
+Die Matrix $A$ heißt \emph{darstellende Matrix} der linearen Abbildung bezüglich der Basen $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$.
+
+\definition{Darstellende Matrix}
+Seien $m,n\in\N_0$. Die Menge der $m\times n$-Matrizen mit Einträgen aus $K$ wird mit $\mathrm{M}(m,n,K)$ bezeichnet. Seien $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ jeweils eine Basis des $K$-Vektorraums $V$ bzw. $W$. Und sei $f:V\rightarrow W$ eine lineare Abbildung. Dann nennt man
+\begin{equation*}
+  A=((a_{ij}))\in \mathrm{M}(m,n,K)
+\end{equation*}
+die \emph{darstellende Matrix} von $f$ bezüglich den Basen $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ von $V$ bzw. $W$, falls
+\begin{equation*}
+  f(v_j) = \ma{1j}w_1+\ldots+\ma{mj}w_m \quad\forall j\in\simpleset{1,\ldots,n}
+\end{equation*}
+
+\paragraph{Merkregel}
+Die Spalten der darstellenden Matrix sind die Bilder der Basisvektoren.
