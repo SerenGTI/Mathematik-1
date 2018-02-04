@@ -67,7 +67,7 @@ Seien $M$ und $N$ zwei Mengen. Eine Zuordnungsvorschift, die jedem Element $x\in
 \end{equation*}
 $M$: Definitionsbereich, $N$: Wertebereich
 
-\definition{}
+\definition{Bild und Urbild}
 Sei $f:M\mapsto N$ eine Abbildung. Wir definieren
 \begin{itemize}
   \item für $x\in M$ heißt $f(x)\in N$ das \emph{Bild} von $x$
@@ -75,7 +75,27 @@ Sei $f:M\mapsto N$ eine Abbildung. Wir definieren
   \item für eine Teilmenge $B\subseteq N$ heißt $f^{-1}(B) = \set{x\in M}{f(x)\in B}$ das \emph{Urbild} von $B$
 \end{itemize}
 
-\definition{Abbildungseigenschaften}
+\definition{Graph einer Abbildung}
+Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge $\set{(x,f(x))}{x\in M}\subseteq M\times N$.
+Für Funktionen $f:\R\rightarrow\R$ ist der Graph eine Teilmenge der Ebene $\R^2$.
+
+Fasst man eine Funktion als eine Relation auf, so ist der Graph das selbe wie R. $\mathrm{Graph}(f)=R\subseteq\R\times\R$
+
+\definition{Verkettung}
+Seien $f:M\rightarrow N$ und $g:N\rightarrow P$ Abbildungen. Dann ist die Verkettung:
+\begin{align*}
+  &g\circ f:M\rightarrow P\\
+  &g\circ f(x)\coloneqq g(f(x))
+\end{align*}
+
+\definition{Identität}
+Für jede Menge $M$ ist
+\begin{equation*}
+  \mathrm{id}_M:M\rightarrow M, x\mapsto x
+\end{equation*}
+die identische Abbildung auf $M$.
+
+\subsection{Abbildungseigenschaften}
 Sei $f:M\rightarrow N$ eine Abbildung. Dann heißt $f$:
 \begin{description}
   \item[injektiv], wenn jedes Element $y\in N$ \emph{höchstens ein Urbild} hat.
@@ -136,77 +156,3 @@ Das Axiom $\N 3$ heißt auch Induktionsaxiom. Aus ihm folgt:
   \end{itemize}
   dann ist $A(n)$ für alle $n\in\N$ wahr.
 \end{satz}
-
-
-\definition{Graph einer Abbildung}
-Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge $\set{(x,f(x))}{x\in M}\subseteq M\times N$.
-Für Funktionen $f:\R\rightarrow\R$ ist der Graph eine Teilmenge der Ebene $\R^2$.
-
-Fasst man eine Funktion als eine Relation auf, so ist der Graph das selbe wie R. $\mathrm{Graph}(f)=R\subseteq\R\times\R$
-
-\definition{Verkettung}
-Seien $f:M\rightarrow N$ und $g:N\rightarrow P$ Abbildungen. Dann ist die Verkettung:
-\begin{align*}
-  &g\circ f:M\rightarrow P\\
-  &g\circ f(x)\coloneqq g(f(x))
-\end{align*}
-
-\definition{Identität}
-Für jede Menge $M$ ist
-\begin{equation*}
-  \mathrm{id}_M:M\rightarrow M, x\mapsto x
-\end{equation*}
-die identische Abbildung auf $M$.
-
-\section{Summen- und Produktzeichen}
-\begin{equation*}
-  \sum\limits_{k=m}^n a_k\coloneqq a_m + a_{m+1} + \ldots + a_n
-\end{equation*}
-Bei der Summe ist $k$ der Summationsindex, $m$ die untere und $n$ die obere Summationsgrenze
-\begin{equation*}
-  \prod\limits_{k=m}^n a_k\coloneqq a_m * a_{m+1} * \ldots * a_n
-\end{equation*}
-
-\bemerkung
-\begin{itemize}
-  \item Ist die obere Summationsgrenze kleiner als die untere, so handelt es sich um eine \emph{leere Summe}, ihr Wert ist 0.
-  \item Entsprechend ist der Wert des \emph{leeren Produkts} 1.
-\end{itemize}
-
-\section{Teilbarkeit und Primzahlen}
-\definition{Teilbarkeit}
-Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k* m=n$, wenn es ein $k\in\Z$ gibt, so dass $k* m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
-Die Zahl $0$ ist durch alle $m\in\Z$ teilbar.
-
-Falls $m|n_1$ und $m|n_2$, dann folgt $m|n_1+n_2$.
-
-\definition{Größter gemeinsamer Teiler}
-Sei $a\in\Z$, die Menge aller Teiler von $a$ ist $\mathcal{D}(a)\coloneqq\set{d\in\N}{d|a}$.
-
-Die Menge aller gemeinsamer Teiler von $a$ und $b$ mit $a,b\in\Z\setminus\{ 0\}$ ist $\mathcal{D}(a,b) = \mathcal{D}(a) \cap \mathcal{D}(b)$.
-
-Die Zahl $\mathrm{ggT}(a,b) = \mathrm{max}(\mathcal{D}(a,b))$ heißt größter gemeinsamer Teiler von $a$ und $b$. Da eine ganze Zahl (außer der $0$) nur endlich viele Teiler hat, existiert $ggT(a,b)$.
-
-
-\definition{Primzahl}
-Eine natürliche Zahl heißt \emph{Primzahl}, wenn sie genau zwei Teiler besitzt, nämlich 1 und die Zahl selbst.
-\begin{equation*}
-  p\in\N \text{ mit } |\mathcal{D}(p)| = 2
-\end{equation*}
-
-\begin{satz}{Primfaktorzerlegung}
-  Jede natürliche Zahl $n\in\N \wedge n\geq2$ ist ein Produkt aus Primzahlen ($1$ ist das leere Produkt).
-\end{satz}
-
-\beweis
-$A(n)$ : \glqq Jede natürliche Zahl kleiner oder gleich $n$ ist das Produkt von Primzahlen.\grqq
-
-\begin{description}
-  \item[IA] $A(2)$ ist wahr, denn $2$ ist selbst eine Primzahl.
-  \item[IS] Fallunterscheidung:
-  \begin{enumerate}
-    \item $n+1$ ist prim. Dann ist $A(n+1)$ wahr.
-    \item $n+1$ ist nicht prim. Dann gibt es natürliche Zahlen $1$ und $m$, sodass $n+1=l* m$, wobei $l,m<n+1$.
-  \end{enumerate}
-  Nach Induktionsvoraussetzung sind somit $l$ und $m$ Produkte von Primzahlen, somit auch $n+1$.
-\end{description}

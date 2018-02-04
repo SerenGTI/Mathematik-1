@@ -41,7 +41,7 @@ wird $\R^n$ zu einer abel'schen Gruppe mit dem Nullvektor als neutrales Element 
 
 In der Vektorrechnung nennt man Zahlen (z.B. Elemente aus $\R,\C,\Q$) \emph{Skalare}, um Zahlen und Vektoren deutlich zu unterscheiden.
 
-Sei $x\coloneq \begin{pmatrix}
+Sei $x\coloneqq \begin{pmatrix}
   x_1\\
   \vdots\\
   x_n
@@ -110,12 +110,13 @@ Die folgenden sind Untervektorräume von $\R^2$:
 \end{itemize}
 
 
-\lemma{}
-Für alle $\lambda \in K, v\in V$ wobei $V$ ein $K$-Vektorraum ist, gilt:
-\begin{enumerate}
-  \item $0_K* v = 0_V$
-  \item $(-\lambda)* v = -(\lambda* v)$
-\end{enumerate}
+\begin{lemma}{}
+  Für alle $\lambda \in K, v\in V$ wobei $V$ ein $K$-Vektorraum ist, gilt:
+  \begin{enumerate}
+    \item $0_K* v = 0_V$
+    \item $(-\lambda)* v = -(\lambda* v)$
+  \end{enumerate}
+\end{lemma}
 \beweis
 \begin{enumerate}
   \item Es gilt:
@@ -178,7 +179,7 @@ Gilt $V=\spann{M}$ für einen $K$-Vektorraum $V$ und eine Teilmenge $M\subseteq 
 
 Interessant ist die minimale Anzahl an Vektoren in einem Erzeugendensystem, bzw. ein \emph{minimales Erzeugendensystem}.
 
-\definition{Lineare Abhängigkeit}
+\definition{Lineare Abhängigkeit}\label{satz:lineareUnabhaengigkeit}
 Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}!
 
 \begin{satz}{}
@@ -209,7 +210,16 @@ Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es e
 Eine Teilmenge $B$ eines Vektorraums $V$ heißt \emph{Basis} von $V$ falls $B$ ein linear unabhängiges Erzeugendensystem ist.
 
 \paragraph{Beispiele}
-%TODO
+Für jeden Körper $K$ gibt es die Standardbasis bzw. die \emph{kanonische Basis} $\simpleset{e_1,e_2,\ldots,e_n}$ von $K^n$:
+\begin{equation*}
+  e_1=\vector{1\\0\\\vdots\\ 0}, e_2=\vector{0\\1\\\vdots\\ 0}, \ldots, e_n=\vector{0\\0\\\vdots\\ 1}
+\end{equation*}
+Diese sind linear unabhängig, nach der Folgerung zu \autoref{satz:lineareUnabhaengigkeit}. Die Standardbasis ist ein Erzeugendensystem, da
+\begin{equation*}
+  \vector{x_1\\x_2\\\vdots\\x_n}=x_1e_1+x_2e_2+\ldots+x_ne_n
+\end{equation*}
+
+Im Allgemeinen gibt es verschiedene Basen von demselben Vektorraum.
 
 \begin{satz}{Charakterisierungen von Basen}
   Für eine Teilmene $B\subseteq V$ eines Vektorraums sind folgene Sätze äquivalent:

@@ -37,10 +37,6 @@ $A\Leftrightarrow B \equiv (A\wedge B)\vee (\neg A\wedge \neg B)$
 
 \section{Prädikatenlogik und Quantoren}
 Ein Prädikat ist ein Ausdruck, der die Form einer Aussage hat, aber Variablen enthält.
-
-$P(m)\coloneqq$\glqq m ist eine gerade Zahl. \grqq
-
-\noindent
 Eine Aussage wird daraus erst, wenn wir angeben, für welche $m$ das Prädikat gelten soll.
 
 Sei $M$ eine Menge und $P(m)$ für jedes $m\in M$ eine Aussage. Wir beschreiben die Aussage mit dem \emph{Allquantor}:
@@ -48,7 +44,7 @@ Sei $M$ eine Menge und $P(m)$ für jedes $m\in M$ eine Aussage. Wir beschreiben 
   \forall m\in M: P(m)
 \end{equation*}
 d.h. $P(m)$ soll für \emph{jedes} $m\in M$ gelten.
-
+\par\medskip
 Mit dem \emph{Existenzquantor} bekommt das Prädikat eine andere Bedeutung:
 \begin{equation*}
   \exists m\in M: P(m)
@@ -58,21 +54,21 @@ d.h. es soll mindestens ein $m\in M$ existieren, für das $P(m)$ gilt.
 \paragraph{Beispiel}
 $M=\N, P(m)$: \glqq $m$ ist eine gerade Zahl.\grqq
 
-$(\forall m\in M: P(m))$ ist falsch. $(\exists m\in M: P(m))$ ist jedoch wahr.
+$(\forall m\in M: P(m))$ ist falsch. \\
+$(\exists m\in M: P(m))$ ist jedoch wahr.
 
-\bemerkung
-\begin{itemize}
-  \item Verneinung von quantifizieren Prädikat-Aussagen:
-  \glqq Prädikat verneinen und Quantoren tauschen.\grqq
-  \begin{equation*}
-    \neg(\forall m\in M: P(m)) \equiv  \exists m\in M: \neg P(m)
-  \end{equation*}
-  \item Bei Quantoren kommt es auf die Reihenfolge an:
-  \begin{align*}
-    \forall n\in\N \quad\exists m\in \N &: m\geq n \quad\text{ist wahr}\\
-    \exists n\in\N \quad\forall m\in \N &: m\geq n \quad\text{ist falsch}\\
-  \end{align*}
-\end{itemize}
+\subsection{Verneinung von Aussagen}
+Verneinung von quantifizieren Prädikat-Aussagen:
+\glqq Prädikat verneinen und Quantoren tauschen.\grqq
+\begin{equation*}
+  \neg(\forall m\in M: P(m)) \equiv  \exists m\in M: \neg P(m)
+\end{equation*}
+\subsection{Reihenfolge der Quantoren}
+Bei Quantoren kommt es auf die Reihenfolge an:
+\begin{align*}
+  \forall n\in\N \quad\exists m\in \N &: m\geq n \quad\text{ist wahr}\\
+  \exists n\in\N \quad\forall m\in \N &: m\geq n \quad\text{ist falsch}\\
+\end{align*}
 
 
 \section{Beweise}
@@ -101,3 +97,58 @@ Angenommen, es gelte $|x-1|<1$ und $x\geq 2$ daraus folgt:
 \begin{equation*}
   |x-1|=x-1<1\Leftrightarrow x<2 \text{ Widerspruch!}
 \end{equation*}
+
+
+\section{Summen- und Produktzeichen}
+\begin{equation*}
+  \sum\limits_{k=m}^n a_k\coloneqq a_m + a_{m+1} + \ldots + a_n
+\end{equation*}
+Bei der Summe ist $k$ der Summationsindex, $m$ die untere und $n$ die obere Summationsgrenze
+\begin{equation*}
+  \prod\limits_{k=m}^n a_k\coloneqq a_m * a_{m+1} * \ldots * a_n
+\end{equation*}
+
+\bemerkung
+\begin{itemize}
+  \item Ist die obere Summationsgrenze kleiner als die untere, so handelt es sich um eine \emph{leere Summe}, ihr Wert ist 0.
+  \item Entsprechend ist der Wert des \emph{leeren Produkts} 1.
+\end{itemize}
+
+
+\section{Teilbarkeit und Primzahlen}
+\definition{Teilbarkeit}
+Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k* m=n$, wenn es ein $k\in\Z$ gibt, so dass $k* m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
+Die Zahl $0$ ist durch alle $m\in\Z$ teilbar.
+
+Falls $m|n_1$ und $m|n_2$, dann folgt $m|n_1+n_2$.
+
+\definition{Größter gemeinsamer Teiler}
+Sei $a\in\Z$, die Menge aller Teiler von $a$ ist $\mathcal{D}(a)\coloneqq\set{d\in\N}{d|a}$.
+
+Die Menge aller gemeinsamer Teiler von $a$ und $b$ mit $a,b\in\Z\setminus\{ 0\}$ ist $\mathcal{D}(a,b) = \mathcal{D}(a) \cap \mathcal{D}(b)$.
+
+Die Zahl $\mathrm{ggT}(a,b) = \mathrm{max}(\mathcal{D}(a,b))$ heißt größter gemeinsamer Teiler von $a$ und $b$. Da eine ganze Zahl (außer der $0$) nur endlich viele Teiler hat, existiert $ggT(a,b)$.
+
+
+\definition{Primzahl}
+Eine natürliche Zahl heißt \emph{Primzahl}, wenn sie genau zwei Teiler besitzt, nämlich 1 und die Zahl selbst.
+\begin{equation*}
+  p\in\N \text{ mit } |\mathcal{D}(p)| = 2
+\end{equation*}
+
+\begin{satz}{Primfaktorzerlegung}
+  Jede natürliche Zahl $n\in\N \wedge n\geq2$ ist ein Produkt aus Primzahlen ($1$ ist das leere Produkt).
+\end{satz}
+
+\beweis
+$A(n)$ : \glqq Jede natürliche Zahl kleiner oder gleich $n$ ist das Produkt von Primzahlen.\grqq
+
+\begin{description}
+  \item[IA] $A(2)$ ist wahr, denn $2$ ist selbst eine Primzahl.
+  \item[IS] Fallunterscheidung:
+  \begin{enumerate}
+    \item $n+1$ ist prim. Dann ist $A(n+1)$ wahr.
+    \item $n+1$ ist nicht prim. Dann gibt es natürliche Zahlen $1$ und $m$, sodass $n+1=l* m$, wobei $l,m<n+1$.
+  \end{enumerate}
+  Nach Induktionsvoraussetzung sind somit $l$ und $m$ Produkte von Primzahlen, somit auch $n+1$.
+\end{description}
