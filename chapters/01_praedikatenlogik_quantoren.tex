@@ -22,6 +22,17 @@ $A\Rightarrow B \equiv \neg(A\wedge \neg B)$
 \paragraph{Äquivalenz:}
 $A\Leftrightarrow B \equiv (A\wedge B)\vee (\neg A\wedge \neg B)$
 
+\vspace{1em}
+\begin{center}
+  \begin{tabular}{c|c||c|c|c|c|c}
+    $A$ & $B$ & $\neg A$ & $A \wedge B$ & $A \vee B$ & $A \Rightarrow B$ & $A \Leftrightarrow B$\\
+    \hline  f & f & w & f & f & w & w \\
+            f & w & w & f & w & w & f \\
+            w & f & f & f & w & f & f \\
+            w & w & f & w & w & w & w
+  \end{tabular}
+\end{center}
+
 
 
 \section{Prädikatenlogik und Quantoren}
@@ -30,7 +41,7 @@ Ein Prädikat ist ein Ausdruck, der die Form einer Aussage hat, aber Variablen e
 $P(m)\coloneqq$\glqq m ist eine gerade Zahl. \grqq
 
 \noindent
-Eine Aussage wird daraus erst, wenn wir angeben, für welche m das Prädikat gelten soll.
+Eine Aussage wird daraus erst, wenn wir angeben, für welche $m$ das Prädikat gelten soll.
 
 Sei $M$ eine Menge und $P(m)$ für jedes $m\in M$ eine Aussage. Wir beschreiben die Aussage mit dem \emph{Allquantor}:
 \begin{equation*}
@@ -65,6 +76,28 @@ $(\forall m\in M: P(m))$ ist falsch. $(\exists m\in M: P(m))$ ist jedoch wahr.
 
 
 \section{Beweise}
+Wir wollen eine Aussage $A\Rightarrow B$ beweisen. Dazu gibt es mehrere Ansätze, diese werden am Beispiel gezeigt:
+\begin{align*}
+  A &\equiv |x-1|<1\\
+  B &\equiv x<2
+\end{align*}
 \subsection{Direkter Beweis}
-\subsection{Indirekter Beweis}
+$A$ wird als wahr angenommen, und daraus muss $B\equiv x<2$ gefolgert werden.
+
+Fallunterscheidung:
+\begin{itemize}
+  \item $(x-1)\geq0\leadsto x-1<1 \Leftrightarrow x<2$
+  \item $(x-1)<0\leadsto x<1 \hfill\Box$
+\end{itemize}
+\subsection{Indirekter Beweis (Kontraposition)}
+Wir zeigen, dass $\neg B\Rightarrow \neg A$.
+Gelte also $\neg B$:
+\begin{equation*}
+  x\geq2 \leadsto |x-1|=x-1\geq 1 \Leftrightarrow x\geq 2
+\end{equation*}
 \subsection{Widerspruchsbeweis}
+Wir zeigen, dass $\neg(A\Rightarrow B)$ bzw. $A\wedge \neg B$ auf einen Widerspruch führt.
+Angenommen, es gelte $|x-1|<1$ und $x\geq 2$ daraus folgt:
+\begin{equation*}
+  |x-1|=x-1<1\Leftrightarrow x<2 \text{ Widerspruch!}
+\end{equation*}
