@@ -1,10 +1,24 @@
+\definecolor{accent}{rgb}{0,0.65,0.37}
+\newlength\sectionnumberspace
+\setlength\sectionnumberspace{3.5em}
+
+\mdfdefinestyle{Satzframe}{%
+    skipabove=2em,
+    linecolor=accent,
+    outerlinewidth=1pt,
+    roundcorner=2pt,
+    innertopmargin=1.5em,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=15pt,
+    innerleftmargin=15pt,
+    backgroundcolor=white!90!gray}
 
 \titleformat{\chapter}[hang]
 {\setcounter{def}{1}
 \setcounter{lemma}{1}
 \setcounter{satz}{1}
 \Huge\centering\scshape}
-{\bfseries\thechapter\Large: }
+{\color{accent}\bfseries\thechapter\Large: }
 {0pt}
 {\huge}
 \titlespacing*{\chapter}{0pt}{0pt}{7em}
@@ -12,17 +26,17 @@
 %SECTIONING
 \titleformat{\section}[hang]
 {\LARGE\raggedright\bfseries}
-{\thesection\Large: }
+{\llap{\makebox[\sectionnumberspace][l]{\textcolor{accent}{\thesection}}\hfill}}
 {0pt}
 {\Large}
 \titlespacing*{\section}{0pt}{3em}{1.2em}
 
 
-%SECTIONING, SATZ, LEMMA, DEFINITION
+%SECTIONING, LEMMA, DEFINITION
 \titleformat{\subsection}[hang]
-{\large\raggedright\bfseries}
-{\thesubsection: }
-{0pt}
+{\Large\raggedright\bfseries}
+{\llap{\makebox[\sectionnumberspace][l]{\textcolor{accent}{\thesubsection}}\hfill}}
+{0em}
 {\large}
 \titlespacing*{\subsection}{0pt}{1.6em}{1em}
 
@@ -48,7 +62,7 @@
 
 %FANCYHDR
 \pagestyle{fancy}
-\lhead{Simon \textsc{König}}
+\lfoot{Simon \textsc{König}}
 \cfoot{Seite \thepage\thinspace von\thinspace\pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}

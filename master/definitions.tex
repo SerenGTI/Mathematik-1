@@ -32,7 +32,6 @@
 \newcounter{lemma}
 \stepcounter{lemma}
 
-\newcommand{\satz}[1]{\subsection*{Satz \thechapter.\thesatz\stepcounter{satz}: #1}}
 \newcommand{\definition}[1]{\subsection*{Definition \thechapter.\thedef\stepcounter{def}: #1}}
 \newcommand{\lemma}[1]{\subsection*{Lemma \thechapter.\thelemma\stepcounter{lemma}: #1}}
 
@@ -40,3 +39,10 @@
 \newcommand{\bemerkung}{\subsubsection*{Bemerkung:}}
 
 \setlength{\parindent}{0pt}
+
+
+\newenvironment{satz}[1]
+{\begin{mdframed}[style=Satzframe]
+{\Large\raggedright\bfseries Satz \thechapter.\thesatz\stepcounter{satz}: \large #1}\vspace{1em} \newline
+}
+{\end{mdframed}\par}
