@@ -1,5 +1,5 @@
 \chapter{Komplexe Zahlen}
-\definition{Komplexe Zahlen}
+\section{Definition}
 Wir definieren $\C$ als Menge $\C\coloneqq\R\times\R$, d.h. wir definieren die komplexen Zahlen als zusammengesetzte Zahlen, also als die Menge der geordneten Paare von reellen Zahlen.
 Wobei wir folgende Abbildungen mit $\C\times\C\rightarrow\C$ auf $\C$ festlegen:
 \paragraph{Addition}
@@ -29,12 +29,14 @@ $\i\coloneqq (0,1)$ damit gilt:
 Es gilt also $\i^2=-1$, daher schreibt man auch $\i=\sqrt{-1}$. Die Zahlen $(0,y)=y*\i, y\in\R$ heißten imaginäre Zahlen.
 Wir können uns wegen $\C=\R\times\R$ komplexe Zahlen als Punkte bzw. Vektoren in der \emph{Gauß'schen Zahlenebene} vorstellen.
 
-\satz{}
-Für jede komplexe Zahl $(a,b)\in\C$ gilt:
-\begin{equation*}
-  (a,b)=a+b\i
-\end{equation*}
-\beweis durch ausrechnen der rechten Seite:
+\begin{satz}{}
+  Für jede komplexe Zahl $(a,b)\in\C$ gilt:
+  \begin{equation*}
+    (a,b)=a+b\i
+  \end{equation*}
+\end{satz}
+
+\beweis Durch Ausrechnen der rechten Seite:
 \begin{align*}
   a+b\i &= (a,0)+(b,0)*(0,1)\\
   &=(a,0)+(b*0-0*1,b*1+0*0)\\
@@ -47,15 +49,16 @@ Wie man leicht nachrechnet, gelten wie in $\R$ die Kommutativ-, Assoziativ- und 
 \definition{Konjugiert komplexe Zahl}
 Sei $z=a+b\i\in\C$. Dann heißt $\overline z$ die konjugiert komplexe Zahl $\overline z=a-b\i$ von $z$.
 
-\satz{Eigenschaften der konjugiert komplexen Zahl}
-Seien $z,w\in\C$ dann gilt:
-\begin{enumerate}
-  \item $\overline{z+w}=\overline z+\overline w$
-  \item $\overline{z* w}=\overline z * \overline w$
-  \item $\frac 1 2 (z+\overline z)=\Re(z)$
-  \item $\frac 1 2 (z-\overline z)=\Im(z)$
-  \item $z* \overline z > 0 \in\R$ falls $z\neq0$
-\end{enumerate}
+\begin{satz}{Eigenschaften der konjugiert komplexen Zahl}
+  Seien $z,w\in\C$ dann gilt:
+  \begin{enumerate}
+    \item $\overline{z+w}=\overline z+\overline w$
+    \item $\overline{z* w}=\overline z * \overline w$
+    \item $\frac 1 2 (z+\overline z)=\Re(z)$
+    \item $\frac 1 2 (z-\overline z)=\Im(z)$
+    \item $z* \overline z > 0 \in\R$ falls $z\neq0$
+  \end{enumerate}
+\end{satz}
 
 \definition{Betrag einer komplexen Zahl}
 Mit der komplexen Zahl $z=a+b\i$ und $a,b\in\R$ gilt für den Betrag von $z$:

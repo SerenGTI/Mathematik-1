@@ -155,8 +155,9 @@ der \emph{Spann} oder die lineare Hülle von M.
   \item $\spann{\simpleset{\vector{1\\0\\0},\vector{0\\1\\0}}} = \set{\vector{x_1\\x_2\\0}}{x_1,x_2\in\R}$ ($x_1,x_2$-Ebene)
 \end{itemize}
 
-\satz{}
-Sei $V$ ein $K$-Vektorraum und $M\subseteq V$. Dann ist $\spann{M}$ ein Untervektorraum von $V$.
+\begin{satz}{}
+  Sei $V$ ein $K$-Vektorraum und $M\subseteq V$. Dann ist $\spann{M}$ ein Untervektorraum von $V$.
+\end{satz}
 \beweis
 \begin{enumerate}
   \item $\spann{M}$ ist nicht leer, da der Nullvektor als leere Linearkombination mindestens enthalten ist.
@@ -180,8 +181,10 @@ Interessant ist die minimale Anzahl an Vektoren in einem Erzeugendensystem, bzw.
 \definition{Lineare Abhängigkeit}
 Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}!
 
-\satz{}
-Eine Menge von Vektoren ist genau dann linear abhängig, wenn einen Vektor $v\in M$ gibt, der sich als Linearkombination mit Vektoren aus $M\setminus\simpleset{v}$ darstellen lässt.
+\begin{satz}{}
+  Eine Menge von Vektoren ist genau dann linear abhängig, wenn einen Vektor $v\in M$ gibt, der sich als Linearkombination mit Vektoren aus $M\setminus\simpleset{v}$ darstellen lässt.
+\end{satz}
+
 
 \begin{description}
   \newcommand{\lv}[1]{\ensuremath\lambda_{#1}v_{#1}}
@@ -208,19 +211,21 @@ Eine Teilmenge $B$ eines Vektorraums $V$ heißt \emph{Basis} von $V$ falls $B$ e
 \paragraph{Beispiele}
 %TODO
 
-\satz{Charakterisierungen von Basen}
-Für eine Teilmene $B\subseteq V$ eines Vektorraums sind folgene Sätze äquivalent:
-\begin{itemize}
-  \item $B$ ist eine Basis
-  \item Jeder Vektor in $V$ lässt sich auf genau eine Weise als Linearkombination von Vektoren aus $B$ schreiben.
-  \item $B$ ist ein minimales Erzeugendensystem von $V$.
-  \item $B$ ist eine maximal linear unabhängige Teilmenge von $V$
-\end{itemize}
+\begin{satz}{Charakterisierungen von Basen}
+  Für eine Teilmene $B\subseteq V$ eines Vektorraums sind folgene Sätze äquivalent:
+  \begin{itemize}
+    \item $B$ ist eine Basis
+    \item Jeder Vektor in $V$ lässt sich auf genau eine Weise als Linearkombination von Vektoren aus $B$ schreiben.
+    \item $B$ ist ein minimales Erzeugendensystem von $V$.
+    \item $B$ ist eine maximal linear unabhängige Teilmenge von $V$
+  \end{itemize}
+\end{satz}
+
 \bemerkung
 Jeder Vektorraum besitzt eine Basis, jede Basis hat gleich viele Elemente. (auch $\emptyset$ oder $|B|=\infty$ möglich)
 
 \definition{Dimension}
 Die Anzahl der Elemente der Basis $B$ eines Vektorraums $V$ nennt man \emph{Dimension}
 \begin{equation*}
-  \mathrm{dim}(B)
+  \mathrm{dim}(V)=|B|
 \end{equation*}

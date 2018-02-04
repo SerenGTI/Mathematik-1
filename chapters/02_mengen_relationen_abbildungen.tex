@@ -37,7 +37,7 @@ Zwei Mengen $M_1$ und $M_2$ heißen \emph{disjunkt}, falls $M_1\cap M_2 = \empty
   M_1 \times M_2 \coloneqq \set{(m_1, m_2)}{m_1\in M_1 \wedge m_2\in M_2}
 \end{equation*}
 
-\section{Relationen und Abbildungen}
+\section{Relationen}
 \definition{Relation}
 Eine Relation zwischen zwei Mengen $M$ und $N$ ist eine Teilmenge von $M\times N$.
 \begin{equation*}
@@ -127,13 +127,16 @@ Die natürlichen Zahlen sind eine Menge $\N$, auf der eine Abbildung $f:\N\right
 Man kann zeigen, dass die natürlichen Zahlen durch diese Eigenschaften (die \textsc{Peano}-Axiome) gekennzeichnet sind. Das heißt, dass es im wesentlichen nur eine solche Menge mit einer solchen Abbildung $f$ gibt, nämlich $\N$.
 
 Das Axiom $\N 3$ heißt auch Induktionsaxiom. Aus ihm folgt:
-\satz{Vollständige Induktion}
-Sei $A(n)$ für jede natürliche Zahl $n \in\N$ eine Aussage, für die gilt:
-\begin{itemize}
-  \item $A(1)$ ist wahr
-  \item $\forall n\in\N : A(n) \Rightarrow A(n+1)$
-\end{itemize}
-dann ist $A(n)$ für alle $n\in\N$ wahr.
+
+\begin{satz}{Vollständige Induktion}
+  Sei $A(n)$ für jede natürliche Zahl $n \in\N$ eine Aussage, für die gilt:
+  \begin{itemize}
+    \item $A(1)$ ist wahr
+    \item $\forall n\in\N : A(n) \Rightarrow A(n+1)$
+  \end{itemize}
+  dann ist $A(n)$ für alle $n\in\N$ wahr.
+\end{satz}
+
 
 \definition{Graph einer Abbildung}
 Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge $\set{(x,f(x))}{x\in M}\subseteq M\times N$.
@@ -191,8 +194,10 @@ Eine natürliche Zahl heißt \emph{Primzahl}, wenn sie genau zwei Teiler besitzt
   p\in\N \text{ mit } |\mathcal{D}(p)| = 2
 \end{equation*}
 
-\satz{}
-Jede natürliche Zahl $n\in\N \wedge n\geq2$ ist ein Produkt aus Primzahlen ($1$ ist das leeren Produkt).
+\begin{satz}{Primfaktorzerlegung}
+  Jede natürliche Zahl $n\in\N \wedge n\geq2$ ist ein Produkt aus Primzahlen ($1$ ist das leere Produkt).
+\end{satz}
+
 \beweis
 $A(n)$ : \glqq Jede natürliche Zahl kleiner oder gleich $n$ ist das Produkt von Primzahlen.\grqq
 
