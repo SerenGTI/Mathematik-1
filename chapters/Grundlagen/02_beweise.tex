@@ -1,0 +1,26 @@
+\chapter{Beweise}
+Wir wollen eine Aussage $A\Rightarrow B$ beweisen. Dazu gibt es mehrere Ansätze, diese werden am Beispiel gezeigt:
+\begin{align*}
+  A &\equiv |x-1|<1\\
+  B &\equiv x<2
+\end{align*}
+\section{Direkter Beweis}
+$A$ wird als wahr angenommen, und daraus muss $B\equiv x<2$ gefolgert werden.
+
+Fallunterscheidung:
+\begin{itemize}
+  \item $(x-1)\geq0\leadsto x-1<1 \Leftrightarrow x<2$
+  \item $(x-1)<0\leadsto x<1 \hfill\Box$
+\end{itemize}
+\section{Indirekter Beweis (Kontraposition)}
+Wir zeigen, dass $\neg B\Rightarrow \neg A$.
+Gelte also $\neg B$:
+\begin{equation*}
+  x\geq2 \leadsto |x-1|=x-1\geq 1 \Leftrightarrow x\geq 2
+\end{equation*}
+\section{Widerspruchsbeweis}
+Wir zeigen, dass $\neg(A\Rightarrow B)$ bzw. $A\wedge \neg B$ auf einen Widerspruch führt.
+Angenommen, es gelte $|x-1|<1$ und $x\geq 2$ daraus folgt:
+\begin{equation*}
+  |x-1|=x-1<1\Leftrightarrow x<2 \text{ Widerspruch!}
+\end{equation*}

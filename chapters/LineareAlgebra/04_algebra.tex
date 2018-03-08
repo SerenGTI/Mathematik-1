@@ -1,0 +1,34 @@
+\chapter{Verknüpfungen}
+\definition{Verknüpfung}
+Sei $M$ eine Menge. Eine Abbildung $M\times M \rightarrow M, (a,b)\mapsto a\star b$ nennt man Verknüpfung.
+
+\begin{enumerate}
+  \item Eine Verknüpfung heißt kommutativ, falls $a\star b = b\star a \quad\forall a,b\in M$ gilt.
+  \item Sie heißt assoziativ, falls $a\star(b\star c)=(a\star b)\star c = \quad\forall a,b,c\in M$ gilt.\\
+  Man kann auch $a\star b\star c$ schreiben.
+  \item Ein Element $e\in M$ heißt neutrales Element bezüglich der Verknüpfung $\star$,\\
+  falls $a\star e = e\star a=a \quad\forall a\in M$ gilt.
+\end{enumerate}
+
+\definition{Invertierbarkeit}
+Sei $M$ eine Menge mit einer Verknüpfung $\star$, die ein neutrales Element $e$ besitzt, ein Element $a\in M$ heißt invertierbar, falls es ein Element $a^{-1}\in M$ gibt, so dass gilt:
+\begin{equation*}
+  a\star a^{-1} = a^{-1} \star a = e
+\end{equation*}
+
+
+\definition{Homomorphismus}
+Seien $(G,\star)$ und $(H,\ast)$ Gruppen. Eine Abbildung $f:G\rightarrow H$ heißt (Gruppen-)Homomorphismus, falls gilt:
+\begin{equation*}
+  f(a\star b)=f(a)\ast f(b)\quad\forall a,b\in G
+\end{equation*}
+
+\begin{lemma}{}
+  Ein Gruppenhomomorphismus $f:G\rightarrow H$ bildet stets das neutrale Element in $G$ auf das neutrale Element in $H$ ab.
+\end{lemma}
+\beweis
+Sei $e$ das neutrale Element in $G$, dann folgt:
+\begin{equation*}
+  f(e)\ast f(g)=f(e\star g)=f(g)
+\end{equation*}
+Es folgt dann, dass $f(e)$ das neutrale Element in $H$ ist.

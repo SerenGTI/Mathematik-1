@@ -1,0 +1,85 @@
+\chapter{Algebraische Strukturen}
+\definition{Magma}
+Eine Menge $M$ mit einer Verknüpfung $\star$ heißt \emph{Magme}, falls sie unter dieser Verknüpfung abgeschlossen ist, das heißt:
+\begin{equation*}
+  \forall u,v \in M: u\star v\in M
+\end{equation*}
+
+\definition{Halbgruppe}
+Eine Menge $M$ mit einer Verknüpfung $\star$ heißt \emph{Halbgruppe}, falls sie ein Magma ist und die Verknüpfung assoziativ ist:
+\begin{description}
+  \item[HG 1] $\forall u,v \in M: u\star v\in M$
+  \item[HG 2] $\forall u,v,w \in M: u\star(v\star w)=(u\star v)\star w$
+\end{description}
+
+\definition{Monoid}
+Eine Menge $M$ mit einer Verknüpfung $\star$ heißt \emph{Monoid}, falls sie eine Halbgruppe ist und ein neutrales Element bezüglich der Verknüpfung existiert:
+\begin{description}
+  \item[M 1] $\forall u,v \in M: u\star v\in M$
+  \item[M 2] $\forall u,v,w \in M: u\star(v\star w)=(u\star v)\star w$
+  \item[M 3] $\exists e \in M \quad \forall u\in M: e\star u=u\star e = u$
+\end{description}
+
+\definition{Gruppe}
+Eine Menge $G$ mit einer Verknüpfung $\star$ heißt \emph{Gruppe}, falls sie ein Monoid ist und zu jedem Element ein Inverses bezüglich der Verknüpfung exisitert:
+\begin{description}
+  \item[G 1] Die Verknüpfung assoziativ ist,
+  \item[G 2] ein neutrales Element besitzt,
+  \item[G 3] jedes Element invertierbar ist.
+\end{description}
+Falls die Verknüpfung zusätzlich kommutativ ist, nennt man die Gruppe eine \emph{abel'sche Gruppe} oder auch kommutative Gruppe.
+
+\definition{Ring}
+Sei $M$ eine Menge mit zwei Verknüpfungen $(+,*)$ und den folgenden Eigenschaften:
+\begin{description}
+  \item[R 1] $(M,+)$ ist eine abel'sche Gruppe mit neutralem Element $0$.
+  \item[R 2] die Verknüpfung $*$ ist assoziativ mit neutralem Element $1$.
+  \item[R 3] es gelten die Distributivgesetze:
+  \begin{align*}
+    (a+b)* c&=ac+bc\\
+    c*(a+b)&=ca+cb
+  \end{align*}
+  \item[R 4] $0\neq 1$
+\end{description}
+Dan heißt $M$ ein \emph{Ring} (genauer ein Ring mit Eins - unitärer Ring).
+
+\vspace{1em}
+Ist zusätzlich auch die Multiplikation $*$ kommutativ und ist $M\setminus\{0\}$ eine Gruppe bezüglich $*$ (d.h. besitzt jedes Element ein Inverses bzgl. $*$) so heißt $M$ \emph{Körper}.
+\par
+
+\begin{satz}{Eindeutigkeit der neutralen Elemente}
+  In einer Gruppe ist das neutrale Element stats eindeutig, d.h. ist $e$ ein neutrales Element und gibt es ein Element:
+  \begin{equation*}
+    a\in G, \forall g\in G : a\star g = g\star a = g
+  \end{equation*}
+  Dann ist $a = e$!
+\end{satz}
+
+
+\beweis
+Gelte $a\star g = g$ für ein $g\in G$. Dann folgt:
+\begin{equation*}
+  (a\star g)\star g^{-1}=g\star g^{-1}
+\end{equation*}
+Mit \textbf{G1} und \textbf{G3} gilt:
+\begin{equation*}
+  a\star (g\star g^{-1})=e
+\end{equation*}
+Dann folgt mit \textbf{G3}:
+\begin{equation*}
+  a\star e=e \text{ und damit } a=e \hfill\Box
+\end{equation*}
+
+\bemerkung
+Ähnlich dazu der Beweis, dass inverse Elemente eindeutig bestimmt sind.
+
+
+\definition{Untergruppe}
+Sei $G$ eine Gruppe mit Verknüpfung $\star$ und neutralem Element $e$.\\
+Eine nichtleere Teilmenge $U\subseteq G$ heißt \emph{Untergruppe} von $G$, falls gilt:
+\begin{description}
+  \item[UG 1] $\forall a,b\in U : a\star b\in U$ (Abgeschlossenheit)
+  \item[UG 2] $\forall a\in U : a^{-1}\in U$
+\end{description}
+
+Immer gilt, dass der Kern eines Homomorphismus $f:G \rightarrow H$ d.h. $\mathrm{Kern}(f)=f^{-1}(\{e\})$  eine Untergruppe von $G$ ist.

@@ -1,0 +1,58 @@
+\chapter{Matrizenrechnung}
+Sei $M(m,n,K)$ die Menge der $m\times n$-Matrizen mit Einträgen aus K.
+
+Matrizen, deren Zeilenzahl mit der Spaltenzahl übereinstimmen nennt man \emph{quadratisch}. Wir beschreiben sie mit $M(n,K)\coloneqq M(n,n,K)$.
+
+Für eine Matrix $A\in M(n,K)$ schreibt man:
+
+\begin{equation*}
+  A=
+  \matrix{
+  \ma{11} & \ma{12} & \cdots & \ma{1n}\\
+  \ma{21} & \ma{22} & \cdots & \ma{2n}\\
+  \vdots & \vdots & \ddots & \vdots\\
+  \ma{21} & \ma{22} & \cdots & \ma{2n}\\
+  }
+  = ((a_{ij}))_{\substack{1\leq i\leq m\\1\leq j\leq n}}
+\end{equation*}
+
+\begin{definition}{Matrizenaddition}
+	Die Addition zweier Matrizen $A=(a_{ij}),B=(b_{ij})\in M(m,n,K)$ gleicher Zeilen- und Spaltenzahl ist komponentenweise definiert:
+
+	$C\coloneqq A+B$ wobei $c_{ij}=a_{ij})+(b_{ij} \quad\forall 1\leq i\leq m, 1\leq j\leq n$
+\end{definition}
+
+\begin{definition}{Skalare Multiplikation}
+	Die skalare Multiplikation einer Matrix $A=(a_{ij}\in M(m,n,K)$ mit $\lambda \in K$ ist definiert durch:
+
+	$\lambda A\coloneqq \lambda(a_{ij}) \quad\forall 1\leq i\leq m, 1\leq j\leq n$ (wiederum komponentenweise)
+\end{definition}
+
+\bemerkung
+Mit diesen beiden Operationen wird $M(m,n,K)$ zu einem $K$-Vektorraum. Dieser ist isomorph zu $K^{m*n}$. D.h. es gibt einen Vektorraumisomorphismus $M(m,n,K)\rightarrow K^{m*n}$.
+\begin{equation*}
+	M(m,n,K)\overset \sim = K^{m*n}
+\end{equation*}
+Deswegen sieht man auch die Bezeichnung $K^{m*n}$ für $M(m,n,K)$.
+
+\begin{definition}{Matrixprodukt}
+	Seien $A\in M(l,{\color{red} m},K), B\in M({\color{red} m},n,K)$ d.h. stimmen die Spaltenzahl von $A$ mit der Zeilenzahl von $B$ überein.
+
+	Dann ist das \emph{Matrixprodukt}:
+
+	\begin{align*}
+		A*B&=C\in M(l,n,K)
+		\intertext{definiert durch:}
+		C&=(c_{ij})=\left(\sum\limits_{k=1}^m a_{ik} * a_{kj}\right)
+	\end{align*}
+\end{definition}
+
+\paragraph{Merkregel} Zeile mal Spalte
+
+Wir werden sehen, dass das Matrixprodukt der Verkettung zweier linearer Abbildungen $K^n\rightarrow K^m$ und $K^m\rightarrow K^l$ entspricht.
+
+\bemerkung
+\begin{itemize}
+	\item Die Matrixmultiplikation ist \emph{nicht} kommutativ!
+	\item Spezialfall: Anwenden einer Matrix auf einen Spaltenvektor: Man fasst Spaltenvektoren aus $K^n$ als $n\times 1$-Matrizen auf.
+\end{itemize}

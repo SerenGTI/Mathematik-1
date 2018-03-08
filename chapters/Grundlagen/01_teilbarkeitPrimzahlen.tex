@@ -1,0 +1,73 @@
+\section{Teilbarkeit und Primzahlen}
+\definition{Teilbarkeit}
+Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k* m=n$, wenn es ein $k\in\Z$ gibt, so dass $k* m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
+Die Zahl $0$ ist durch alle $m\in\Z$ teilbar.
+
+Falls $m|n_1$ und $m|n_2$, dann folgt $m|n_1+n_2$.
+
+\definition{Größter gemeinsamer Teiler}
+Sei $a\in\Z$, die Menge aller Teiler von $a$ ist $\mathcal{D}(a)\coloneqq\set{d\in\N}{d|a}$.
+
+Die Menge aller gemeinsamer Teiler von $a$ und $b$ mit $a,b\in\Z\setminus\{ 0\}$ ist $\mathcal{D}(a,b) = \mathcal{D}(a) \cap \mathcal{D}(b)$.
+
+Die Zahl $\mathrm{ggT}(a,b) = \mathrm{max}(\mathcal{D}(a,b))$ heißt größter gemeinsamer Teiler von $a$ und $b$. Da eine ganze Zahl (außer der $0$) nur endlich viele Teiler hat, existiert $ggT(a,b)$.
+
+\begin{satz}{Teilung mit Rest}
+  Seien $a,b\in\N$ mit $a>b$. Dann gibt es Zahlen $q\in\N, r\in\N_0$ mit
+  \begin{align*}
+    &0\leq r<B \quad\text{Rest kleiner als der Teiler}\\
+    &a=q*b+r
+  \end{align*}
+\end{satz}
+Mit diesem Satz folgt das Lemma, auf dem der \emph{Euklidische Algorithmus} basiert:
+\begin{lemma}{}
+  Seien $a,b,q,r\in\N$, so dass $a=q*b+r$. Dann gilt
+  \begin{equation*}
+    \mathcal{D}(a,b)=\mathcal{D}(b,r)
+  \end{equation*}
+  Insbesondere gilt:
+  \begin{equation*}
+    \mathrm{ggT}(a,b)=\mathrm{ggT}(b,r)
+  \end{equation*}
+\end{lemma}
+\beweis
+Wir beweisen die Gleichheit der beiden Mengen, indem wir die beiden Inklusionen nachweisen:
+
+\begin{description}
+  \item[\glqq$\subseteq$\grqq]
+  Sei $d\in\mathcal{D}(a,b)$ d.h. $d|a \wedge d|b$. Wegen $a=q*b+r \Leftrightarrow r=a-q*b$ folgt, dass $d$ auch $r$ teilt.\\
+  Es folgt also $d\in \mathcal{D}(b,r)$.
+  \item[\glqq$\supseteq$\grqq]
+  Sei $d\in\mathcal{D}(b,r)$ d.h. $d|b\wedge d|r$, dann folgt aus $a=q*b+r$, dass $d$ auch $a$ teilt, womit $d\in \mathcal{D}(a,b)$ folgt.
+\end{description}
+$\mathcal{D}(a,b)=\mathcal{D}(b,r)$
+
+\par\medskip
+Dieses Lemma liefert die Idee für einen Algorithmus zur Bestimmung des größten gemeinsamen Teilers zweier natürlicher Zahlen.
+
+Sei $a>b$. Teilt $b$ die Zahl $a$ ohne Rest, so ist $b$ der $\mathrm{ggT}(a,b)$. Ansonsten ermittle den Rest bei der Teilung von $a$ durch $b$ und suche statt $\mathrm{ggT}(a,b)$ den $\mathrm{ggT}(b,r)$.
+
+Nach dem Satz zur Teilung mit Rest sind $b$ und $r$ beide kleiner als $a$, also kommt das Verfahren nach endlich vielen Schritten zum Ende.
+
+\definition{Primzahl}
+Eine natürliche Zahl heißt \emph{Primzahl}, wenn sie genau zwei Teiler besitzt, nämlich 1 und die Zahl selbst.
+\begin{equation*}
+  p\in\N \text{ mit } |\mathcal{D}(p)| = 2
+\end{equation*}
+
+\begin{satz}{Primfaktorzerlegung}
+  Jede natürliche Zahl $n\in\N \wedge n\geq2$ ist ein Produkt aus Primzahlen ($1$ ist das leere Produkt).
+\end{satz}
+
+\beweis
+$A(n)$ : \glqq Jede natürliche Zahl kleiner oder gleich $n$ ist das Produkt von Primzahlen.\grqq
+
+\begin{description}
+  \item[IA] $A(2)$ ist wahr, denn $2$ ist selbst eine Primzahl.
+  \item[IS] Fallunterscheidung:
+  \begin{enumerate}
+    \item $n+1$ ist prim. Dann ist $A(n+1)$ wahr.
+    \item $n+1$ ist nicht prim. Dann gibt es natürliche Zahlen $1$ und $m$, sodass $n+1=l* m$, wobei $l,m<n+1$.
+  \end{enumerate}
+  Nach Induktionsvoraussetzung sind somit $l$ und $m$ Produkte von Primzahlen, somit auch $n+1$.
+\end{description}
