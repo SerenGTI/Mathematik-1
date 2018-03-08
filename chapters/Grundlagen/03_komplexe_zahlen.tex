@@ -1,15 +1,10 @@
 \chapter{Komplexe Zahlen}
-\section{Definition}
 Wir definieren $\C$ als Menge $\C\coloneqq\R\times\R$, d.h. wir definieren die komplexen Zahlen als zusammengesetzte Zahlen, also als die Menge der geordneten Paare von reellen Zahlen.
 Wobei wir folgende Abbildungen mit $\C\times\C\rightarrow\C$ auf $\C$ festlegen:
-\paragraph{Addition}
-\begin{equation*}
-  (a,b) + (c,d) \coloneqq (a+b,c+d)
-\end{equation*}
-\paragraph{Multiplikation}
-\begin{equation*}
-  (a,b) * (c,d) \coloneqq (ac-bd,ad+bc)
-\end{equation*}
+\begin{description}
+	\item[Addition] $(a,b) + (c,d) \coloneqq (a+b,c+d)$
+	\item[Multiplikation] $(a,b) * (c,d) \coloneqq (ac-bd,ad+bc)$
+\end{description}
 
 \bemerkung
 Die Menge der reellen Zahlen kann als Teilmenge von $\C$ aufgefasst werden. $\R\subset\C$ indem man die injektive Abbildung $\R\rightarrow\C, a\mapsto (a,0)$ benutzt. Die oben definierten Verknüpfungen schränken sich dann auf die Verknüpfungen in $\R$ ein:
@@ -22,7 +17,6 @@ In diesem Sinne ist $\C$ eine \emph{Erweiterung} des Körpers $\R$.
 \definition{Imaginäre Einheit}
 Wir führen die imaginäre Einheit ein.
 $\i\coloneqq (0,1)$ damit gilt:
-
 \begin{equation*}
   (0,1)*(0,1) = (0*0 -1*1,0*1+0*1)=(-1,0)=\i^2=-1
 \end{equation*}
@@ -32,7 +26,7 @@ Wir können uns wegen $\C=\R\times\R$ komplexe Zahlen als Punkte bzw. Vektoren i
 \begin{satz}{}
   Für jede komplexe Zahl $(a,b)\in\C$ gilt:
   \begin{equation*}
-    (a,b)=a+b\i
+    (a,b)=a+b*\i
   \end{equation*}
 \end{satz}
 
@@ -40,7 +34,7 @@ Wir können uns wegen $\C=\R\times\R$ komplexe Zahlen als Punkte bzw. Vektoren i
 \begin{align*}
   a+b\i &= (a,0)+(b,0)*(0,1)\\
   &=(a,0)+(b*0-0*1,b*1+0*0)\\
-  &=(a,0)+(0,b)=(a,b) &\Box
+  &=(a,0)+(0,b)=(a,b)
 \end{align*}
 
 \bemerkung
@@ -68,7 +62,7 @@ Mit der komplexen Zahl $z=a+b\i$ und $a,b\in\R$ gilt für den Betrag von $z$:
 \end{align*}
 Insbesondere lässt sich das multiplikative Inverse wie folgt ausdrücken:
 \begin{equation*}
-  z^{-1}=\frac 1 z=\frac{\overline z}{z*\overline z}=\frac{a-b\i}{a^2+b^2}
+  z^{-1}=\frac 1 z=\frac{\overline z}{z*\overline z}=\frac{a-b*\i}{a^2+b^2}
 \end{equation*}
 
 \section{Polarkoordinaten-Darstellung}

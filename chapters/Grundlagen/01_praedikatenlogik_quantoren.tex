@@ -4,17 +4,18 @@ Eine Aussage ist ein Satz, von dem es Sinn macht, zu fragen, ob er wahr oder fal
 
 \section{Logische Junktoren}
 Wir verknüpfen mehrere Aussagen zu größeren aussagelogischen Formeln mithilfe von logischen Junktoren:
-\begin{multicols}{3}
   \paragraph{Negation:}
   $\neg A$
-  \columnbreak
+
   \paragraph{Konjuktion:}
   $A \wedge B$
-  \columnbreak
+
   \paragraph{Disjunktion:}
   $A \vee B$
-\end{multicols}
-Durch verwenden dieser grundlegenden Junkoren kann man alle Verknüpfungen darstellen. Um Schreibarbeit zu sparen gibt es verkürzende Schreibweisen
+
+	\par \medskip
+
+Mit diesen grundlegenden Junkoren kann man alle Verknüpfungen darstellen. Um Schreibarbeit zu sparen gibt es verkürzende Schreibweisen:
 
 \paragraph{Implikation:}
 $A\Rightarrow B \equiv \neg(A\wedge \neg B)$
@@ -23,7 +24,8 @@ $A\Leftrightarrow B \equiv (A\wedge B)\vee (\neg A\wedge \neg B)$
 
 \vspace{1em}
 \begin{center}
-  \begin{tabular}{c|c||c|c|c|c|c}
+	\renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{c c|c c c c c}
     $A$ & $B$ & $\neg A$ & $A \wedge B$ & $A \vee B$ & $A \Rightarrow B$ & $A \Leftrightarrow B$\\
     \hline  f & f & w & f & f & w & w \\
             f & w & w & f & w & w & f \\
@@ -42,7 +44,7 @@ Sei $M$ eine Menge und $P(m)$ für jedes $m\in M$ eine Aussage. Wir beschreiben 
 \begin{equation*}
   \forall m\in M: P(m)
 \end{equation*}
-d.h. $P(m)$ soll für \emph{jedes} $m\in M$ gelten.
+d.h. $P(m)$ soll für \emph{jedes} Element $m$ aus $M$ gelten.
 \par\medskip
 Mit dem \emph{Existenzquantor} bekommt das Prädikat eine andere Bedeutung:
 \begin{equation*}

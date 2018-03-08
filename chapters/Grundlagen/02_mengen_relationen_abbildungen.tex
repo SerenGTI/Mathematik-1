@@ -15,27 +15,18 @@ Eine Menge $M_1$ ist \emph{Teilmenge} von $M$, wenn
 Für jede Menge M gilt $\emptyset \subseteq M$ und $M\subseteq M$.\\
 Gilt $M_1\subseteq M$ und $M_1\neq M$ ist $M_1$ eine \emph{echte Teilmenge} von $M$, d.h. $M_1 \subset M$ oder $M_1\subsetneq M$
 
-\paragraph{Potenzmenge}
-\begin{equation*}
-  \P(M)=\Pot(M) \text{ ist die Menge aller Teilmengen von } M.
-\end{equation*}
-\paragraph{Schnittmenge}
-\begin{equation*}
-  M_s = M_1 \cap M_2; \quad M_s \coloneqq \set{m\in M_1}{m\in M_2}
-\end{equation*}
+\medskip
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{>{\bfseries\scshape}r l}
+	Potenzmenge & $\P(M)=\Pot(M) \text{ ist die Menge aller Teilmengen von } M.$\\
+	Schnittmenge & $M_s = M_1 \cap M_2; \quad M_s \coloneqq \set{m\in M_1}{m\in M_2}$\\
+	Vereinigung & $M_v = M_1 \cup M_2; \quad M_v \coloneqq \set{m}{m\in M_2 \vee m\in M_2}$\\
+	Differenz & $M_1\setminus M_2 \coloneqq \set{m\in M_1}{m\not\in M_2}$\\
+	Kartesisches Produkt & $M_1 \times M_2 \coloneqq \set{(m_1, m_2)}{m_1\in M_1 \wedge m_2\in M_2}$
+\end{tabular}
+\medskip
+
 Zwei Mengen $M_1$ und $M_2$ heißen \emph{disjunkt}, falls $M_1\cap M_2 = \emptyset$
-\paragraph{Vereinigung}
-\begin{equation*}
-  M_v = M_1 \cup M_2; \quad M_v \coloneqq \set{m}{m\in M_2 \vee m\in M_2}
-\end{equation*}
-\paragraph{Differenz}
-\begin{equation*}
-  M_1\setminus M_2 \coloneqq \set{m\in M_1}{m\not\in M_2}
-\end{equation*}
-\paragraph{Kartesisches Produkt}
-\begin{equation*}
-  M_1 \times M_2 \coloneqq \set{(m_1, m_2)}{m_1\in M_1 \wedge m_2\in M_2}
-\end{equation*}
 
 \section{Relationen}
 \definition{Relation}
@@ -45,13 +36,19 @@ Eine Relation zwischen zwei Mengen $M$ und $N$ ist eine Teilmenge von $M\times N
 \end{equation*}
 ist $(x, y) \in R$, steht $x$ mit $y$ in Relation $\rightarrow x\sim y$.
 
-$R \subseteq M\times M$ heißt
-\begin{description}
-  \item[reflexiv], falls $\forall x\in M : (x,x)\in R$
-  \item[symmetrisch], falls $\forall x,y \in M : (x,y)\in M \Rightarrow (y,x) \in R$
-  \item[antisymmetrisch], falls $\forall x,y \in R : (x,y)\in M \wedge (y,x)\in R \Rightarrow x=y$
-  \item[transitiv], falls $\forall x,y,z \in M : (x,y)\in R \wedge (y,z)\in R \Rightarrow (x,z)\in R$
-\end{description}
+\par\medskip
+
+$R \subseteq M\times M$ heißt:
+
+\medskip
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{>{\bfseries\scshape}r l}
+	reflexiv & falls $\forall x\in M : (x,x)\in R$\\
+	symmetrisch & falls $\forall x,y \in M : (x,y)\in M \Rightarrow (y,x) \in R$\\
+	antisymmetrisch & falls $\forall x,y \in R : (x,y)\in M \wedge (y,x)\in R \Rightarrow x=y$\\
+	transitiv & falls $\forall x,y,z \in M : (x,y)\in R \wedge (y,z)\in R \Rightarrow (x,z)\in R$
+\end{tabular}
+\medskip
 
 \definition{Äquivalenzrelation}
 Eine Relation heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.
@@ -76,10 +73,17 @@ Sei $f:M\mapsto N$ eine Abbildung. Wir definieren
 \end{itemize}
 
 \definition{Graph einer Abbildung}
-Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge $\set{(x,f(x))}{x\in M}\subseteq M\times N$.
-Für Funktionen $f:\R\rightarrow\R$ ist der Graph eine Teilmenge der Ebene $\R^2$.
+Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge des Werte- und Definitionsbereichs
+\begin{equation*}
+	\mathrm{Graph}(f)=\set{(x,f(x))}{x\in M}\subseteq M\times N
+\end{equation*}
 
-Fasst man eine Funktion als eine Relation auf, so ist der Graph das selbe wie R. $\mathrm{Graph}(f)=R\subseteq\R\times\R$
+Fasst man eine Funktion als eine Relation auf, so ist der Graph das selbe wie $R$.
+\begin{equation*}
+	\mathrm{Graph}(f)=R\subseteq M\times N
+\end{equation*}
+
+\bemerkung Für Funktionen $f:\R\rightarrow\R$ ist der Graph eine Teilmenge der Ebene $\R^2$.
 
 \definition{Verkettung}
 Seien $f:M\rightarrow N$ und $g:N\rightarrow P$ Abbildungen. Dann ist die Verkettung:
@@ -97,11 +101,15 @@ die identische Abbildung auf $M$.
 
 \subsection{Abbildungseigenschaften}
 Sei $f:M\rightarrow N$ eine Abbildung. Dann heißt $f$:
-\begin{description}
-  \item[injektiv], wenn jedes Element $y\in N$ \emph{höchstens ein Urbild} hat.
-  \item[surjektiv], wenn jedes Element $y\in N$ \emph{mindestens ein Urbild} hat. $\forall y\in N\; \exists x\in M : f(x) = y$
-  \item[bijektiv], wenn jedes Element $y\in N$ \emph{genau ein Urbild} hat. $\forall y\in N\; \exists! x\in M : f(x) = y$
-\end{description}
+
+\medskip
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{>{\bfseries\scshape}r l}
+	injektiv & wenn jedes Element $y\in N$ \emph{höchstens ein Urbild} hat.\\
+	surjektiv & wenn jedes Element $y\in N$ \emph{mindestens ein Urbild} hat. $\forall y\in N\; \exists x\in M : f(x) = y$\\
+	bijektiv & wenn jedes Element $y\in N$ \emph{genau ein Urbild} hat. $\forall y\in N\; \exists! x\in M : f(x) = y$
+\end{tabular}
+\medskip
 
 \bemerkung
 \begin{enumerate}

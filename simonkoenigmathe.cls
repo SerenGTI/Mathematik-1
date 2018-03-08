@@ -6,10 +6,11 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
 \RequirePackage[top=3cm, bottom=4cm, outer=3.5cm, inner=3.5cm, heightrounded]{geometry}
-\RequirePackage[default]{sourcesanspro}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{xcolor}
 \RequirePackage{hyperref}
+\RequirePackage{booktabs}
+\RequirePackage{array}
 
 \RequirePackage{multicol}
 \RequirePackage[fleqn]{mathtools}
@@ -22,13 +23,8 @@
 \RequirePackage{lastpage}
 \RequirePackage[framemethod=TikZ]{mdframed}
 
-\RequirePackage{titling}
-\newcommand{\subtitle}[1]{%
-  \posttitle{%
-    \par\end{center}
-    \begin{center}\large#1\end{center}
-    \vskip0.5em}%
-}
+
+\RequirePackage[default]{sourcesanspro}
 
 
 \setlength{\parindent}{0pt}
@@ -62,13 +58,9 @@
 
 	  {\Huge \@title}
 
-	  {
-	  \color{accent}\rule{0.7\textwidth}{0.7pt}
-	  }
-
+	  {\color{accent}\rule{0.7\textwidth}{0.7pt}}
 
 	    \vfill
-
 
 	  {\tiny\color{darkgray}\rule{0.3\textwidth}{0.5pt}
 	  \vspace{0.5em}
@@ -93,20 +85,36 @@
 \newcounter{lemma}
 \stepcounter{lemma}
 
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother
+
 %SATZ
 \newenvironment{satz}[1]
-{\begin{mdframed}[style=Satzframe]
+{\begin{mdframed}[style=Satzframe, nobreak=true]
 {\Large\raggedright\bfseries Satz \thechapter.\thesatz\stepcounter{satz}: \large #1}\vspace{1em} \newline
 }
 {\end{mdframed}\par}
 
 %LEMMA
 \newenvironment{lemma}[1]
-{\begin{mdframed}[style=Satzframe]
+{\begin{mdframed}[style=Satzframe, nobreak=true]
 {\Large\raggedright\bfseries Lemma \thechapter.\thelemma\stepcounter{lemma}: \large #1}\vspace{1em} \newline
 }
 {\end{mdframed}\par}
 
+
+%PART
+\titleformat{\part}[display]
+{\setcounter{def}{1}
+\setcounter{lemma}{1}
+\setcounter{satz}{1}
+\thispagestyle{empty}
+\Huge\centering\scshape\itshape\color{accent}}
+{{\fontsize{150}{40}\selectfont\arabic{part}}}
+{0pt}
+{\Huge\color{darkgray}\normalfont}
+\titlespacing*{\chapter}{0pt}{0pt}{7em}
 
 %CHAPTER
 \titleformat{\chapter}[hang]
@@ -147,7 +155,7 @@
 \titlespacing*{\subsubsection}{0pt}{1em}{0.7em}
 
 \newcommand{\beweis}{\subsubsection*{Beweis:}}
-\newcommand{\bemerkung}{\subsubsection*{Bemerkung:}}
+\newcommand{\bemerkung}{\paragraph{Bemerkung:}}
 
 %BEISPIEL, MERKSATZ
 \titleformat{\paragraph}[runin]
@@ -183,15 +191,15 @@
 
 
 \mdfdefinestyle{Satzframe}{
-  skipabove=2em,
+  skipabove=1.7em,
   linecolor=accent,
-  outerlinewidth=1pt,
+  outerlinewidth=0.5pt,
   roundcorner=2pt,
-  innertopmargin=1.5em,
+  innertopmargin=1.3em,
   innerbottommargin=\baselineskip,
-  innerrightmargin=15pt,
-  innerleftmargin=15pt,
-  backgroundcolor=white!90!gray
+  innerrightmargin=13pt,
+  innerleftmargin=13pt,
+  backgroundcolor=white!95!gray
 }
 
 
