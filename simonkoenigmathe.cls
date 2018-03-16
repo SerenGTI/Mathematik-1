@@ -29,12 +29,19 @@
 
 \setlength{\parindent}{0pt}
 
-\definecolor{accent}{rgb}{0,0.65,0.37}
+\definecolor{accent}{rgb}{0.45,0.45,0.45}
+%%COLORS
 \DeclareOption{green}{\definecolor{accent}{rgb}{0,0.65,0.37}}
 \DeclareOption{red}{\definecolor{accent}{rgb}{0.75,0.22,0.22}}
 \DeclareOption{orange}{\definecolor{accent}{rgb}{1, 0.6, 0}}
 \DeclareOption{blue}{\definecolor{accent}{rgb}{0, 0.2, 0.6}}
 \DeclareOption{purple}{\definecolor{accent}{rgb}{0.65,0,0.37}}
+
+
+%FONTS
+\DeclareOption{serif}{\renewcommand{\familydefault}{\rmdefault}}
+
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
@@ -45,10 +52,7 @@
 
 
 %%%TITLE%%%
-
-
-\renewcommand{\maketitle}{%
-
+\renewcommand{\maketitle}{
 
   \medskip
 	\thispagestyle{empty}
@@ -68,7 +72,7 @@
 	  \normalsize \@author}
 	\end{center}
 }
-
+\newcommand{\subtitleformat}[1]{\large\vspace{1em}\scshape\color{gray} #1}
 
 
 
@@ -156,6 +160,7 @@
 
 \newcommand{\beweis}{\subsubsection*{Beweis:}}
 \newcommand{\bemerkung}{\paragraph{Bemerkung:}}
+\newcommand{\merkregel}{\paragraph{Merkregel:}}
 
 %BEISPIEL, MERKSATZ
 \titleformat{\paragraph}[runin]
@@ -170,21 +175,18 @@
 
 %%%PAGEHEADER%%%
 
-
+\newcommand{\classpagefooter}{\small\itshape Seite \thepage\thinspace von\thinspace\pageref{LastPage}}
 \pagestyle{fancy}
-\lfoot{Simon \textsc{König}}
-\cfoot{Seite \thepage\thinspace von\thinspace\pageref{LastPage}}
+\cfoot{\classpagefooter}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyfoot[C]{Seite \thepage\thinspace von\thinspace\pageref{LastPage}}%
+  \fancyfoot[C]{\classpagefooter}%
   \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
 }
-
-
 
 
 %%%SATZ-LAYOUT%%%
@@ -223,10 +225,12 @@
 \renewcommand{\Re}{\ensuremath\mathfrak{Re}}
 
 \newcommand{\spann}[1]{\ensuremath\mathrm{Span}\! \left(#1\right)}
-\renewcommand{\vector}[1]{\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
-\renewcommand{\matrix}[1]{\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
-\renewcommand{\det}[1]{\ensuremath\mathrm{det}\! \left( #1 \right)}
-\newcommand{\detmatrix}[1]{\ensuremath\begin{vmatrix} #1 \end{vmatrix}}
+\renewcommand{\vector}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
+\renewcommand{\matrix}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\ematrix}[2]{\renewcommand{\arraystretch}{1}\ensuremath\left(\begin{array}{@{}#1@{}}#2\end{array}\right)}
+
+\renewcommand{\det}{\ensuremath\mathrm{det}}
+\newcommand{\detmatrix}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{vmatrix} #1 \end{vmatrix}}
 
 \newcommand{\rank}[1]{\ensuremath\mathrm{rk}\left(#1\right)}
 \renewcommand{\dim}[1]{\ensuremath\mathrm{dim}\left(#1\right)}

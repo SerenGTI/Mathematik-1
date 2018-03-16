@@ -49,10 +49,33 @@ Deswegen sieht man auch die Bezeichnung $K^{m*n}$ für $M(m,n,K)$.
 
 \paragraph{Merkregel} Zeile mal Spalte
 
-Wir werden sehen, dass das Matrixprodukt der Verkettung zweier linearer Abbildungen $K^n\rightarrow K^m$ und $K^m\rightarrow K^l$ entspricht.
-
 \bemerkung
 \begin{itemize}
 	\item Die Matrixmultiplikation ist \emph{nicht} kommutativ!
 	\item Spezialfall: Anwenden einer Matrix auf einen Spaltenvektor: Man fasst Spaltenvektoren aus $K^n$ als $n\times 1$-Matrizen auf.
 \end{itemize}
+
+\begin{satz}{}
+	Das Matrixprodukt entspricht der Verkettung von linearen Abbildungen.
+\end{satz}
+Genauer: Seien $U,V,W$ drei $K$-Vektorräume mit den Basen
+\begin{align*}
+	\mathcal{B}&=\simpleset{u_1,\ldots, u_n},\\
+	\mathcal{C}&=\simpleset{v_1,\ldots, v_n},\\
+	\mathcal{D}&=\simpleset{w_1,\ldots, w_n}
+\end{align*}
+
+\begin{itemize}
+	\item $A\in M(l,m,K)$ die darstellende Matrix von $f:V\rightarrow W$ bezüglich $\mathcal{C}$ und $\mathcal{D}$.
+	\item $B\in M(m,n,K)$ die darstellende Matrix von $g:U\rightarrow V$ bezüglich $\mathcal{B}$ und $\mathcal{C}$.
+\end{itemize}
+Dann ist $A*B\in M(l,n,K)$ die darstellende Matrix von $f\circ g = f(g):U\rightarrow W$ bezüglich den Basen $\mathcal{B}$ und $\mathcal{D}$.
+
+\beweis
+Es gilt:
+\begin{align*}
+	g(u_j)&=\sum\limits_{i=1}^m ( b_{ij} * v_i )\\
+	\intertext{und somit:}
+	f(g(u_j)) &= \sum\limits_{i=1}^m ( b_{ij} * f(v_j) ) = \sum\limits_{i=1}^m b_{ij} * \left( \sum\limits_{p=1}^l a_{pi} * w_p \right) =\sum\limits_{p=1}^l \left( \sum\limits_{i_1}^m a_{pi}*a_{ij} \right) * w_p\\
+	&= \underbrace{\sum\limits_{p=1}^l (c_{pj} * w_p)}_\text{Matrixprodukt}
+\end{align*}

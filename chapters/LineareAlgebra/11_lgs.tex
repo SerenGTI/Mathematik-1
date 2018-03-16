@@ -1,0 +1,88 @@
+\chapter{Lineare Gleichungssysteme}
+\begin{definition}{Lineares Gleichungssystem}
+	Ein \emph{lineares Gleichungssystem} (LGS) in $n$ Unbekannten mit $m$ Gleichungen ist ein System der Form:
+	\begin{align*}
+		\ma{11}x_1+\ma{12}x_2+&\cdots+\ma{1n}x_n=b_1\\
+		\ma{21}x_1+\ma{22}x_2+&\cdots+\ma{2n}x_n=b_2\\
+		&\ \ \ \vdots\\
+		\ma{m1}x_1+\ma{m2}x_2+&\cdots+\ma{mn}x_n=b_m
+	\end{align*}
+	Wobei die Koeffizienten $\ma{ij}$ und die Elemente $b_i$ auf der rechten Seite Elemente eines Körpers $K$ sind.
+
+	Ein Vektor
+	\begin{equation*}
+		x=\vector{x_1\\x_2\\\vdots\\v_n}
+	\end{equation*}
+	heißt Lösung, wenn die $x_1,\ldots, x_n$ alle $m$ Gleichungen gleichzeitig erfüllen.
+
+	Sind alle Elemente $b_i$ gleich $0$, heißt das Gleichungssystem \emph{homogen}, andernfalls \emph{inhomogen}.
+\end{definition}
+
+\begin{bemerkung}
+	Die Lösungsmenge ist $\LM\coloneqq\set{x\in K^n}{A*x=b}$
+\end{bemerkung}
+
+\begin{definition}{Zugehöriges homogenes System}
+	Sei durch $A*x=b$ ein LGS gegeben. Falls $b=0$ gilt, dann handelt es sich um ein homogenes System, sonst um ein inhomogenes.
+
+	Man bezeichnet $A*x=0$ als das \emph{zu $A*x=b$ gehörige homogene System}.
+\end{definition}
+
+
+\begin{satz}{Kennzeichnung der Lösungsmenge}
+	Sei $A*x=b$ ein lineares Gleichungssystem mit nichtleerer Lösungsmenge. Sei $p\in K^n$ eine beliebige Lösung des Systems.
+
+	Sei $U$ die Lösung des zugehörigen homogenen Systems, dann gelten die Aussagen:
+
+	\begin{enumerate}
+		\item $U$ ist ein Untervektorraum des $K^n$.
+		\item Die Lösungsmenge von $A*x=b$ ist $p+U=\LM=\set{p+u}{u\in U}$
+	\end{enumerate}
+\end{satz}
+\begin{beweis}
+	\begin{enumerate}
+		\item Gilt, da die Lösungsmenge $U$ des homogenen Systems der Kern der linearen Abbildung $x\mapsto A*x, K^n\rightarrow K^m$ ist.
+		\item Sei $x\in p+U$, das heißt $x=p+u$ mit $u\in U$. Dann gilt:
+		\begin{align*}
+			A*x=A(p+u)&=A*p+A*u \text{ ($u$ ist aus dem Kern)}\\
+								&=b+u
+		\end{align*}
+		Das heißt, $x$ ist eine Lösung von $A*x=b$.
+
+		Umgekehrt: ist $x$ eine Lösung von $A*x=b$, dann gilt:
+		\begin{equation*}
+			A(x-p)=b-b=0
+		\end{equation*}
+		das heißt,  $x-p\in U\Leftrightarrow x\in p+U$
+	\end{enumerate}
+\end{beweis}
+
+\bemerkung
+\begin{itemize}
+	\item Man nennt $p$ wie oben auch \emph{partikuläre} oder \emph{spezielle} Lösung des inhomogenen Systems.
+	\item Teilmengen eines Vektorraums $V$ der Form $p+U$ wobei $p\in V, U\subseteq V$ und $U$ ein Untervektorraum von $V$ ist, nennt man auch \emph{affine Unterräume} von $V$.
+
+	Allgemein ist eine Teilmenge $A\subseteq V$ ein affiner Untterraum wenn $A$ leer ist oder von der Form $A=p+U, p\in V, u\subseteq V$ und $U$ ein Untervektorraum ist.
+	\item Die Lösungsmengen von linearen Gleichungssystemen sind immer affine Unterräume von $K^n$.
+	\item Durch weitere Zeilenumformungen lässt sich eine Matrix in Zeilen-Stufenform in die sogenannte reduzierte Zeilen-Stufenform bringen:
+
+	Jedes Pivotelement ist $1$ und über (und natürlich darunter) jedem Pivotelement stehen Nullen.
+	\item Will man ein LGS $Ax=b$ simultan für verschiedene rechte Seiten $Ax=b_1, Ax=b_2, \ldots$ lösen, kann man diese zu einer einzigen erweiterten Matrix zusammenfassen.
+	\begin{equation*}
+		\ematrix{c|ccc}{A & b_1 & b_2 & \cdots}
+	\end{equation*}
+	\item Insbesondere, setzt man für eine quadratische Matrix $A\in M(n,K)$ als rechte Seiten die Standardbasisvektoren ein, betrachtet man also die erweiterte Matrix
+	\begin{equation*}
+		\ematrix{c|cccc}{A & e_1 & e_2 & \cdots & e_n} = \ematrix{c|c}{A & E_n}
+	\end{equation*}
+	erhält man ein Verfahren, mit dem man die Invertierbarkeit von $A$ prüfen kann und ggf. die Inverse bestimmen kann.
+\end{itemize}
+
+
+\begin{satz}{Inverse Matrix berechnen}
+	Sei $A\in M(n,K)$ eine quadratische Matrix und sei $(A|e_1|\ldots|e_n)=\ematrix{c|c}{A & E_n}\in M(n,2n,K)$ die Matrix, die durch Nebeneinandersetzen von $A$ und der $n\times n$-Einheitsmatrix entsteht.
+
+	Die Matrix $A$ ist genau dann invertierbar, wenn sich diese erweiterte Matrix ohne Entstehen von Nullzeilen auf Zeilen-Stufenform bringen lässt.
+
+	In diesem Fall gilt: Ist $(E|B)$ die reduzierte Zeilen-Stufenform von $(A|E)$, dann ist $B$ das Inverse von $A$.
+\end{satz}

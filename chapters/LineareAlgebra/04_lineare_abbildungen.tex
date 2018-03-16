@@ -149,3 +149,77 @@ die \emph{darstellende Matrix} von $f$ bezüglich den Basen $v_1,\ldots,v_n$ und
 \paragraph{Merkregel}
 Die Spalten der darstellenden Matrix sind die Bilder der Basisvektoren.
 \par\bigskip
+
+
+Lineare Abbildungen sind wegen der Additivität Insbesondere Gruppenhomomorphismen bezüglich der Addition. Analog wie für Gruppenhomomorphismen gilt:
+
+\begin{satz}{}
+  Bild und Kern einer linearen Abbildung $f:V\rightarrow W$ sind jeweils Untervektorräume von $V$ bzw. $W$.
+\end{satz}
+
+\beweis
+\begin{itemize}
+	\item $\mathrm{Bild}(f)$ ist ein Untervektorraum von $W$:
+
+	Wegen $f(0)\in\mathrm{Bild}(f)$ ist $\mathrm{Bild}(f)$ nicht leer.
+
+	Seien außerdem $f(u),f(v)\in\mathrm{Bild}(f)$, dann gilt:
+	\begin{align*}
+		f(u)+f(v)=f(u+v)\in\mathrm{Bild}(f)\\
+		\intertext{und ebenso}
+		\lambda f(v)=f(\lambda*v)\in\mathrm{Bild}(f) \quad \forall\lambda\in K
+	\end{align*}
+
+	\item $\mathrm{Kern}(f)$ ist ein Untervektorraum von $V$:
+
+	Es gilt für jede lineare Abbildung, dass das neutrale Element eines Vektorraums auf das neutrale Element des Zielvektorraums abgebildet wird, d.h. $f(0)=0$. Also ist $\mathrm{Kern}(f)$ nicht leer.
+
+	Seien $u,v\in \mathrm{Kern}(f)$, dann folgt:
+	\begin{align*}
+		f(u+v)=f(u)+f(v)=0+0=0 \in\mathrm{Kern}(f)\\
+		\intertext{und ebenso}
+		f(\lambda *v)=\lambda f(v)=\lambda*0=0\in\mathrm{Kern}(f) \quad\forall \lambda\in K
+	\end{align*}
+\end{itemize}
+
+
+\begin{definition}{}
+  Eine lineare Abbildung $f: V\rightarrow W$ heißt
+  \begin{equation*}
+    \text{Vektorraum-}
+    \begin{cases}
+      \text{Monomorphismus, falls $f$ injektiv ist}\\
+      \text{Epimorphismus, falls $f$ surjektiv ist}\\
+      \text{Isomorphismus, falls $f$ bijektiv ist}\\
+			\text{Endomorphismus, falls $W=V$}\\
+			\text{Automorphismus, falls $f$ ein bijektiver Endomorphismus ist}
+    \end{cases}
+  \end{equation*}
+
+  \bemerkung
+	\begin{itemize}
+		\item Die Automorphismen $\mathrm{Aut}(V)$ eines Vektorraums $V$ bilden eine Gruppe mit der Verkettung als Verknüpfung.
+		\item Die Menge der Endo- bzw. Automorphismen wird mit $\mathrm{End}(V)$ bzw. $\mathrm{Aut}(V)$ bezeichnet.
+		\item Die Menge der linearen Abbildungen $V\rightarrow W$ mit $\mathrm{Hom}(V,W)$.
+	\end{itemize}
+\end{definition}
+
+
+\begin{definition}{Rang einer Abbildung}
+  Die Dimension des Bildes einer linearen Abbildung $f$ heißt auch \emph{Rang} von $f$ (engl. rank).
+  \begin{equation*}
+    \rank{f} \coloneqq \dim{\ker f}
+  \end{equation*}
+\end{definition}
+
+\begin{satz}{Dimensionsformel für lineare Abbildungen}
+  Für lineare Abbildungen $f:V\rightarrow W$ gilt, falls $V$ endlich dimensional ist, die \emph{Dimensionsformel für lineare Abbildungen}:
+  \begin{align*}
+    \dim{V}&=\rank{f}+\dim{\ker f}\\
+    &=\dim{\im f}+\dim{\ker f}
+  \end{align*}
+\end{satz}
+
+\begin{lemma}{}
+  Eine lineare Abbildung $f:V\rightarrow W$ ist genau dann injektiv, wenn ihr Kern trivial ist.
+\end{lemma}

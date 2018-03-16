@@ -1,0 +1,61 @@
+Die quadratischen Matrizen $M(n,K)$ bilden einen im Allgemeinen nicht kommutativen Ring mit der Matrixaddition und -multiplikation.
+
+Es gelten:
+\begin{equation*}
+	A*(B+C)=A*B+A*C
+\end{equation*}
+\begin{equation*}
+	(A+B)*C=A*C+B*C
+\end{equation*}
+
+Das neutrale Element bezüglich der Multiplikation ist die sogenannte $n\times n$-Einheitsmatrix:
+\begin{equation*}
+	E=E_n=\matrix{
+		1 & 0 & \cdots & 0\\
+		0 & 1 & \cdots & 0\\
+		\vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & \cdots & 1
+		}
+\end{equation*}
+mit anderen Worten:
+\begin{equation*}
+	E=(\delta_{ij})_{1\leq i \leq n} \text{ wobei }
+	\delta_{ij}=
+	\begin{cases}
+		1\text{, falls $i=j$} \\
+		0\text{ sonst}
+	\end{cases}
+\end{equation*}
+$\delta_{ij}$ wird auch das \textsc{Kronecker}-Delta genannt.
+
+Die $n\times n$-Einheitsmatrix ist die darstellende Matrix der identischen Abbildung $id_{K^n}$.
+
+\begin{definition}{Inverse Matrix}
+	$A\in M(n,K)$ heißt invertierbar, falls es eine Matrix $A^{-1}$ gibt mit $A^{-1}\in M(n,K)$ so, dass $A*A^{-1}=A^{-1}*A=E_n$ gilt.
+
+	In diesem Fall nennt man $A^{-1}$ die inverse Matrix von $A$.
+\end{definition}
+
+\begin{satz}{Allgemeine lineare Gruppe}
+	Die Menge $\mathrm{GL}(n,K)\coloneqq \set{A\in M(n,K)}{\exists A^{-1} : A*A^{-1} = A^{-1}*A = E_n}$ bildet eine Gruppe mit der Matrixmultiplikation.
+\end{satz}
+
+\beweis
+\begin{enumerate}
+	\item Matrixmultiplikation ist assoziativ, da sie die Abbildungsverkettung darstellt.
+	\item $E_n$ ist das neutrale Element.
+	\item Außerdem besitzen invertierbare Matrizen natürlich ein Inverses.
+\end{enumerate}
+
+$\mathrm{GL}(n,K)$ wird auch als die allgemeine lineare Gruppe vom Grad $n$ über dem Körper $K$ bezeichnet.
+
+\begin{satz}{}
+	Eine Matrix $A$ ist invertierbar genau dann, wenn die lineare Abbildung $x\mapsto A*x$ bijektiv ist. Ihre Umkehrabbildung ist durch $x\mapsto A^{-1}*x$ gegeben.
+\end{satz}
+\beweis
+\begin{description}
+	\item[\glqq$\Leftarrow$\grqq]
+	$f:K^n\rightarrow K^n, f(x)=A*x$ bijektiv, dann gilt für die darstellende Matrix $B$ der Umkehrabbildung $f^{-1}:K^n\rightarrow K^n$, dass $A*B=E_n=B*A$. Das heißt, die darstellende Matrix $B$ ist die Inverse von $A$.
+	\item[\glqq$\Rightarrow$\grqq]
+	Ist $A$ invertierbar, dann ist durch $x\mapsto A^{-1}*x$ die Umkehrabbildung gegeben, denn $A^{-1}*(A*x)=E*x=x$
+\end{description}

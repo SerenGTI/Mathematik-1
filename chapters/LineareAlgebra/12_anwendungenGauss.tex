@@ -1,0 +1,141 @@
+\chapter{Determinanten und der Gauß-Algorithmus}
+\section{Determinanten}
+\begin{definition}{Determinante einer $2\times 2$-Matrix}
+	Für eine $2\times2$-Matrix $A=\matrix{a & b\\c & d}\in M(2,K)$ definieren wir die \emph{Determinante} von $A$ durch
+
+	\begin{equation*}
+		\det A=\det\matrix{a & b\\c & d}=\detmatrix{a & b\\c & d}=ad-bc
+	\end{equation*}
+\end{definition}
+\begin{satz}{Invertierbarkeit einer $2\times 2$-Matrix}
+	Eine $2\times 2 $-Matrix $\matrix{a & b\\c & d}\in M(2,K)$ ist genau dann invertierbar, wenn $ad-bc\neq0$ gilt.
+\end{satz}
+
+Wir wollen die Definition auf quadratische Matrizen beliebiger Größe erweitern:
+\begin{equation*}
+	\det:M(n,K)\rightarrow K
+\end{equation*}
+$A$ soll genau dann invertierbar sein, wenn $\det A\neq 0$.
+
+Dazu fassen wir eine $n\times n$-Matrix als ein $n$-Tupel von $n$-Zeilenvektoren auf, also als ein Element von
+\begin{equation*}
+	(K^n)^n= \underbrace{K^n\times K^n\times \ldots \times K^n}_{n\text{ mal}}
+\end{equation*}
+
+\begin{itemize}
+	\item Eine Abbildung $d:V^n\rightarrow K$ wobei $V$ ein $K$-Vektorraum ist, heißt \emph{multilinear}, wenn
+	\begin{equation*}
+		V\rightarrow K, x\mapsto d(v_1,\ldots,v_{i-1},x,v_{i+1},\ldots,v_n)
+	\end{equation*}
+	für jedes $i\in\simpleset{1,\ldots, n}$ und alle $v_k\in V$ eine lineare Abbildung ist. Oder kurz gesagt, wenn sie in allen Argumenten linear ist.
+	\item Sie heißt alternierend, wenn sie den Wert $0$ annimmt sobald zwei der Argumente gleich sind.
+	\item Sie heißt normiert, falls $d(e_1,e_2,\ldots, e_n)=1$ gilt, sie also auf die Einheitsmatrix angewendet die Zahl Eins ergibt.
+\end{itemize}
+(Die oben definierte Determinante für $2\times 2$-Matrizen hat diese Eigenschaften)
+
+\begin{definition}{Determinante}
+	Es gibt genau eine Abbildung
+	\begin{equation*}
+		(K^n)^n\rightarrow K
+	\end{equation*}
+	die multilinear, alternierend und normiert ist.
+
+	Der Wert dieser Abbildung auf die Zeilen einer Matrix $A\in M(n,K)$ angewendet heißt Determinante einer Matrix:
+	\begin{equation*}
+		\det A
+	\end{equation*}
+\end{definition}
+
+
+\subsection{Berechnung der Determinante}
+Man kann $\det A$ mithilfe des Gaußalgorithmus berechnen:
+\begin{satz}{}
+	Sei $A\in M(n,K)$ eine quadratische Matrix, dann ändert sich die Determinante bei elementaren Zeilenumformungen wie folgt:
+	\begin{description}
+		\item[EU 1] Beim Vertauschen zweier Zeilen multipliziert sich $\det A$ mit $(-1)$.
+		\item[EU 2] Wird eine Zeile mit $\lambda \in K$ multipliziert, dann multipliziert sich die Determinante ebenfalls mit $\lambda$, d.h. man muss $\det A$ mit dem Kehrwert multiplizieren um das richtige Ergebnis zu erhalten.
+		\item[EU 3] Wird ein Vielfaches einer Zeile zu einer anderen addiert, ändert sich der Wert der Determinante nicht.
+	\end{description}
+\end{satz}
+\beweis
+\begin{description}
+	\item[EU 1] wegen Multilinearität und alternierend:
+	\begin{align*}
+		\underbrace{\det(\ldots,v+w,\ldots,v+w,\ldots)}_{=0} &= \det(\ldots,v,\ldots, v+w,\ldots)+\det(\ldots,w,\ldots, v+w,\ldots)\\
+																&= \underbrace{\det(\ldots,v,\ldots, v,\ldots)}_{=0}+\det(\ldots,v,\ldots, w,\ldots)+\\
+																&\quad +\det(\ldots,w,\ldots, v,\ldots)+\underbrace{\det(\ldots,w,\ldots, w,\ldots)}_{=0}\\
+		\det(\ldots,v,\ldots, w,\ldots)		&=-\det(\ldots,w,\ldots, v,\ldots)
+	\end{align*}
+	\item[EU 2] folgt direkt aus der Multilineariät.
+	\item[EU 3] wegen der Multilinearität:
+	\begin{equation*}
+		\det(\ldots,v,\ldots, w+\lambda*v,\ldots)=\det(\ldots,v,\ldots, w,\ldots)+\lambda*\underbrace{\det(\ldots,v,\ldots, v,\ldots)}_{=0}
+	\end{equation*}
+\end{description}
+
+\bemerkung
+Diese Eigenschaften genügen, um jede Determinante auszurechnen (mit dem Gaußalgorithmus). Entweder entsteht eine Nullzeile oder man formt um bis zur Einheitsmatrix.
+
+\paragraph{Beispiel:}
+\begin{equation*}
+	\detmatrix{1 & 2\\3 & 4}=\detmatrix{1 & 2\\ 0 & -2}= -2\detmatrix{1 & \\ & 1}=-2=1*4-2*3
+\end{equation*}
+
+\begin{lemma}{Determinante von Matrizen in oberer Dreiecksgestalt}
+	Für Diagonalmatrizen und allgemeiner, für obere Dreiecksmatrizen gilt:
+	\begin{equation*}
+		\det\matrix{\lambda_1 & \ast & \cdots & \ast \\&\lambda_2& \cdots & \ast\\&&\ddots&\vdots\\&&&\lambda_n}=\lambda_1*\lambda_2*\ldots*\lambda_n
+	\end{equation*}
+\end{lemma}
+\beweis
+Für die Diagonalmatrizen direkt aus der \textbf{(EU 2)} und der Normiertheit der Determinante.
+
+Für die obere Dreiecksgestalt gilt, dass man sie durch \textbf{(EU 3)} auf Diagonalgestalt bringen kann falls alle Elemente ungleich Null sind. Dabei ändert sich nichts am Wert der Determinante.
+Ist eines der Diagonalelemente Null, entsteht eine Nullzeile durch den Gaußalgorithmus $\rightsquigarrow \det A =0$.
+
+\begin{satz}{Determinante und Invertierbarkeit}
+	Die Determinante einer Matrix ist genau dann von Null verschieden, wenn die Matrix invertierbar ist.
+\end{satz}
+
+\beweis
+Die Matrix ist genau dann invertierbar, wenn in einer Zeilen-Stufenform keine Nullzeilen vorkommen. Dies ist genau dann der Fall wenn die Determinante von Null verschieden ist.
+
+\bemerkung
+Aus dem Satz folgt die Eindeutigkeit der Determinante, denn wir können ihren Wert berechnen.
+
+\begin{satz}{}
+	Sie $A\in M(n,K)$, dann bezeichnet für $i,j\in\simpleset{1,\ldots,n}$ $A_{ij}$ die Matrix aus $M(n-1,K)$ die aus Streichen der $i$-ten Zeile und $j$-ten Spalte hervorgeht.
+\end{satz}
+\paragraph{Beispiel:}
+\begin{equation*}
+	A=\matrix{1&\color{red}2&3&4\\5&\color{red}6&7&8\\\color{red}9&\color{red}10&\color{red}11&\color{red}12\\13&\color{red}14&15&16}
+	\rightsquigarrow A_{32}=\matrix{1&3&4\\5&7&8\\13&15&16}
+\end{equation*}
+
+\begin{satz}{La-Place'scher Entwicklungssatz}
+	Sie $A\in M(n,K)$ und $j\in{1,\ldots, n}$, dann gilt:
+	\begin{equation*}
+		\det A=\sum\limits_{i=1}^n(-1)^{i+j}*a_{ji}*\det{A_{ij}}
+	\end{equation*}
+\end{satz}
+\paragraph{Erläuterung:}
+Dieses Verfahren wird auch Entwickeln nach der $j$-ten Spalte genannt.
+
+\begin{equation*}
+	A=\matrix{1&2&3\\4&5&6\\7&8&9}\quad\text{und }j=1 \text{ (Entwickeln nach der 1. Spalte)}
+\end{equation*}
+
+Den Faktor $(-1)^{i+j}$ können wir uns als schachbrettartiges Muster von Vorzeichen denken:
+\begin{equation*}
+	A=\matrix{+&-&+\\-&+&-\\+&-&+}
+\end{equation*}
+
+\begin{align*}
+	\det A 	&= 1*\det A_{11}-4*\det A_{12}+7*\det A_{13}\\
+					&= \detmatrix{5&6\\8&9}-4*\detmatrix{2&3\\8&9}+7*\detmatrix{2&3\\5&6}\\
+					&= 5*9-6*8-4(2*9-3*8)+7(2*6-3*5)\\
+					&= 45-48-4(18-24)+7(12-15)\\
+					&= -3-4(-6)+7(-3)\\
+					&= -3+24-21\\
+					&= 0
+\end{align*}

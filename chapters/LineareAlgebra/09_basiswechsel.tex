@@ -1,0 +1,79 @@
+\chapter{Basiswechsel - Koordinatentransformation}
+
+\paragraph{Erinnerung:}
+Sei $V$ ein endlich dimensionaler Vektorraum und $B=\simpleset{v_1,\ldots,v_n}$ eine Basis von $V$. Dann hat jeder Vektor $v\in V$ eine Darstellung bezüglich $B$:
+\begin{equation*}
+	v=\lambda_1v_1+\ldots+\lambda_nv_n\in K
+\end{equation*}
+mit eindeutig bestimmten $\lambda_1, \ldots, \lambda_n$.\\
+Außerdem ist der Koordinatenvektor von $v$ bezüglich der Basis $B$:
+\begin{equation*}
+	v_B=\vector{\lambda_1\\\vdots\\\lambda_n} \in K^n
+\end{equation*}
+
+Ist $C=\simpleset{w_1,\ldots,w_n}$ eine weitere Basis von $V$, dann hat $v$ im Allgemeinen verschiedene Darstellungen $v_B, v_C$.
+
+\section{Transformationsmatrix}
+\paragraph{Beispiel:}
+Seien zwei Basen für den Vektorraum $V=\R$ gegeben:
+\begin{equation*}
+	B=\simpleset{\underset{v_1}{\vector{1\\0}},\underset{v_2}{\vector{1\\1}}}, C=\simpleset{\underset{w_1}{\vector{2\\0}},\underset{w_2}{\vector{1\\-1}}}
+\end{equation*}
+
+Dann lassen sich die Basisvektoren in $C$ durch die in $B$ ausdrücken:
+\begin{align*}
+	w_1&=2v_1\\
+	w_2&=2v_1-v_2
+\end{align*}
+das heißt $w_1$ und $w_2$ haben bezüglich $B$ die Koordinatendarstellungen
+\begin{equation*}
+	w_{1_B}=\vector{2\\0}, w_{2_B}=\vector{2\\-1}
+\end{equation*}
+
+Wir schreiben diese Vektoren jetzt als Spalten in die \emph{Transformationsmatrix}
+\begin{equation*}
+	T_B^C=\matrix{2 & 2\\ 0 & -1} \quad\text{(Transformation von $C$ nach $B$)}
+\end{equation*}
+Das Anwenden dieser Matrix auf den Koordinatenvektor $v_C$ eines Vektors $v\in V$ liefert den Koordinatenvektor $v_b$ bezüglich der Basis $B$.
+
+\begin{equation*}
+	v_b=T_B^C*v_C
+\end{equation*}
+
+\begin{definition}{Transformationsmatrix}
+	Seien $B=\simpleset{v_1,\ldots,v_n}$ und $C=\simpleset{w_1,\ldots,w_n}$ zwei Basen eines $K$-Vektorraums gegeben. Und die Matrix $T^B_C\in M(n,K)$ deren Spalten durch Koordinatendarstellungen der Vektoren $v_1,\ldots,v_n$ bezüglich der Basis $C$ gebildet werden, das heißt:
+	\begin{equation*}
+		T_C^B=\matrix{ |&&|\\ (v_1)_C & \cdots & (v_n)_C   \\ | && |}
+	\end{equation*}
+	diese heißt \emph{Transformationsmatrix} oder auch \emph{Basiswechselmatrix} von $B$ nach $C$.
+\end{definition}
+
+
+\section{Basiswechsel}
+Basiswechsel bei einer darstellenden Matrix einer linearen Abbildung:\\
+Sei $f:V\rightarrow W$ eine lineare Abbildung zwischen endlich dimensionalen $K$-Vektorräumen. Beim Übergang von einer Basis in $V$ oder in $W$ ändern sich nicht nur die Koordinatendarstellungen von einzelnen Vektoren, sondern auch die Einträge der darstellenden Matrix von $f$.
+
+\begin{satz}{}
+	Seien $V$ und $W$ endlich dimensionale $K$-Vektorräume. $B,C$ Basen von $V$ und $D,E$ Basen von $W$.
+	Sei $f_D^B$ die darstellende Matrix einer linearen Abbildung $f:V\rightarrow W$ bezüglich der Basen $B$ und $D$.
+	Dann gilt für die darstellende Matrix bezüglich $C$ und $E$:
+	\begin{equation*}
+		f_E^C=T_E^D*f^B_D*T_B^C
+	\end{equation*}
+\end{satz}
+
+\begin{beweis}{}
+	Sei $v\in V$:
+	\begin{equation*}
+		T_E^D*f^B_D* \underbrace{T_B^C*v_C}_{v_B}=T_E^D*f_D^B*v_B=T^D_E*\left(f(v)\right)_D = \left(f(_v)\right)_E
+	\end{equation*}
+\end{beweis}
+
+\merkregel \glqq Kürzen \grqq:
+\begin{equation*}
+	T_E^D*f^B_D*T_B^{\not C}*v_{\not C}=T_E^D*f_D^{\not B}*v_{\not B}=T^{\not D}_E*\left(f(v)\right)_{\not D} = \left(f(_v)\right)_E
+\end{equation*}
+
+
+\paragraph{Problem:}
+Wie findet man geeignete Transformationsmatrizen, um eine lineare Abbildung möglichst einfach darzustellen, idealerweise als eine Diagonalmatrix?
