@@ -1,0 +1,77 @@
+\chapter{Konvergenz in metrischen Räumen}
+Um Konvergenz (beliebig genaue Approximation) beschreiben zu können, benötigen wir den Begriff des Abstands.
+\begin{definition}{Metrik, metrischer Raum}
+	Sei $X$ eine Menge. Eine Abbildung $\varrho:X\times X\rightarrow \R$ heißt Metrik (auch Abstandsfunktion), wenn sie für alle $x,y,z\in X$ folgende Eigenschaften hat.
+	\begin{description}
+		\item[M1] $\varrho(x,y)\geq 0$ und es gilt $\varrho(x,y)=0$ gdw. $x=y$
+		\item[M2] $\varrho(x,y)=\varrho(y,x)$, d.h. $\varrho$ ist eine symmetrische Funktion
+		\item[M3] $\varrho(x,z)\leq\varrho(x,y)+\varrho(y,z)$ (Dreiecksungleichung)
+	\end{description}
+	Eine Menge $X$ versehen mit einer Metrik nennen wir metrischen Raum.
+\end{definition}
+
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item $X=\R$, $\varrho(x,y)=|x-y|$
+	\item $X=\R^n$, in $\R^n$ ist der \emph{euklidische Abstand} gegeben durch
+	\begin{align*}
+		\varrho(x,y)&=\varrho\vector{x_1\\x_2\\\vdots\\x_n},\vector{y_1\\y_2\\\vdots\\y_n}\\
+								&=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\ldots+(x_n-y_n)^2}\\
+								&=\sqrt{\sum\limits^n_{i=1}(x_i-y_i)^2}
+	\end{align*}
+	vgl. dem Satz von \textsc{Pythagoras}
+	\item Auf jeder nichtleeren Menge kann man die \emph{diskrete Metrik} einführen:
+	\begin{equation*}
+		\mathrm{d}(x,y)=\begin{cases}
+			0, \text{ falls }x=y\\
+			1, \text{ falls }x\neq y
+		\end{cases}
+	\end{equation*}
+	\item Ist $V$ ein \emph{euklidischer Vektorraum}, dann ist durch $|\!|v|\!|=\sqrt{<\!x,y\!>}$ eine \emph{Norm} gegeben,falls für jede Norm $|\!|\cdot|\!|$ liefert $\varrho(x,y)\coloneqq |\!|x-y|\!|$ eine Metrik. Mit anderen Worten, jeder normierte Vektorraum ist ein metrischer Raum.
+	\item In der \emph{Codierungstheorie} führt man auf der Menge der n-stelligen Binärwörter
+	\begin{equation*}
+		X=\set{(x_1,x_2,\ldots,x_n)}{x_i\in\simpleset{0,1}}
+	\end{equation*}
+	den \emph{Hemmingabstand} ein:
+	\begin{equation*}
+		\varrho(x,y) =\text{ Anzahl von Stellen an denen sich $x$ und $y$ unterscheiden.}
+	\end{equation*}
+	Z.B. $\varrho((0,0,1,1),(0,0,1,0))=1$. Anwendung: Fehlerkorrigierende Codes.
+\end{itemize}
+
+
+Mit Hilfe der Metrik führen wir den Begriff der Kugelumgebung eines Punktes in einem metrischen Raum ein.
+\begin{definition}{Kugelumgebung}
+	Sei ein Punkt $x_0\in X$ und $\epsilon>0$ eine reelle Zahl. Unter der Kugelumgebung von $x_0$ mit Radius $\epsilon$ um den Mittelpunkt $x_0$ versteht man die Menge
+	\begin{equation*}
+		K_\epsilon(x_0)\coloneqq\set{x\in X}{\varrho(x,x_0)<\epsilon}
+	\end{equation*}
+\end{definition}
+\paragraph{Beispiel:} Im $\R^2$ mit der euklidischen Metrik ist $K_\epsilon(x_0)$ die \emph{offene Kreisscheibe} (das Innere der Kreisscheibe) um $x_0$ mit Radius $\epsilon$. (Punkte auf dem Kreis sind nicht in $K_\epsilon$!)
+
+\begin{definition}{Offene und abgeschlossene Mengen}
+	Sei $X$ ein metrischer Raum. Eine Teilmenge $U\subseteq X$ heißt \emph{offen}, falls zu jedem $x_0\in U$ eine Kugelumgebung mit $\epsilon>0$ existiert, die ganz in $U$ enthalten ist.
+
+	Eine Teilmenge $A\subseteq X$ heißt abgeschlossen, falls ihr Komplement $X\setminus A$ offen ist.
+\end{definition}
+\paragraph{Beispiel:}
+Sei $X=\R$ und $\varrho(x,y)=|x-y|$.
+
+Dann ist das Intervall
+\begin{equation*}
+	(a,b)=\set{x\in \R}{a<x<b}
+\end{equation*}
+im obigen Sinne offen.
+
+Das Intervall
+\begin{equation*}
+	[a,b]=\set{x\in\R}{a\leq x\leq b}
+\end{equation*}
+ist abgeschlossen.
+
+Das Intervall
+\begin{equation*}
+	(a,b]=\set{x\in \R}{a<x\leq b}
+\end{equation*}
+ist weder abgeschlossen noch offen.

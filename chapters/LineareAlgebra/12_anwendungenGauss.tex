@@ -139,3 +139,27 @@ Den Faktor $(-1)^{i+j}$ können wir uns als schachbrettartiges Muster von Vorzei
 					&= -3+24-21\\
 					&= 0
 \end{align*}
+
+\beweis
+Wir weisen nach, dass es sich bei der Formel um eine multilineare, alternierende, normierte Abbildung handelt.
+
+\paragraph{Induktionsvoraussetzung:}
+Damit die Formel auch für $1\times 1 $-Matrizen sinnvoll ist, setzen wir für $A\in M(1,K) \det A_{11}=1$, d.h. die Determinante einer $0\times 0$-Matrix ist $1$.
+
+\paragraph{Induktionsanfang: } $n=1$
+
+Die Formel lautet
+\begin{equation*}
+	\det A=\det A_{11}=a_{11}*\det(A_{11})=a_{11}
+\end{equation*}
+diese Abbildung ist linear, alternierend und normiert.
+
+
+\paragraph{Induktionsschritt: } $n\rightarrow n+1$
+
+Die Formel ist linear in der $i$-ten Zeile, da Linearkombination der Einträge $a_{i1},\ldots,a_{in}$ der $i$-ten Zeile.
+Sie ist auch linear in den anderen Zeilen, da Linearkombination der $\det A_{ij}$, die nach \textbf{IV} multilinear sind.
+
+Sind zwei Zeilen gleich, dann sind nach \textbf{IV} alle $\det A_{ij}=0$ außer die beiden, für die der Index einer der beiden Nullzeilen ist. Aber hier ist $a_{ij}=0$! (Alternierend)
+
+Die Formel $\underbrace{(-1)^{i+j}}_{=1}*\underbrace{a_{jj}}_{=1}*\underbrace{\det E_{ij}}_{=1}$ ist normiert.

@@ -1,0 +1,47 @@
+\begin{satz}{Regel von Sarrus}
+	Für die Determinante einer $3\times3$-Matrix gilt:
+	\begin{align*}
+		&\det\matrix{
+		\ma{11} & \ma{12} & \ma{13}\\
+		\ma{21} & \ma{22} & \ma{23}\\
+		\ma{31} & \ma{32} & \ma{33}
+		}\\
+		&=\ma{11}\ma{22}\ma{33}+\ma{12}\ma{23}\ma{31}+\ma{13}\ma{21}\ma{32}\\
+		&\quad-\ma{31}\ma{22}\ma{13}-\ma{32}\ma{23}\ma{11}-\ma{33}\ma{21}\ma{12}
+	\end{align*}
+\end{satz}
+\paragraph{Merkregel:} \glqq Jägerzaunregel\grqq
+
+\paragraph{Vorsicht!} Verallgemeinert sich nicht auf höhere Dimensionen.
+
+\beweis
+Entwickeln nach der ersten Spalte:
+\begin{align*}
+	\det\matrix{
+	\ma{11} & \ma{12} & \ma{13}\\
+	\ma{21} & \ma{22} & \ma{23}\\
+	\ma{31} & \ma{32} & \ma{33}
+	}&=\ma{11}*\detmatrix{\ma{22} & \ma{23}\\\ma{32} & \ma{33}}
+	-\ma{21}*\detmatrix{\ma{12} & \ma{13}\\\ma{32} & \ma{33}}
+	+\ma{31}*\detmatrix{\ma{12} & \ma{13}\\\ma{22} & \ma{23}}\\
+	&=\ma{11}(\ma{22}\ma{33}-\ma{32}\ma{23})-\ma{21}(\ma{12}\ma{33}-\ma{32}\ma{13})\\
+	&\quad+\ma{31}(\ma{12}\ma{23}-\ma{22}\ma{13})\\
+	&=\ma{11}\ma{22}\ma{33}+\ma{12}\ma{23}\ma{31}+\ma{13}\ma{21}\ma{32}\\
+	&\quad-\ma{31}\ma{22}\ma{13}-\ma{32}\ma{23}\ma{11}-\ma{33}\ma{21}\ma{12}
+\end{align*}
+
+\section{Bemerkungen}
+\subsection{\textsc{Leibniz}'sche Formel}
+\begin{satz}{}
+	Für die Determinante einer $n\times n$-Matrix $A\in M(n,K)$ gilt:
+	\begin{equation*}
+		\det A=\sum_{\sigma\in \mathrm{Sym}(n)}\mathrm{sgn}(\sigma)*\ma{1\sigma(1)}*\ldots*\ma{n\sigma(n)}
+	\end{equation*}
+	wobei $\mathrm{Sym}(n)=
+	\simpleset{
+		\sigma:
+		\simpleset{1,\ldots,n}
+			\overset{\text{bijektiv}}{\longrightarrow}
+		\simpleset{1,\ldots,n}
+	}$ die Menge aller Permutationen von $\simpleset{1,\ldots,n}$ (auch die symmetrische Gruppe vom Grad n genannt) ist. Und wobei $\mathrm{sgn}$ das Vorzeichen der Permutation ist, d.h. $\mathrm{sgn}(\sigma)=+1$ bei einer geraden Permutation (Hintereinanderausführung von einer geraden Anzahl an Vertauschungen), $\mathrm{sng}(\sigma)=-1$ sonst.
+\end{satz}
