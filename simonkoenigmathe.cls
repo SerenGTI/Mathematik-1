@@ -22,6 +22,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage[framemethod=TikZ]{mdframed}
+\RequirePackage{xfrac}
 
 
 \RequirePackage[default]{sourcesanspro}
