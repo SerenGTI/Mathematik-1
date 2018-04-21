@@ -84,13 +84,17 @@ Wegen $(a_n)\rightarrow a$ gibt es ein $n_0\in\N$ so, dass $a_n\in K_{\sfrac\del
 Damit gilt aber da $K_{\sfrac{\delta}{2}}(a)$ und $K_{\sfrac{\delta}{2}}(b)$ disjunkt sind, dass $a_n\not\in K_{\sfrac{\delta}{2}}(b)$ für alle $n\geq n_0$.\\
 Widerspruch zu $a_n\rightarrow b$
 
-\begin{definition}{Beschränktheit}
+\begin{definition}{Beschränktheit von Folgen}
 	Eine Folge $(a_n)$ in einem metrischen Raum $X$ ist beschränkt, falls es ein $x_0\in X$ und ein $R>0$ gibt, so dass $a_n\in K_R(x_0)$ für alle $n\in N$ gilt.
 \end{definition}
 \begin{satz}{}
 	Konvergente Folgen sind beschränkt.
 \end{satz}
 \beweis
-Sei $a$ der Grenzwert der Folge und $r>0$ eine positive Zahl, dann gilt:\\
-Es gibt dann ein $n_0\in\N$, so dass die $a_n\in K_r(a)$ liegen.\\
-Es gibt aber nur endlich viele Indizes, ($1,\ldots,n_0-1$) deren Folgenglieder eventuell außerhalb der Kugelumgebung liegen. Wähle am Ende $R$ als das Maximum von $(\varrho(a_1,a),\ldots,\varrho(a_{n_0-1},a),r)$
+Sei $a$ der Grenzwert der Folge und $r>0$ eine positive Zahl.
+
+Dann gibt es ein $n_0\in\N$, so dass für alle $n\geq n_0$ $a_n\in K_r(a)$ gilt.
+
+Es gibt aber nur endlich viele Indizes ($1,\ldots,n_0-1$), deren Folgenglieder eventuell außerhalb dieser Kugelumgebung $K_r(a)$ liegen.
+
+Wähle also am Ende die Schranke $R$ als das Maximum $R=\mathrm{max}(\varrho(a_1,a),\ldots,\varrho(a_{n_0-1},a),r)$. Damit liegt $a_n$ für alle $n\in\N$ unter der Schranke $R$.

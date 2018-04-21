@@ -224,6 +224,7 @@
 \renewcommand{\i}{\ensuremath\mathfrak{i}}%imaginäre Einheit
 \renewcommand{\Im}{\ensuremath\mathfrak{Im}}
 \renewcommand{\Re}{\ensuremath\mathfrak{Re}}
+%\renewcommand{\sup}{\ensuremath\mathrm{sup}\!}
 
 \newcommand{\spann}[1]{\ensuremath\mathrm{Span}\! \left(#1\right)}
 \renewcommand{\vector}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{pmatrix} #1 \end{pmatrix}}

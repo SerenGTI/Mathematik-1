@@ -1,0 +1,142 @@
+\chapter{Zahlenfolgen und Zahlenreihen}
+Wir betrachten in diesem Abschnitt den Spezialfall, dass der metrische Raum $X$ gleich $\R$ oder $\C$ ist. Wir verwenden dabei die Metrik zwischen zwei Zahlen $\varrho(x,y)=|x-y|$. Wir sprechen in diesem Fall von Zahlenfolgen.
+
+\section{Rechnen mit Grenzwerten}
+\begin{satz}{}
+	Seien $(x_n)$ und $(y_n)$ zwei konvergente Folgen in den reellen Zahlen $\R$ mit
+	\begin{equation*}
+		x\coloneqq \lim\limits_{n\to\infty} x_n \text{ und } y\coloneqq \lim\limits_{n\to\infty} y_n
+	\end{equation*}
+	für die für alle $n\in\N$ gilt $x_n\leq y_n$, dann folgt daraus $x\leq y$.
+\end{satz}
+\beweis
+Angenommen $x > y$:\\
+Wähle $\epsilon =\frac{x-y}2$, dann gibt es ein $n\in\N$, so dass
+\begin{equation*}
+	|x-x_n|<\epsilon \text{ und } |y_n-y|<\epsilon
+\end{equation*}
+gilt. Es folgt daraus
+\begin{equation*}
+	x-x_n<\epsilon \Leftrightarrow x-\epsilon<x_n \text{ und } y-y_n<\epsilon \Leftrightarrow y_n<\epsilon + y
+\end{equation*}
+Insgesamt erhält man
+\begin{align*}
+	x-\epsilon &< x_n\leq y_n <y+\epsilon\\
+	x-y&<2\epsilon
+\end{align*}
+Widerspruch!
+
+\begin{satz}{Rechenregeln für Limites}
+	Seien $(x_n), (y_n)$ konvergente Folgen in $\R$ oder $\C$. Sei außerdem $\alpha\in\R$ oder $\C$, dann gilt
+
+	\begin{itemize}
+		\item $\left|\lim\limits_{n\to\infty}x_n\right|=\lim\limits_{n\to\infty}|x_n|$
+		\item $\lim\limits_{n\to\infty}(\alpha * x_n) = \alpha \lim\limits_{n\to\infty}x_n$
+		\item $\lim\limits_{n\to\infty}(x_n+y_n)=\lim\limits_{n\to\infty}x_n+\lim\limits_{n\to\infty}y_n$
+		\item $\lim\limits_{n\to\infty}(x_n*y_n)=\lim\limits_{n\to\infty}x_n*\lim\limits_{n\to\infty}y_n$
+		\item und falls $x_n\geq 0$, gilt mit $p\in\N$:
+		\begin{itemize}
+			\item $ \lim\limits_{n\to\infty}\sqrt[p]{x_n}=\sqrt[p]{\lim\limits_{n\to\infty}x_n}$
+			\item $\lim\limits_{n\to\infty}x_n^p = \left(\lim\limits_{n\to\infty}x_n\right)^p$
+		\end{itemize}
+	\end{itemize}
+\end{satz}
+\beweis
+Nur für die Aussage über die Addition:
+$$\lim\limits_{n\to\infty}(x_n+y_m)=\lim\limits_{n\to\infty}x_n+\lim\limits_{n\to\infty}y_n$$
+
+Es ist $\lim\limits_{n\to\infty}(x_n+y_m) = x+y$ zu zeigen, wobei $x_n\to x$ und $y_n\to y$ gilt.
+
+Sei $\epsilon>0$. Es gibt ein $n_0\in\N$, so dass $|x_n-x|<\frac\epsilon2$ und $|y_n-y|<\frac\epsilon2$ für alle $n\geq n_0$.
+
+Dann gilt mit der Dreiecksungleichung: $$\left|(x_n+y_n)-(x+y)\right|=\left|(x_n-x)+(y_n-y)\right|\leq |x_n-x|+|y_n-y|<\frac\epsilon2+\frac\epsilon2=\epsilon$$
+
+
+\subsection{Konvergenzkriterien}
+\begin{satz}{Einschließungskriterium}
+	Seien $(x_n), (y_n), (z_n)$ reelle Zahlenfolgen. Weiterhin gelte $x_n\leq z_n\leq y_n$ für alle $n\in\N$ und $\lim\limits_{n\to\infty} x_n=x=\lim\limits_{n\to\infty} y_n$.
+
+	Dann konvergiert auch $z_n$ mit $\lim\limits_{n\to\infty} z_n = x$.
+\end{satz}
+\beweis
+Sei $\epsilon>0$. Wähle $n_0\in\N$ so, dass $|x_n-x|<\epsilon$ und $|y_n-y|<\epsilon$. Dann gilt für alle natürlichen Zahlen $n\geq n_0$:
+\begin{equation*}
+	|x-z_n|=\begin{cases}
+		z_n-x\leq y_n-x \leq |y_n-x| <\epsilon \text{, falls $x<z_n$}\\
+		x-z_n\leq x-x_n \leq |x-x_n| <\epsilon \text{, falls $x\leq z_n$}
+	\end{cases}
+\end{equation*}
+\hfill $\Box$
+
+\begin{lemma}{}\label{lemma:abschaetzung}
+	Es gilt: $(1+x)^n>\frac{n^2}{4}x^2$, für $x>0, n\geq 2$
+\end{lemma}
+\beweis
+Für $n\geq2$ gilt:
+\begin{align*}
+	(1+x)^n=\sum\limits_{i=0}^n\binom{n}{i}x^i>\binom{n}{2}x^2&=\frac{n(n+1)}{2}x^2\\
+	&=\left(\frac{n^2}{2}-\frac n2 \right)x^2\\
+	&=\left(\frac{n^2}4 + \underbrace{\frac{n^2-2n}{4}}_{\geq 0}\right)x^2\\
+	&\geq \frac{n^2}4 x^2
+\end{align*}
+
+\paragraph{Beispiel:} zur Berechnung von Grenzwerten mit dem Einschließungskriterium.
+\begin{itemize}
+	\item Mit Hilfe dieser Ungleichung zeigen wir, dass folgende Aussage gilt:
+	$$\lim\limits_{n\to\infty}\sqrt[n]{n}=1$$
+
+	Wir setzen in die Formel aus \autoref{lemma:abschaetzung} $x=\sqrt[n]{n}-1\geq 0$ ein.
+
+	Wir erhalten
+	\begin{align*}
+		n&>\frac{n^2}{4}*(\sqrt[n]{n}-1)^2\\
+		\sqrt{n}&>\frac n2(\sqrt[n]{n}-1)\\
+		\frac2{\sqrt{n}}+1&>\sqrt[n]{n}>1
+	\end{align*}
+	Es gilt $\lim\limits_{n\to\infty}\frac2{\sqrt{n}}+1 = 1$ und mit dem Einschließungskriterium folgt $\lim\limits_{n\to\infty}\sqrt[n]{n}=1$.
+
+	\item Ähnlich kann man zeigen, dass $\lim\limits_{n\to\infty}\sqrt[n]{a}=1$ für $a>1$ ist.
+
+	Dazu setzen wir in die Formel von oben $x=\sqrt[n]{a}-1$ ein.
+
+	\begin{align*}
+		a&>\frac{n^2}{4}*(\sqrt[n]{a}-1)^2\\
+		\sqrt{a}&>\frac n2*(\sqrt[n]{a}-1)\\
+		\frac{2\sqrt{a}}{n}+1&>\sqrt[n]{a}>1
+	\end{align*}
+	Es gilt wieder: $\lim\limits_{n\to\infty}\frac{2\sqrt{a}}{n}+1=1$, daraus folgt die Behauptung.
+\end{itemize}
+
+\paragraph{Bemerung:} Gilt auch für $0<a\leq 1$.
+
+\section{Monotone Folgen}
+\begin{definition}{}
+	Eine reelle Zahlenfolge $(x_n)_{n\in\N}$ heißt
+	\begin{description}
+		\item[streng monoton wachsend], falls $x_n<x_{n+1}$
+		\item[streng monoton fallend], falls $x_n>x_{n+1}$
+		\item[monoton wachsend], falls $x_n\leq x_{n+1}$
+		\item[monoton fallend], falls $x_n\geq x_{n+1}$
+	\end{description}
+	jeweils für alle $n\in\N$ gilt.
+\end{definition}
+
+\begin{satz}{}
+	Beschränkte, monotone Folgen sind konvergent.
+\end{satz}
+\beweis
+Wir zeigen die Aussage für monoton wachsende Folgen:
+
+Gelte also $x_n\geq x_{n+1}<c$ für alle $n\in\N$. Dann existiert auch eine kleinste obere Schranke
+\begin{equation*}
+	c_{\text{min}}\coloneqq \sup\set{x_n}{n\in\N}
+\end{equation*}
+(Allgemein ist das Supremum $\sup M$ einer Menge $M\subseteq\R$ von reellen Zahlen die kleinste reelle Zahl $s$ für die gilt: $s\geq m\quad\forall m\in M$.
+
+Gibt es keine obere Schranke, dann existiert auch kein Supremum. Es folgt aus der Vollständigkeit der reellen Zahlen, dass jede beschränkte Menge von reellen Zahlen ein Supremum besitzt.)
+
+\par\medskip
+
+Zu jedem $\epsilon>0$ existiert ein $n_0\in\N$, so dass $c_{\text{min}}-\epsilon<x_{n_0}$. Sonst wäre $c_{\text{min}}$ nicht die kleinste obere Schranke.
+
+Dann gilt aber wegen der Monotonie der Folge, dass $c_{\text{min}}-\epsilon<x_n$ für alle $n\geq n_0$. Dann folgt $|c_{\text{min}}-x_n|=c_{\text{min}}-x_n<\epsilon$.
