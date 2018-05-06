@@ -52,7 +52,7 @@ Sei $\epsilon>0$. Es gibt ein $n_0\in\N$, so dass $|x_n-x|<\frac\epsilon2$ und $
 Dann gilt mit der Dreiecksungleichung: $$\left|(x_n+y_n)-(x+y)\right|=\left|(x_n-x)+(y_n-y)\right|\leq |x_n-x|+|y_n-y|<\frac\epsilon2+\frac\epsilon2=\epsilon$$
 
 
-\subsection{Konvergenzkriterien}
+\section{Konvergenzkriterien}
 \begin{satz}{Einschließungskriterium}
 	Seien $(x_n), (y_n), (z_n)$ reelle Zahlenfolgen. Weiterhin gelte $x_n\leq z_n\leq y_n$ für alle $n\in\N$ und $\lim\limits_{n\to\infty} x_n=x=\lim\limits_{n\to\infty} y_n$.
 
@@ -109,7 +109,7 @@ Für $n\geq2$ gilt:
 
 \paragraph{Bemerung:} Gilt auch für $0<a\leq 1$.
 
-\section{Monotone Folgen}
+\subsection{Monotone Folgen}
 \begin{definition}{}
 	Eine reelle Zahlenfolge $(x_n)_{n\in\N}$ heißt
 	\begin{description}
@@ -140,3 +140,50 @@ Gibt es keine obere Schranke, dann existiert auch kein Supremum. Es folgt aus de
 Zu jedem $\epsilon>0$ existiert ein $n_0\in\N$, so dass $c_{\text{min}}-\epsilon<x_{n_0}$. Sonst wäre $c_{\text{min}}$ nicht die kleinste obere Schranke.
 
 Dann gilt aber wegen der Monotonie der Folge, dass $c_{\text{min}}-\epsilon<x_n$ für alle $n\geq n_0$. Dann folgt $|c_{\text{min}}-x_n|=c_{\text{min}}-x_n<\epsilon$.
+
+
+\begin{definition}{Teilfolgen}
+	Sei $(n_k)_{k\in\N}$ eine streng monoton wachsende Folge von natürlichen Zahlen ($n_k\in\N$) und sei $(a_n)_{n\in\N}$ eine Folge in einem metrischen Raum, $a_n\in X$. Dann ist $(a_{n_k})_{k\in\N}$ eine Teilfolge der Folge $(a_n)$
+\end{definition}
+\paragraph{Beispiele:}
+Sei $a_n=(-1)^n$. Dann ist $a_n$ divergent, aber die Teilfolgen
+\begin{itemize}
+	\item $a_{2n}=(-1)^{2n}=1$
+	\item $a_{2n+1}=(-1)^{2n+1}=-1$
+\end{itemize}
+sind konvergent, sogar konstant. Andere Teilfolgen sind z.B. $n_k=3k$ (ebenfalls divergent).
+
+\begin{definition}{Häufungspunkt}
+	Sei $(a_n)_{n\in\N}$ eine Folge reeller oder auch komplexer Zahlen. Ein Element $a\in X$ heißt Häufungspunkt der Folge $(a_n)$, falls es eine gegen $a$ konvergente Teilfolge von $(a_n)$ gibt.
+\end{definition}
+\paragraph{Beispiel:}
+$-1$ und $1$ sind die Häufungspunkte von $a_n=(-1)^n$.
+
+\paragraph{Bemerkung:}
+Es gilt der Satz von Bolzano-Weierstraß: Jede beschränkte, reelle oder komplexe Zahlenfolge hat eine konvergente Teilfolge.
+
+\subsection{Cauchy'sches Konvergenzkriterium}
+Wir kommen nun zum Cauchy'sches Konvergenzkriterium für Folgen. Im Unterschied zur Definition von Konvergenz, in der der Grenzwert vorkommt, ein \glqq inneres\grqq Kriterium für Konvergenz, d.h. um dieses Kriterium für Konvergenz entscheiden zu können, muss man den Grenzwert nicht kennen.
+
+\begin{satz}{Cauchy'sches Konvergenzkriterium}
+	Eine Folge reeller bzw. komplexer Zahlen $(a_n)_{n\in\N}$ konvergiert genau dann, wenn sie eine sog. Cauchyfolge ist. D.h. falls für alle $\epsilon>0$ ein $n_0\in\N$ existiert, sodass
+	\begin{equation*}
+		|a_n-a_m|<\epsilon \quad\forall n,m\geq n_0
+	\end{equation*}
+	gilt. (Der Abstand zweier Folgenglieder ist kleiner als Epsilon)
+\end{satz}
+\beweis
+(nur eine Beweisskizze)
+
+\begin{description}
+	\item[\glqq$\Rightarrow$\grqq] Sei $(a_n)_{n\in\N}$ eine konvergente Folge und $\epsilon>0$ mit $\lim a_n=a$. Dann gibt es ein $n_0$, sodass $|a_n-a|<\sfrac\epsilon2$ für alle $n\geq n_0$ gilt. Dann gilt für je zwei $n,m\in\N$ mit $n,m\geq n_0$
+	\begin{equation*}
+		|a_n-a_m|\geq |a_n-a|+|a_m-a|<\frac\epsilon2+\frac\epsilon2=\epsilon
+	\end{equation*}
+
+	\item[\glqq$\Leftarrow$\grqq] Üblicherweise wird die Vollständigkeit eines metrischen Raums so definiert:
+
+	\glqq Ein metrischer Raum ist vollständig, wenn in ihm jede Cauchyfolge konvergiert.\grqq
+
+	Führt man die reellen Zahlen nicht axiomatisch ein, sondern gibt dafür ein Modell an (z.B. unendliche Dezimalbrüche), so kann man diese Aussage auch beweisen.\hfill$\Box$
+\end{description}
