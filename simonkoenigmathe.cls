@@ -5,7 +5,7 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
-\RequirePackage[top=3cm, bottom=4cm, outer=3.5cm, inner=3.5cm, heightrounded]{geometry}
+\RequirePackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm, heightrounded]{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{xcolor}
 \RequirePackage{hyperref}
