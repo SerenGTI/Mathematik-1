@@ -212,7 +212,7 @@
 
 
 
-\newcommand{\intd}{\ensuremath\ \mathrm{d}}
+
 \newcommand{\N}{\ensuremath\mathbb{N}}
 \newcommand{\Z}{\ensuremath\mathbb{Z}}
 \newcommand{\Q}{\ensuremath\mathbb{Q}}
@@ -220,25 +220,29 @@
 \newcommand{\C}{\ensuremath\mathbb{C}}
 \newcommand{\LM}{\ensuremath\mathbb{L}}%Lösungsmenge
 \renewcommand{\P}{\ensuremath\mathcal{P}}%Potenzmenge
-\newcommand{\Pot}{\ensuremath\mathrm{Pot}}%Potenzmenge
+\newcommand{\Pot}{\ensuremath\operatorname{Pot}}%Potenzmenge
 \renewcommand{\i}{\ensuremath\mathfrak{i}}%imaginäre Einheit
 \renewcommand{\Im}{\ensuremath\mathfrak{Im}}
 \renewcommand{\Re}{\ensuremath\mathfrak{Re}}
-%\renewcommand{\sup}{\ensuremath\mathrm{sup}\!}
+%\renewcommand{\sup}{\ensuremath\operatorname{sup}\!}
 
-\newcommand{\spann}[1]{\ensuremath\mathrm{Span}\! \left(#1\right)}
+\newcommand{\spann}[1]{\ensuremath\operatorname{Span}\! \left(#1\right)}
 \renewcommand{\vector}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
 \renewcommand{\matrix}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{pmatrix} #1 \end{pmatrix}}
 \newcommand{\ematrix}[2]{\renewcommand{\arraystretch}{1}\ensuremath\left(\begin{array}{@{}#1@{}}#2\end{array}\right)}
 
-\renewcommand{\det}{\ensuremath\mathrm{det}}
+\renewcommand{\det}{\ensuremath\operatorname{det}}
 \newcommand{\detmatrix}[1]{\renewcommand{\arraystretch}{1}\ensuremath\begin{vmatrix} #1 \end{vmatrix}}
 
-\newcommand{\rank}[1]{\ensuremath\mathrm{rk}\left(#1\right)}
-\renewcommand{\dim}[1]{\ensuremath\mathrm{dim}\left(#1\right)}
-\newcommand{\im}[1]{\ensuremath\mathrm{im}\,#1}
-\renewcommand{\ker}[1]{\ensuremath\mathrm{ker}\,#1}
+\newcommand{\rank}[1]{\ensuremath\operatorname{rk}\left(#1\right)}
+\renewcommand{\dim}[1]{\ensuremath\operatorname{dim}\left(#1\right)}
+\newcommand{\im}[1]{\ensuremath\operatorname{im}\,#1}
+\renewcommand{\ker}[1]{\ensuremath\operatorname{ker}\,#1}
 
 \newcommand{\set}[2]{\ensuremath \left\{ #1 \,\middle|\, #2 \right\}}%Menge
 \newcommand{\simpleset}[1]{\ensuremath \left\{ #1 \right\}}%aufzählende Menge
 \renewcommand{\emptyset}{\ensuremath\varnothing}
+
+
+\newcommand{\diff}{\mathop{}\!\operatorname{d}}
+\newcommand{\intd}{\diff}
