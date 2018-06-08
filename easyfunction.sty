@@ -1,0 +1,47 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{easyfunction}[2018/03/17 v0.0.1 Easy function plot package]
+	
+	\RequirePackage{xcolor}                     %Farben können verwendet werden
+	\RequirePackage{pgf}                        %Ermöglicht Zeichnen
+	\RequirePackage{tikz}                       %Ermöglicht Zeichnen mit tikZ
+
+	%Beginnt die Umgebung {Xmin}{Xmax}{scale}
+	\newcommand{\easyfunctionbegin}[3]{\begin{tikzpicture}[domain=#1:#2, scale=#3]}
+	%Schließt die Umgebung
+	\newcommand{\easyfunctionend}{\end{tikzpicture}}
+	%Zeichnet ein Gitter [color=gray]{Xmin}{Xmax}{Ymin}{Ymax}
+	\newcommand{\easyfunctiondrawgrid}[5][gray]{\draw[very thin, #1] (#2, #4) grid (#3, #5);}
+	%Zeichnet X-Achse [name=x]{Xmin}{Xmax}
+	\newcommand{\easyfunctiondrawx}[3][x]{\draw[->] (#2, 0) -- (#3, 0) node[right]{$#1$};}
+	%Zeichnet Y-Achse [name=y]{Ymin}{Ymax}
+	\newcommand{\easyfunctiondrawy}[3][y]{\draw[->] (0, #2) -- (0, #3) node[above]{$#1$};}
+	%Macht X-Beschriftung {Xmin}{Xmax}
+	\newcommand{\easyfunctionxscale}[2]{\foreach \x in {#1,...,#2}\draw(\x, 2pt) -- (\x, -2pt) node[below, fill=white]{\x};}
+	%Macht Y-Beschriftung {Ymin}{Ymax}
+	\newcommand{\easyfunctionyscale}[2]{\foreach \y in {#1,...,#2}\draw(2pt, \y) -- (-2pt, \y) node[left, fill = white]{\y};}
+	%Zeichnet Funktion [color]{variable}{function}{name}
+	\newcommand{\easyfunctionplot}[4][black]{\draw[#1] plot (#2, {#3}) node[right]{#4};}
+
+
+	%Environment für Easyfunktion{Xmin}{Xmax}{Ymin}{Ymax}{scale}
+	\newcommand{\Xmin}{0}
+	\newcommand{\Xmax}{0}
+	\newcommand{\Ymin}{0}
+	\newcommand{\Ymax}{0}
+	\newenvironment{easyfunction}[5]
+    	{\renewcommand{\Xmin}{#1}
+     	\renewcommand{\Xmax}{#2}
+     	\renewcommand{\Ymin}{#3}
+     	\renewcommand{\Ymax}{#4}
+     	\begin{tikzpicture}[domain=#1:#2, scale=#5]}
+    	{\end{tikzpicture}}
+
+	%Kommands
+	\newcommand{\makexaxis}[1][x]{\easyfunctiondrawx[#1]{\Xmin-0.2}{\Xmax+0.2}}                           %Macht X-Achse
+	\newcommand{\makeyaxis}[1][y]{\easyfunctiondrawy[#1]{\Ymin-0.2}{\Ymax+0.2}}                           %Macht Y-Achse
+	\newcommand{\makegrid}[1][gray]{\easyfunctiondrawgrid[#1]{\Xmin+0.1}{\Xmax-0.1}{\Ymin+0.1}{\Ymax-0.1}}%Macht Gitter
+	\newcommand{\makexscale}{\easyfunctionxscale{\Xmin}{\Xmax}}                                           %Macht X-Skala
+	\newcommand{\makeyscale}{\easyfunctionyscale{\Ymin}{\Ymax}}                                           %Macht Y-Skala
+	\newcommand{\plot}[4][black]{\draw[#1] plot (#2, #3) node[right]{#4};}
+
+\ProcessOptions\relax 

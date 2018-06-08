@@ -1,0 +1,38 @@
+\chapter{Extrema und Mittelwertsätze}
+Wir definieren zunächst lokale und globale Extrema.
+
+\begin{definition}{Lokale Extrema}
+	Sei $D\subseteq\R$ eine offene Teilmenge.
+	Die Funktion $f:D\rightarrow\R$ hat bei $x_0\in D$ ein lokales Minimum genau dann, wenn gilt:
+	\begin{equation*}
+		\exists \epsilon>0 \enspace\forall x\in K_\epsilon(x_0):f(x)\geq f(x_0)
+	\end{equation*}
+	Die Funktion hat bei $x_0$ ein lokales Minimum, falls gilt:
+	\begin{equation*}
+		\exists \epsilon>0 \enspace\forall x\in K_\epsilon(x_0):f(x)\leq f(x_0)
+	\end{equation*}
+	Das lokale Extremum heißt strikt oder isoliert, falls in der Definition die strikte Ungleichung gilt.
+\end{definition}
+\begin{definition}{Globale Extrema}
+	Falls für alle $x\in D$ gilt $f(x)\geq f(x_0)$ bzw. $f(x)\leq f(x_0)$, liegt ein globales Minimum bzw. Maximum bei $x_0$ vor.
+\end{definition}
+
+Der folgende Satz gibt den Zusammenhang zwischen lokalen Extrema und Differentiation an:
+\begin{satz}{}
+	Sei $D\subseteq\R$ eine offene Teilmenge und sei die Funktion $f:D\rightarrow\R$ bei $x_0\in D$ differenzierbar. Hat $f$ bei $x_0$ ein lokales Extremum, dann ist $\frac{\diff f}{\diff x}(x_0)=0$.
+\end{satz}
+\begin{beweis}
+	Sei $\epsilon$ wie in der Definition. Dann gilt für $0<h\leq\epsilon$, dass
+	\begin{align*}
+		&\text{bei einem Maximum:} &&\text{bei einem Minimum}\\
+		&0\leq\frac{f(x_0-h)-f(x_0)}{-h} &&0\geq\frac{f(x_0-h)-f(x_0)}{-h}\\
+		&0\geq\frac{f(x_0+h)-f(x_0)}{h} &&0\leq\frac{f(x_0+h)-f(x_0)}{h}
+	\end{align*}
+	Da $f$ bei $x_0$ differenzierbar ist, sind links- und rechtsseitiger Grenzwert gleich, dieser muss damit $0$ sein.
+	\hfill$\Box$
+\end{beweis}
+
+\begin{satz}{Satz von Rolle}
+	Sei $f$ stetig in $[a,b]$ und differenzierbar in $(a,b)$. Und es gelte $f(a)=f(b)$
+	\vspace{5em}
+\end{satz}

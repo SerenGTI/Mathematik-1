@@ -13,6 +13,7 @@
 \RequirePackage{array}
 
 \RequirePackage{multicol}
+\RequirePackage{wrapfig}
 \RequirePackage[fleqn]{mathtools}
 \RequirePackage{amssymb}
 \RequirePackage{latexsym}
@@ -22,6 +23,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage[framemethod=TikZ]{mdframed}
+\usetikzlibrary{arrows,intersections}
 \RequirePackage{xfrac}
 
 
@@ -244,5 +246,5 @@
 \renewcommand{\emptyset}{\ensuremath\varnothing}
 
 
-\newcommand{\diff}{\mathop{}\!\operatorname{d}}
+\newcommand{\diff}{\ \operatorname{d}\!}
 \newcommand{\intd}{\diff}

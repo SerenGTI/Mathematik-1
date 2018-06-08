@@ -1,0 +1,177 @@
+\chapter{Funktionenfolgen und -Reihen}
+Wir betrachten hier Folgen
+\begin{equation*}
+	f_n:D\rightarrow \R \text{ oder } \C, x\mapsto f_n(x)
+\end{equation*}
+mit $D\subseteq \R$ oder $\C$. Wir wollen uns natürlich mit der Frage der Konvergenz von Funktionenfolgen und -reihen befassen. Es gibt zwei Arten von Konvergenz für Folgen von Funktionen:
+
+\begin{definition}{Punktweise Konvergenz}
+	Sei $D\subseteq \R,\C$ der Definitionsbereich der Funktionen $f$ und $f_n, n\in\N$ wobei $f_n:D\rightarrow \R,\C$ und $f:D\rightarrow \R,\C$.
+
+	Die Folge $(f_n)$ heißt punktweise konvergent, falls für alle $x\in D$ gilt: $f_n(x)\to f(x)$.
+
+	Oder mit anderen Worten:
+	\begin{equation*}
+		\forall x\in D\enspace \forall \epsilon\geq0 \enspace\exists n_0\in\N : |f_n(x)-f(x)|<\epsilon
+	\end{equation*}
+	Man schreibt dann auch $f_n(x)\to f(x)\enspace \forall x\in D$ für punktweise Konvergenz.
+\end{definition}
+\begin{definition}{Gleichmäßige Konvergenz}
+	Die Funktionenfolge $(f_n)$ heißt gleichmäßig konvergent gegen die Funktion $f$, falls gilt:
+	\begin{equation*}
+		\forall\epsilon\geq0\enspace\exists n_0\in\N\enspace\forall x\in D\enspace   : |f_n(x)-f(x)|<\epsilon
+	\end{equation*}
+	Man schreibt dann auch $f_n\overset{glm}\longrightarrow f$ für gleichmäßige Konvergenz.
+\end{definition}
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item \begin{multicols}{2}
+	Sei $f_n(x)=1+\frac 1n * x$ mit dem Definitionsbereich $D=[-1;1]$. Sei $f(x)=1$ für $f:D\rightarrow \R$: Diese Funktion konvergiert gleichmäßig gegen $f\equiv 1$, denn
+
+	\begin{equation*}
+		|f_n(x)-f(x)|\leq |f_n(x)-1|
+	\end{equation*}
+
+	\columnbreak
+		\begin{center}
+			\begin{easyfunction}{-1}{1}{0}{2}{1}
+				\draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
+				\easyfunctionxscale{-1}{1}
+				\draw[->] (0,0) -- (0,2.2) node[above] {$f(x)$};
+
+				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x+1})
+						node[above right] {$f_1(x)$};
+				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{0.5*\x+1})
+						node[above right] {$f_2(x)$};
+				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{0.25*\x+1})
+						node[right] {$f_4(x)$};
+				\draw[line width=0.5mm,scale=1,domain=-1:1,smooth,variable=\x,red] plot ({\x},{1})
+						node[below right] {$f(x)$};
+			\end{easyfunction}
+		\end{center}
+	\end{multicols}
+
+	\item	\begin{multicols}{2}
+		$D=[-1;1], f_n=x^{2n}$
+
+		Die Funktionenfolge konvergiert punktweise gegen die Funktion
+		\begin{equation*}
+			f:D\rightarrow \R, f(x)=\begin{cases}
+				1, \text{ falls }|x|=1\\
+				0, \text{ sonst}
+			\end{cases}
+		\end{equation*}
+
+		\columnbreak
+
+		\begin{center}
+			\begin{easyfunction}{-1}{1}{0}{2}{1}
+				\draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
+				\easyfunctionxscale{-1}{1}
+				\draw[->] (0,0) -- (0,1.2) node[above] {$f(x)$};
+
+				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x*\x})
+						node[above right] {$f_1(x)$};
+				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x})
+						node[above right] {$f_2(x)$};
+				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x*\x*\x})
+						node[right] {$f_3(x)$};
+			\end{easyfunction}
+		\end{center}
+	\end{multicols}
+	Wir betrachten, dass die Grenzfunktion $f$ nicht stetig ist. Die gleichmäßige Konvergenz ist eine stärkere Eigenschaft als punktweise Konvergenz. Aus gleichmäßiger Konvergenz folgt punktweise Konvergez aber nicht umgekehrt.
+	Gleichmäßigkeit der Funktionenfolge garantiert die Stetigkeit der Limesfunktion.
+\end{itemize}
+
+\begin{satz}{Stetigkeit der Limesfunktion}
+	konvergiert eine Folge stetiget Funktionen gleichmäßig, dann ist die Limesfunktion stetig.
+\end{satz}
+\beweis
+Angenommen $f_n\overset{glm}\longrightarrow f$. Sei $\epsilon > 0, x_0\in\R$. Wähle $n_0\in\N$ so, dass
+\begin{equation*}
+	|f_{n_0}(x)-f(x)|<\frac \epsilon3
+\end{equation*}
+für alle $x\in D$ gilt.
+
+Wähle $\delta>0$ so, dass $|f_{n_0}(x)-f_{n_0}(x_0)|<\frac\epsilon3$ für alle $x\in D$ mit $|x-x_0|<\delta$ ist. Dann gilt:
+\begin{align*}
+	|f(x)-f(x_0)|&\leq \underbrace{|f(x)-f_{n_0}(x)|}_{<\sfrac \epsilon3}+\underbrace{|f_{n_0}(x)-f_{n_0}(x_0)|}_{<\sfrac \epsilon3}+\underbrace{|f_{n_0}(x_0)-f(x_0)|}_{<\sfrac \epsilon3}\\
+							 &< \epsilon
+\end{align*}
+Zeigt die $\epsilon-\delta$-Stetigkeit der Grenzfunktion $f$ am Punkt $X_0$.
+
+\paragraph{Bemerkung}
+Für Reihen von Funktionen
+\begin{equation*}
+	x\mapsto \sum\limits_{n=0}^\infty f_n(x)
+\end{equation*}
+definieren wir gleichmäßige bzw. punktweise Konvergenz so, dass die Folge der Partialsummen
+\begin{equation*}
+	g_k(x)=\sum\limits_{n=0}^k f_n(x)
+\end{equation*}
+gleichmäßig beziehungsweise punktweise konvergiert.
+
+\begin{satz}{Kriterien für gleichmäßige Konvergenz von Funktionenfolgen}
+	\begin{itemize}
+		\item \textbf{Cauchy-Kriterium:} falls es zu jedem $\epsilon>0$ einen Index $n_0\in\N$ gibt, sodass für alle $x\in D$ gilt:
+		\begin{equation*}
+			|f_n(x)-f_m(x)|<\epsilon
+		\end{equation*}
+		für alle $m,n\geq n_0$, dann exisitert ein $f: D\rightarrow\R$ mit
+		\begin{equation*}
+			f\overset{glm}=\lim\limits_{n\to\infty}f_n \rightsquigarrow f_n\overset{glm}\longrightarrow f
+		\end{equation*}
+		\item \textbf{Weierstraß-Majorantenkriterium:} falls für eine Reihe von Funktionen gilt:
+		\begin{equation*}
+			|f_n(x)|\leq c_n \text{ und } \sum\limits_{n=1}^\infty c_n \text{ ist konvergent}
+		\end{equation*}
+		dann konvergieren die Reihen $\sum\limits_{n=1}^\infty f_n$ und auch $\sum\limits_{n=1}^\infty |f_n|$ gleichmäßig.
+	\end{itemize}
+\end{satz}
+
+Wir kommen nun zu einer der wichtigsten Anwendung der Funktionenfolgen und -reihen:
+\section{Potenzreihen}
+Eine wichtige Rolle in der gesamten Mathematik spielen die Potenzreihen, dur die eine große Klasse von Funktionen beschrieben wird.
+
+\begin{definition}{Potenzreihe}
+	Sei $z\in\C, (a_k)_{k\in\N_0}$ eine Folge komplexer Zahlen.
+	Dann heißt
+	\begin{equation*}
+		z\mapsto \sum\limits_{k=0}^\infty a_k(z-z_0)^k
+	\end{equation*}
+	eine \emph{Potenzreihe} um $z_0$ mit den Koeffizienten $a_k$. Sie ist für alle $z,z_0\in\C$ definiert, für die die Reihe konvergiert.
+	Den Punkt $z_0\in\C$ nennt man den Entwicklungspunkt der Potenzreihe.
+
+	Falls $z,z_0\in\R$ und alle $a_k\in\R$ sagt man auch reelle Potenzreihe.
+\end{definition}
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Die Exponentialreihe: $\exp(z)=\sum\limits_{k=0}^\infty \frac{z^k}{k!}$ konvergiert für alle $z\in\C$
+	\item Die geometrische Reihe: $\sum\limits_{k=0}^\infty z^k$
+	\item $\sin(z)\coloneqq\sum\limits_{k=0}^\infty \frac{(-1)^{k}}{(2k+1)!}z^{2k+1}$ konvergiert für alle $z\in\C$
+	\item $\cos(z)\coloneqq\sum\limits_{k=0}^\infty \frac{(-1)^{k}}{(2k)!}z^{2k}$ konvergiert für alle $z\in\C$
+	\item $\ln(1+x)\coloneqq\sum\limits_{k=0}^\infty \frac{(-1)^{k-1}}{k}x^{k}$ konvergiert für $-1<x\leq 1$
+	\item \textbf{Spezialfall:} Polynome vom Grad $n$ sind Potenzreihen, mit $a_k=0$ für $k>n$.
+	Man kann sich eine Potenzreihe so vorstellen, dass eine Funktion (immer genauer) durch Polynome angenähert wird.
+\end{itemize}
+Wir wollen nun das Konvergenzverhalten von Potenzreihen untersuchen. Bemerkenswert ist, dass der Bereich in dem eine komplexe Potenzreihe konvergiert stets eine Kreisscheibe um den Entwicklungspunkt $z_o$ ist. Der Radius dieser Kreisscheibe heißt Konvergenzradius der Potenzreihe. Dieser Kann gleich $+\infty$ sein, was bedeutet, dass die Potenzreihe auf ganz $\C$ konvergiert. Die Potenzreihe divergiert für Werte außerhalb der Scheibe. Auf dem Kreis kann keine eindeutige Aussage gemacht werden, es ist beides möglich.
+
+\begin{satz}{Aussagen zu Potenzreihen}
+	Es sei $\sum\limits_{k=0}^\infty a_k(z-z_0)^k$ eine Potenzreihe, dann gelten die folgenden Aussagen:
+	\begin{enumerate}
+		\item Es gibt einen eindeutig bestimmten Konvergenzradius $R\in[0,\infty)\cup\simpleset\infty$ so dass gilt:
+
+		Die Reihe $\sum\limits_{k=0}^\infty a_k(z-z_0)^k$ ist
+		\begin{itemize}
+			\item absolut konvergent für $|z-z_0|<R$
+			\item divergent für $|z-z_0|>R$
+		\end{itemize}
+		\item Falls
+		\begin{equation*}
+			r=\lim\limits_{n\to\infty}\frac{|a_n|}{|a_{n+1}|} \text{ oder }r=\lim\limits_{n\to\infty}\frac{1}{\sqrt[n]{|a_n|}}
+		\end{equation*}
+		(d.h. insbesondere, dass dieser Grenzwert existiert), dann ist $r=R$.
+		\item Falls $R>0$ und $0<\delta<R$, dann konvergiert die Funktionenfolge der Partialsummen mit $z\in\C$ als Variable gleichmäßig für alle $|z-z_0|<\delta$. Insbesondere ist die durch den Grenzwert der Potenzreihe definierte Funktion $K_R(z_0)\rightarrow \C, z\mapsto\sum_{k=0}^n a_k(z-z_0)^k$ stetig.
+	\end{enumerate}
+\end{satz}

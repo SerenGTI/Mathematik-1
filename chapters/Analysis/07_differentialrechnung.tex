@@ -1,0 +1,402 @@
+\chapter{Differentialrechnung}
+\section{Differentiation in einer reellen Variable}
+Wir betrachten zunächst Funktionen $f$ in einer rellen Variablen $f:D\rightarrow \R$, wobei $D\subseteq\R$ ist.
+
+$D$ heißt Definitionsbereich der Funktion $f$. Wir wollen die Differentiation einführen:
+
+Die Ableitung einer Funktion beschreibt die Änderung einer Funktion. Wir wollen diese in der Nähe eines Punktes $x_0\in D$ beschreiben. Dazu benutzen wir zunächst die folgende Konstruktion.
+
+\begin{definition}{Differenzenquotient und Differentialquotient}
+	Die Abbildung
+	\begin{equation*}
+		D\setminus\simpleset{x_0}\rightarrow \R, x\mapsto\frac{f(x)-f(x_0)}{x-x_0}
+	\end{equation*}
+	heißt \emph{Differenzenquotient} von $f$ bei $x_0$.
+	Die Funktion $f$ heißt differenzierbar in $x_0$, falls der Funktionsgrenzwert
+	\begin{equation*}
+		\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}
+	\end{equation*}
+	existiert. In diesem Fall heißt der Grenzwert
+	\begin{equation*}
+		\frac{\diff}{\diff x}(x_0)\coloneqq \lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}
+	\end{equation*}
+	der \emph{Differentialquotient} von $f$ bei $x_0$ oder auch die Ableitung von $f$ in $x_0$.
+\end{definition}
+\paragraph{Bemerkung:}
+Die Existenz des Differentialquotienten ist äquivalent dazu, dass für jede Folge $(x_n)_{n\in\N}\to x_0, x_n\in D,x\neq x_0$ der gleiche Grenzwert
+\begin{equation*}
+	\lim\limits_{n\to\infty}\frac{f(x_n)-f(x_0)}{x_n-x_0}
+\end{equation*}
+
+Wir definieren weiter:
+\begin{definition}{}
+	\begin{enumerate}
+		\item $f$ ist differenzierbar, falls $f$ in allen Punkten $x_0\in D$ differenzierbar ist.
+		\item $f$ ist stetig differenzierbar in $D$ genau dann, wenn $f$ differenzierbar in allen Punkten ist und die Funktion $x\mapsto f'(x)$ stetig ist.
+	\end{enumerate}
+\end{definition}
+\begin{satz}{Differenzierbarkeit und Stetigkeit}
+	Ist $f:D\rightarrow\R$ in $x_0$ differenzierbar, dann ist $f$ auch stetig in $x_0$.
+\end{satz}
+\beweis
+Es gilt:
+\begin{equation*}
+	f(x)-f(x_0)=\frac{f(x)-f(x_0)}{x-x_0}*(x-x_0)
+\end{equation*}
+und daraus folgt:
+\begin{align*}
+	\lim\limits_{x\to x_0}(f(x)-f(x_0)) &= \lim\limits_{x\to x_0}\left(\frac{f(x)-f(x_0)}{x-x_0}\right)*\lim\limits_{x\to x_0}(x-x_0)\\
+	&=f'(x_0)*0\\
+	&=0
+\end{align*}
+\hfill$\Box$
+
+Die Umkehrung des Satzes ist im allgemeinen falsch. Die Betragsfunktion ist stetig, jedoch in $x_0=0$ nicht differenzierbar!
+Oder auch \textbf{Weierstraß' Funktion}, die auf ganz $\R$ stetig ist aber in keinem $x_0\in\R$ differenzierbar.
+
+\begin{definition}{Links- und rechtsseitige Ableitung}
+	Unter der linksseitigen Ableitung verstehen wir den Grenzwert
+	\begin{equation*}
+		f'(x_0^-)=\lim\limits{x\to x_0^-}\frac{f(x)-f(x_0)}{x-x_0}
+	\end{equation*}
+	und unter der rechtsseitigen Ableitung den Grenzwert
+	\begin{equation*}
+		f'(x_0^+)=\lim\limits{x\to x_0^+}\frac{f(x)-f(x_0)}{x-x_0}
+	\end{equation*}
+	(falls diese existieren)
+\end{definition}
+\paragraph{Bemerkung:}
+$f$ ist differenzierbar in $x_0$ genau dann, wenn links- und rechtsseitige Ableitung übereinstimmen. Insbesondere ist $f$ dann auch stetig in diesem Punkt.
+
+\paragraph{Beispiel:}
+Wir betrachten die Funktion $f(x)=\sin(x)$ mit $D=\R$. Der Differenzenquotient für ein $x_0\in D$ kann wie folgt geschrieben werden:
+\begin{align*}
+	\frac{\sin(x)-\sin(x_0)}{x-x_0}&=\frac{2}{x-x_0}\cos\left(\frac{x+x_0}{2}\right)*\sin\left(\frac{x-x_0}{2}\right)\\
+	&=\frac{2}{x-x_0}\cos\left(\frac{x+x_0}{2}\right)*\left(\frac{x-x_0}{2}-\frac{1}{3!}\left(\frac{x-x_0}{2}\right)^3\pm\ldots\right)\\
+	&=\cos\left(\frac{x+x_0}{2}\right)*\left(1-\frac{1}{3!}\left(\frac{x-x_0}{2}\right)^2\pm\ldots\right)\\
+	\vspace{1em}\\
+	\Rightarrow\quad \lim\limits_{x\to x_0}\frac{\sin(x)-\sin(x_0)}{x-x_0}&=\lim\limits_{x\to x_0} \cos\left(\frac{x+x_0}{2}\right)*1\\
+	&=\cos(x)
+\end{align*}
+
+\subsection{Geometrische Interpretation der Ableitung}
+\begin{multicols}{2}
+	Der \emph{Differenzenquotient}
+	\begin{equation*}
+		\frac{f(x)-f(x_0)}{x-x_0}\enspace(x\neq x_0)
+	\end{equation*}
+	beschreibt die Steigung der Sekante am Graphen von $f$, oder die Steigung der Geraden durch die Punkte $(x,f(x))$ und $(x_0,f(x_0))$.
+	\columnbreak
+
+	\begin{center}
+		\begin{easyfunction}{0}{11}{0}{6}{0.5}
+			\draw[->] (0,0) -- (11.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,6.2) node[above] {$f(x)$};
+			\makegrid
+
+			\begin{scope}
+				\clip(0,0) rectangle (11,6);
+
+				\draw[line width=0.5mm,scale=1,domain=0:12,smooth,variable=\x,blue] plot ({\x},{0.1*(\x-4)*(\x-4)*(\x-4)+5-0.5*\x})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:12,smooth,variable=\x,red] plot ({\x},{0.2*(\x-4)+3})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:12,smooth,variable=\x,red] plot ({\x},{0.4*(\x-4)+3})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:12,smooth,variable=\x,red] plot ({\x},{3})
+					node[below right] {};
+			\end{scope}
+			\draw (4,3) node (x0) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw, label={below:$x_0$}] {};
+
+			\draw (6.62,3.5) node (x) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw] {};
+			\draw (7,4.2) node (x) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw] {};
+			\draw (6.2,3) node (x) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw] {};
+
+			\draw (6.5,3) node (s) [label={below right:Sekanten}] {};
+		\end{easyfunction}
+	\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+	Der \emph{Differentialquotient}
+	\begin{equation*}
+		\frac{\diff f(x)}{\diff x}(x_0)=\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}
+	\end{equation*}
+	beschreibt die Steigung der Tangente am Graphen von $f$ im Punkt $(x_0,f(x_0))$.
+
+	Die Gleichung der Tangente ist dann
+	\begin{equation*}
+		t(x)=f(x_0)+f'(x_0)(x-x_0)
+	\end{equation*}
+	Dies ist eine Potenzreihe, bei der nur zwei Koeffizienten von Null verschieden sind mit Entwicklungspunkt $x_0$.
+
+	\columnbreak
+
+	\begin{center}
+		\begin{easyfunction}{0}{11}{0}{6}{0.5}
+			\draw[->] (0,0) -- (11.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,6.2) node[above] {$f(x)$};
+			\makegrid
+
+			\begin{scope}
+				\clip(0,0) rectangle (12,6);
+
+				\draw[line width=0.5mm,scale=1,domain=0:12,smooth,variable=\x,blue] plot ({\x},{0.1*(\x-4)*(\x-4)*(\x-4)+5-0.5*\x})
+					node[below right] {};
+				\draw[line width=0.5mm,scale=1,domain=0:12,smooth,variable=\x,red] plot ({\x},{-0.5*(\x-4)+3})
+					node[below right] {};
+			\end{scope}
+			\draw (4,3) node (x0) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw, label={below:$x_0$}] {};
+			\draw (6,3) node (t) [label={below right:Tangente}] {};
+		\end{easyfunction}
+	\end{center}
+\end{multicols}
+
+\paragraph{Bemerkung:}
+Die Funktion $t(x)=f(x_0)+f'(x_0)(x-x_0)$ ist von der Form $x\mapsto m*x+c$ also eine affin-lineare Abbildung $t:\R\rightarrow\R$. Damit kommt man auf die Grundidee der Differentiation: Eine bestmögliche Annäherung einer gegebenen Abbildung durch eine affin-lineare Abbildung in der Nähe eines Punkts $x_0$.
+
+Für komplexe Funktionen $f:D\rightarrow\C, D\subseteq\C$ kann man analog Differenzierbarkeit definieren, man setzt
+\begin{equation*}
+	f'(z)=\lim\limits_{n\to\infty}\frac{f(z_n)-f(z_0)}{z_n-z_0}
+\end{equation*}
+falls dieser Grenzwert für alle Folgen $(z_n)_{n\in\N}\to z_0$ existiert, wobei für alle $n$ gelten muss: $z_n\neq z_0$.
+
+\subsection{Differentiationsregeln}
+Für alle rellen Funktionen $f:D\subseteq\R\rightarrow\R$ gelten folgende Regeln für das Differenzieren:
+\begin{satz}{Differentiationsregeln}
+	Seien $f:D\rightarrow\R$ und $g:E\rightarrow\R$ zwei differenzierbare Funktionen für $x_0\in D\subseteq \R,\C$. Dann gilt:
+	\begin{itemize}
+		\item \textbf{Linearität der Differentiation:}
+		Die Funktion $\alpha f:D\rightarrow\R$ ist differenzierbar und es gilt für $x_0\in D$:
+		\begin{equation*}
+			(\alpha f)'(x_0)=\alpha f'(x_0)
+		\end{equation*}
+		Falls $D=E$, dann ist die Funktion $f+g:D\rightarrow \R,x\mapsto f(x)+g(x)$ differenzierbar und es gilt für $x_0\in D$:
+		\begin{equation*}
+			(f+g)'(x_0)=f'(x_0)+g'(x_0)
+		\end{equation*}
+		\item \textbf{Produktregel:}
+		Falls $D=E$, dann ist die Funktion $f*g:D\rightarrow\R$ differenzierbar und es gilt für $x_0\in D$:
+		\begin{equation*}
+			(f*g)'(x_0)=f'(x_0)*g(x_0)+f(x_0)*g'(x_0)
+		\end{equation*}
+		\item \textbf{Quotientenregel:}
+		Falls $D=E$ und $0\not\in g(D)$, dann ist die Funktion $\frac fg:D\rightarrow\R$ differenzierbar und es gilt für $x_0\in D$:
+		\begin{equation*}
+			\left(\frac fg\right)'(x_0)=\frac{f'(x_0)*g(x_0)-f(x_0)*g'(x_0)}{g^2(x_0)}
+		\end{equation*}
+		\item \textbf{Kettenregel:}
+		Falls $g(E)\subseteq D$, dann ist die Verkettung $f\circ g:E\rightarrow\R,x\mapsto f(g(x))$ differenzierbar und es gilt für $x_0\in E$:
+		\begin{equation*}
+			(f\circ g)'(x_0)=f'(g(x_0))*g'(x_0)
+		\end{equation*}
+		\item \textbf{Ableitung der Umkehrfunktion:}
+		Sei $f:D\rightarrow\R$ streng monoton wachsend und $f^{-1}:f(D)\rightarrow D$ die Umkehrfunktion. Ist $f$ bei $x_0$ differenzierbar und ist $f'(x_0)\neq 0$, dann ist $f^{-1}$ bei $y_0=f(x_0)$ differenzierbar und es gilt:
+		\begin{equation*}
+			(f^{-1})'(y_0)=\frac{1}{f'(x_0)}=\frac{1}{f'(f^{-1}(y_0))}
+		\end{equation*}
+	\end{itemize}
+\end{satz}
+\begin{beweis}
+	\begin{itemize}
+		\item Die beiden Eigenschaften aus Punkt 1 folgen direkt aus den Regeln für das Rechnen mit Grenzwerten.
+		\item Zum Beweis der Produktregel:
+		\begin{align*}
+			&\quad\ \lim\limits_{x\to x_0}\frac{f(x)g(x)-f(x_0)g(x_0)}{x-x_0}\\
+			&=\lim\limits_{x\to x_0}\frac{f(x)g(x)-f(x_0)g(x)+f(x_0)g(x)-f(x_0)g(x_0)}{x-x_0}\\
+			&=\lim\limits_{x\to x_0}\frac{f(x)g(x)-f(x_0)g(x)}{x-x_0}+\lim\limits_{x\to x_0}\frac{f(x_0)g(x)-f(x_0)g(x_0)}{x-x_0}\\
+			&=\lim\limits_{x\to x_0}g(x)*\lim\limits_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}+f(x_0)*\lim\limits_{x\to x_0}\frac{g(x)-g(x_0)}{x-x_0}\\
+			&=f'(x_0)g(x_0)+f(x_0)g'(x_0)
+		\end{align*}
+	\end{itemize}
+	\hfill $\Box$
+\end{beweis}
+
+\paragraph{Beispiele:}
+\begin{enumerate}
+	\item Sei $f:D\rightarrow D$, $D=\set{x\in D}{x\geq 0}, f(x)=x^n=y$. Die Umgekhrfunktion $f^{-1}(y)=y^{\sfrac 1n}$ ist wohldefiniert. Wir bilden die Ableitung von $f^{-1}$:
+	\begin{align*}
+		\frac{\diff}{\diff y}f^{-1}(y) &= \frac{1}{\frac{\diff f}{\diff x}(x)}=\frac{1}{\frac{\diff}{\diff x}x^n}=\frac{1}{n*x^{n-1}}=\frac{1}{n(y^{\sfrac 1n})^{n-1}}\\
+		&=\frac 1n*y^{(\sfrac 1n-1)}
+	\end{align*}
+	\item Sei $f:\R\rightarrow\R,x\mapsto e^x$ und sei $f^{-1}$ die Umkehrfunktion $f^{-1}(y)=\ln(y)$. Die Ableitung der Logarithmusfunktion lautet:
+	\begin{align*}
+		\frac{\diff}{\diff y}f^{-1}(y) &= \frac{1}{\frac{\diff f}{\diff x}(x)}=\frac{1}{\frac{\diff}{\diff x}e^x}=\frac{1}{e^x}=\frac{1}{e^{\ln(y)}}\\
+		&=\frac 1y
+	\end{align*}
+	wobei $f^{-1}:(0,\infty)\rightarrow \R$ ist.
+\end{enumerate}
+
+\paragraph{Bemerkung:}
+Für komplexe Funktionen $f:D\rightarrow\C, D\subseteq\C$ sind der Differenzen- und der Differentialquotient analog wie im reellen definiert.
+\begin{equation*}
+	f'(z)=\lim\limits_{n\to\infty}\frac{f(z_n)-f(z_0)}{z_n-z_0}
+\end{equation*}
+bedeutet, dass der Differenzenquotient für jede Folge $(z_n)\to z_0$ gegen den selben Wert konvergiert.
+
+Die Ableitungsregeln von oben gelten vollkommen analog für komplexe Funktionen.
+
+\subsection{Höhere Ableitungen}
+Ist eine Funktion $f:D\rightarrow\R, D\subseteq\R$ differenzierbar, dann existiert die Ableitungsfunktion $f':D\rightarrow\R,x\mapsto f'(x)$. Man kann nun nach der Differenzierbarkeit der Ableitungsfunktion fragen und ggf. die Ableitung der Ableitung $f''(x)$ bilden. Mit anderen Worten, die zweite Ableitung.
+
+\begin{definition}{Höhere Ableitungen}
+	Sei $D$ eine offene Teilmenge der reellen Zahlen. Wir definieren:
+	\begin{enumerate}
+		\item falls $f$ mindestens $(k-1)$ mal differenzierbar ist und die $(k-1)$te Ableitung von $f$ ebenfalls differenzierbar ist, dann heißt
+		\begin{equation*}
+			f^{(k)}(x)=\frac{\diff^k}{\diff x^k}f(x)=\frac{\diff}{\diff x}(f^{(k-1)}(x))
+		\end{equation*}
+		die $k$te Ableitung, wobei $f^{(0)}=f$ gilt.
+		\item $f$ heißt $k$ mal stetig differenzierbar, falls $f$ mindestens $k$ mal differenzierbar ist und dabei die $k$te Ableitung stetig ist.
+		\item $f$ heißt unendlich bzw. beliebig oft differenzierbar, falls sie $k$ mal differenzierbar für alle $k\in\N$ ist.
+	\end{enumerate}
+\end{definition}
+
+Es gilt die sogenannte \emph{Leibnitzregel} für höhere Ableitungen:
+\begin{equation*}
+	(fg)^{(n)}=\sum\limits_{k=0}^n \binom nk f^{(n)}g^{(n-k)}
+\end{equation*}
+analog zum binomischen Lehrsatz, Beweis durch Induktion:
+\begin{align*}
+	(fg)^{(0)}&=f*g\\
+	(fg)^{(1)}&=f'g+fg'\\
+	(fg)^{(2)}&=f''g+f'g'+f'g'+fg''=f''g+2f'g'+fg''
+\end{align*}
+
+\subsection{Ableitung von Potenzreihen}
+\textbf{Vorüberlegung:} wir haben definiert:
+\begin{equation*}
+	\sin(x)=\sum\limits_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1}
+\end{equation*}
+\begin{itemize}
+	\item Was ist die Ableitung? $\rightarrow$ \glqq gliedweises Ableiten\grqq liefert:
+	\begin{equation*}
+		\sin'(x)=\sum\limits_{k=0}^\infty (-1)^k *\frac{2k+1}{(2k+1)!}x^{2k}=\cos(x)
+	\end{equation*}
+	\item Doch darf man das? Wir haben wie folgt gerechnet:
+	\begin{equation*}
+		\frac{\diff}{\diff x}\lim\limits_{n\to\infty}\sum\limits_{k=0}^n f_k
+		=\lim\limits_{n\to\infty} \frac{\diff}{\diff x}\sum\limits_{k=0}^n f_k
+	\end{equation*}
+	Die Frage ist, darf man Limesbildung und Differentiation vertauschen? Die Antwort liefert der folgende Satz:
+\end{itemize}
+\begin{satz}{}
+	Die Funktionenfolge $(f_n)$, deren Elemente auf $[a,b]\in\R$ definiert sind, konvergiere gleichmäßig gegen $f:[a,b]\rightarrow\R$. Die Funktionen $f_n$ seien auf $[a,b]$ stetig differenzierbar und die Folge der Ableitungen $(f'_n)$ konvergiere auch gleichmäßig auf $[a,b]$ gegen $g:[a,b]\rightarrow\R$, dann ist die Grenzfunktion stetig differenzierbar und es gilt $f'=g$. Das heißt
+	\begin{equation*}
+		\frac{\diff}{\diff x}\lim\limits_{n\to\infty} f_n = \lim\limits_{n\to\infty}\frac{\diff}{\diff x} f_n
+	\end{equation*}
+\end{satz}
+
+\paragraph{Folgerung:}
+Sind $\sum^\infty_{n=1} f_n$ und $\sum^\infty_{n=1} f'_n$ auf $[a,b]$ gleichmäßig konvergent, dann ist $f=\sum^\infty_{n=1} f_n$ auf $[a,b]$ differenzierbar und es gilt
+\begin{equation*}
+	\frac\diff{\diff x}\left(\sum^\infty_{n=1} f_n\right)=\sum^\infty_{n=1} \frac\diff{\diff x}f_n
+\end{equation*}
+
+\begin{satz}{Gliedweises Differenzen von Potenzreihen}
+	Sei $R>0$ der Konvergenzradius der Potenzreihe
+	\begin{equation*}
+		\sum\limits_{n=0}^\infty a_n(x-x_o)^n
+	\end{equation*}
+	und $0<\varrho<R$. Dann kann diese Potenzreihe auf $|x-x_0|<\varrho$ gliedweise differenziert werden. D.h. Potenzreihen können im inneren des Konvergenzkreises gliedweise differenziert werden.
+\end{satz}
+
+\clearpage
+\paragraph{Beispiel für die Schärfe des Satzes:}
+
+\begin{wrapfigure}{r}{7cm}
+	\begin{center}
+		\begin{easyfunction}{0}{1}{0}{1}{3}
+			\draw[->] (0,0) -- (1.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,1.2) node[above] {$f(x)$};
+			\easyfunctionxscale{0}{1}
+			\easyfunctionyscale{0}{1}
+			\makegrid
+
+			\begin{scope}
+				\clip(0,0) rectangle (1,1);
+
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x})
+					node[midway] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*0.5})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*0.33})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x*0.25})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x*\x*0.2})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x*\x*\x*0.166})
+					node[below right] {};
+				\draw[line width=0.5mm,scale=1,domain=0:1,smooth,variable=\x,red] plot ({\x},{0})
+					node[below right] {};
+			\end{scope}
+		\end{easyfunction}
+		\begin{easyfunction}{0}{1}{0}{1}{3}
+			\draw[->] (0,0) -- (1.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,1.2) node[above] {$f(x)$};
+			\easyfunctionxscale{0}{1}
+			\easyfunctionyscale{0}{1}
+			\makegrid
+
+			\begin{scope}
+				\clip(0,0) rectangle (1,1);
+
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{1})
+					node[midway] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x})
+					node[below right] {};
+				\draw[line width=0.2mm,scale=1,domain=0:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x*\x})
+					node[below right] {};
+				\draw[line width=0.5mm,scale=1,domain=0:1,smooth,variable=\x,red] plot ({\x},{0})
+					node[below right] {};
+			\end{scope}
+			\draw (1,0) node (x0) [red,fill=white,circle,inner sep = 0pt,minimum size = 4pt,draw,label={[red]above right:$g$}] {};
+			\draw (1,1) node (x1) [fill=red,circle,inner sep = 0pt,minimum size = 4pt,draw,red] {};
+		\end{easyfunction}
+	\end{center}
+\end{wrapfigure}
+Wir betrachten die Funktionenfolge
+\begin{equation*}
+	f_n(x)=\frac{x^n}n
+\end{equation*}
+auf dem Intervall $[0,1]$.
+
+Da $|\frac{x^n}{n}|\leq|\frac1n|$ und $\lim\limits_{n\to\infty}\frac1n=0$ folgt, dass diese Funktionenfolge gleichmäßig gegen die Nullfunktion konvergiert. Die Folge der Ableitungen $f'_n(x)=x^{n-1}$ konvergiert gegen die Funktion
+	\begin{equation*}
+		g(x)=\begin{cases}
+		1 \text{, falls } x=1\\
+		0 \text{, sonst}
+	\end{cases}
+	\end{equation*}
+	punktweise aber nicht gleichmäßig und es gilt für die Ableitung der Grenzfunktion
+	\begin{equation*}
+		f=\lim\limits_{n\to\infty} f_n \text{, dass } 0\equiv f'\neq g
+	\end{equation*}
+		Man kann also im Satz oben nicht auf die Voraussetzung, dass die Folge der Ableitungen gleichmäßig konvergiert verzichten.
+
+\clearpage
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Man berechne die Summe $\sum_{n=1}^\infty nx^{n-1}$ für $|x|<1$.
+
+	Dies ist die gliedweise differenzierte geometrische Reihe. Es gilt:
+	\begin{equation*}
+		\sum\limits_{n=1}^\infty nx^{n-1}=\frac{\diff}{\diff x}\left(\frac{1}{1-x}\right)=\left(\frac{1}{1-x}\right)^2
+	\end{equation*}
+	Da der Konvergenzradius auch der ableiteten Reihe gleich $1$ ist, konvergieren auch die Ableitungen gleichmäßig.
+
+	\item Wir betrachten die Exponentialreihe, gliedweises Differenzieren liefert:
+	\begin{align*}
+		\exp(x)&=\sum\limits_{n=0}^\infty \frac{x^n}{n!}\\
+		\frac{\diff}{\diff x}\exp(x)&=\sum\limits_{n=1}^\infty \frac{n*x^{n-1}}{n!}=\sum\limits_{n=1}^\infty \frac{x^{n-1}}{(n-1)!}=\sum\limits_{n=0}^\infty \frac{x^{n}}{n!}\\
+		&=\exp(x)
+	\end{align*}
+	Somit folgt, dass $(e^x)'=e^x$
+\end{itemize}
