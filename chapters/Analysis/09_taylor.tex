@@ -1,0 +1,128 @@
+\section{Satz von Taylor}
+Wir sehen uns noch einmal die Formel aus dem Mittelwertsatz der Differentialrechnung an.
+\begin{equation*}
+	f(b)-f(a)=(b-a)*f'(\xi)
+\end{equation*}
+Wir setzen jetzt $b=x$ und $a=x_0$ und erhalten damit:
+\begin{equation*}
+	f(x)=f(x_0)+(x-x_0)*f'(\xi)
+\end{equation*}
+Um eine Approximation von $f$ in der Nähe von $x_0$ zu erhalten, ersetzen wir in der obigen Formel $\xi$ durch $x_0$. Wir erhalten dann:
+\begin{equation*}
+	f(x)\approx f(x_0)+(x-x_0)*f'(x_0)
+\end{equation*}
+Wir ersetzen also näherungsweise die Funktion $f$ durch das Lineare Polynom, dessen Graph die Tangente an den Graph von $f$ bei $x_0$ ist.
+
+Diese Funktion $T_1(x)=f(x_0)+(x-x_0)*f'(x_0)$ wird als das \emph{Taylorpolynom} ersten Grades von $f$ bei $x_0$ bezeichnet. Die Funktion $T_1$ ist dadurch gekennzeichnet, dass ihre erste und nullte Ableitung mit der ersten und nullten Ableitung von $f$ bei $x_0$ übereinstimmen. Das heißt:
+\begin{align*}
+	T_1(x_0)&=f(x_0)\\
+	T_1'(x_0)&=f'(x_=)
+\end{align*}
+Wir führen nun das $n$te Taylorpolynom ein, indem wir fordern, dass es am Punkt $x_0$ mit der Funktion $f$ in der nullten bis zur $n$ten Ableitung übereinstimmt.
+
+Nun stellt sich die Frage nach der Güte der Approximation.
+
+\begin{lemma}{Taylorpolynom}
+	Sei $f$ $n$-mal differenzierbar im Intervall $(a,b)$ und $x_0\in(a,b)$. Dann gibt es genau ein Polynom $n$ten Grades $T_n$, so dass gilt
+	\begin{equation}\label{eq:taylorpolynom}
+		T_n^{(k)}(x_0)=f^{(k)}(x_0) \quad\forall k\in[0,n]\in\N
+	\end{equation}
+	Dieses Polynom wird Taylorpolynom $n$ten Grades von $f$ um den Entwicklungspunkt $x_0$ genannt.
+	Dabei ist
+	\begin{align*}
+		T_n(x_0)&=\sum\limits_{j=0}^n \frac{f^{(j)}(x_0)}{j!}(x-x_0)^j\\
+		&=\underbrace{f(x_0)+f'(x_0)*(x-x_0)}_{=T_1}+\ldots+\frac{f^{(k)}(x_0)}{n!}(x-x_0)^n
+	\end{align*}
+\end{lemma}
+\beweis
+Wir zeigen zunächst die Eindeutigkeit. Seien $P,Q$ Polynome, die die Eigenschaften aus \autoref{eq:taylorpolynom} besitzen.
+Für die Differenz $D=P-Q$ gilt:
+\begin{equation*}
+	D(x)=P(x)-Q(x)=b_0+b_1*x+\ldots+b_n*x^n
+\end{equation*}
+Wobei $D^{(k)}(x_0)=0$ für alle $0\leq k\leq n$. Es folgt also
+\begin{equation*}
+	D^{(n)}(x_0)=n!*b_n=0\enspace \rightsquigarrow b_n=0
+\end{equation*}
+Im nächsten Schritt sehen wir
+\begin{equation*}
+	D^{(n-1)}(x_0)=(n-1)!*b_{n-1}=0\enspace \rightsquigarrow b_{n-1}=0
+\end{equation*}
+und so weiter.
+Am Ende sehen wir, dass alle $b_k=0$ sind, dies zeigt die Eindeutigkeit.
+
+Man rechnet leicht nach, dass $T_n^{(k)}(x_0)=f^{(k)}(x_0)$ gilt.\hfill$\Box$
+
+\paragraph{Bemerkung:}
+Die Potenzreihe
+\begin{equation*}
+	\sum\limits_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n
+\end{equation*}
+für eine beliebig oft differenzierbare Funktion $f$ wird auch die Taylorreihe von $f$ um $x_0$ genannt.
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Sei $f$ die Exponentialfunktion $f=e^x$, dann gilt $f^{(k)}(x_0)=e^x$ für alle $k$. Damit gilt für das $n$te Taylorpolynom von $e^x$ bei $x_0=0$: $f^{(k)}(0)=e^0=1$.
+	\begin{equation*}
+		T_n(x)=1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+\ldots +\frac{1}{n!}x^n
+	\end{equation*}
+	Das gilt also, dass die Taylorreihe con $e^x$ bei $x_0=0$ mit der Exponentialreihe übereinstimmt.
+	\item Sei $f(x)=\sin(x)$ und $x_0=0$. Es gilt:
+	\begin{align*}
+		f^{(0)}(0)&=\sin(0)=0 & f^{(1)}(0)&=\cos(0)=1\\
+		f^{(2)}(0)&=-\sin(0)=0 & f^{(3)}(0)&=-\cos(0)=-1
+	\end{align*}
+	Also folgt $f^{(2k)}(0)=0$ und $f^{(2k+1)}(0)=(-1)^k$.
+	Damit erhalten wir für das Taylorpolynom:
+	\begin{equation*}
+		T_{2n+1}=\underbrace{x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\frac{1}{7!}x^7}_{T_3(x)}\pm\ldots+\frac{1}{(2n+1)!}x^{2n+1}
+	\end{equation*}
+	Hieraus folgt, dass die Taylorreihe von $\sin(x)$ bei $x_0=0$ genau die Potenzreihe von $x\mapsto\sin(x)$ ist, mir der wir den Sinus definiert haben.
+
+	Bereits das Taylorpolynom dritten Grades nähert den Sinus im Intervall $[-\pi,\pi]$ gut an:
+	\begin{center}
+		\begin{easyfunction}{-5}{5}{-1}{2.5}{1}
+			\draw[->] (-5.2,0) -- (5.2,0) node[right] {$x$};
+			\draw[->] (0,-2) -- (0,2) node[above] {$f(x)$};
+			%\makegrid
+			\draw (3.1415,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$\pi$}] {};
+			\draw (1.5707,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$\frac\pi2$}] {};
+			\draw (-3.1415,0) node (b) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$-\pi$}] {};
+			\draw (-1.5707,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$-\frac\pi2$}] {};
+
+			\begin{scope}
+				\draw[line width=0.5mm,scale=1,domain=-5:5,smooth,variable=\x,blue] plot ({\x},{sin(deg(\x))})
+					node[right] {$\sin(x)$};
+				\draw[line width=0.3mm,scale=1,domain=-3.9:3.9,smooth,variable=\x,red] plot ({\x},{\x-1/6*\x*\x*\x+1/120*\x*\x*\x*\x*\x-1/5040*\x*\x*\x*\x*\x*\x*\x})
+					node[below] {$T_3(x)$};
+			\end{scope}
+		\end{easyfunction}
+	\end{center}
+\end{itemize}
+
+Um die Güte der Approximation durch Taylorpolynome abschätzen zu können, benutzen wir den folgenden Satz:
+\begin{satz}{Satz von Taylor}
+Sei $f$ eine $n+1$ mal stetig differenzierbare Funktion auf $(a,b)$ und seien $x,x_0\in(a,b)$. Dann existiert ein $\xi\in(x,x_0)$ beziehungsweise ein $\xi\in(x_0,x)$, so dass gilt:
+\begin{equation*}
+	f(x)=T_n(x)+\underbrace{\frac{f^{(n+1)}(\xi)}{(n+1!)}(x-x_0)^{n+1}}_{\text{LaGrange'sches Restglied}}
+\end{equation*}
+\end{satz}
+\beweis
+(ausstehend.)
+
+
+
+\paragraph{Anwedungsbeispiele:}
+Sei $f(x)=e^x$. Dann ist in $[0,1]$ für ein $\xi\in(0,1)$
+\begin{equation*}
+	e^x=f(x)=T_n(x)+\frac{f^{(n+1)}(\xi)}{(n+1!)}x^{n+1}
+\end{equation*}
+Und es gilt also
+\begin{equation*}
+	|f(x)-T_n(x)|\leq \frac{e^1}{(n+1)!}<\frac{3}{(n+1)!}
+\end{equation*}
+Um $e^x$ auf $[0,1]$ mit einem Fehler von höchstens $10^{-5}$ berechnen zu können, berechnen wir
+\begin{equation*}
+	(n+1)!\geq 30000 \enspace\rightsquigarrow8!=40320
+\end{equation*}
+Man sieht also für $n=7$ ist der Fehler auf diesem Intervall kleiner als $10^{-5}$.

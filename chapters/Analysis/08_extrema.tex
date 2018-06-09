@@ -52,7 +52,7 @@ Wir unterscheiden die folgenden Fälle:
 		\begin{easyfunction}{0}{5}{0}{4}{1}
 			\draw[->] (0,0) -- (5.2,0) node[right] {$x$};
 			\draw[->] (0,0) -- (0,4.2) node[above] {$f(x)$};
-			\makegrid
+			%\makegrid
 
 			\begin{scope}
 				\clip(0,0) rectangle (5,4);
@@ -71,10 +71,11 @@ Wir unterscheiden die folgenden Fälle:
 			\draw (3.5,0) node (xi) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$\xi$}] {};
 			\draw (3.5,1.2) node (fxi) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw] {};
 
-			\draw[dashed, blue]
-			(a) -- (fa) (b) -- (fb);
+			\draw[dotted]
+			(a) -- (fa) (b) -- (fb)
+			(xi) -- (fxi);
 			\draw[dashed, red]
-			(xi) -- (fxi) (fa) -- (fb);
+			(fa) -- (fb);
 		\end{easyfunction}
 	\end{center}
 \end{multicols}
@@ -83,7 +84,7 @@ Wir unterscheiden die folgenden Fälle:
 	Sei $f$ stetig in $[a,b]$ und differenzierbar auf $(a,b)$. Dann gibt es mindestens eine Stelle $\xi\in (a,b)$ für die gilt:
 	\begin{align*}
 		f(b)-f(a)&=(b-a)*f*(\xi)\\
-		\frac{f(b)-f(a)}{b-a}=f'(\xi)
+		\frac{f(b)-f(a)}{b-a}&=f'(\xi)
 	\end{align*}
 	Die Steigung der Sekante durch $a,b$ wird durch eine Tangente an $f$ in der Stelle $\xi$ im Inneren des Intervalls angenommen.
 \end{satz}
@@ -110,7 +111,7 @@ Wir unterscheiden die folgenden Fälle:
 		\begin{easyfunction}{0}{5}{0}{4}{1}
 			\draw[->] (0,0) -- (5.2,0) node[right] {$x$};
 			\draw[->] (0,0) -- (0,4.2) node[above] {$f(x)$};
-			\makegrid
+			%\makegrid
 
 			\begin{scope}
 				\clip(0,0) rectangle (5,4);
@@ -131,10 +132,12 @@ Wir unterscheiden die folgenden Fälle:
 			\draw (1.5,0) node (xi) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$\xi$}] {};
 			\draw (1.5,1.9) node (fxi) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw] {};
 
-			\draw[dashed, blue]
-			(a) -- (fa) (b) -- (fb);
+			\draw[dotted]
+			(a) -- (fa) (b) -- (fb)
+			(xi) -- (fxi);
+
 			\draw[dashed, red]
-			(xi) -- (fxi) (fa) -- (fb);
+			(fa) -- (fb);
 		\end{easyfunction}
 	\end{center}
 \end{multicols}
@@ -175,3 +178,23 @@ Wir erhalten für den rechtsseitigen Grenzwert
 \begin{equation*}
 	\lim\limits_{x\to a^+}\frac{f(x)}{g(x)}=\lim\limits_{x\to a^+}\frac{f'(x)}{g'(x)}
 \end{equation*}
+
+\paragraph{Bemerkung und Beispiel:}
+\begin{enumerate}
+	\item Man kann die Regeln von L'Hospital auch mehrmals anwenden, und auch $x\to\infty$ laufen lassen. Ebenso kann man die Regeln auf Funktionswerte anwenden, die gegen $\infty$ laufen.
+	\begin{equation*}
+		\lim\limits_{x\to\infty}\frac{x^3}{e^x}=\lim\limits_{x\to\infty}\frac{3x^2}{e^x}=\lim\limits_{x\to\infty}\frac{6x}{e^x}=\lim\limits_{x\to\infty}\frac{6}{e^x}=0
+	\end{equation*}
+	\item Gesucht ist
+	\begin{equation*}
+		\lim\limits_{x\to 0}x^x=\lim\limits_{x\to 0}\exp(x*\ln x)
+	\end{equation*}
+	Da $\exp$ stetig ist, genügt es die Funktion im Inneren zu untersuchen:
+	\begin{equation*}
+		\lim\limits_{x\to 0}x*\ln x=\lim\limits_{x\to 0}\frac{\ln x}{\frac 1x}=\lim\limits_{x\to 0}\frac{\frac 1x}{\frac{-1}{x^2}}=\lim\limits_{x\to 0}-x=0
+	\end{equation*}
+	Wegen $\exp(0)=1$ folgt:
+	\begin{equation*}
+		\lim\limits_{x\to 0}x^x=1
+	\end{equation*}
+\end{enumerate}
