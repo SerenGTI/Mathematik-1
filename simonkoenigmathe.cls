@@ -23,8 +23,10 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage[framemethod=TikZ]{mdframed}
-\usetikzlibrary{arrows,intersections}
+\usetikzlibrary{arrows,intersections,patterns}
 \RequirePackage{xfrac}
+\RequirePackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
 
 
 \RequirePackage[default]{sourcesanspro}

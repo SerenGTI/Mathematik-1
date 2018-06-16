@@ -1,0 +1,31 @@
+\chapter{Integration}
+\section{Integration von Funktionen einer Variable}
+\glqq Integration wird überall dort benötigt, wo ändernde Ursachen sich zu einer Gesamtwirkung summieren.\grqq Geometrisch kann man das (noch zu definierende) Integral z.B. über eine stetige Funktion $f:[a,b]\rightarrow \R$ interpretieren als Fläche unter dem Graphen, wo Anteile unter der $x$-Achse als negativ gerechnet werden.
+
+\begin{center}
+	\begin{easyfunction}{0}{10}{-3}{3}{0.7}
+
+		\fill [green, opacity=0.3, domain=0.52:5, variable=\x]
+      (0.52, 0)
+      -- plot ({\x}, {0.05*(\x-5)*(\x-5)*(\x-5)-\x+5})
+      -- (5, 0);
+
+		\fill [red, opacity=0.3, domain=5:9.47, variable=\x]
+      (0.52, 0)
+      -- plot ({\x}, {0.05*(\x-5)*(\x-5)*(\x-5)-\x+5})
+      -- (9.47, 0)
+      -- cycle;
+
+		\draw[->] (0,0) -- (10.2,0) node[right] {$x$};
+		\draw[->] (0,-2.7) -- (0,2.7) node[above] {$f(x)$};
+
+		\draw (0.52,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$a$}] {};
+		\draw (9.47,0) node (b) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$b$}] {};
+
+		\begin{scope}
+			\clip(0,-3) rectangle (10,3);
+
+			\draw[line width=0.5mm, scale=1, domain=0:10, smooth, variable=\x, blue] plot ({\x},{0.05*(\x-5)*(\x-5)*(\x-5)-\x+5}) node[below right] {};
+		\end{scope}
+	\end{easyfunction}
+\end{center}
