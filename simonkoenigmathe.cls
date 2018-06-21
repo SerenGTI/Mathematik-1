@@ -250,3 +250,9 @@
 
 \newcommand{\diff}{\ \operatorname{d}\!}
 \newcommand{\intd}{\diff}
+
+
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\makeatother

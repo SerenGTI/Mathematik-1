@@ -104,7 +104,7 @@ Um die Güte der Approximation durch Taylorpolynome abschätzen zu können, benu
 \begin{satz}{Satz von Taylor}
 Sei $f$ eine $n+1$ mal stetig differenzierbare Funktion auf $(a,b)$ und seien $x,x_0\in(a,b)$. Dann existiert ein $\xi\in(x,x_0)$ beziehungsweise ein $\xi\in(x_0,x)$, so dass gilt:
 \begin{equation*}
-	f(x)=T_n(x)+\underbrace{\frac{f^{(n+1)}(\xi)}{(n+1!)}(x-x_0)^{n+1}}_{\text{LaGrange'sches Restglied}}
+	f(x)=T_n(x)+\underbrace{\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}}_{\text{LaGrange'sches Restglied}}
 \end{equation*}
 \end{satz}
 \beweis
@@ -142,7 +142,7 @@ Wir erhalten schließlich:
 \begin{itemize}
 	\item Sei $f(x)=e^x$. Dann ist in $[0,1]$ für ein $\xi\in(0,1)$
 	\begin{equation*}
-		e^x=f(x)=T_n(x)+\frac{f^{(n+1)}(\xi)}{(n+1!)}x^{n+1}
+		e^x=f(x)=T_n(x)+\frac{f^{(n+1)}(\xi)}{(n+1)!}x^{n+1}
 	\end{equation*}
 	Und es gilt also
 	\begin{equation*}
