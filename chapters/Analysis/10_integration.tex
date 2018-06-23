@@ -157,6 +157,10 @@ Wir bemerken, dass das Integral nicht von der Wahl der Zerlegung abhängt.
 		\end{itemize}
 	\end{enumerate}
 \end{satz}
+\paragraph{Bemerkung:}
+Die Rechenregeln für das Integral von Treppenfunktionen gelten weiter auch für Regelfunktionen, dies folgt aus den Rechenregeln für Grenzwerte.
+
+\medskip
 
 Wir werden nun die Klasse der Funktionen einführen, für die wir das Integral erklären. Der Grundgedanke ist, Funktionen durch Treppenfunktionen anzunähern.
 
@@ -244,7 +248,7 @@ Der Fehler kann so durch $\epsilon*(b-a)$ beschränkt werden.
 
 
 		\begin{scope}
-			\clip(0,0) rectangle (10,6);
+			\clip(1,0) rectangle (7,6);
 
 			\draw[line width=0.5mm,scale=1,domain=1:7,smooth,variable=\x,red] plot ({\x},{1.5*sin(deg(\x-1))+2.5})
 				node[below right] {};
@@ -278,39 +282,46 @@ Der Fehler kann so durch $\epsilon*(b-a)$ beschränkt werden.
 	    }
 		}
 
-		\draw (1,3) node (1) [] {};
 
-		\draw (1.5,3) node (2) [] {};
-		\draw (1.5,3.5) node (3) [] {};
 
-		\draw (2,3.5) node (4) [] {};
-		\draw (2,4) node (5) [] {};
+		\begin{scope}
 
-		\draw (3.2,4) node (6) [] {};
-		\draw (3.2,3.5) node (7) [] {};
+			\draw (1,3) node (1) [] {};
 
-		\draw (3.7,3.5) node (8) [] {};
-		\draw (3.7,2.7) node (9) [] {};
+			\draw (1.5,3) node (2) [] {};
+			\draw (1.5,3.5) node (3) [] {};
 
-		\draw (4.2,2.7) node (10) [] {};
-		\draw (4.2,2) node (11) [] {};
+			\draw (2,3.5) node (4) [] {};
+			\draw (2,4) node (5) [] {};
 
-		\draw (4.7,2) node (12) [] {};
-		\draw (4.7,1.4) node (13) [] {};
+			\draw (3.2,4) node (6) [] {};
+			\draw (3.2,3.5) node (7) [] {};
 
-		\draw (5.2,1.4) node (14) [] {};
-		\draw (5.2,1) node (15) [] {};
+			\draw (3.7,3.5) node (8) [] {};
+			\draw (3.7,2.7) node (9) [] {};
 
-		\draw (6.3,1) node (16) [] {};
-		\draw (6.3,1.5) node (17) [] {};
+			\draw (4.2,2.7) node (10) [] {};
+			\draw (4.2,2) node (11) [] {};
 
-		\draw (6.8,1.5) node (18) [] {};
-		\draw (6.8,2) node (19) [] {};
+			\draw (4.7,2) node (12) [] {};
+			\draw (4.7,1.4) node (13) [] {};
 
-		\draw (7,2) node (20) [] {};
+			\draw (5.2,1.4) node (14) [] {};
+			\draw (5.2,1) node (15) [] {};
 
-		\draw[blue, line width=0.5mm]
-		(1) -- (2) (2) -- (3) (3) -- (4) (4) -- (5) (5) -- (6) (6) -- (7) (7) -- (8) (8) -- (9) (9) -- (10) (10) -- (11) (11) -- (12) (12) -- (13) (13) -- (14) (14) -- (15) (15) -- (16) (16) -- (17) (17) -- (18) (18) -- (19) (19) -- (20);
+			\draw (6.3,1) node (16) [] {};
+			\draw (6.3,1.5) node (17) [] {};
+
+			\draw (6.8,1.5) node (18) [] {};
+			\draw (6.8,2) node (19) [] {};
+
+			\draw (7,2) node (20) [] {};
+
+			\clip(1,0) rectangle (7,6);
+
+			\draw[blue, line width=0.5mm]
+			(1) -- (2) (2) -- (3) (3) -- (4) (4) -- (5) (5) -- (6) (6) -- (7) (7) -- (8) (8) -- (9) (9) -- (10) (10) -- (11) (11) -- (12) (12) -- (13) (13) -- (14) (14) -- (15) (15) -- (16) (16) -- (17) (17) -- (18) (18) -- (19) (19) -- (20);
+		\end{scope}
 	\end{easyfunction}
 \end{center}
 

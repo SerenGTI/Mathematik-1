@@ -1,0 +1,39 @@
+\chapter{Eigenwerte}
+Wir betrachten hier lineare Endomorphismen, d.h. lineare Abbildungen $f:V\rightarrow V$, die einen Vektorraum in sich abbilden.
+
+Ziel ist es, eine möglichst einfache darstellende Matrix eines Endomorphismus zu finden, durch geeigneten Basiswechsel.
+
+\begin{definition}{Eigenwerte und -vektoren}
+	Sei $f:V\rightarrow V$ eine lineare Abbildung. Gibt es einen von Null verschiedenen Vektor $v\in V$ und ein $\lambda\in K$, so dass $f(v)=\lambda v$ gilt, dann heißt $\lambda$ Eigenwert von $f$ und $v$ Eigenvektor von $f$ zum Eigenwert $\lambda$. Die Menge der Eigenwerte heißt Sprektrum.
+\end{definition}
+Entsprechend ist $\lambda$ Eigenwert der Matrix $A$, wenn $A*v=\lambda v$ gilt.
+
+\paragraph{Bemerkung:} Der Kern eines Endomorphismus besteht aus den Eigenvektoren zum Eigenwert $0$.
+
+\begin{definition}{Eigenraum}
+	Ist $f:V\rightarrow V$ ein linearer Endomorphismus und $\lambda$ ein Eigenwert von $f$, dann heißt
+	\begin{equation*}
+		E_\lambda=\set{v\in V}{f(v)=\lambda v}
+	\end{equation*}
+	der Eigenraum zum Eigenwert $\lambda$ von $f$. Der Eigenraum besteht also aus allen Eigenvektoren zum Eigenwert $\lambda$ und dem Nullvektor.
+\end{definition}
+\begin{lemma}{}
+	Die Menge $E_\lambda$ ist ein Untervektorraum von $V$.
+\end{lemma}
+\beweis
+Dies gilt, da $E_\lambda$ der Kern des linearen Endomorphismus $f-\mathrm{id}_v*\lambda:V\rightarrow V$ ist.\hfill$\Box$
+
+\begin{satz}{}
+	Der Skalar $\lambda \in K$ ist genau dann ein Eigenwert von $A\in M(n,K)$, wenn
+	\begin{equation*}
+		\det(A-\lambda E_n)=0
+	\end{equation*}
+\end{satz}
+Dies liefert eine Methode zum Bestimmen der Eigenwerte einer quadratischen Matrix. Wir betrachten ab jetzt nur noch die Fälle $K=\R$ und $K=\C$.
+\begin{definition}{Charakteristisches Polynom}
+	Sei $A\in M(n,K)$ dann heißt
+	\begin{equation*}
+		\chi_A(\lambda)=\det(A-\lambda E)
+	\end{equation*}
+	das Charakteristische Polynom von $A$. Das charakteristische Polynom ist ein Polynom $n$ten Grades in den Variablen $\lambda$.
+\end{definition}

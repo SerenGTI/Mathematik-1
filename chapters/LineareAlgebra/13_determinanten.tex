@@ -30,9 +30,8 @@ Entwickeln nach der ersten Spalte:
 	&\quad-\ma{31}\ma{22}\ma{13}-\ma{32}\ma{23}\ma{11}-\ma{33}\ma{21}\ma{12}
 \end{align*}
 
-\section{Bemerkungen}
-\subsection{\textsc{Leibniz}'sche Formel}
-\begin{satz}{}
+
+\begin{satz}{\textsc{Leibniz}'sche Formel}
 	Für die Determinante einer $n\times n$-Matrix $A\in M(n,K)$ gilt:
 	\begin{equation*}
 		\det A=\sum_{\sigma\in \mathrm{Sym}(n)}\mathrm{sgn}(\sigma)*\ma{1\sigma(1)}*\ldots*\ma{n\sigma(n)}
@@ -45,3 +44,36 @@ Entwickeln nach der ersten Spalte:
 		\simpleset{1,\ldots,n}
 	}$ die Menge aller Permutationen von $\simpleset{1,\ldots,n}$ (auch die symmetrische Gruppe vom Grad n genannt) ist. Und wobei $\mathrm{sgn}$ das Vorzeichen der Permutation ist, d.h. $\mathrm{sgn}(\sigma)=+1$ bei einer geraden Permutation (Hintereinanderausführung von einer geraden Anzahl an Vertauschungen), $\mathrm{sng}(\sigma)=-1$ sonst.
 \end{satz}
+
+\paragraph{Weitere Bemerkungen zur Determinante:}
+\begin{itemize}
+	\item Für die Transponierte Matrix $A^T=(a_{ji})$ gilt $\det A^T=\det A$.
+	Dies folgt direkt aus der Leibniz'schen Formel. Insbesondere kann man mit der LaPlace'schen Formel auch nach einer Zeile entwickeln.
+	\item Für zwei Matrizen $A,B\in M(n,K)$ gilt der Determinantenmultiplikationssatz:
+	\begin{equation*}
+		\det(A*B)=\det A*\det B
+	\end{equation*}
+	\item Für Blockdiagonal- bzw. Bockdreiecksmatrizen gilt
+	\begin{equation*}
+		\det\matrix{A&0\\0&B}=\det\matrix{A&C\\0&B}=\det A*\det B
+	\end{equation*}
+	für $A\in M(n,K), B\in M(m,K), C\in M(n,K)$
+	\item Oft schreibt man auch $|A|$ anstelle von $\det A$.
+\end{itemize}
+
+\section{Gaußalgorithmus Teil 2:}
+Oft hat man das Problem für einen gegebenen (Unter-)Vektorraum, der von einer endlichen Menge von Vektoren aufgespannt wird, eine Basis zu ermitteln. Die beiden folgenden Sätze zeigen, dass man hierfür mit dem Gaußalgorithmus verwenden kann.
+
+\begin{satz}{}
+	Elementare Zeilenumformungen ändern nichts am Spann der Zeilenvektoren einer Matrix.
+\end{satz}
+\begin{satz}{}
+	Die von Null verschiedenen Zeilen einer Matrix in Zeilenstufenform sind linear unabhängig.
+\end{satz}
+
+\paragraph{Rezept zum Bestimmen einer Basis:}
+\begin{enumerate}
+	\item Bilde die Matrix, die diese Vektoren als Zeilen hat.
+	\item Bringe die Matrix auf Zeilenstufenform.
+	\item Die von Null verschiedenen Zeilen bilden eine Basis, insbesondere ist die Dimension gleich der Anzahl der Vektoren.
+\end{enumerate}
