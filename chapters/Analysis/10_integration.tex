@@ -360,7 +360,7 @@ Die Menge der Regelfunktionen bildet einen reellen Vektorraum.
 
 Damit diese Definition sinnvoll ist, müssen wir noch die Wohldefiniertheit beweisen. Das heißt die Existenz des Grenzwerts auf der rechten Seite und die Unabhängigkeit von der Wahl der Folge $(t_n)$.
 
-\begin{lemma}{}
+\begin{lemma}{Integral für Regelfunktionen}
 	Der Grenzwert in der obigen Definition existiert und ist unabhängig von der Wahl der Approximierenden Folge von Treppenfunktionen.
 \end{lemma}
 
@@ -382,5 +382,155 @@ Damit diese Definition sinnvoll ist, müssen wir noch die Wohldefiniertheit bewe
 			\forall \epsilon>0 \enspace\exists N\in\N:\sup_{x\in[a,b]}|t_n(x)-t_m(x)|<\epsilon
 		\end{equation*}
 		Dies zeigt die Existenz des Grenzwerts.
+		\item Unabhängigkeit von der Wahl von $(t_n)$. Seien $(t_n)$ und $(h_n)$ zwei verschiedene Folgen von Treppenfunktionen, $[a,b]\rightarrow\R$, die beide die Funktion $f:[a,b]\rightarrow\R$ gleichmäßig approximieren.
+		\begin{equation*}
+			\lim\limits_{n\to\infty}t_n(x)\overset{glm.}=f(x)\overset{glm.}=\lim\limits_{n\to\infty}h_n(x)
+		\end{equation*}
+		Sei weiter
+		\begin{equation*}
+			I_n\coloneqq \int_a^b t_n(x)\intd x, J_n\coloneqq \int_a^b h_n(x)\intd x
+		\end{equation*}
+		Dann ist, da $t_n$ und $h_n$ gleichmäßig konvergieren:
+		\begin{align*}
+			|I_n-J_n|&\leq (b-a)\sup_{x\in[a,b]}\left|t_n(x)-h_n(x)\right|\\
+			&\leq (b-a)*\left(\underbrace{\sup_{x\in[a,b]}\left|t_n(x)-f(x)\right|}_{\to0}+\underbrace{\sup_{x\in[a,b]}\left|f(x)-h_n(x)\right|}_{\to0}\right)
+		\end{align*}
+		Daraus folgt $\lim\limits_{n\to\infty}(I_n-J_n)=0$ was zu $\lim\limits_{n\to\infty}I_n=\lim\limits_{n\to\infty}J_n$ äquivalent ist. \hfill$\Box$
 	\end{enumerate}
 \end{beweis}
+Damit haben wir gezeigt, dass das Cauchy-Integral wohldefiniert ist.
+
+
+\subsection{Integralrechnung}
+\begin{multicols}{2}
+	Für Regelfunktionen gilt die Abschätzung
+	\begin{equation*}
+		\left|\int_a^b f(x)\intd x\right| \leq (b-a)*\sup_{x\in[a,b]}|f(x)|
+	\end{equation*}
+	\columnbreak
+
+	\begin{center}
+		\begin{easyfunction}{0}{10}{0}{4.5}{0.65}
+
+			\draw [green, fill=green, opacity=0.3, thick] (0,0) rectangle (9.5,3.81);
+			\fill [fill=white,opacity=0.8, domain=0:9.6, variable=\x]
+				(0, 0)
+				-- plot ({\x},{sin(deg(\x-5))-0.1*(\x-5)*(\x-5)+3})
+				-- (10, 0);
+
+			\draw[->] (0,0) -- (10.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,4.5) node[above] {};
+
+			\draw (0,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$a$}] {};
+			\draw (9.5,0) node (b) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$b$}] {};
+
+			\draw (0,3.81) node (sup) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={above right:$\displaystyle\sup_{x\in[a,b]}|f(x)|$}] {};
+
+			\begin{scope}
+				\clip(0,0) rectangle (10,5);
+
+				\draw[line width=0.5mm,scale=1,domain=0:10,smooth,variable=\x,red] plot ({\x},{sin(deg(\x-5))-0.1*(\x-5)*(\x-5)+3})
+					node[below right] {};
+			\end{scope}
+		\end{easyfunction}
+	\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+	Ist die Funktion $f$ stetig, kann man eine ähnliche Aussage für den exakten Wert des Integrals bekommen
+	\begin{equation*}
+		\int_a^bf(x)\intd x=(b-a)*f(\xi)
+	\end{equation*}
+	für ein $\xi\in[a,b]$. Diese Aussage ist der Mitelwertsatz der Integralrechnung.
+	\columnbreak
+
+	\begin{center}
+		\begin{easyfunction}{0}{10}{0}{4.5}{0.65}
+
+			\draw [green, fill=green, opacity=0.3, thick] (0,0) rectangle (9.5,2.24);
+			\fill [fill=white,opacity=0.8, domain=0:9.6, variable=\x]
+				(0, 0)
+				-- plot ({\x},{sin(deg(\x-5))-0.1*(\x-5)*(\x-5)+3})
+				-- (10, 0);
+
+			\draw[->] (0,0) -- (10.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,4.5) node[above] {};
+
+			\draw (0,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$a$}] {};
+			\draw (9.5,0) node (b) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$b$}] {};
+
+			\begin{scope}
+				\clip(0,0) rectangle (10,5);
+
+				\draw[line width=0.5mm,scale=1,domain=0:10,smooth,variable=\x,red] plot ({\x},{sin(deg(\x-5))-0.1*(\x-5)*(\x-5)+3})
+					node[below right] {};
+			\end{scope}
+
+			\draw (4.21,0) node (xi) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:{$\xi$}}] {};
+			\draw (4.21,2.24) node (fxi) [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw,label={right:$f(\xi)$}] {};
+
+
+			\draw[dotted] (xi) to (fxi);
+		\end{easyfunction}
+	\end{center}
+\end{multicols}
+
+\begin{satz}{Mittelwertsatz der Integralrechnung}
+	Es seien $f:[a,b]\rightarrow\R$ eine stetige Funktion und $p:[a,b]\rightarrow \R$ eine Regelfunktion mit $p\geq 0$. Dann gibt es ein $\xi\in[a,b]$ mit
+	\begin{equation*}
+		\int_a^b f(x)*p(x)\intd x=f(\xi)*\int_a^b p(x)\intd x
+	\end{equation*}
+\end{satz}
+\begin{beweis}
+	Wegen der Monotonie des Integrals gilt:
+	\begin{equation*}
+		\min_{x\in[a,b]}f(x)*\int_a^b p(x)\intd x\leq \int_a^b f(x)p(x)\intd x\leq \max_{x\in[a,b]}f(x)*\int_a^b p(x)\intd x
+	\end{equation*}
+	Wobei wir den Satz benutzt haben, dass eine stetige Funktion auf einem geschlossenen Intervall $[a,b]$ ihr Minimum und ihr Maximum annimmt.
+
+	Es gibt also eine Zahl $\mu$ zwischen $m=\min_{x\in[a,b]}f(x)$ und $M=\max_{x\in[a,b]}f(x)$, so dass
+	\begin{equation*}
+		\int_a^b f(x)p(x)\intd x=\mu*\int_a^b p(x)\intd x
+	\end{equation*}
+	Nach dem Zwischenwertsatz, also da $f$ stetig ist, nimmt $f$ alle Werte zwischen $m$ und $M$ an. Das heißt es gibt ein $\xi\in[a,b]$, so dass $f(\xi)=\mu$ gilt.\hfill$\Box$
+\end{beweis}
+
+Eine wichtige Erkenntnis ist der Zusammenhang zwischen Differentiation und Integration. Dazu führen wir den Begriff der Stammfunktion ein:
+\begin{definition}{Stammfunktion}
+	Sei $f:[a,b]\rightarrow \R$. Eine Funktion $F:[a,b]\rightarrow\R$ heit Stammfunktion von $f$, falls $F$ in jedem Punkt aus $[a,b]$ differenzierbar ist und
+	\begin{equation*}
+		\frac{\diff F}{\diff x}=f(x)
+	\end{equation*}
+	gilt.
+\end{definition}
+\paragraph{Bemerkung:}
+Stammfunktionen sind nicht eindeutig bestimmt. Ist nämlich $F$ eine Stammfunktion von $f$, dann ist $x\mapsto F(x)+c$ eine Stammfunktion von $f$ für alle $c\in\R$.
+
+\par
+Damit können wir den Hauptsatz der Differential- und Integralrechnung formulieren:
+\begin{satz}{Hauptsatz der Differential- und Integralrechnung\\für stetige Funktionen}
+	Sei $f$ stetig in $[a,b]$ und
+	\begin{equation*}
+		F(x))=\int_a^x f(s)\intd s
+	\end{equation*}
+	Dann ist $F:[a,b]\rightarrow \R$ stetig differenzierbar und eine Stammfunktion von $f$.
+\end{satz}
+\begin{beweis}
+	Sei $x_0\in[a,b]$ und sei $(x_n)$ eine Folge von Punkten, $x_n\in[a,b]$ mit $(x_n)\to x_0$. Wir berechnen:
+	\begin{align*}
+		\frac{F(x_n)-F(x_0)}{x_n-x_0}&=\frac{\int_a^{x_n} f(s)\intd s-\int_a^{x_0} f(s)\intd s}{x_n-x_0}\\
+		&=\frac{\int_{x_0}^{x_n} f(s)\intd s}{x_n-x_0}\\
+		&=\frac{1}{x_n-x_0}f(\xi_n)(x_n-x_0)\\
+		&=f(\xi_n)
+	\end{align*}
+	wobei $\xi_n\in[x_0,x_n]$ ist.
+	Da $(x_n)\to x_0$, gilt auch $\xi_n\to x_0$. Da $f$ stetig ist, existiert auch der Grenzwert des oberen Terms und es gilt:
+	\begin{equation*}
+		F'(x_0)=\lim\limits_{n\to\infty}\frac{F(x_n)-F(x_0)}{x_n-x_0}=\lim\limits_{n\to\infty}f(\xi_n)=f(x_0)
+	\end{equation*}
+	\ \hfill$\Box$
+\end{beweis}
+
+\begin{satz}{Hauptsatz der Differential- und Integralrechnung\\für Regelfunktionen}
+
+\end{satz}

@@ -8,7 +8,13 @@
 \RequirePackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm, heightrounded]{geometry}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{xcolor}
-\RequirePackage{hyperref}
+\RequirePackage[pdftex,
+            pdfauthor={Simon König},
+            pdftitle={Skript zum Modul Mathematik für inf, swt und msv},
+            pdfsubject={Lineare Algebra und Analysis 1},
+            pdfkeywords={Mathematik, lineare Algebra, Analysis, Universität Stuttgart},
+            pdfproducer={LaTeX with hyperref package},
+            pdfcreator={pdfTeX}]{hyperref}
 \RequirePackage{booktabs}
 \RequirePackage{array}
 
