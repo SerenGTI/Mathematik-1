@@ -1,0 +1,17 @@
+\subsection{Uneigentliches Integral}
+Uneigentlich bedeutet, dass eine oder beide Integrationsgrenzen $\pm\infty$ sind.
+\begin{definition}{Uneigentliches Integral}
+	Die Funktion $f$ sei auf $[a,x_0), a<x_0\leq\infty$ definiert und Regelfunktion auf jedem Teilintervall $[a,\nu]\subseteq [a,x_0)$. Dann heißt $f$ uneigentlich integrierbar auf $[a,x_0)$, falls der linksseitige Grenzwert
+	\begin{equation*}
+		\int_a^{x_0} f(x)\intd x\coloneqq \lim\limits_{\nu\to x_0^-}\int_a^\nu f(x)\intd x
+	\end{equation*}
+	existiert. Entsprechend für den rechtsseitigen Grenzwert für linkte Integrationsgrenze.
+\end{definition}
+\paragraph{Bemerkungen:}
+\begin{itemize}
+	\item Potenzreihen können im Innern des Konvergenzradius gliedweise integriert werden.
+	\item Manchmal kann man auch mit Hilfe der Integrationsregeln keine Stammfunktion für gewisse Integranden finden. Auf diese Weise können viele neue Funktionen definiert werden. Zum Beispiel der Integralsinus:
+	\begin{equation*}
+		\operatorname{Si}(x)\coloneqq \int_0^x \frac{\sin(t)}{t}\intd t
+	\end{equation*}
+\end{itemize}

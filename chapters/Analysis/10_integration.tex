@@ -339,7 +339,7 @@ Konvergiert $t_n$ gleichmäßig gegen $f$, so schreiben wir auch
 
 Welche Funktionen sind Regelfunktionen?
 \begin{satz}{Hauptsatz über Regelfunktionen}
-	Die Funktion $f:[a,b]\rightarrow\R$ ist eine Regelfunktion genau dann, wenn $f$ in jedem Punkt von $(a,b)$ einen links- oder einen rechtsseitigen Grenzwert, und in $a$ einen rechtsseitigen sowie in $b$ einen linksseiten Grenzwert besitzt.
+	Die Funktion $f:[a,b]\rightarrow\R$ ist eine Regelfunktion genau dann, wenn $f$ in jedem Punkt von $(a,b)$ einen links- und einen rechtsseitigen Grenzwert, und in $a$ einen rechtsseitigen sowie in $b$ einen linksseiten Grenzwert besitzt.
 \end{satz}
 \paragraph{Folgerung:}
 \begin{itemize}
@@ -441,7 +441,7 @@ Damit haben wir gezeigt, dass das Cauchy-Integral wohldefiniert ist.
 	\begin{equation*}
 		\int_a^bf(x)\intd x=(b-a)*f(\xi)
 	\end{equation*}
-	für ein $\xi\in[a,b]$. Diese Aussage ist der Mitelwertsatz der Integralrechnung.
+	für ein $\xi\in[a,b]$. Diese Aussage ist der Mittelwertsatz der Integralrechnung.
 	\columnbreak
 
 	\begin{center}
@@ -511,7 +511,7 @@ Damit können wir den Hauptsatz der Differential- und Integralrechnung formulier
 \begin{satz}{Hauptsatz der Differential- und Integralrechnung\\für stetige Funktionen}
 	Sei $f$ stetig in $[a,b]$ und
 	\begin{equation*}
-		F(x))=\int_a^x f(s)\intd s
+		F(x)=\int_a^x f(s)\intd s
 	\end{equation*}
 	Dann ist $F:[a,b]\rightarrow \R$ stetig differenzierbar und eine Stammfunktion von $f$.
 \end{satz}
@@ -532,5 +532,47 @@ Damit können wir den Hauptsatz der Differential- und Integralrechnung formulier
 \end{beweis}
 
 \begin{satz}{Hauptsatz der Differential- und Integralrechnung\\für Regelfunktionen}
-
+	Sei $f:[a,b]\rightarrow\R$ eine Regelfunktion und wie oben
+	\begin{equation*}
+		F(x)=\int_a^x f(s)\intd s
+	\end{equation*}
+	Dann existieren in jedem Punkt die links- und rechtsseitigen Ableitungen von $F$ und es gilt
+	\begin{align*}
+		F'(x_0^-)&=\lim\limits_{x\to x_0^-}f(x)\\
+		F'(x_0^+)&=\lim\limits_{x\to x_0^+}f(x)
+	\end{align*}
+	Diese beiden Grenzwerte müssen dabei nicht notwendigerweise übereinstimmen.
 \end{satz}
+\paragraph{Folgerung:}
+Sei $F$ in $[a,b]$ stetig differenzierbar. Dann gilt für $x\in[a,b]$
+\begin{equation*}
+	F(x)-F(a)=\int_a^x F'(s)\intd s
+\end{equation*}
+\begin{beweis}
+	Für $f=F'$ gilt nach dem Hauptsatz:
+	\begin{equation*}
+		F'(x)=\frac{\diff}{\diff x} \int_a^x f(s)\intd s=f(x)
+	\end{equation*}
+	Wir betrachten die Funktion
+	\begin{equation*}
+		H(x)=F(x)-\int_a^x f(s)\intd s
+	\end{equation*}
+	Dann gilt $H'(x)=0$ für alle $x\in[a,b]$ und $H(a)=F(a)$. Nach dem Mittelwertsatz der Integralrechnung ist mit einem Zwischenwert $\xi\in(a,x)$
+	\begin{equation*}
+		H(x)-H(a)=F(x)-\int_a^x f(s)\intd s-F(a)=H'(\xi)*(x-a)=0
+	\end{equation*}
+	Daraus folgt die Behauptung.\hfill$\Box$
+\end{beweis}
+\par
+\medskip
+Man schreibt auch
+\begin{equation*}
+	F(x)\Big|_a^b=F(b)-F(a)
+\end{equation*}
+
+
+Aus dem Hauptsatz folgen viele wichtige Regeln für die Integration. Wir wissen z.B.
+\begin{itemize}
+	\item $\frac{\diff}{\diff x}x^k=kx^{k-1}$ also ist $\int_a^bx^{k-1}\intd x=\frac1kx\Big|_a^b$
+	\item $\int_a^b\cos(x)\intd x=\sin(x)\Big|_a^b$
+\end{itemize}

@@ -1,0 +1,113 @@
+\subsection{Integrationsregeln}
+\begin{satz}{Partielle Integration}
+	Seien $f,g$ differenzierbare Funktionen, deren Ableitungen Regelfunktionen sind, dann gilt:
+	\begin{align*}
+		\int_a^b f'(x)g(x)\intd x
+		&= f(x)g(x)\Big|_a^b-\int_a^b f(x)g'(x)\intd x\\
+		&= f(b)g(b)-f(a)g(a)-\int_a^b f(x)g'(x)\intd x
+	\end{align*}
+\end{satz}
+\begin{beweis}
+	Es gilt:
+	\begin{align*}
+		\int_a^b (f*g)'(x)\intd x
+		&=\int_a^b f'(x)g(x)\intd x+\int_a^b f(x)g'(x)\intd x\\
+		&=f(b)g(b)-f(a)g(a)
+	\end{align*}
+	woraus die Formel folgt.\hfill$\Box$
+\end{beweis}
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Flächeninhalt eines Halbkreises mit Radius $1$. Wir benutzen dazu die Funktion $x\mapsto\sqrt{1-x^2}$.
+
+	\begin{center}
+		\begin{easyfunction}{-2}{2}{0}{2}{1.4}
+
+			\fill [green, opacity=0.3, domain=-1:1, variable=\x]
+	      (-1, 0)
+	      -- plot ({\x}, {sqrt(1-\x*\x)})
+	      -- (1, 0);
+
+			\draw[->] (-1.2,0) -- (1.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,1.2) node[above] {$f(x)$};
+
+			\draw (-1,0) node (-1) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$-1$}] {};
+			\draw (1,0) node (1) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$1$}] {};
+
+			\draw[line width=0.5mm, scale=1, domain=-1:1, smooth, variable=\x, red] plot ({\x},{sqrt(1-\x*\x)}) node[below right] {};
+		\end{easyfunction}
+	\end{center}
+
+
+	Wir berechnen also
+	\begin{align*}
+		\int_{-1}^1\sqrt{1-x^2}\intd x
+		&=\int_{-1}^1 1*\sqrt{1-x^2}\intd x\\
+		&=\underbrace{x\sqrt{1-x^2}\Big|_{-1}^1}_{=0}-\int_{-1}^1 x\frac{-x}{\sqrt{1-x^2}}\intd x\\
+		&=-\int_{-1}^1 \frac{-x^2}{\sqrt{1-x^2}}\intd x\\
+		&=-\int_{-1}^1 \frac{1-x^2}{\sqrt{1-x^2}}\intd x+\int_{-1}^1 \frac{1}{\sqrt{1-x^2}}\intd x\\
+		&=-\int_{-1}^1 \sqrt{1-x^2}\intd x+\int_{-1}^1 \frac{1}{\sqrt{1-x^2}}\intd x\\
+		2*\int_{-1}^1\sqrt{1-x^2}\intd x
+		&=\int_{-1}^1 \frac{1}{\sqrt{1-x^2}}\intd x\\
+	\end{align*}
+	Wir benötigen also eine Stammfunktion für $x\mapsto\frac{1}{\sqrt{1-x^2}}$. Diese Stammfunktion ist $\arcsin(x)$, denn es gilt:
+	\begin{equation*}
+		\frac{\diff}{\diff x}\arcsin(x)=\frac{1}{\cos(y)}=\frac{1}{\sqrt{1-\sin^2(y)}}=\frac{1}{\sqrt{1-x^2}}
+	\end{equation*}
+	Damit erhalten wir schließlich
+	\begin{equation*}
+		\int_{-1}^1\sqrt{1-x^2}\intd x=\frac12(\arcsin(1)-\arcsin(-1))=\frac12\left(\frac\pi2+\frac\pi2\right)=\frac\pi2
+	\end{equation*}
+	\item Wir berechnen folgendes Integral:
+	\begin{align*}
+		\int_a^b e^x \sin(x) \intd x
+		&=e^x\sin(x)\Big|_a^b-\int_a^b e^x\cos(x)\intd x\\
+		&=e^x\sin(x)\Big|_a^b - e^x\cos(x)\Big|_a^b + \int_a^b e^x(-\sin(x))\intd x
+	\end{align*}
+	Also gilt:
+	\begin{equation*}
+		\int_a^b e^x\sin(x)\intd x=\frac12\left(e^x\sin(x)-e^x\cos(x)\right)\Big|_a^b
+	\end{equation*}
+\end{itemize}
+
+\begin{satz}{Integration durch Substitution}
+	Sei $f:[a,b]\rightarrow\R, x\mapsto f(x)$ und $g:[\alpha, \beta]\rightarrow\R, t\mapsto g(t)$.
+	Wobei der Wertebereich von $g$ in $[a,b]$ enthalten ist. Die Funktion $f$ bestitze eine Stammfunktion $F$ und sei differenzierbar. Dann besitzt auch die Funktion $f\circ g(t)*g'(t)=f(g(t))*g'(t)$ eine Stammfunktion, nämlich $F\circ g$ und es gilt für $\alpha_0,\beta_0\in[\alpha, \beta]$:
+	\begin{equation*}
+		\int_{\alpha_0}^{\beta_0} f(g(t))*g'(t)\intd t = \int_{g(\alpha_0)}^{g(\beta_0)} f(x)\intd x
+	\end{equation*}
+	Ist zusätzlich $g'(t)\neq 0$ für $t\in[\alpha,\beta]$, dann existiert die zu $x=g(t)$ inverse Funktion $g^{-1}(x)=t$ und es gilt für $a_0, b_0\in[a,b]$:
+	\begin{equation*}
+		\int_{g^{-1}(a_0)}^{g^{-1}(b_0)} f(g(t))\intd t=\int_{a_0}^{b_0} f(x)\intd x
+	\end{equation*}
+\end{satz}
+\begin{beweis}
+	Wir zeigen zunächst die erste Aussage, wir betrachten dazu eine Stammfunktion von $f$ für $a_0\in[a,b]$
+	\begin{equation*}
+		F(x)=\int_a^x f(s)\intd s
+	\end{equation*}
+	und setzen weiter $g(t)=x$. Nach der Kettenregel ist
+	\begin{equation*}
+		\frac\diff{\diff x}F(g(t))=f(g(t))*g'(t)
+	\end{equation*}
+	damit folgt:
+	\begin{align*}
+		\int_{\alpha_0}^{\beta_0}\frac\diff{\diff t} F(g(t))\intd t
+		&= F(g(\beta_0))-F(g(\alpha_0))\\
+		&=\int_{g(\alpha_0)}^{g(\beta_0)} f(x) \intd x= \int_{\alpha_0}^{\beta_0} f(g(t))*g'(t) \intd t
+	\end{align*}
+\end{beweis}
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Für die allgemeine Funktion $g(x)$:
+	\begin{align*}
+		\int_0^1 \frac{g'(x)}{g(x)}\intd x &\underset{f(x)=\frac1x}
+		=\int_{g(0)}^{g(1)} \frac1x \intd x\\
+		&=\ln(g(1))-\ln(g(0))
+	\end{align*}
+\end{itemize}
+
+\paragraph{Bemerkungen:}
+Seien $p(x),q(x)$ Polynome, dann ist $F(x)=\frac{p(x)}{q(x)}$ eine rationale Funktion. Solche Funktionen kann man mithilfe von sogenannter Partialbruchzerlegung integrieren.
