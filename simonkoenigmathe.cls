@@ -12,9 +12,7 @@
             pdfauthor={Simon König},
             pdftitle={Skript zum Modul Mathematik für inf, swt und msv},
             pdfsubject={Lineare Algebra und Analysis 1},
-            pdfkeywords={Mathematik, lineare Algebra, Analysis, Universität Stuttgart},
-            pdfproducer={LaTeX with hyperref package},
-            pdfcreator={pdfTeX}]{hyperref}
+            pdfkeywords={Mathematik, lineare Algebra, Analysis, Universität Stuttgart}]{hyperref}
 \RequirePackage{booktabs}
 \RequirePackage{array}
 
@@ -29,7 +27,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage[framemethod=TikZ]{mdframed}
-\usetikzlibrary{arrows,intersections,patterns}
+\usetikzlibrary{arrows,intersections,patterns,calc}
 \RequirePackage{xfrac}
 \RequirePackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
