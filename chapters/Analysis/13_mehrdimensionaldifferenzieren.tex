@@ -21,11 +21,10 @@ Wir bezeichnen $n$ als die Anzahl der Variablen und $m$ als die Anzahl der Kompo
 		\coordinate (backmid) at (7,6/4);
 		\coordinate (backright) at (11,6/4);
 
-		\draw[green, line width=0.2mm]
-		(frontleft) to (frontright)
-		(backleft) to (backright)
-		(frontleft) to (backleft)
-		(frontright) to (backright);
+
+
+		\filldraw[draw=green, line width=0.2mm, fill=green!20!white]
+		(frontleft) -- (frontright) -- (backright) -- (backleft) -- cycle;
 		\node[label={right:\color{green}$D$}] at (7,-6/4) {};
 
 		\draw[->] (0,0) -- (10,0) node[right] {$x_1$};
@@ -65,18 +64,24 @@ Wir bezeichnen $n$ als die Anzahl der Variablen und $m$ als die Anzahl der Kompo
 		\draw[red, line width=0.5mm]
 		(frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright);
 
-		\draw[red, line width=0.5mm]
+
+		\draw[red, line width=0.2mm]
 		($(overmidleft)+(-0.01,0)$) .. controls (4.5,4.7) and (5.5,4.7) .. (overmidright);
 
 		\draw[red, line width=0.5mm]
-		(overmidleft) .. controls (4.5,5) and (7,4.8) .. (backright);
+		($(overmidleft)+(-0.08,-0.02)$) .. controls (4.5,5) and (7,4.7) .. (backright);
 
-
+		% \filldraw[fill=blue, draw=red]
+		% 	(frontleft) .. controls ($(overfrontmid)+(-0.5,0.7)$) and ($(overfrontmid)+(0.5,0.7)$) .. (frontright)
+		% 	-- (frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright)
+		% 	-- (backright) .. controls (7,4.7) and (4.5,5) .. ($(overmidleft)+(-0.08,-0.02)$)
+		% 	-- (frontleft) .. controls (0.2,2.5) and (1.3,2.6) .. (backleft)
+		% 	-- (frontleft);
 
 		\foreach \x/\y in {1/0.73,2/1.4,3/1.85,4/2,5/1.85,6/1.4,7/0.73}
 			\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(0.2,2.5)+(\x,\y)$) and ($(1.3,2.6)+(\x,\y)$) .. ($(backleft)+(\x,\y)$);
 
-		\foreach \x/\y in {0.5/1.4,1/2.5,1.5/3.2,2.5/3.6}
+		\foreach \x/\y in {0.5/1.4,1/2.5,1.51/3.2,2.5/3.57}
 			\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(overfrontmid)+(-0.5+\x,0.7+\y)$) and ($(overfrontmid)+(0.5+\x,0.7+\y)$) .. ($(frontright)+(\x,\y)$);
 
 	\end{tikzpicture}
