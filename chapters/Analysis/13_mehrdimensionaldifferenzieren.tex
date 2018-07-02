@@ -7,82 +7,105 @@ Abbildungen, deren Wertebereich ein- oder zweidimensional ist werden eher als Fu
 
 Wir bezeichnen $n$ als die Anzahl der Variablen und $m$ als die Anzahl der Komponenten der Abbildung.
 
+Jede Abbildung $f:D\rightarrow\R^m, D\subseteq \R^n$ ist von der Form
+\begin{equation*}
+	f(x)=f(x_1,\ldots,x_n)=\vector{f_0(x_1,\ldots,x_n)\\\vdots\\f_m(x_1,\ldots,x_n)}\in\R^m
+\end{equation*}
+Die Funktionen $f_i:\R^n\rightarrow\R^m$ heißen die Komponentenfunktionen von $f$. Man kann also eine Abbildung $f$ auch als ein $m$-Tupel von Funktionen $f_i:D\rightarrow\R$ betrachten. Deswegen ist es für manche Fragestellenungen ausreichend, den Fall $m=1$ zu betrachten.
 
-\begin{center}
-	\begin{tikzpicture}
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Eine Funktion in zwei Variablen, sei $D\subseteq[-1,1]\times[-1,1]$ und $m=1$.
+	\begin{equation*}
+		f:D\rightarrow\R,(x,y)\mapsto2-x^2-y^2
+	\end{equation*}
+	Der Graph der Funktion
+	\begin{equation*}
+		\Gamma_f=\set{(x,y,z)\in [-1,1]\times[-1,1]\times\R}{z=f(x,y)}
+	\end{equation*}
+	ist eine Teilmenge des $\R^3$.
 
-		\coordinate (frontleft) at (-1,-6/4);
-		\coordinate (frontmid) at (3,-6/4);
-		\coordinate (frontright) at (7,-6/4);
-		\coordinate (midleft) at (1,0);
-		\coordinate (midmid) at (5,0);
-		\coordinate (midright) at (9,0);
-		\coordinate (backleft) at (3,6/4);
-		\coordinate (backmid) at (7,6/4);
-		\coordinate (backright) at (11,6/4);
+	\begin{center}
+		\begin{tikzpicture}
 
-
-
-		\filldraw[draw=green, line width=0.2mm, fill=green!20!white]
-		(frontleft) -- (frontright) -- (backright) -- (backleft) -- cycle;
-		\node[label={right:\color{green}$D$}] at (7,-6/4) {};
-
-		\draw[->] (0,0) -- (10,0) node[right] {$x_1$};
-		\draw[->] (8,9/4) -- (2,-2.25) node[below] {$x_2$};
-		\draw[->] (5,0) -- (5,5.4) node[above] {$x_3$};
-		%\makegrid
-
-		\draw (midleft) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum height=4pt, label={below:$-1$}] {};
-		\draw (midright) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum height=4pt, label={below:$1$}] {};
-		\draw (frontmid) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={below right:$1$}] {};
-		\draw (backmid) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={below right:$-1$}] {};
-		\draw (5,2) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={right:$1$}] {};
-		\draw (5,4) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={above right:$2$}] {};
-
+			\coordinate (frontleft) at (-1,-6/4);
+			\coordinate (frontmid) at (3,-6/4);
+			\coordinate (frontright) at (7,-6/4);
+			\coordinate (midleft) at (1,0);
+			\coordinate (midmid) at (5,0);
+			\coordinate (midright) at (9,0);
+			\coordinate (backleft) at (3,6/4);
+			\coordinate (backmid) at (7,6/4);
+			\coordinate (backright) at (11,6/4);
 
 
-		\coordinate (overfrontmid) at (3,-6/4+2);
-		\coordinate (overmidleft) at (1,2);
-		\coordinate (overbackmid) at (7,6/4+2);
-		\coordinate (overmidright) at (9,2);
 
-		\draw[dotted]
-		(frontmid) to (overfrontmid)
-		(midleft) to (overmidleft)
-		(backmid) to (overbackmid)
-		(midright) to (overmidright);
+			\filldraw[draw=green, line width=0.2mm, fill=green!20!white]
+			(frontleft) -- (frontright) -- (backright) -- (backleft) -- cycle;
+			\node[label={right:\color{green}$D$}] at (7,-6/4) {};
 
+			\draw[->] (0,0) -- (10,0) node[right] {$x_1$};
+			\draw[->] (8,9/4) -- (2,-2.25) node[below] {$x_2$};
+			\draw[->] (5,0) -- (5,5.4) node[above] {$x_3$};
+			%\makegrid
 
-		\draw[red, line width=0.5mm]
-		(frontleft) .. controls ($(overfrontmid)+(-0.5,0.7)$) and ($(overfrontmid)+(0.5,0.7)$) .. (frontright);
-		\draw[red, line width=0.2mm]
-		(backleft) .. controls ($(overbackmid)+(-0.5,0.7)$) and ($(overbackmid)+(0.5,0.7)$) ..  (backright);
-
-
-		\draw[red, line width=0.5mm]
-		(frontleft) .. controls (0.2,2.5) and (1.3,2.6) .. (backleft);
-		\draw[red, line width=0.5mm]
-		(frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright);
+			\draw (midleft) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum height=4pt, label={below:$-1$}] {};
+			\draw (midright) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum height=4pt, label={below:$1$}] {};
+			\draw (frontmid) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={below right:$1$}] {};
+			\draw (backmid) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={below right:$-1$}] {};
+			\draw (5,2) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={right:$1$}] {};
+			\draw (5,4) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={above right:$2$}] {};
 
 
-		\draw[red, line width=0.2mm]
-		($(overmidleft)+(-0.01,0)$) .. controls (4.5,4.7) and (5.5,4.7) .. (overmidright);
 
-		\draw[red, line width=0.5mm]
-		($(overmidleft)+(-0.08,-0.02)$) .. controls (4.5,5) and (7,4.7) .. (backright);
+			\coordinate (overfrontmid) at (3,-6/4+2);
+			\coordinate (overmidleft) at (1,2);
+			\coordinate (overbackmid) at (7,6/4+2);
+			\coordinate (overmidright) at (9,2);
 
-		% \filldraw[fill=blue, draw=red]
-		% 	(frontleft) .. controls ($(overfrontmid)+(-0.5,0.7)$) and ($(overfrontmid)+(0.5,0.7)$) .. (frontright)
-		% 	-- (frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright)
-		% 	-- (backright) .. controls (7,4.7) and (4.5,5) .. ($(overmidleft)+(-0.08,-0.02)$)
-		% 	-- (frontleft) .. controls (0.2,2.5) and (1.3,2.6) .. (backleft)
-		% 	-- (frontleft);
+			\draw[dotted]
+			(frontmid) to (overfrontmid)
+			(midleft) to (overmidleft)
+			(backmid) to (overbackmid)
+			(midright) to (overmidright);
 
-		\foreach \x/\y in {1/0.73,2/1.4,3/1.85,4/2,5/1.85,6/1.4,7/0.73}
-			\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(0.2,2.5)+(\x,\y)$) and ($(1.3,2.6)+(\x,\y)$) .. ($(backleft)+(\x,\y)$);
 
-		\foreach \x/\y in {0.5/1.4,1/2.5,1.51/3.2,2.5/3.57}
-			\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(overfrontmid)+(-0.5+\x,0.7+\y)$) and ($(overfrontmid)+(0.5+\x,0.7+\y)$) .. ($(frontright)+(\x,\y)$);
+			\draw[red, line width=0.5mm]
+			(frontleft) .. controls ($(overfrontmid)+(-0.5,0.7)$) and ($(overfrontmid)+(0.5,0.7)$) .. (frontright);
+			\draw[red, line width=0.2mm]
+			(backleft) .. controls ($(overbackmid)+(-0.5,0.7)$) and ($(overbackmid)+(0.5,0.7)$) ..  (backright);
 
-	\end{tikzpicture}
-\end{center}
+
+			\draw[red, line width=0.5mm]
+			(frontleft) .. controls (0.2,2.5) and (1.3,2.6) .. (backleft);
+			\draw[red, line width=0.5mm]
+			(frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright);
+
+
+			\draw[red, line width=0.2mm]
+			($(overmidleft)+(-0.01,0)$) .. controls (4.5,4.7) and (5.5,4.7) .. (overmidright);
+
+			\draw[red, line width=0.5mm]
+			($(overmidleft)+(-0.08,-0.02)$) .. controls (4.5,5) and (7,4.7) .. (backright);
+
+			% \filldraw[fill=blue, draw=red]
+			% 	(frontleft) .. controls ($(overfrontmid)+(-0.5,0.7)$) and ($(overfrontmid)+(0.5,0.7)$) .. (frontright)
+			% 	-- (frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright)
+			% 	-- (backright) .. controls (7,4.7) and (4.5,5) .. ($(overmidleft)+(-0.08,-0.02)$)
+			% 	-- (frontleft) .. controls (0.2,2.5) and (1.3,2.6) .. (backleft)
+			% 	-- (frontleft);
+
+			\foreach \x/\y in {1/0.73,2/1.4,3/1.85,4/2,5/1.85,6/1.4,7/0.73}
+				\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(0.2,2.5)+(\x,\y)$) and ($(1.3,2.6)+(\x,\y)$) .. ($(backleft)+(\x,\y)$);
+
+			\foreach \x/\y in {0.5/1.4,1/2.5,1.51/3.2,2.5/3.57}
+				\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(overfrontmid)+(-0.5+\x,0.7+\y)$) and ($(overfrontmid)+(0.5+\x,0.7+\y)$) .. ($(frontright)+(\x,\y)$);
+
+		\end{tikzpicture}
+	\end{center}
+
+	\item Eine Abbildung von $D=[0,\pi]$ nach $\R^2$ (auch Kurve genannt),
+	\begin{equation*}
+		c(t)=\vector{\cos(t)\\\sin(t)}
+	\end{equation*}
+\end{itemize}
