@@ -12,17 +12,70 @@ Wir betrachten die Stetigkeit von Abbildungen zwischen metrischen Räumen.
 	\end{equation*}
 \end{definition}
 
-\begin{definition}{$\epsilon$-$\delta$-Stetigkeit}
-	Seien $X$ und $Y$ metrische Räume.
-	Die Abbildung $f:X\rightarrow Y$ heißt stetig im Punkt $x_0\in X$, falls zu jedem $\epsilon>0$ ein $\delta>0$ existiert, so dass gilt:
-	\begin{equation*}
-		\varrho(f(x),f(x_0))<\epsilon\quad \forall x\in X, \varrho(x,x_0)<\delta
-	\end{equation*}
-	Oder kurz, falls gilt:
-	\begin{equation*}
-		f\left(K_\delta(x_0)\right)\subseteq K_\epsilon(x_0)
-	\end{equation*}
-\end{definition}
+\begin{multicols}{2}
+	\begin{definition}{$\epsilon$-$\delta$-Stetigkeit}
+		Seien $X$ und $Y$ metrische Räume.
+		Die Abbildung $f:X\rightarrow Y$ heißt stetig im Punkt $x_0\in X$, falls zu jedem $\epsilon>0$ ein $\delta>0$ existiert, so dass gilt:
+		\begin{equation*}
+			\varrho(f(x),f(x_0))<\epsilon\quad \forall x\in X, \varrho(x,x_0)<\delta
+		\end{equation*}
+		Oder kurz, falls gilt:
+		\begin{equation*}
+			f\left(K_\delta(x_0)\right)\subseteq K_\epsilon(x_0)
+		\end{equation*}
+	\end{definition}
+
+	\columnbreak
+
+	\begin{center}
+		\begin{tikzpicture}
+			\fill[fill=green!30!white, draw=none] (0,0.4) rectangle (5,1.6);
+			\draw[green, line width=0.2mm] (0,0.4) to (5,0.4);
+			\draw[green, line width=0.2mm] (0,1.6) to (5,1.6);
+
+			\draw[->] (0,0) -- (5.2,0) node[right] {$x$};
+			\draw[->] (0,0) -- (0,3) node[above] {$f(x)$};
+
+
+			\draw (2,1) node (fx0) [fill = blue,circle,inner sep = 0pt,minimum size = 4pt,draw = blue] {};
+
+
+
+			\draw (2,0) node (x0) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$x_0$}] {};
+			\draw (3.5,0) node (x0pd) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:\tiny$x_0+\delta$}] {};
+			\draw (0.5,0) node (x0md) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:\tiny$x_0-\delta$}] {};
+			\draw[dotted]
+			(x0) -- (fx0)
+			(x0md) -- (0.5,0.8)
+			(x0pd) -- (3.5,2);
+
+
+
+
+			\draw (0,1) node (fx0achse) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:$f(x_0)$}] {};
+			\draw (0,1.6) node [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:\tiny$f(x_0)+\epsilon$}] {};
+			\draw (0,0.4) node [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:\tiny$f(x_0)-\epsilon$}] {};
+			\draw[dotted] (fx0achse) -- (fx0);
+
+			\draw[line width=0.5mm, scale=1, domain=0:2, smooth, variable=\x, blue] plot ({\x},{-0.1*(\x-2)*(\x-2)+1}) node[below right] {};
+
+			\draw[line width=0.5mm, scale=1, domain=2:5, smooth, variable=\x, blue] plot ({\x},{0.1*(\x-2)*(\x-2)+1.8}) node[below right] {};
+			\draw (2,1.8) node [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw = blue] {};
+
+
+			\draw (2.7,1.85) node (fehler) [draw=red, fill=red, minimum size=4pt, circle, inner sep=0pt] {};
+			\draw (2.7, 0) node (fehlerachse) [draw=red, minimum size=0pt, minimum height=4pt, inner sep=0pt] {};
+			\draw[dotted, red] (fehler) -- (fehlerachse);
+
+
+
+		\end{tikzpicture}
+	\end{center}
+\end{multicols}
+
+
+
+
 
 \begin{satz}{}
 	Folgenstetigkeit und $\epsilon$-$\delta$-Stetigkeit sind äquivalent.
@@ -78,11 +131,11 @@ Stetigkeit bedeutet, dass man Funktionsanwendung und Limes vertauschen kann.
 	\begin{equation*}
 		H:X\rightarrow Y, x\mapsto
 		\begin{cases}
-			0 \text{, falls }x<0
+			0 \text{, falls }x<0\\
 			1 \text{ sonst.}
 		\end{cases}
 	\end{equation*}
-	Diese ist unstetig im Punkt $x_0=0$!
+	Diese ist unstetig im Punkt $x_0=0$.
 
 	Denn es gilt für die Folge $(x_n)=-\frac 1n$, dass $H(x_n)=H(-\frac 1n)=0\neq H(0)=1$
 \end{itemize}
@@ -139,4 +192,4 @@ Eine Abbildung zwischen metrischen Räumen ist stetig, wenn die Urbilder von off
 	\item[\glqq$\Leftarrow$\grqq] Sei $x\in X$ und $\epsilon>0$. Dann gilt, dass $U\coloneqq f^{-1}(K_\epsilon(f(x)))$ offen ist, also gibt es zu $x\in U$ ein $\delta>0$, so dass $K_\delta(x)\subseteq U$, woraus $f(K_\delta(x))\subseteq K_\epsilon(f(x))$ folgt.
 \end{description}
 \paragraph{Bemerkungen:}
-Um für Abbildungen zwischen metrischen Räumen Stetigkeit definieren zu können, benötigt man nur die Systeme offener Mengen. Ähnlich kann man Konvergenz von Folgen alleine mit offenen Mengen definieren. Dies führt auf die Topologie. (Stetigkeit und Konvergenz ohen Abstandsbegriff wird auch Gummigeometrie genannt.)
+Um für Abbildungen zwischen metrischen Räumen Stetigkeit definieren zu können, benötigt man nur die Systeme offener Mengen. Ähnlich kann man Konvergenz von Folgen alleine mit offenen Mengen definieren. Dies führt auf die Topologie. (Stetigkeit und Konvergenz ohne Abstandsbegriff wird auch \glqq Gummigeometrie\grqq\  genannt.)

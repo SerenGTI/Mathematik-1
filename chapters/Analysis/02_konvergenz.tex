@@ -9,19 +9,66 @@ Sei $X$ ein metrischer Raum.
 	Die Elemente $a_n$ werden auch die Glieder der Folge oder Folgenglieder genannt.
 \end{definition}
 \paragraph{Beispiel:}
-Sei $(a_n)_{n\in\N}$ die Folge definiert durch $a_n=\frac{1}{n}$. Dann ist $(a_n)$ die Folge der Kehrwerte der natürlichen Zahlen.\\
-Jeder weiß, dass die Folge $a_n=\frac 1 n$ gegen Null geht, aber was bedeutet das eigentlich genau?
+\begin{multicols}{2}
+	Sei $(a_n)_{n\in\N}$ die Folge definiert durch $a_n=\frac{1}{n}$. Dann ist $(a_n)$ die Folge der Kehrwerte der natürlichen Zahlen.\\
+	Jeder weiß, dass die Folge $a_n=\frac 1 n$ gegen Null geht, aber was bedeutet das eigentlich genau?
+	\columnbreak
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+		\draw[->] (0,0) -- (4.2,0) node[right] {$n$};
+		\draw[->] (0,0) -- (0,1.2) node[above] {$a_n$};
 
-\begin{definition}{Konvergenz einer Folge}
-	Die Folge $(a_n)_{n\in\N}$ aus dem metrischen Raum $X$ konvergiert gegen das Element $a\in X$, falls es zu jedem $\epsilon>0$ einen Index $n_0\in\N$ gibt, so dass gilt:
-	\begin{equation*}
-		a_n\in K_\epsilon(a) \quad\forall n\geq n_0
-	\end{equation*}
-	In diesem Fall heißt $a$ der Grenzwert oder auch Limes der Folge $(a_n)$ und man schreibt
-	\begin{equation*}
-		\lim\limits_{n\to\infty}(a_n),\ \lim (a_n),\ a_n\rightarrow a
-	\end{equation*}
-\end{definition}
+		\foreach \x/\y in {0.5/1,1/0.5,1.5/0.333,2/0.25,2.5/0.2,3/0.166,3.5/0.143,4/0.125}
+			\draw (\x,\y) node[draw=red, fill=red, minimum size=2pt, inner sep=0pt, circle]  {};
+
+		\foreach \x/\y in {0.5/1,1/2,1.5/3,2/4,2.5/5,3/6,3.5/7,4/8}
+			\draw (\x, 0) node[draw=black, fill=none, minimum width=0pt, minimum height=2.6pt, inner sep=0pt, label={below:\y}] {};
+	\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+
+\begin{multicols}{2}
+	\begin{definition}{Konvergenz einer Folge}
+		Die Folge $(a_n)_{n\in\N}$ aus dem metrischen Raum $X$ konvergiert gegen das Element $a\in X$, falls es zu jedem $\epsilon>0$ einen Index $n_0\in\N$ gibt, so dass gilt:
+		\begin{equation*}
+			a_n\in K_\epsilon(a) \quad\forall n\geq n_0
+		\end{equation*}
+		In diesem Fall heißt $a$ der Grenzwert oder auch Limes der Folge $(a_n)$ und man schreibt
+		\begin{equation*}
+			\lim\limits_{n\to\infty}(a_n),\ \lim (a_n),\ a_n\rightarrow a
+		\end{equation*}
+	\end{definition}
+	\columnbreak
+
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{scope}
+				\clip (0,-2) rectangle (2,2);
+
+				\draw[fill=green, opacity=0.3, draw=none] (0,0) circle (1.5);
+			\end{scope}
+
+			\draw[->] (0,0) -- (5.2,0) node[right] {\scriptsize$a_n=\frac1n$};
+
+			\draw (0,0) node (lim) [draw=red, fill=red, minimum size=4pt, inner sep=0pt, circle, label={above:{\scriptsize$\lim\limits_{n\to\infty} a_n$}}]  {};
+
+			\foreach \x in {5,2.5,1.66,1.25,1,0.833,0.714,0.625,0.555,0.5}
+				\draw (\x,0) node[draw=blue, fill=blue, minimum size=2pt, inner sep=0pt, circle]  {};
+
+			\draw[->, thick] (lim) to (0,-1.5);
+			\draw[->, thick] (0,-1.5) to (lim);
+
+			\draw (0.2,-0.75) node[draw=none, label={left:\scriptsize$\epsilon$}] {};
+			\draw (1.25,0) node[draw=none, fill=none, label={below:\scriptsize$n_0$}] {};
+
+			\draw (5,0) node[draw=none, fill=none, label={below:\scriptsize1}] {};
+			\draw (2.5,0) node[draw=none, fill=none, label={below:\scriptsize2}] {};
+			\draw (1.66,0) node[draw=none, fill=none, label={below:\scriptsize3}] {};
+		\end{tikzpicture}
+	\end{center}
+\end{multicols}
+
 
 \subsection{Alternative Beschreibung der Konvergenz}
 \begin{itemize}
@@ -54,7 +101,7 @@ Jeder weiß, dass die Folge $a_n=\frac 1 n$ gegen Null geht, aber was bedeutet d
 \end{itemize}
 
 
-Manchmal (nicht in dieser Vorlesung) sagt man auch $b_n=n\rightarrow \infty$ (uneigentliche Konvergenz)
+Manchmal (nicht in dieser Vorlesung) sagt man auch $b_n\underset{n\rightarrow \infty}{\longrightarrow}\infty$ (uneigentliche Konvergenz)
 
 \paragraph{Bemerkung:}
 Eine Folge $(a_n)$ in einem metrischen Raum konvergiert genau dann gegen $a$, wenn $\varrho(a_n,a)\rightarrow 0$. Es muss aber nicht gelten, dass $\varrho(a_n,a)$ monoton gegen Null geht.\\
