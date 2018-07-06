@@ -78,12 +78,11 @@ Im Spezialfall $m=n+1$ folgt $|b_m-b_n|=|a_{n+1}|<\epsilon$. Dies zeigt, dass $(
 
 
 \section{Alternierende Reihen}
-Wir betrachten nun alternierende Reihen:
 \begin{definition}{Alternierende Reihen}
 	Eine Reihe heißt alternierend, wenn die Reihenglieder abwechselnd nichtnegativ ($\geq 0$) und nichtpositiv ($\leq 0$) sind.
 \end{definition}
 Ein hinreichendes Kriterium für die Konvergenz einer alternierenden Reihe:
-\begin{satz}{Leibnitzkriterium}
+\begin{satz}{Leibniz-Kriterium}
 	Sei $(a_n)_{n\in\N}$ eine reelle Zahlenfolge, für die $a_k\geq 0$ gilt. Und es gilt $a_k\geq a_{k+1}$ (monoton fallend) und $\lim\limits_{k\to\infty} a_k = 0$. D.h. $(a_n)$ ist eine nichtnegative monoton fallende Nullfolge. Dann ist die alternierende Reihe
 	\begin{equation*}
 		\sum\limits_{k=0}^\infty (-1)^k*a_k
@@ -125,7 +124,7 @@ Diese Reihe divergiert nun!
 \begin{definition}{Eigenschaft der absoluten Konvergenz}
 	Eine Zahlenreihe $\sum_{k=0}^\infty a_k$ heißt absolut konvergent, falls sogar die Reihe $\sum_{k=0}^\infty |a_k|$ konvergiert.
 \end{definition}
-\begin{satz}{}
+\begin{satz}{Konvergenz von absolut konvergenten Reihen}
 	Jede absolut konvergente Reihe ist konvergent.
 \end{satz}
 \beweis
@@ -157,13 +156,15 @@ Wir werden im Folgenden einige Kriterien für absolute Konvergenz von Reihen ken
 \begin{satz}{Majorantenkriterium}
 	Hat eine reelle oder komplexe Zahlenreihe $\sum_{k=1}^\infty a_k$ eine konvergente Majorante, $\sum_{k=1}^\infty b_k$, dann konvergiert die Reihe $\sum_{k=1}^\infty a_k$ absolut!
 \end{satz}
-\beweis
-Sei $s_n\coloneqq \sum_{k=1}^n a_k$ die $n$-te Partialsumme der Reihe $\sum^\infty a_k$. Dann gibt es zu jedem $\epsilon>0$ ein $n_0\in\N$, sodass für alle $m\geq n\geq n_0$ gilt:
-\begin{equation*}
-	|s_m-s_n|=\sum_{k=n+1}^m |a_k|\leq \sum_{k=n+1}^m b_k <\epsilon \quad\Box
-\end{equation*}
+\begin{beweis}
+	Sei $s_n\coloneqq \sum_{k=1}^n a_k$ die $n$-te Partialsumme der Reihe $\sum_{k=1}^\infty a_k$. Dann gibt es zu jedem $\epsilon>0$ ein $n_0\in\N$, sodass für alle $m\geq n\geq n_0$ gilt:
+	\begin{equation*}
+		|s_m-s_n|=\sum_{k=n+1}^m |a_k|\leq \sum_{k=n+1}^m b_k <\epsilon
+	\end{equation*}
+	\ \hfill$\Box$
+\end{beweis}
 
-\par
+\par\bigskip
 Es gibt auch ein Minorantenkriterium:
 
 Sei $a_k\geq c_k\geq 0$ für alle $k\in\N$ und ist $c_k$ divergent, so ist $a_k$ ebenfalls divergent.
@@ -182,9 +183,9 @@ Sei $a_k\geq c_k\geq 0$ für alle $k\in\N$ und ist $c_k$ divergent, so ist $a_k$
 Wir formulieren nun zwei weitere hinreichende Kriterien für (sogar absolute) Konvergenz. Das Wurzelkriterium und das Quotientenkriterium.
 
 \begin{satz}{Wurzelkriterium}
-	Die Reihe $\sum_{k=1}^\infty a_k$ ist absolut konvergent, falls ein $q\in\R$ mit $0\leq q<1$ und ein $k_0\in\N$ existiert so dass
+	Die Reihe $\sum_{k=1}^\infty a_k$ ist absolut konvergent, falls ein $k_0\in\N$ existiert so dass
 	\begin{equation*}
-		\sqrt[k]{|a_k|}\leq q
+		0\leq\sqrt[k]{|a_k|}<1
 	\end{equation*}
 	für alle $k\geq k_0$ gilt.
 \end{satz}
@@ -193,11 +194,11 @@ Es gilt $|a_k|\leq q^k$ und $\sum_{k=1}^\infty q^k$ ist konvergent (geometrische
 
 
 \begin{satz}{Quotientenkriterium}
-	Sei $a_k\neq 0$ für $k\geq k_0$. Die Reihe $\sum_{k=1}^\infty a_k$ ist absolut konvergent, falls ein $q\in\R$ mit $0\leq q<1$ und ein $k_0\in\N$ existiert so dass
+	Die Reihe $\sum_{k=1}^\infty a_k$ ist absolut konvergent, falls ein $k_0\in\N$ existiert so dass
 	\begin{equation*}
-		\left|\frac{a_{k+1}}{a_k}\right|\leq q
+		0\leq\left|\frac{a_{k+1}}{a_k}\right|<1
 	\end{equation*}
-	für alle $k\geq k_0$ gilt.
+	für alle $k\geq k_0$ gilt. Vorausgesetzt $a_k\neq 0$ für $k\geq k_0$.
 \end{satz}
 \beweis
 Aus der Ungleichung folgt, dass
@@ -290,7 +291,9 @@ Es soll also gelten:
 	\end{equation*}
 	Dann konvergiert das Cauchyprodukt $\sum_{k=0}^\infty c_k$ absolut. Außerdem gilt für die Grenzwerte:
 	\begin{equation*}
-		\sum\limits_{k=0}^\infty c_k = \left(\sum\limits_{k=0}^\infty a_k\right)*\left(\sum\limits_{k=0}^\infty b_k\right)
+		\sum\limits_{k=0}^\infty c_k
+		= \left(\sum\limits_{k=0}^\infty a_k\right)*\left(\sum\limits_{k=0}^\infty b_k\right)
+		= \sum\limits_{n=0}^\infty \sum\limits_{j=0}^n a_{n-j}b_j
 	\end{equation*}
 \end{satz}
 

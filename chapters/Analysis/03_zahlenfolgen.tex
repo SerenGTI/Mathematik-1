@@ -1,7 +1,7 @@
-\chapter{Zahlenfolgen und Zahlenreihen}
+\chapter{Grenzwertrechnung}
 Wir betrachten in diesem Abschnitt den Spezialfall, dass der metrische Raum $X$ gleich $\R$ oder $\C$ ist. Wir verwenden dabei die Metrik zwischen zwei Zahlen $\varrho(x,y)=|x-y|$. Wir sprechen in diesem Fall von Zahlenfolgen.
 
-\section{Rechnen mit Grenzwerten}
+\section{Folgengrenzwerte}
 \begin{satz}{}
 	Seien $(x_n)$ und $(y_n)$ zwei konvergente Folgen in den reellen Zahlen $\R$ mit
 	\begin{equation*}
@@ -52,7 +52,7 @@ Sei $\epsilon>0$. Es gibt ein $n_0\in\N$, so dass $|x_n-x|<\frac\epsilon2$ und $
 Dann gilt mit der Dreiecksungleichung: $$\left|(x_n+y_n)-(x+y)\right|=\left|(x_n-x)+(y_n-y)\right|\leq |x_n-x|+|y_n-y|<\frac\epsilon2+\frac\epsilon2=\epsilon$$
 
 
-\section{Konvergenzkriterien}
+\subsection{Konvergenzkriterien}
 \begin{satz}{Einschließungskriterium}
 	Seien $(x_n), (y_n), (z_n)$ reelle Zahlenfolgen. Weiterhin gelte $x_n\leq z_n\leq y_n$ für alle $n\in\N$ und $\lim\limits_{n\to\infty} x_n=x=\lim\limits_{n\to\infty} y_n$.
 
@@ -109,8 +109,7 @@ Für $n\geq2$ gilt:
 
 \paragraph{Bemerung:} Gilt auch für $0<a\leq 1$.
 
-\subsection{Monotone Folgen}
-\begin{definition}{}
+\begin{definition}{Monotonie von Zahlenfolgen}
 	Eine reelle Zahlenfolge $(x_n)_{n\in\N}$ heißt
 	\begin{description}
 		\item[streng monoton wachsend], falls $x_n<x_{n+1}$
