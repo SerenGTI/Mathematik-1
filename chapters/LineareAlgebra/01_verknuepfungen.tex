@@ -1,6 +1,7 @@
 \chapter{Verknüpfungen}
-\definition{Verknüpfung}
-Sei $M$ eine Menge. Eine Abbildung $M\times M \rightarrow M, (a,b)\mapsto a\star b$ nennt man Verknüpfung.
+\begin{definition}{Verknüpfung}
+	Sei $M$ eine Menge. Eine Abbildung $M\times M \rightarrow M, (a,b)\mapsto a\star b$ nennt man Verknüpfung.
+\end{definition}
 
 \begin{enumerate}
   \item Eine Verknüpfung heißt kommutativ, falls $a\star b = b\star a \quad\forall a,b\in M$ gilt.
@@ -10,18 +11,21 @@ Sei $M$ eine Menge. Eine Abbildung $M\times M \rightarrow M, (a,b)\mapsto a\star
   falls $a\star e = e\star a=a \quad\forall a\in M$ gilt.
 \end{enumerate}
 
-\definition{Invertierbarkeit}
-Sei $M$ eine Menge mit einer Verknüpfung $\star$, die ein neutrales Element $e$ besitzt, ein Element $a\in M$ heißt invertierbar, falls es ein Element $a^{-1}\in M$ gibt, so dass gilt:
-\begin{equation*}
-  a\star a^{-1} = a^{-1} \star a = e
-\end{equation*}
+\begin{definition}{Invertierbarkeit}
+	Sei $M$ eine Menge mit einer Verknüpfung $\star$, die ein neutrales Element $e$ besitzt, ein Element $a\in M$ heißt invertierbar, falls es ein Element $a^{-1}\in M$ gibt, so dass gilt:
+	\begin{equation*}
+	  a\star a^{-1} = a^{-1} \star a = e
+	\end{equation*}
+\end{definition}
 
 
-\definition{Homomorphismus}
-Seien $(G,\star)$ und $(H,\ast)$ Gruppen. Eine Abbildung $f:G\rightarrow H$ heißt (Gruppen-)Homomorphismus, falls gilt:
-\begin{equation*}
-  f(a\star b)=f(a)\ast f(b)\quad\forall a,b\in G
-\end{equation*}
+\begin{definition}{Homomorphismus}
+	Seien $(G,\star)$ und $(H,\ast)$ Gruppen. Eine Abbildung $f:G\rightarrow H$ heißt (Gruppen-)Homomorphismus, falls gilt:
+	\begin{equation*}
+	  f(a\star b)=f(a)\ast f(b)\quad\forall a,b\in G
+	\end{equation*}
+\end{definition}
+
 \begin{lemma}{}
   Ein Gruppenhomomorphismus $f:G\rightarrow H$ bildet stets das neutrale Element in $G$ auf das neutrale Element in $H$ ab.
 \end{lemma}

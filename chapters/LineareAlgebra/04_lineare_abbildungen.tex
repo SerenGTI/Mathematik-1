@@ -1,16 +1,18 @@
 \chapter{Lineare Abbildungen}
 Lineare Abbildungen sind Strukturerhaltende Abbildungen zwischen Vektorräumen, sie werden deshalb auch Vektorraumhomomorphismen genannt.
-\definition{Lineare Abbildungen}
-Seien $V$ und $W$ Vektorräume über dem selben Körper $K$. Eine Abbildung $f:V\rightarrow W$ heißt \emph{linear}, falls
-\begin{description}
-  \item[L 1] $\forall u,v \in V : f(u+v)= f(u)+f(v)$ (Additivität)
-  \item[L 2] $\forall v\in V, \lambda \in K : f(\lambda v) = \lambda * f(v)$ (Homogenität)
-\end{description}
+\begin{definition}{Lineare Abbildungen}
+	Seien $V$ und $W$ Vektorräume über dem selben Körper $K$. Eine Abbildung $f:V\rightarrow W$ heißt \emph{linear}, falls
+	\begin{description}
+	  \item[L 1] $\forall u,v \in V : f(u+v)= f(u)+f(v)$ (Additivität)
+	  \item[L 2] $\forall v\in V, \lambda \in K : f(\lambda v) = \lambda * f(v)$ (Homogenität)
+	\end{description}
+\end{definition}
 
-\bemerkung
+
+\paragraph{Bemerkung:}
 \textbf{L 1} ist dazu äquivalent, dass $f$ ein Gruppenhomomorphismus zwischen den abel'schen Gruppen $(V,+)$ und $(W,+)$ ist.
 
-\paragraph{Beispiele}
+\paragraph{Beispiele:}
 \begin{itemize}
   \item Für alle $\lambda \in K$ ist $f:V\rightarrow V, v\mapsto \lambda v$ eine Lineare Abbildung
   \item Insbesondere sind die identische Abbildung
@@ -136,15 +138,16 @@ Umgekehrt ist durch eine beliebige $m\times n$-Matrix (m Zeilen, n Spalten) mit 
 
 Die Matrix $A$ heißt \emph{darstellende Matrix} der linearen Abbildung bezüglich der Basen $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$.
 
-\definition{Darstellende Matrix}
-Seien $m,n\in\N_0$. Die Menge der $m\times n$-Matrizen mit Einträgen aus $K$ wird mit $\mathrm{M}(m,n,K)$ bezeichnet. Seien $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ jeweils eine Basis des $K$-Vektorraums $V$ bzw. $W$. Und sei $f:V\rightarrow W$ eine lineare Abbildung. Dann nennt man
-\begin{equation*}
-  A=((a_{ij}))\in \mathrm{M}(m,n,K)
-\end{equation*}
-die \emph{darstellende Matrix} von $f$ bezüglich den Basen $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ von $V$ bzw. $W$, falls
-\begin{equation*}
-  f(v_j) = \ma{1j}w_1+\ldots+\ma{mj}w_m \quad\forall j\in\simpleset{1,\ldots,n}
-\end{equation*}
+\begin{definition}{Darstellende Matrix}
+	Seien $m,n\in\N_0$. Die Menge der $m\times n$-Matrizen mit Einträgen aus $K$ wird mit $\mathrm{M}(m,n,K)$ bezeichnet. Seien $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ jeweils eine Basis des $K$-Vektorraums $V$ bzw. $W$. Und sei $f:V\rightarrow W$ eine lineare Abbildung. Dann nennt man
+	\begin{equation*}
+	  A=((a_{ij}))\in \mathrm{M}(m,n,K)
+	\end{equation*}
+	die \emph{darstellende Matrix} von $f$ bezüglich den Basen $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ von $V$ bzw. $W$, falls
+	\begin{equation*}
+	  f(v_j) = \ma{1j}w_1+\ldots+\ma{mj}w_m \quad\forall j\in\simpleset{1,\ldots,n}
+	\end{equation*}
+\end{definition}
 
 \paragraph{Merkregel}
 Die Spalten der darstellenden Matrix sind die Bilder der Basisvektoren.
@@ -195,14 +198,13 @@ Lineare Abbildungen sind wegen der Additivität Insbesondere Gruppenhomomorphism
 			\text{Automorphismus, falls $f$ ein bijektiver Endomorphismus ist}
     \end{cases}
   \end{equation*}
-
-  \bemerkung
-	\begin{itemize}
-		\item Die Automorphismen $\mathrm{Aut}(V)$ eines Vektorraums $V$ bilden eine Gruppe mit der Verkettung als Verknüpfung.
-		\item Die Menge der Endo- bzw. Automorphismen wird mit $\mathrm{End}(V)$ bzw. $\mathrm{Aut}(V)$ bezeichnet.
-		\item Die Menge der linearen Abbildungen $V\rightarrow W$ mit $\mathrm{Hom}(V,W)$.
-	\end{itemize}
 \end{definition}
+\paragraph{Bemerkung:}
+\begin{itemize}
+	\item Die Automorphismen $\mathrm{Aut}(V)$ eines Vektorraums $V$ bilden eine Gruppe mit der Verkettung als Verknüpfung.
+	\item Die Menge der Endo- bzw. Automorphismen wird mit $\mathrm{End}(V)$ bzw. $\mathrm{Aut}(V)$ bezeichnet.
+	\item Die Menge der linearen Abbildungen $V\rightarrow W$ mit $\mathrm{Hom}(V,W)$.
+\end{itemize}
 
 
 \begin{definition}{Rang einer Abbildung}

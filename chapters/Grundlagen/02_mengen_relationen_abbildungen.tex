@@ -6,16 +6,16 @@ Eine Menge ist eine wohldefinierte Gesamtheit von Objekten, den Elementen der Me
   \text{z.B. }\Q=\set{\frac{p}{q}}{p\in\Z, q\in\N}
 \end{equation*}
 
-\definition{Teilmenge}
-Eine Menge $M_1$ ist \emph{Teilmenge} von $M$, wenn
-\begin{align*}
-  &\forall x\in M_1 : x\in M\\
-  &\Rightarrow M_1 \subseteq M
-\end{align*}
-Für jede Menge M gilt $\emptyset \subseteq M$ und $M\subseteq M$.\\
-Gilt $M_1\subseteq M$ und $M_1\neq M$ ist $M_1$ eine \emph{echte Teilmenge} von $M$, d.h. $M_1 \subset M$ oder $M_1\subsetneq M$
+\begin{definition}{Teilmenge}
+	Eine Menge $M_1$ ist \emph{Teilmenge} von $M$, wenn
+	\begin{align*}
+	  &\forall x\in M_1 : x\in M\\
+	  &\Rightarrow M_1 \subseteq M
+	\end{align*}
+	Für jede Menge M gilt $\emptyset \subseteq M$ und $M\subseteq M$.\\
+	Gilt $M_1\subseteq M$ und $M_1\neq M$ ist $M_1$ eine \emph{echte Teilmenge} von $M$, d.h. $M_1 \subset M$ oder $M_1\subsetneq M$
+\end{definition}
 
-\medskip
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{>{\bfseries\scshape}r l}
 	Potenzmenge & $\P(M)=\Pot(M) \text{ ist die Menge aller Teilmengen von } M.$\\
@@ -29,14 +29,13 @@ Gilt $M_1\subseteq M$ und $M_1\neq M$ ist $M_1$ eine \emph{echte Teilmenge} von 
 Zwei Mengen $M_1$ und $M_2$ heißen \emph{disjunkt}, falls $M_1\cap M_2 = \emptyset$
 
 \section{Relationen}
-\definition{Relation}
-Eine Relation zwischen zwei Mengen $M$ und $N$ ist eine Teilmenge von $M\times N$.
-\begin{equation*}
-  R\subseteq M_1\times M_2
-\end{equation*}
-ist $(x, y) \in R$, steht $x$ mit $y$ in Relation $\rightarrow x\sim y$.
-
-\par\medskip
+\begin{definition}{Relation}
+	Eine Relation zwischen zwei Mengen $M$ und $N$ ist eine Teilmenge von $M\times N$.
+	\begin{equation*}
+	  R\subseteq M_1\times M_2
+	\end{equation*}
+	ist $(x, y) \in R$, steht $x$ mit $y$ in Relation $\rightarrow x\sim y$.
+\end{definition}
 
 $R \subseteq M\times M$ heißt:
 
@@ -50,33 +49,42 @@ $R \subseteq M\times M$ heißt:
 \end{tabular}
 \medskip
 
-\definition{Äquivalenzrelation}
-Eine Relation heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.
+\begin{definition}{Äquivalenzrelation}
+	Eine Relation heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.
+\end{definition}
 
-\definition{Ordnungsrelation}
-Eine Relation heißt Ordnungsrelation, wenn sie reflexiv, antisymmetrisch und transitiv ist.
+
+\begin{definition}{Ordnungsrelation}
+	Eine Relation heißt Ordnungsrelation, wenn sie reflexiv, antisymmetrisch und transitiv ist.
+\end{definition}
+
 
 \section{Abbildungen}
-\definition{Abbildung}
-Seien $M$ und $N$ zwei Mengen. Eine Zuordnungsvorschift, die jedem Element $x\in M$ ein Element $f(x)\in N$ zuweist, heißt Abbildung oder Funktion von $M$ nach $N$.
-\begin{equation*}
-  f:M\rightarrow N, x\mapsto f(x)
-\end{equation*}
-$M$: Definitionsbereich, $N$: Wertebereich
+\begin{definition}{Abbildung}
+	Seien $M$ und $N$ zwei Mengen. Eine Zuordnungsvorschift, die jedem Element $x\in M$ ein Element $f(x)\in N$ zuweist, heißt Abbildung oder Funktion von $M$ nach $N$.
+	\begin{equation*}
+	  f:M\rightarrow N, x\mapsto f(x)
+	\end{equation*}
+	$M$: Definitionsbereich, $N$: Wertebereich
+\end{definition}
 
-\definition{Bild und Urbild}
-Sei $f:M\mapsto N$ eine Abbildung. Wir definieren
-\begin{itemize}
-  \item für $x\in M$ heißt $f(x)\in N$ das \emph{Bild} von $x$
-  \item für eine Teilmenge $A\subseteq M$ heißt $f(A)=\set{f(x)}{x\in A}$ das \emph{Bild der Teilmenge  $A$}
-  \item für eine Teilmenge $B\subseteq N$ heißt $f^{-1}(B) = \set{x\in M}{f(x)\in B}$ das \emph{Urbild} von $B$
-\end{itemize}
 
-\definition{Graph einer Abbildung}
-Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge des Werte- und Definitionsbereichs
-\begin{equation*}
-	\mathrm{Graph}(f)=\set{(x,f(x))}{x\in M}\subseteq M\times N
-\end{equation*}
+\begin{definition}{Bild und Urbild}
+	Sei $f:M\mapsto N$ eine Abbildung. Wir definieren
+	\begin{itemize}
+	  \item für $x\in M$ heißt $f(x)\in N$ das \emph{Bild} von $x$
+	  \item für eine Teilmenge $A\subseteq M$ heißt $f(A)=\set{f(x)}{x\in A}$ das \emph{Bild der Teilmenge  $A$}
+	  \item für eine Teilmenge $B\subseteq N$ heißt $f^{-1}(B) = \set{x\in M}{f(x)\in B}$ das \emph{Urbild} von $B$
+	\end{itemize}
+\end{definition}
+
+
+\begin{definition}{Graph einer Abbildung}
+	Sei $f:M\rightarrow N$ eine Abbildung. Der Graph von $f$ ist eine Teilmenge des Werte- und Definitionsbereichs
+	\begin{equation*}
+		\mathrm{Graph}(f)=\set{(x,f(x))}{x\in M}\subseteq M\times N
+	\end{equation*}
+\end{definition}
 
 Fasst man eine Funktion als eine Relation auf, so ist der Graph das selbe wie $R$.
 \begin{equation*}
@@ -85,19 +93,23 @@ Fasst man eine Funktion als eine Relation auf, so ist der Graph das selbe wie $R
 
 \bemerkung Für Funktionen $f:\R\rightarrow\R$ ist der Graph eine Teilmenge der Ebene $\R^2$.
 
-\definition{Verkettung}
-Seien $f:M\rightarrow N$ und $g:N\rightarrow P$ Abbildungen. Dann ist die Verkettung:
-\begin{align*}
-  &g\circ f:M\rightarrow P\\
-  &g\circ f(x)\coloneqq g(f(x))
-\end{align*}
+\begin{definition}{Verkettung}
+	Seien $f:M\rightarrow N$ und $g:N\rightarrow P$ Abbildungen. Dann ist die Verkettung:
+	\begin{align*}
+	  &g\circ f:M\rightarrow P\\
+	  &g\circ f(x)\coloneqq g(f(x))
+	\end{align*}
+\end{definition}
 
-\definition{Identität}
-Für jede Menge $M$ ist
-\begin{equation*}
-  \mathrm{id}_M:M\rightarrow M, x\mapsto x
-\end{equation*}
-die identische Abbildung auf $M$.
+
+\begin{definition}{Identität}
+	Für jede Menge $M$ ist
+	\begin{equation*}
+	  \mathrm{id}_M:M\rightarrow M, x\mapsto x
+	\end{equation*}
+	die identische Abbildung auf $M$.
+\end{definition}
+
 
 \subsection{Abbildungseigenschaften}
 Sei $f:M\rightarrow N$ eine Abbildung. Dann heißt $f$:
@@ -137,20 +149,22 @@ Für endliche Mengen gilt $|\Pot(M)| = 2^{|M|}$
 
 
 \section{Zahlenmengen}
-\definition{Natürliche Zahlen}
-Die natürlichen Zahlen sind eine Menge $\N$, auf der eine Abbildung $f:\N\rightarrow\N$ erklärt ist, die folgende Eigenschaften hat, wobei $f(n)$ der \emph{Nachfolger} von $n$ heißt.
-\begin{description}
-  \item[$\N 1$] Es gibt genau ein Element in $\N$, das nicht Nachfolger eines anderen Elements ist.
-  \item[$\N 2$] $f$ ist injektiv
-  \item[$\N 3$] Ist $M\subseteq \N$ eine Teilmenge, die folgende Eigenschaften hat:
-  \begin{enumerate}
-    \item $1\in M$
-    \item Falls $m\in M$ und $f(m)\in M$
-  \end{enumerate}
-  Dann gilt: $M = \N$
+\begin{definition}{Natürliche Zahlen}
+	Die natürlichen Zahlen sind eine Menge $\N$, auf der eine Abbildung $f:\N\rightarrow\N$ erklärt ist, die folgende Eigenschaften hat, wobei $f(n)$ der \emph{Nachfolger} von $n$ heißt.
+	\begin{description}
+	  \item[$\N 1$] Es gibt genau ein Element in $\N$, das nicht Nachfolger eines anderen Elements ist.
+	  \item[$\N 2$] $f$ ist injektiv
+	  \item[$\N 3$] Ist $M\subseteq \N$ eine Teilmenge, die folgende Eigenschaften hat:
+	  \begin{enumerate}
+	    \item $1\in M$
+	    \item Falls $m\in M$ und $f(m)\in M$
+	  \end{enumerate}
+	  Dann gilt: $M = \N$
 
-  D.h. $M\subseteq \N : 1\in M \wedge (m\in M \Rightarrow f(m)\in M) \Rightarrow M=\N$
-\end{description}
+	  D.h. $M\subseteq \N : 1\in M \wedge (m\in M \Rightarrow f(m)\in M) \Rightarrow M=\N$
+	\end{description}
+\end{definition}
+
 
 Man kann zeigen, dass die natürlichen Zahlen durch diese Eigenschaften (die \textsc{Peano}-Axiome) gekennzeichnet sind. Das heißt, dass es im wesentlichen nur eine solche Menge mit einer solchen Abbildung $f$ gibt, nämlich $\N$.
 

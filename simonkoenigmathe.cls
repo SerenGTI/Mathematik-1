@@ -89,10 +89,10 @@
 \setlength\sectionnumberspace{3.5em}
 \newcounter{satz}
 \stepcounter{satz}
-\newcounter{def}
-\stepcounter{def}
-\newcounter{lemma}
-\stepcounter{lemma}
+% \newcounter{def}
+% \stepcounter{def}
+% \newcounter{lemma}
+% \stepcounter{lemma}
 
 \makeatletter
 \@addtoreset{chapter}{part}
@@ -108,15 +108,22 @@
 %LEMMA
 \newenvironment{lemma}[1]
 {\begin{mdframed}[style=Satzframe, nobreak=true]
-{\Large\raggedright\bfseries Lemma \thechapter.\thelemma\stepcounter{lemma}: \large #1}\vspace{1em} \newline
+{\Large\raggedright\bfseries Lemma \thechapter.\thesatz\stepcounter{satz}: \large #1}\vspace{1em} \newline
+}
+{\end{mdframed}\par}
+
+\newenvironment{definition}[1]
+{\begin{mdframed}[style=Definitionframe, nobreak=true]
+{\Large\raggedright\bfseries Definition \thechapter.\thesatz\stepcounter{satz}: \large #1}\vspace{1em} \newline
 }
 {\end{mdframed}\par}
 
 
 %PART
 \titleformat{\part}[display]
-{\setcounter{def}{1}
-\setcounter{lemma}{1}
+{
+%\setcounter{def}{1}
+%\setcounter{lemma}{1}
 \setcounter{satz}{1}
 \thispagestyle{empty}
 \Huge\centering\scshape\itshape\color{accent}}
@@ -127,8 +134,9 @@
 
 %CHAPTER
 \titleformat{\chapter}[hang]
-{\setcounter{def}{1}
-\setcounter{lemma}{1}
+{
+%\setcounter{def}{1}
+%\setcounter{lemma}{1}
 \setcounter{satz}{1}
 \Huge\centering\scshape}
 {\color{accent}\bfseries\thechapter\Large: }
@@ -144,7 +152,7 @@
 {\Large}
 \titlespacing*{\section}{0pt}{3em}{1.2em}
 
-%SUBSECTION, LEMMA, DEFINITION
+%SUBSECTION, DEFINITION
 \titleformat{\subsection}[hang]
 {\Large\raggedright\bfseries}
 {\llap{\makebox[\sectionnumberspace][l]{\textcolor{accent}{\thesubsection}}\hfill}}
@@ -152,10 +160,8 @@
 {\large}
 \titlespacing*{\subsection}{0pt}{1.6em}{1em}
 
-\newcommand{\definition}[1]{\subsection*{Definition \thechapter.\thedef\stepcounter{def}: #1}}
 
-
-%BEWEIS, BEMERKUNG
+%BEWEIS
 \titleformat{\subsubsection}[hang]
 {}
 {}
@@ -195,15 +201,29 @@
 
 %%%SATZ-LAYOUT%%%
 \mdfdefinestyle{Satzframe}{
-  skipabove=1.7em,
-  linecolor=accent,
-  outerlinewidth=0.5pt,
-  roundcorner=2pt,
-  innertopmargin=1.3em,
+  skipabove=1.3em,
+  roundcorner=3pt,
+  innertopmargin=1.7em,
   innerbottommargin=\baselineskip,
-  innerrightmargin=13pt,
-  innerleftmargin=13pt,
-  backgroundcolor=white!95!gray
+  innerrightmargin=2em,
+  innerleftmargin=2em,
+  backgroundcolor=white!95!gray,
+  linecolor=accent,
+  outerlinewidth=0.8pt,
+}
+
+%%%DEFINITION-LAYOUT
+\mdfdefinestyle{Definitionframe}{
+  skipabove=1.3em,
+  roundcorner=3pt,
+  innertopmargin=1.7em,
+  innerbottommargin=\baselineskip,
+  innerrightmargin=2em,
+  innerleftmargin=2em,
+  backgroundcolor=white!95!gray,
+  %linecolor=white!80!gray,
+  %outerlinewidth=0.8pt,
+  hidealllines=true,
 }
 
 

@@ -88,13 +88,6 @@ Die Funktionen $f_i:\R^n\rightarrow\R^m$ heißen die Komponentenfunktionen von $
 			\draw[red, line width=0.5mm]
 			($(overmidleft)+(-0.08,-0.02)$) .. controls (4.5,5) and (7,4.7) .. (backright);
 
-			% \filldraw[fill=blue, draw=red]
-			% 	(frontleft) .. controls ($(overfrontmid)+(-0.5,0.7)$) and ($(overfrontmid)+(0.5,0.7)$) .. (frontright)
-			% 	-- (frontright) .. controls (8.2,2.5) and (9.3,2.6) .. (backright)
-			% 	-- (backright) .. controls (7,4.7) and (4.5,5) .. ($(overmidleft)+(-0.08,-0.02)$)
-			% 	-- (frontleft) .. controls (0.2,2.5) and (1.3,2.6) .. (backleft)
-			% 	-- (frontleft);
-
 			\foreach \x/\y in {1/0.73,2/1.4,3/1.85,4/2,5/1.85,6/1.4,7/0.73}
 				\draw[red, line width=0.1mm] ($(frontleft)+(\x,\y)$) .. controls ($(0.2,2.5)+(\x,\y)$) and ($(1.3,2.6)+(\x,\y)$) .. ($(backleft)+(\x,\y)$);
 
@@ -108,4 +101,120 @@ Die Funktionen $f_i:\R^n\rightarrow\R^m$ heißen die Komponentenfunktionen von $
 	\begin{equation*}
 		c(t)=\vector{\cos(t)\\\sin(t)}
 	\end{equation*}
+
+	Die Spur (das Bild) der Kurve ist der Halbkreis mit Radius $1$ um $(0,0)$ oberhalb der $x$-Achse. Der Graph ist eine Schraubenlinie.
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[dotted] (4,0) to (4.5,0);
+			\draw[black] (0,0) to (4,0);
+
+			\draw (0,0) node[minimum size=0pt, minimum height=4pt, inner sep=0pt, draw=black, label={below:$0$}] {};
+			\draw (4,0) node[minimum size=0pt, minimum height=4pt, inner sep=0pt, draw=black, label={below:$\pi$}] {};
+
+			\draw[black, ->] (6,0) to (10,0);
+			\draw[black, ->] (8,0) to (8,2);
+
+			\draw[black, thick, ->, bend left] (5,0.75) to (5.5,0.75);
+
+			\draw (6.5,0) node[draw, minimum size=0pt, inner sep=0pt, minimum height=4pt, label={below:{$-1$}}] {};
+			\draw (9.5,0) node[draw, minimum size=0pt, inner sep=0pt, minimum height=4pt, label={below:{$1$}}] {};
+
+			\draw (8,1.5) node[draw, minimum size=0pt, inner sep=0pt, minimum width=4pt, label={above right:{$1$}}] {};
+
+			\draw[line width=0.5mm, scale=1, domain=6.5:9.5, smooth, variable=\x, red] plot ({\x},{sqrt(2.25-(\x-8)*(\x-8))}) node[below right] {};
+		\end{tikzpicture}
+	\end{center}
+
+	\item Die sogenannte Rotationsmatrix ist eine Abbildung $f:\R^2\rightarrow\R^2$ für einen Winkel $\varphi\in\R$:
+	\begin{equation*}
+		f\vector{x\\y}=
+		\matrix{\cos\varphi & -\sin\varphi\\\sin\varphi & \cos\varphi} \vector{x\\y}=
+		\vector{\cos\varphi*x-\sin\varphi*y\\\sin\varphi*x+\cos\varphi*y}
+	\end{equation*}
+	Diese Abbildung bewirkt eine Drehung um den Winkel $\varphi$ um den Ursprung.
+\end{itemize}
+
+Wie kann man solche Abbildungen $f:D\rightarrow\R^m,D\subseteq\R^n$ differenzieren?
+Wir beschränken uns auf den Fall $m=1$, da man mehrere Komponenten durch mehrere Komponentenfunktionen darstellen kann.
+Was nicht funktioniert, ist für Funktionen mehrerer Variablen einen Differentialquotienten zu schreiben, denn dieser ist i.A. nicht definiert.
+
+Die richtige Idee zu mehrdimensionaler Differentiation ist, die Funktion durch eine affin-lineare Abbildung zu ersetzen. Gesucht ist das totale Differential.
+
+\section{Richtungsableitung}
+\begin{definition}{Partielle Ableitung}
+	Sei $f:D\rightarrow\R^m,D\subseteq\R^n$ und $x=(x_1,\ldots,x_n)\in D$ ein fester Punkt im Definitionsbereich. Die Funktion $f$ heißt im Punkt $x$ partiell nach der $k$ten Variable differenzierbar, falls der Grenzwert
+	\begin{align*}
+		\frac{\partial f}{\partial x_k} (x_1,\ldots,x_n)
+		&\coloneqq\lim\limits_{h\to 0}\frac{f(x_1,\ldots,x_{k-1},x_k+h,x_{k+1},\ldots,x_n)-f(x_1,\ldots,x_n)}{h}\\
+		&\coloneqq f_{x_k}(x_1,\ldots,x_n) = f_{x_k}(x)
+	\end{align*}
+	existiert. In diesem Fall heißt der obige Term die \emph{partielle Ableitung} von $f$ nach der $k$ten Variable $x_k$ im Punkt $x$.
+\end{definition}
+Die partielle Ableitung ist also die Steigung eines eindimensionalen Schnitts durch den Graphen. Mit anderen Worten ist die partielle Ableitung die gewöhnliche, eindimensionale Ableitung der Funktion.
+
+\begin{definition}{Richtungsableitung}
+	Sei $a\in\R^n$ ein Vektor und die Funktion $f:D\rightarrow\R,D\subseteq\R^n$ mit $a\in D$. Die Richtungsableitung von $f$ bei $x\in D$ in Richtung $a$ ist der Grenzwert
+	\begin{align*}
+		\frac{\partial f}{\partial a}(x)
+		&\coloneqq \lim\limits_{h\to 0}\frac{f(x+h*a)-f(x)}{h}\\
+		&=\frac{\diff}{\diff t}f(x+t*a)\Big|_{t=0}\\
+	\end{align*}
+\end{definition}
+Es gilt außerdem, dass die partielle Ableitung ein Sonderfall der Richtungsableitung ist, das heißt
+\begin{equation*}
+	\frac{\partial f}{\partial e_k}(x)=\frac{\partial f}{\partial x_k}(x)
+\end{equation*}
+
+Die Begriffe der partiellen Ableitung und der Richtungsableitung lassen sich auch auf Abbildungen $f:D\rightarrow\R^m,D\subseteq \R^n$ verallgemeinern, in dem man die Komponentenfunktionen entsprechend ableitet.
+\begin{equation*}
+	\frac{\partial f}{\partial x_k}(x)\coloneqq
+	\vector{
+		\frac{\partial f_1}{\partial x_k}(x)\\
+		\vdots\\
+		\frac{\partial f_m}{\partial x_k}(x)
+	}
+\end{equation*}
+
+\section{Totales Differential}
+Wir wollen nun einen sinnvollen Begriff von Differenzierbarkeit für Funktinen oder Abbildungen die von mehreren Variablen abhängen definieren. Wir werden sehen, dass es nicht genügt, dass die partiellen Ableitungen existieren.
+
+Was sich verallgemeinern lässt ist die Idee, eine Funktion durch eine affin-lineare Abbildung anzunähern, nämlich durch ihr erstes Taylorpolynom.
+
+\begin{definition}{Totale Differenzierbarkeit}
+	Eine Abbildung $f:E\rightarrow\R^m,E\subseteq \R^n$ heißt total differenzierbar in $x\in D$, falls eine Matrix $f'(x)=Df(x)\in M(m,n,\R)$ existiert, so dass
+	\begin{equation*}
+		f(x+h)=f(x)+f'(x)*h+o(h)
+	\end{equation*}
+	für alle $h\in\R^n, (x+h)\in D$ gilt. Hierbei muss die Restfunktion $o(h)\in\R^m$ die Bedingungen
+	\begin{equation*}
+		o(h)=r(x,h)*h\text{ mit }\lim\limits_{h\to 0} r(x,h)=0
+	\end{equation*}
+	erfüllen. Falls ein solches $f'(x)=Df(x)$ existiert, heißt es auch \emph{das totale Differential} von $f$ bei $x$.
+\end{definition}
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item Es sei $\alpha=(\alpha_1,\ldots,\alpha_n)\in\R^n$ und sei $f:\R^n\rightarrow\R$ definiert durch
+	\begin{equation*}
+		f(x)=\alpha x+b = (\alpha_1,\ldots,\alpha_n)*\vector{x_1\\\vdots\\x_n}+b
+	\end{equation*}
+	Dies ist eine affin-lineare Abbildung. Dann ist $f'(x)=\alpha$ und zwar für alle $x\in\R^n$ gleichzeitig.
+	Es gilt
+	\begin{equation*}
+		f(x+h)=\alpha (x+h)+b=\alpha x+\alpha h+b=f(x)+\alpha*h
+	\end{equation*}
+	das heißt wir lesen ab, dass $\alpha\in M(1,n,\R)$ das totale Differential $Df(x)$ für alle $x$ ist. Eine affin-lineare Abbildung hat konstante Ableitung.
+
+	\item Funktionert auch mit $f:\R^n\rightarrow\R^m, f(x)=Ax+b,A\in M(m,n,\R), b\in\R^m$ hierbei ist $Df(x)=A$ konstant.
+
+	\item $f:\R^n\rightarrow\R, f(x)=x^T*x$ das heißt
+	\begin{align*}
+		f(x)&=(x_1,\ldots,x_n)\vector{x_1\\\vdots\\x_n}\\
+		&=x_1^2+\ldots+x_n^2
+		\intertext{wir erhalten}
+		f(x+h)&=(x+h)^T*(x+h)\\
+		&=x^Tx+x^Th+h^Tx+h^Th\\
+		&=f(x)+2x^Th+h^Th
+	\end{align*}
+	also ist $2x^T\in M(1,n,\R)$ das totale Differential von $f$ bei $x$.
 \end{itemize}

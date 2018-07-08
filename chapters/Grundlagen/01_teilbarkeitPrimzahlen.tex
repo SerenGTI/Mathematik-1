@@ -1,16 +1,18 @@
 \section{Teilbarkeit und Primzahlen}
-\definition{Teilbarkeit}
-Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k* m=n$, wenn es ein $k\in\Z$ gibt, so dass $k* m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
-Die Zahl $0$ ist durch alle $m\in\Z$ teilbar.
-
+\begin{definition}{Teilbarkeit}
+	Seien $n\in\Z, m\in\N$. Die Zahl $m$ heißt \emph{ein Teiler} von $n$, in Zeichen $k* m=n$, wenn es ein $k\in\Z$ gibt, so dass $k* m = n$. In diesem Fall heißt $n$ auch teilbar durch $m$.
+	Die Zahl $0$ ist durch alle $m\in\Z$ teilbar.
+\end{definition}
 Falls $m|n_1$ und $m|n_2$, dann folgt $m|n_1+n_2$.
 
-\definition{Größter gemeinsamer Teiler}
-Sei $a\in\Z$, die Menge aller Teiler von $a$ ist $\mathcal{D}(a)\coloneqq\set{d\in\N}{d|a}$.
+\begin{definition}{Größter gemeinsamer Teiler}
+	Sei $a\in\Z$, die Menge aller Teiler von $a$ ist $\mathcal{D}(a)\coloneqq\set{d\in\N}{d|a}$.
 
-Die Menge aller gemeinsamer Teiler von $a$ und $b$ mit $a,b\in\Z\setminus\{ 0\}$ ist $\mathcal{D}(a,b) = \mathcal{D}(a) \cap \mathcal{D}(b)$.
+	Die Menge aller gemeinsamer Teiler von $a$ und $b$ mit $a,b\in\Z\setminus\{ 0\}$ ist $\mathcal{D}(a,b) = \mathcal{D}(a) \cap \mathcal{D}(b)$.
 
-Die Zahl $\mathrm{ggT}(a,b) = \mathrm{max}(\mathcal{D}(a,b))$ heißt größter gemeinsamer Teiler von $a$ und $b$. Da eine ganze Zahl (außer der $0$) nur endlich viele Teiler hat, existiert $ggT(a,b)$.
+	Die Zahl $\mathrm{ggT}(a,b) = \mathrm{max}(\mathcal{D}(a,b))$ heißt größter gemeinsamer Teiler von $a$ und $b$. Da eine ganze Zahl (außer der $0$) nur endlich viele Teiler hat, existiert $ggT(a,b)$.
+\end{definition}
+
 
 \begin{satz}{Teilung mit Rest}
   Seien $a,b\in\N$ mit $a>b$. Dann gibt es Zahlen $q\in\N, r\in\N_0$ mit
@@ -49,11 +51,12 @@ Sei $a>b$. Teilt $b$ die Zahl $a$ ohne Rest, so ist $b$ der $\mathrm{ggT}(a,b)$.
 
 Nach dem Satz zur Teilung mit Rest sind $b$ und $r$ beide kleiner als $a$, also kommt das Verfahren nach endlich vielen Schritten zum Ende.
 
-\definition{Primzahl}
-Eine natürliche Zahl heißt \emph{Primzahl}, wenn sie genau zwei Teiler besitzt, nämlich 1 und die Zahl selbst.
-\begin{equation*}
-  p\in\N \text{ mit } |\mathcal{D}(p)| = 2
-\end{equation*}
+\begin{definition}{Primzahl}
+	Eine natürliche Zahl heißt \emph{Primzahl}, wenn sie genau zwei Teiler besitzt, nämlich 1 und die Zahl selbst.
+	\begin{equation*}
+	  p\in\N \text{ mit } |\mathcal{D}(p)| = 2
+	\end{equation*}
+\end{definition}
 
 \begin{satz}{Primfaktorzerlegung}
   Jede natürliche Zahl $n\in\N \wedge n\geq2$ ist ein Produkt aus Primzahlen ($1$ ist das leere Produkt).

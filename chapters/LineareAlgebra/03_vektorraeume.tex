@@ -53,20 +53,21 @@ Sei $x\coloneqq \begin{pmatrix}
 Die beiden Operationen Vektoraddition und skalare Multiplikation sind kennzeichnend für einen Vektorraum.
 
 
-\definition{Vektorraum}
-Sei $K$ ein Körper, dessen neutrales Element bezüglich der Multiplikation mit $1_K$ bezeichnet wird. Sei $V$ eine Menge mit einer Verknüpfung $+$, so dass $(V,+)$ eine abel'sche Gruppe bildet.
+\begin{definition}{Vektorraum}
+	Sei $K$ ein Körper, dessen neutrales Element bezüglich der Multiplikation mit $1_K$ bezeichnet wird. Sei $V$ eine Menge mit einer Verknüpfung $+$, so dass $(V,+)$ eine abel'sche Gruppe bildet.
 
-Sei weiter eine Abbildung, genannt \emph{skalare Multiplikation} $K\times V\rightarrow V$ gegeben, so dass folgende Bedingungen $\forall \alpha,\beta \in K; x,y\in V$ gelten:
+	Sei weiter eine Abbildung, genannt \emph{skalare Multiplikation} $K\times V\rightarrow V$ gegeben, so dass folgende Bedingungen $\forall \alpha,\beta \in K; x,y\in V$ gelten:
 
-\begin{description}
-  \item[V 1] $(\alpha*\beta)* x=\alpha*(\beta* x)$ (assoziativ)
-  \item[V 2] $1_K* x = x$ (neutrales Element des Körpers ist das neutrale bzgl $*$)
-  \item[V 3] $(\alpha+\beta)* x=\alpha * x + \beta* x$ (distributiv 1)
-  \item[V 4] $\alpha* (x+y)=\alpha * x + \alpha* y$ (distributiv 2)
-\end{description}
-Dann ist $V$ ein \emph{Vektorraum} über dem Körper $K$. Kurz auch $K$-Vektorraum. Die Verknüpfung $+$ wird Vektoraddition genannt. Für $K=\R$ bzw. $K=\C$ spricht man auch von einem reellen, bzw. komplexen Vektorraum.
+	\begin{description}
+	  \item[V 1] $(\alpha*\beta)* x=\alpha*(\beta* x)$ (assoziativ)
+	  \item[V 2] $1_K* x = x$ (neutrales Element des Körpers ist das neutrale bzgl $*$)
+	  \item[V 3] $(\alpha+\beta)* x=\alpha * x + \beta* x$ (distributiv 1)
+	  \item[V 4] $\alpha* (x+y)=\alpha * x + \alpha* y$ (distributiv 2)
+	\end{description}
+	Dann ist $V$ ein \emph{Vektorraum} über dem Körper $K$. Kurz auch $K$-Vektorraum. Die Verknüpfung $+$ wird Vektoraddition genannt. Für $K=\R$ bzw. $K=\C$ spricht man auch von einem reellen, bzw. komplexen Vektorraum.
 
-Elemente von $V$ nennt man Vektoren.
+	Elemente von $V$ nennt man Vektoren.
+\end{definition}
 
 \paragraph{Beispiele}
 \begin{multicols}{2}
@@ -88,18 +89,20 @@ Elemente von $V$ nennt man Vektoren.
 \end{multicols}
 
 
-\definition{Untervektorraum}
-Sei $V$ ein $K$-Vektorraum. Eine nichtleere Teilmenge $U\subseteq V$ heißt Untervektorraum bzw. Teilvektorraum, falls gilt:
-\begin{description}
-  \item[UV 1] Abschluss unter Vektoraddition:
-  \begin{equation*}
-    \forall u,v : u,v \in U \Rightarrow u+v\in U
-  \end{equation*}
-  \item[UV 2] Abschluss unter skalarer Multiplikation:
-  \begin{equation*}
-    \forall u\in U, \lambda\in K : \lambda* u \in U
-  \end{equation*}
-\end{description}
+\begin{definition}{Untervektorraum}
+	Sei $V$ ein $K$-Vektorraum. Eine nichtleere Teilmenge $U\subseteq V$ heißt Untervektorraum bzw. Teilvektorraum, falls gilt:
+	\begin{description}
+	  \item[UV 1] Abschluss unter Vektoraddition:
+	  \begin{equation*}
+	    \forall u,v : u,v \in U \Rightarrow u+v\in U
+	  \end{equation*}
+	  \item[UV 2] Abschluss unter skalarer Multiplikation:
+	  \begin{equation*}
+	    \forall u\in U, \lambda\in K : \lambda* u \in U
+	  \end{equation*}
+	\end{description}
+\end{definition}
+
 
 \paragraph{Beispiele}
 Die folgenden sind Untervektorräume von $\R^2$:
@@ -127,23 +130,25 @@ Die folgenden sind Untervektorräume von $\R^2$:
   \end{align*}
 \end{enumerate}
 
-\definition{Linearkombination}
-Seien $v_1,v_2,\ldots,v_k$ Vektoren aus dem $K$-Vektorraum $V$ und seien $\lambda_1,\lambda_2,\ldots,\lambda_k \in K$. Dann heißt der Vektor
-\begin{equation*}
-  u=\lambda_1v_1+\lambda_2v_2+\ldots+\lambda_kv_k = \sum\limits_{j=1}^k\lambda_jv_j
-\end{equation*}
-\emph{Linearkombination} von den Vektoren $v_1,v_2,\ldots,v_k$.
-Die Skalare $\lambda_1,\lambda_2,\ldots,\lambda_k$ heißen \emph{Koeffizienten} der Linearkombination.
+\begin{definition}{Linearkombination}
+	Seien $v_1,v_2,\ldots,v_k$ Vektoren aus dem $K$-Vektorraum $V$ und seien $\lambda_1,\lambda_2,\ldots,\lambda_k \in K$. Dann heißt der Vektor
+	\begin{equation*}
+	  u=\lambda_1v_1+\lambda_2v_2+\ldots+\lambda_kv_k = \sum\limits_{j=1}^k\lambda_jv_j
+	\end{equation*}
+	\emph{Linearkombination} von den Vektoren $v_1,v_2,\ldots,v_k$.
+	Die Skalare $\lambda_1,\lambda_2,\ldots,\lambda_k$ heißen \emph{Koeffizienten} der Linearkombination.
 
-Sind in der Linearkombination alle Koeffizienten gleich Null, handelt es sich um die \emph{triviale Linearkombination}. Gibt es hingegen mindestens einen Koeffizienten $\lambda_j \neq 0$, handelt es sich um einee \emph{nichttriviale Linearkombination}.
+	Sind in der Linearkombination alle Koeffizienten gleich Null, handelt es sich um die \emph{triviale Linearkombination}. Gibt es hingegen mindestens einen Koeffizienten $\lambda_j \neq 0$, handelt es sich um einee \emph{nichttriviale Linearkombination}.
+\end{definition}
 
+\begin{definition}{Spann}
+	Sei $V$ ein $K$-Vektorraum, $M\subseteq V$ eine Teilmenge. Dann heißt die Menge aller Linearkombinationen
+	\begin{equation*}
+	  \set{\lambda_1v_1+\ldots+\lambda_kv_k}{v_1,v_2,\ldots,v_k \in M, \lambda_1,\lambda_2,\ldots,\lambda_k \in K}
+	\end{equation*}
+	der \emph{Spann} oder die lineare Hülle von M.
+\end{definition}
 
-\definition{}
-Sei $V$ ein $K$-Vektorraum, $M\subseteq V$ eine Teilmenge. Dann heißt die Menge aller Linearkombinationen
-\begin{equation*}
-  \set{\lambda_1v_1+\ldots+\lambda_kv_k}{v_1,v_2,\ldots,v_k \in M, \lambda_1,\lambda_2,\ldots,\lambda_k \in K}
-\end{equation*}
-der \emph{Spann} oder die lineare Hülle von M.
 
 \begin{equation*}
   \spann{M}\coloneqq \set{\sum\limits_{j=1}^k\lambda_jv_j}{\lambda_j \in K, v_j\in M}
@@ -155,7 +160,7 @@ der \emph{Spann} oder die lineare Hülle von M.
   \item $\spann{\simpleset{\vector{1\\0\\0},\vector{0\\1\\0}}} = \set{\vector{x_1\\x_2\\0}}{x_1,x_2\in\R}$ ($x_1,x_2$-Ebene)
 \end{itemize}
 
-\begin{satz}{}
+\begin{satz}{Der Spann als Untervektorraum}
   Sei $V$ ein $K$-Vektorraum und $M\subseteq V$. Dann ist $\spann{M}$ ein Untervektorraum von $V$.
 \end{satz}
 \beweis
@@ -168,20 +173,20 @@ der \emph{Spann} oder die lineare Hülle von M.
     &= \lambda(\lambda_1v_1)+\ldots+\lambda(\lambda_kv_k)\\
     &= (\lambda\lambda_1)v_1+\ldots+(\lambda\lambda_k)v_k\\
   \end{align*}
-  \item Abschluss unter Addition:
-
 \end{enumerate}
 
 
-\definition{Erzeugendensystem}
-Gilt $V=\spann{M}$ für einen $K$-Vektorraum $V$ und eine Teilmenge $M\subseteq V$, so sagt man $M$ ist ein \emph{Erzeugendensystem} von $V$.
-
+\begin{definition}{Erzeugendensystem}
+	Gilt $V=\spann{M}$ für einen $K$-Vektorraum $V$ und eine Teilmenge $M\subseteq V$, so sagt man $M$ ist ein \emph{Erzeugendensystem} von $V$.
+\end{definition}
 Interessant ist die minimale Anzahl an Vektoren in einem Erzeugendensystem, bzw. ein \emph{minimales Erzeugendensystem}.
 
-\definition{Lineare Abhängigkeit}\label{satz:lineareUnabhaengigkeit}
-Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}!
+\begin{definition}{Lineare Abhängigkeit}\label{satz:lineareUnabhaengigkeit}
+	Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}.
+\end{definition}
 
-\begin{satz}{}
+
+\begin{satz}{Kriterium für lineare Abhängigkeit}
   Eine Menge von Vektoren ist genau dann linear abhängig, wenn einen Vektor $v\in M$ gibt, der sich als Linearkombination mit Vektoren aus $M\setminus\simpleset{v}$ darstellen lässt.
 \end{satz}
 
@@ -205,10 +210,12 @@ Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es e
 \end{description}
 
 
-\definition{Basis}
-Eine Teilmenge $B$ eines Vektorraums $V$ heißt \emph{Basis} von $V$ falls $B$ ein linear unabhängiges Erzeugendensystem ist.
+\begin{definition}{Basis}
+	Eine Teilmenge $B$ eines Vektorraums $V$ heißt \emph{Basis} von $V$ falls $B$ ein linear unabhängiges Erzeugendensystem ist.
+\end{definition}
 
-\paragraph{Beispiele}
+
+\paragraph{Beispiele:}
 Für jeden Körper $K$ gibt es die Standardbasis bzw. die \emph{kanonische Basis} $\simpleset{e_1,e_2,\ldots,e_n}$ von $K^n$:
 \begin{equation*}
   e_1=\vector{1\\0\\\vdots\\ 0}, e_2=\vector{0\\1\\\vdots\\ 0}, \ldots, e_n=\vector{0\\0\\\vdots\\ 1}
@@ -233,8 +240,9 @@ Im Allgemeinen gibt es verschiedene Basen von demselben Vektorraum.
 \bemerkung
 Jeder Vektorraum besitzt eine Basis, jede Basis hat gleich viele Elemente. (auch $\emptyset$ oder $|B|=\infty$ möglich)
 
-\definition{Dimension}
-Die Anzahl der Elemente der Basis $B$ eines Vektorraums $V$ nennt man \emph{Dimension}
-\begin{equation*}
-  \mathrm{dim}(V)=|B|
-\end{equation*}
+\begin{definition}{Dimension}
+	Die Anzahl der Elemente der Basis $B$ eines Vektorraums $V$ nennt man \emph{Dimension}
+	\begin{equation*}
+	  \mathrm{dim}(V)=|B|
+	\end{equation*}
+\end{definition}
