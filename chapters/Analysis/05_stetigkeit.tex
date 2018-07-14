@@ -12,8 +12,9 @@ Wir betrachten die Stetigkeit von Abbildungen zwischen metrischen Räumen.
 	\end{equation*}
 \end{definition}
 
-\begin{multicols}{2}
-	\begin{definition}{$\epsilon$-$\delta$-Stetigkeit}
+\begin{definition}{$\epsilon$-$\delta$-Stetigkeit}
+	\begin{multicols}{2}
+		\vspace*{-3.5em}
 		Seien $X$ und $Y$ metrische Räume.
 		Die Abbildung $f:X\rightarrow Y$ heißt stetig im Punkt $x_0\in X$, falls zu jedem $\epsilon>0$ ein $\delta>0$ existiert, so dass gilt:
 		\begin{equation*}
@@ -23,55 +24,43 @@ Wir betrachten die Stetigkeit von Abbildungen zwischen metrischen Räumen.
 		\begin{equation*}
 			f\left(K_\delta(x_0)\right)\subseteq K_\epsilon(x_0)
 		\end{equation*}
-	\end{definition}
-
 	\columnbreak
 
-	\begin{center}
-		\begin{tikzpicture}
-			\fill[fill=green!30!white, draw=none] (0,0.4) rectangle (5,1.6);
-			\draw[green, line width=0.2mm] (0,0.4) to (5,0.4);
-			\draw[green, line width=0.2mm] (0,1.6) to (5,1.6);
+	\vspace*{-3.5em}
+	\begin{tikzpicture}
+		\fill[fill=green!30!white, draw=none] (0,0.4) rectangle (4.6,1.6);
+		\draw[green, line width=0.2mm] (0,0.4) to (4.6,0.4);
+		\draw[green, line width=0.2mm] (0,1.6) to (4.6,1.6);
 
-			\draw[->] (0,0) -- (5.2,0) node[right] {$x$};
-			\draw[->] (0,0) -- (0,3) node[above] {$f(x)$};
+		\draw[->] (0,0) -- (4.8,0) node[right] {$x$};
+		\draw[->] (0,0) -- (0,3) node[above] {$f(x)$};
 
+		\draw (2,1) node (fx0) [fill = blue,circle,inner sep = 0pt,minimum size = 4pt,draw = blue] {};
 
-			\draw (2,1) node (fx0) [fill = blue,circle,inner sep = 0pt,minimum size = 4pt,draw = blue] {};
+		\draw (2,0) node (x0) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$x_0$}] {};
+		\draw (3.5,0) node (x0pd) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:\tiny$x_0+\delta$}] {};
+		\draw (0.5,0) node (x0md) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:\tiny$x_0-\delta$}] {};
+		\draw[dotted, blue]
+		(x0) -- (fx0)
+		(x0md) -- (0.5,0.8)
+		(x0pd) -- (3.5,2);
 
+		\draw (0,1) node (fx0achse) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:$f(x_0)$}] {};
+		\draw (0,1.6) node [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:\tiny$f(x_0)+\epsilon$}] {};
+		\draw (0,0.4) node [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:\tiny$f(x_0)-\epsilon$}] {};
+		\draw[dashed] (fx0achse) -- (fx0);
 
+		\draw[line width=0.5mm, scale=1, domain=0:2, smooth, variable=\x, blue] plot ({\x},{-0.1*(\x-2)*(\x-2)+1}) node[below right] {};
 
-			\draw (2,0) node (x0) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$x_0$}] {};
-			\draw (3.5,0) node (x0pd) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:\tiny$x_0+\delta$}] {};
-			\draw (0.5,0) node (x0md) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:\tiny$x_0-\delta$}] {};
-			\draw[dotted]
-			(x0) -- (fx0)
-			(x0md) -- (0.5,0.8)
-			(x0pd) -- (3.5,2);
+		\draw[line width=0.5mm, scale=1, domain=2:4.6, smooth, variable=\x, blue] plot ({\x},{0.1*(\x-2)*(\x-2)+1.8}) node[below right] {};
+		\draw (2,1.8) node [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw = blue] {};
 
-
-
-
-			\draw (0,1) node (fx0achse) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:$f(x_0)$}] {};
-			\draw (0,1.6) node [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:\tiny$f(x_0)+\epsilon$}] {};
-			\draw (0,0.4) node [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:\tiny$f(x_0)-\epsilon$}] {};
-			\draw[dotted] (fx0achse) -- (fx0);
-
-			\draw[line width=0.5mm, scale=1, domain=0:2, smooth, variable=\x, blue] plot ({\x},{-0.1*(\x-2)*(\x-2)+1}) node[below right] {};
-
-			\draw[line width=0.5mm, scale=1, domain=2:5, smooth, variable=\x, blue] plot ({\x},{0.1*(\x-2)*(\x-2)+1.8}) node[below right] {};
-			\draw (2,1.8) node [fill = white,circle,inner sep = 0pt,minimum size = 4pt,draw = blue] {};
-
-
-			\draw (2.7,1.85) node (fehler) [draw=red, fill=red, minimum size=4pt, circle, inner sep=0pt] {};
-			\draw (2.7, 0) node (fehlerachse) [draw=red, minimum size=0pt, minimum height=4pt, inner sep=0pt] {};
-			\draw[dotted, red] (fehler) -- (fehlerachse);
-
-
-
-		\end{tikzpicture}
-	\end{center}
+		\draw (2.7,1.85) node (fehler) [draw=red, fill=red, minimum size=4pt, circle, inner sep=0pt] {};
+		\draw (2.7, 0) node (fehlerachse) [draw=red, minimum size=0pt, minimum height=4pt, inner sep=0pt] {};
+		\draw[dotted, red] (fehler) -- (fehlerachse);
+	\end{tikzpicture}
 \end{multicols}
+\end{definition}
 
 
 

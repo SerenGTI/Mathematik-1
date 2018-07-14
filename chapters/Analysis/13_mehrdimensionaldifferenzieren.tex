@@ -56,8 +56,6 @@ Die Funktionen $f_i:\R^n\rightarrow\R^m$ heißen die Komponentenfunktionen von $
 			\draw (5,2) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={right:$1$}] {};
 			\draw (5,4) node (a) [draw, rectangle,minimum size=0pt,inner sep = 0pt, minimum width=4pt, label={above right:$2$}] {};
 
-
-
 			\coordinate (overfrontmid) at (3,-6/4+2);
 			\coordinate (overmidleft) at (1,2);
 			\coordinate (overbackmid) at (7,6/4+2);
@@ -174,47 +172,3 @@ Die Begriffe der partiellen Ableitung und der Richtungsableitung lassen sich auc
 		\frac{\partial f_m}{\partial x_k}(x)
 	}
 \end{equation*}
-
-\section{Totales Differential}
-Wir wollen nun einen sinnvollen Begriff von Differenzierbarkeit für Funktinen oder Abbildungen die von mehreren Variablen abhängen definieren. Wir werden sehen, dass es nicht genügt, dass die partiellen Ableitungen existieren.
-
-Was sich verallgemeinern lässt ist die Idee, eine Funktion durch eine affin-lineare Abbildung anzunähern, nämlich durch ihr erstes Taylorpolynom.
-
-\begin{definition}{Totale Differenzierbarkeit}
-	Eine Abbildung $f:E\rightarrow\R^m,E\subseteq \R^n$ heißt total differenzierbar in $x\in D$, falls eine Matrix $f'(x)=Df(x)\in M(m,n,\R)$ existiert, so dass
-	\begin{equation*}
-		f(x+h)=f(x)+f'(x)*h+o(h)
-	\end{equation*}
-	für alle $h\in\R^n, (x+h)\in D$ gilt. Hierbei muss die Restfunktion $o(h)\in\R^m$ die Bedingungen
-	\begin{equation*}
-		o(h)=r(x,h)*h\text{ mit }\lim\limits_{h\to 0} r(x,h)=0
-	\end{equation*}
-	erfüllen. Falls ein solches $f'(x)=Df(x)$ existiert, heißt es auch \emph{das totale Differential} von $f$ bei $x$.
-\end{definition}
-
-\paragraph{Beispiele:}
-\begin{itemize}
-	\item Es sei $\alpha=(\alpha_1,\ldots,\alpha_n)\in\R^n$ und sei $f:\R^n\rightarrow\R$ definiert durch
-	\begin{equation*}
-		f(x)=\alpha x+b = (\alpha_1,\ldots,\alpha_n)*\vector{x_1\\\vdots\\x_n}+b
-	\end{equation*}
-	Dies ist eine affin-lineare Abbildung. Dann ist $f'(x)=\alpha$ und zwar für alle $x\in\R^n$ gleichzeitig.
-	Es gilt
-	\begin{equation*}
-		f(x+h)=\alpha (x+h)+b=\alpha x+\alpha h+b=f(x)+\alpha*h
-	\end{equation*}
-	das heißt wir lesen ab, dass $\alpha\in M(1,n,\R)$ das totale Differential $Df(x)$ für alle $x$ ist. Eine affin-lineare Abbildung hat konstante Ableitung.
-
-	\item Funktionert auch mit $f:\R^n\rightarrow\R^m, f(x)=Ax+b,A\in M(m,n,\R), b\in\R^m$ hierbei ist $Df(x)=A$ konstant.
-
-	\item $f:\R^n\rightarrow\R, f(x)=x^T*x$ das heißt
-	\begin{align*}
-		f(x)&=(x_1,\ldots,x_n)\vector{x_1\\\vdots\\x_n}\\
-		&=x_1^2+\ldots+x_n^2
-		\intertext{wir erhalten}
-		f(x+h)&=(x+h)^T*(x+h)\\
-		&=x^Tx+x^Th+h^Tx+h^Th\\
-		&=f(x)+2x^Th+h^Th
-	\end{align*}
-	also ist $2x^T\in M(1,n,\R)$ das totale Differential von $f$ bei $x$.
-\end{itemize}

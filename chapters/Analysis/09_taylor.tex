@@ -91,10 +91,13 @@ für eine beliebig oft differenzierbare Funktion $f$ wird auch die Taylorreihe v
 			\draw (-1.5707,0) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum height=4pt,draw, label={below:$-\frac\pi2$}] {};
 
 			\begin{scope}
+				\clip (-5,-1.5) rectangle (5,1.5);
 				\draw[line width=0.5mm,scale=1,domain=-5:5,smooth,variable=\x,blue] plot ({\x},{sin(deg(\x))})
-					node[right] {$\sin(x)$};
+					node[above left] {$\sin(x)$};
+				\draw[line width=0.3mm,scale=1,domain=-3.9:3.9,smooth,variable=\x,green] plot ({\x},{\x-1/6*\x*\x*\x+1/120*\x*\x*\x*\x*\x})
+					node[below right] {$T_5(x)$};
 				\draw[line width=0.3mm,scale=1,domain=-3.9:3.9,smooth,variable=\x,red] plot ({\x},{\x-1/6*\x*\x*\x+1/120*\x*\x*\x*\x*\x-1/5040*\x*\x*\x*\x*\x*\x*\x})
-					node[below] {$T_7(x)$};
+					node[left] {$T_7(x)$};
 			\end{scope}
 		\end{easyfunction}
 	\end{center}
@@ -223,21 +226,20 @@ Man kann nicht jede beliebig oft differenzierbare Funktion durch ihre Taylorreih
 \end{equation*}
 
 \begin{center}
-	\begin{easyfunction}{-1}{10}{0}{1.2}{1}
+	\begin{tikzpicture}{-1}{10}{0}{1.2}{1}
 
-		\draw[->] (-1.2,0) -- (8.2,0) node[right] {$x$};
-		\draw[->] (0,-0.2) -- (0,1.2) node[above] {$f(x)$};
+		\draw[->] (-1.2,0) -- (6.2,0) node[right] {$x$};
+		\draw[->] (0,-0.2) -- (0,2.2) node[above] {$f(x)$};
 
-		\draw (0,1) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:$1$}] {};
+		\draw (0,2) node (a) [fill = white,rectangle,inner sep = 0pt,minimum size = 0pt,minimum width=4pt,draw, label={left:$1$}] {};
 
-		\begin{scope}
-			\clip(-2,0) rectangle (8,1);
+		\draw[line width=0.5mm, scale=1, domain=-1:0, smooth, variable=\x, blue] plot ({\x},{0}) node[below right] {};
+		\draw[line width=0.5mm, scale=1, domain=0.001:6, smooth, variable=\x, blue] plot ({\x},{2*exp(-1/\x)}) node[below right] {};
+		\draw[line width=0.2mm, scale=1, domain=0:6, dotted, smooth, variable=\x, blue] plot ({\x},{2}) node[below right] {};
 
-			\draw[line width=0.5mm, scale=1, domain=-1:0, smooth, variable=\x, blue] plot ({\x},{0}) node[below right] {};
-			\draw[line width=0.5mm, scale=1, domain=0.001:8, smooth, variable=\x, blue] plot ({\x},{exp(-1/\x)}) node[below right] {};
-			\draw[line width=0.2mm, scale=1, domain=0:8, dotted, smooth, variable=\x, blue] plot ({\x},{1}) node[below right] {};
-		\end{scope}
-	\end{easyfunction}
+		\foreach \x in {1,2,3,4,5,6}
+		\draw (\x,0) node[minimum width=0pt, minimum height=4pt, inner sep=0pt, draw, label={below:$\x$}] {};
+	\end{tikzpicture}
 \end{center}
 Diese Funktion ist beliebig oft differenzierbar (auch in $x_0=0$) und es gilt:
 \begin{equation*}

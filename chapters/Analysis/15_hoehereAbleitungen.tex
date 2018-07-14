@@ -1,0 +1,90 @@
+\section{Höhere Ableitungen im Mehrdimensionalen}
+\begin{definition}{Höhere Ableitungen}
+	Sei $f:D\rightarrow\R,D\subseteq\R^n$ partiell nach der Variablen $x_k$ differenzierbar, das heißt es existiert die Funktion
+	\begin{equation*}
+		\frac{\partial f}{\partial x_k}:D\rightarrow \R.
+	\end{equation*}
+	Besitzt diese wiederum eine partielle Ableitung nach der Variablen $x_i$, dann besitzt $f$ eine zweifache partielle Ableitung nach den Variablen $x_k$ und $x_i$. Wir schreiben
+	\begin{equation*}
+		\frac{\partial}{\partial x_i}\left(\frac{\partial}{\partial x_k}\right)(x)=\frac{\partial^2}{\partial x_i\partial x_k}(x).
+	\end{equation*}
+	Falls $i=k$ ist, so schreiben wir $\frac{\partial^2}{\partial x_k^2}(x)$.
+\end{definition}
+Wichtige Frage ist, inwiefern spielt beim Bilden von höheren partiellen Ableitungen die Reihenfolge der Variablen eine Rolle?
+\begin{satz}{Satz von Schwarz}
+	Sei $f:D\rightarrow\R,D\subseteq\R^n$ eine stetige Funktion und die drei partiellen Ableitungen
+	\begin{equation*}
+		\frac{\partial f}{\partial x_i}(x),\ \frac{\partial f}{\partial x_k}(x) \text{ und } \frac{\partial^2}{\partial x_i\partial x_k}(x)
+	\end{equation*}
+	existieren und sind stetig, dann existiert auch die partielle Ableitung
+	\begin{equation*}
+		\frac{\partial^2}{\partial x_k\partial x_i}(x)
+	\end{equation*}
+	und es gilt
+	\begin{equation*}
+		\frac{\partial^2}{\partial x_i\partial x_k}(x)=\frac{\partial^2}{\partial x_k\partial x_i}(x).
+	\end{equation*}
+\end{satz}
+Insbesondere gilt also, ist eine Funktion zweimal stetig partiell differenzierbar, dann kommt es beim Bilden von zweifachen partiellen Ableitungen nicht auf die Reihenfolge der Variablen an.
+\paragraph{Folgerung:}
+Insbesondere kommt es beim bilden von partiellen Ableitungen $k$ter Ordnung einer $k$fach stetig partiell differenzierbaren Funktion nicht auf die Reihenfolge an und man schreibt mit einem Multiindex
+\begin{equation*}
+	\alpha=(\alpha_1,\ldots,\alpha_n)\in \N_0^n
+\end{equation*}
+für die höheren Ableitungen
+\begin{equation*}
+	\frac{\partial^{|\alpha|}}{\partial x^\alpha}(x)\coloneqq
+	\frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\ldots\partial x_n^{\alpha_n}}
+\end{equation*}
+einer $|\alpha|$fach stetig partiell differenzierbaren Funktion $f:D\rightarrow\R,D\subseteq\R^n$ wobei $|\alpha|=\alpha_1+\ldots+\alpha_n$ ist.
+
+Zuletzt benötigen wir noch die zweite Ableitung im Mehrdimensionalen.
+
+\begin{definition}{Hessematrix}
+	Sei $f:D\rightarrow\R,D\subseteq\R^n$ zweimal stetig partiell differenzierbar. Dann definieren wir die \emph{Hesse'sche Matrix} von $f$ bei $x$ durch
+	\begin{equation*}
+		\newcommand{\partialF}[2]{\frac{\partial^2f}{\partial x_{#1}\partial x_{#2}}(x)}
+		\renewcommand{\arraystretch}{1.7}
+		\hess f(x)\coloneqq \begin{pmatrix}
+			\partialF{1}{1} & \partialF{1}{2} & \cdots & \partialF{1}{n}\\
+			\partialF{2}{1} & \partialF{2}{2} & \cdots & \partialF{2}{n}\\
+			\vdots & \vdots & \ddots & \vdots\\
+			\partialF{n}{1} & \partialF{n}{2} & \cdots & \partialF{n}{n}\\
+		\end{pmatrix}=\left(\left( \partialF{i}{j}\right)\right)_{1\leq i,j\leq n}
+	\end{equation*}
+\end{definition}
+Wir werden sehen, dass die Hessematrix ein Analogon der zweiten Ableitung $f''(x)$ im Eindimensionalen ist. Aus dem Satz von Schwarz folgt, dass die Hessematrix über die Hauptdiagonale symmetrisch ist.
+
+\subsection{Taylorpolynom in mehreren Variablen}
+\begin{satz}{Satz von Taylor}
+	Sei $f:D\rightarrow\R,D\subseteq\R^n$ dreimal stetig partiell differenzierbar und $a\in D$. Dann gilt
+	\begin{equation*}
+		T(x)=f(a)+Df(a)(x-a)+\frac12 (x-a)^T\hess f(a)*(x-a)+o(|\!|x-a|\!|^2)
+	\end{equation*}
+	wobei $|\!|x-a|\!|$ den euklidischen Abstand von $x$ und $a$ bezeichnet. Man bezeichnet dies als das Taylorpolynom zweiter Ordnung.
+\end{satz}
+\paragraph{Beispiel:}
+Sei $f:\R^2\rightarrow\R, f(x,y)=e^{x^2+y}$. Wir bestimmen das Taylorpolynom zweiter Ordnung im Punkt $a=(0,0)$. Wir bestimmen dafür
+\begin{align*}
+	f(a)=f(0,0)=1 && Df(x,y)&=\matrix{2xe^{x^2+y}&e^{x^2+y}}\\
+	&&\Rightarrow\ Df(0,0)&=(0,1)
+\end{align*}
+und die Hessematrix von $f$
+\begin{align*}
+	\hess f(x,y)&=
+	\matrix{
+	2e^{x^2+y}+4x^2e^{x^2+y}
+	&2xe^{x^2+y}
+	\\2xe^{x^2+y}
+	&e^{x^2+y}
+	}\\
+	\Rightarrow \hess f(0,0)=\matrix{2&0\\0&1}
+\end{align*}
+Damit ergibt sich für das Taylorpolynom schließlich
+\begin{align*}
+	T(x)&=f(a)+Df(a)(x-a)+\frac12 (x-a)^T\hess f(a)*(x-a)+o(|\!|x-a|\!|^2)\\
+	&=1+(0,1)*\vector{x_1\\x_2}+\frac 12 (x_1,x_2)*\matrix{2&0\\0&1}*\vector{x_1\\x_2} + o(|\!|x|\!|^2)\\
+	&=1+x_2+\frac 12 (2x_1,x_2)*\vector{x_1\\x_2} + o(|\!|x|\!|^2)\\
+	&=1+x_2+\frac 12 (2x_1^2+x_2^2)\\
+	&=1+x_2+x_1^2+\frac 12x_2^2\\
+\end{align*}
