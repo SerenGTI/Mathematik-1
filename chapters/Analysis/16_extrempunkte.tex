@@ -1,0 +1,96 @@
+\section{Extremwerte im Mehrdimensionalen}
+\begin{definition}{Lokaler Extremwert}
+	Sei $f:D\rightarrow \R,D\subseteq \R^n$. Wir sagen $f$ hat im Punkt $a\in D$ ein lokales Maximum, falls ein $\delta>0$ existiert, so dass $K_\delta(a)\subseteq D$ ist und für alle $y\in K_\delta(a)$ gilt, dass $f(y)\leq f(a)$ ist. Falls sogar $f(y)<f(a)$ für alle $y\in K_\delta(a)\setminus\simpleset{a}$ gilt, spricht man von einem isolierten lokalen Maximum.
+
+	Entsprechend für lokale Minima.
+\end{definition}
+
+Im Eindimensionalen kann man lokale Extrema finden, indem man benutzt, dass die Ableitung dort eine Nullstelle hat (notw. Kriterium). Ist die Funktion zweimal stetig differenzierbar, kann man folgendes hinreichendes Kriterium benutzen: Falls
+\begin{equation*}
+	f'(x_0)=0 \wedge f''(x_0)<0
+\end{equation*}
+gilt, dann hat $f$ bei $x_0$ ein isoliertes lokales Maximum. Entsprechend ein isoliertes lokales Minimum, falls $f''(x_0)>0$.
+
+Wir werden sehen, dass sich diese Kriterien ganz analog auf den mehrdimensionalen Fall verallgemeinern. Dabei übernimmt die Hessematrix die Rolle der zweiten Ableitung.
+
+\begin{satz}{Notwendige Bedingung für lokalen Extremwert}
+	Sei $f:D\rightarrow \R,D\subseteq \R^n$ stetig differenzierbar und besitze in $a$ einen lokalen Extremwert. Dann gilt
+	\begin{equation*}
+		Df(a)=f'(a)=0
+	\end{equation*}
+	das heißt es gilt $\frac{\partial f}{\partial x_i}(a)=0$ für alle $i\in\simpleset{1,\ldots,n}$.
+\end{satz}
+Dieses Kriterium verallgemeinert also direkt das notwendige Kriterium aus dem Eindimensionalen. Es ist jedoch nicht hinreichend für ein lokales Extremum, denn zum Beispiel
+\begin{itemize}
+	\item hat $f:\R\rightarrow\R,x\mapsto x^3$ bei $a=0$ eine Nullstelle der Ableitung aber kein Extremum.
+	\item hat die Funktion $f(x,y)=xy$ die Jacobimatrix $\jacobi f(x,y)=(y,x)$ also gilt $Df(0,0)=(0,0)$. Aber da $f(x,y)>0$ für $x,y>0$ und $f(x,y)<0$ für $x<0<y$ gibt es in jeder noch so kleinen Kugelumgebung $K_\delta (0,0)$ sowohl negative als auch positive Funktionswerte (Sattelpunkt).
+\end{itemize}
+
+\begin{definition}{Sattelpunkt}
+	Gilt für $f:D\rightarrow \R,D\subseteq \R^n$, dass in jeder Umgebung von $x_0\in D$ sowohl Punkte $y\in D$ mit $f(y)<f(x_0)$ als auch mit $f(y)>f(x_0)$ existieren, wobei $Df(x_0)=0$, dann sagt man $f$ hat bei $x_0$ einen Sattelpunkt.
+\end{definition}
+
+Wie bekommt man nun ein zum Eindimensionalen analoges hinreichendes Kriterium für isolierte lokale Extrema? Die Antwort gibt der Satz von Taylor:
+
+Gilt $Df(a)=0$ so folgt
+\begin{align*}
+	f(a+h)&=f(a)+\underbrace{Df(a)*h}_{=0}+h^T*\hess f(a)*h+o(|\!|h|\!|^2)\\
+	&=f(a)h^T*\hess f(a)*h+o(|\!|h|\!|^2)
+\end{align*}
+Wir sehen, $f$ hat ein isoliertes lokales Minimum, falls $h^T*\hess f(a)*h$ für alle $h\in\R^n\setminus\simpleset{0}$ positiv ist.
+
+\begin{definition}{Definitheit}
+	Sei $A\in M(n,\R)$ eine symmetrische reelle $n\times n$-Matrix. Dann heißt $A$
+	\begin{description}
+		\item [positiv definit,] falls $h^T*\hess f(a)*h>0$ für alle $h\in\R^n\setminus\simpleset{0}$
+		\item [negativ definit,] falls $h^T*\hess f(a)*h<0$ für alle $h\in\R^n\setminus\simpleset{0}$
+		\item [indefinit,] falls es ein $v\in\R^n$ und ein $w\in\R^n$ gibt, so dass $v^T*\hess f(a)*v<0$
+
+		und $w^T*\hess f(a)*w>0$ gilt.
+	\end{description}
+\end{definition}
+
+\begin{satz}{}
+	Sei $f:D\rightarrow \R,D\subseteq\R^m$ dreimal stetig partiell differenzierbar und sei $a\in D$ ein kritscher Punkt, das heißt $Df(a)=0$ mit $K_\delta (a)\subseteq D$ für ein $\delta>0$.
+	\begin{itemize}
+		\item Ist $\hess f(a)$ positiv definit so liegt bei $a$ ein isoliertes lokales Minimum vor.
+		\item Ist $\hess f(a)$ negativ definit so liegt bei $a$ ein isoliertes lokales Maximum vor.
+		\item Ist $\hess f(a)$ indefinit so liegt bei $a$ ein Sattelpunkt vor.
+	\end{itemize}
+\end{satz}
+\begin{beweis}
+	Siehe Satz von Taylor. \hfill $\Box$
+\end{beweis}
+
+Wann ist eine symmetrische Matrix positiv definit, negativ definit beziehungsweise indefinit?
+
+Natürlich gilt, dass falls $A$ positiv definit ist, $-A$ negativ definit ist, denn
+\begin{equation*}
+	(v_1,\ldots,v_n)A\vector{v_1\\\vdots\\v_n}=\sum_{i,j=1}^n v_iv_j a_{ij}
+\end{equation*}
+
+\paragraph{Bemerkungen:}
+\begin{itemize}
+	\item Die Einheitsmatrix ist positiv definit, denn $v^T Ev=v_1^2+\ldots+v_n^2$.
+	Allgemeiner gilt, eine Diagonalmatrix mit positiven Diagonalelementen ist positiv definit, denn
+	\begin{equation*}
+		(v_1,\ldots,v_n)\matrix{\lambda_1&\cdots &0\\\vdots & \ddots & \vdots \\ 0&\cdots &\lambda_n}\vector{v_1\\\vdots\\v_n}=\lambda_1v_1^2+\ldots+\lambda_nv_n^2
+	\end{equation*}
+	\item Auch wenn alle Einträge einer symmetrischen Matrix positiv sind, ist die Matrix nicht notwendigerweise positiv definit, so zum Beispiel
+	\begin{equation*}
+		(1,-1)\matrix{1&2\\2&1}\vector{1\\-1}=(1,-1)\vector{-1\\1}=-2.
+	\end{equation*}
+\end{itemize}
+Um über Definitheit zu entscheiden gibt es das sogenannte Hurwitz'sche Kriterium.
+
+\begin{definition}{Hauptminoren}
+	Sei $A\in M(n,\R)$, dann bezeichnen wir mit $A_1,\ldots,A_n$ die folgenden Teilmatrizen
+	\begin{equation*}
+		A_1=(a_{11}), A_2=\matrix{a_{11}&a_{12}\\a_{21}&a_{22}},\ldots,A_k=\matrix{a_{11}&\cdots&a_{1k}\\\vdots&\ddots&\vdots\\a_{k1}&\cdots&a_{kk}},\ldots A_n=A
+	\end{equation*}
+	Die Determinanten $\det A_1, \det A_2,\ldots, \det A_n$ heißen \emph{Hauptminoren} von $A$.
+\end{definition}
+
+\begin{satz}{Hurwitz'sches Kriterium}
+	$A$ ist positiv definit genau dann, wenn alle Hauptminoren positiv sind. $A$ ist negativ definit genau dann, wenn die Hauptminoren abwechselnd negativ und positiv sind.
+\end{satz}
