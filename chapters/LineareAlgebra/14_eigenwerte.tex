@@ -37,3 +37,166 @@ Dies liefert eine Methode zum Bestimmen der Eigenwerte einer quadratischen Matri
 	\end{equation*}
 	das Charakteristische Polynom von $A$. Das charakteristische Polynom ist ein Polynom $n$ten Grades in den Variablen $\lambda$.
 \end{definition}
+\paragraph{Beispiel:}
+Sei $A=\matrix{4&-1\\2&1}$ dann gilt
+\begin{align*}
+	\chi_A(\lambda)
+	&=|A-\lambda E|=\det\left(\matrix{4&-1\\2&1} -\matrix{\lambda&0\\0&\lambda}\right)=\det\matrix{4-\lambda&-1\\2&1-\lambda}\\
+	&=(4-\lambda)(1-\lambda)-2(-1)\\
+	&=4-5\lambda+\lambda^2+2\\
+	&=6-5\lambda+\lambda^2
+\end{align*}
+Die Nullstellen dieses charakteristischen Polynoms sind $2$ und $3$. Das sind die Eigenwerte von $A$.
+
+Ist $\lambda$ ein Eigenwert von $A$ dann ist $E_\lambda$ gegeben als der Kern der charakteristischen Matrix $A-\lambda E$.
+\begin{align*}
+	E_2=\ker\left(\matrix{4&-1\\2&1}-\matrix{2&0\\0&2}\right)=\R\vector{1\\2}\\
+	E_3=\ker\left(\matrix{4&-1\\2&1}-\matrix{3&0\\0&3}\right)=\R\vector{1\\1}\\
+\end{align*}
+Diese beiden Vektoren $\vector{1\\2}$ und $\vector{1\\1}$ bilden eine Basis von $\R^2$ genauer gesagt eine Basis von Eigenvektoren. Die darstellende Matrix bezüglich dieser Basis ist
+\begin{equation*}
+	A_c=\matrix{2&0\\0&3}
+\end{equation*}
+Wir haben die Matrix $A$ somit durch einen Basiswechsel \glqq diagonalisiert\grqq.
+
+Eine Matrix oder ein Endomorphismus heißt diagonaliserbar, falls eine Basis aus Eigenvektoren existiert.
+\begin{satz}{Diagonalisierbarkeit}
+	Eine Matrix $A\in M(n,K)$ ist genau dann diagonalisierbar, wenn es eine invertierbare Matrix $Q\in M(n,K)$ gibt mit
+	\begin{equation*}
+		Q^{-1} AQ=\matrix{\lambda_1&&&\\&\lambda_2&&\\&&\ddots&\\&&&\lambda_n}
+	\end{equation*}
+	für $\lambda_1,\ldots,\lambda_n\in K$.
+\end{satz}
+\begin{beweis}
+	Angenommen es gibt eine Basis aus Eigenvektoren von $A$, $\simpleset{v_1,\ldots,v_n}$. Dann hat die darstellende Matrix bezüglich dieser Basis Diagonalgestalt. Der $i$te Basisvektor wird auf ein vielfaches von sich selbst abgebildet. Umgekehrt, gilt
+	\begin{equation*}
+		Q^{-1} AQ=\matrix{\lambda_1&&&\\&\lambda_2&&\\&&\ddots&\\&&&\lambda_n}
+	\end{equation*}
+	dann sind die Spalten von $Q$ (linear unabhängige) Eigenvektoren von $A$.\hfill$\Box$
+\end{beweis}
+
+\paragraph{Notation:}
+Man schreibt auch
+\begin{equation*}
+	\operatorname{diag}(\lambda_1,\ldots,\lambda_n)=\matrix{\lambda_1&&&\\&\lambda_2&&\\&&\ddots&\\&&&\lambda_n}
+\end{equation*}
+
+\par
+
+Welche Matrizen sind diagonalisierbar?
+\begin{itemize}
+	\item Nicht alle reellen quadratischen Matrizen haben Eigenwerte. Zum Beispiel hat die Rotationsmatrix
+	\begin{equation*}
+		\matrix{\cos(\varphi)&-\sin(\varphi)\\\sin(\varphi)&\cos(\varphi)}, \varphi\in[0,2\pi)
+	\end{equation*}
+	keine Eigenvektoren oder Eigenwerte.
+	\item Andererseits gilt der \emph{Fundamentalsatz der Algebra}. Jedes nicht-konstante komplexe Polynom hat mindestens eine Nullstelle. Insbesondere hat das charakteristische Polynom einer Matrix $A\in M(n,\C)$ stets eine Nullstelle und somit hat jede komplexe quadratische Matrix mindestens einen Eigenwert.
+
+	Jedoch sind nicht alle komplexen quadratischen Matrizen diagonalisierbar, zum Beispiel
+	\begin{equation*}
+		A=\matrix{c&1\\0&c}\in M(2,\C), c\in\C \rightsquigarrow \chi_A(\lambda)=(c-\lambda)^2
+	\end{equation*}
+	dieses charakteristische Polynom hat nur eine (doppelte) Nullstelle $\lambda=c$. Der zugehörige Eigenraum $E_c$ ist eindimensional. Außerhalb von $E_c$ gibt es keine Eigenvektoren und damit ist die Matrix nicht diagonalisierbar.
+\end{itemize}
+
+Es gilt, dass Eigenräume zu verschiedenen Eigenwerten $\lambda\neq \mu$ sich stets nur im Nullvektor schneiden, denn
+\begin{equation*}
+	v\in E_\lambda\cap E_\mu\enspace\Rightarrow\enspace f(v)=\lambda v=\mu v\enspace\Rightarrow\enspace (\lambda\mu)v)=0\enspace\Rightarrow\enspace v=0.
+\end{equation*}
+Allgemeiner gilt, dass die Dimension des gemeinsamen Spanns von verscheidenen Eigenräumen gleich der Summe der Dimensionen der Eigenräume ist. Daraus folgt
+\begin{satz}{}
+	Sei $A\in M(n,K)$ und seien $\lambda_1,\ldots,\lambda_k$ die paarweise verschiedenen Eigenwerte, dann sind die Aussagen äquivalent:
+	\begin{itemize}
+		\item $A$ ist diagonalisierbar, das heißt es gibt eine Basis aus Eigenvektoren von $A$
+		\item $\displaystyle \sum_{j=1}^k\dim (E_{\lambda_j})=n$
+	\end{itemize}
+\end{satz}
+
+\begin{korollar}{}
+	Hat eine $n\times n$-Matrix $n$ paarweise verschiedene Eigenwerte, dann ist die Matrix diagonalisierbar.
+\end{korollar}
+
+\begin{definition}{}
+	Man sagt das charakteristische Polynom $\chi_A(\lambda)$ zerfällt in Linearfaktoren, wenn es von der Form
+	\begin{equation*}
+		\chi_A(\lambda)=(\lambda_1-\lambda)^{n_1}*(\lambda_2-\lambda)^{n_2}*\ldots*(\lambda_k-\lambda)^{n_k}
+	\end{equation*}
+	ist. Die Zahl $n_i$ heißt die \emph{algebraische Vielfachheit} des Eigenwerts $\lambda_i$. Als \emph{geometrische Vielfachheit} oder \emph{Multiplizität} des Eigenwerts $\lambda_i$ bezeichnet man die Dimension des zugehörigen Eigenraums $E_{\lambda_i}$.
+\end{definition}
+\paragraph{Bemerkung:}
+Aus dem Fundamentalsatz der Algebra folgt, dass für $K=\C$ jedes charakteristische Polynom in Linearfaktoren zerfällt. Für $K=\R$ zerfallen manche Polynome, manche nicht.
+
+Wir formulieren ein Kriterium für die Invertierbarkeit unter Verwendung des charakteristischen Polynoms
+\begin{satz}{}
+	Eine quadratische Matrix $A\in M(n,K)$ ist genau dann diagonalisierbar, wenn ihr charakteristisches Polynom $\chi_A$ in Linearfaktoren zerfällt und für jeden Ihrer Eigenwerte die algebraische mit der geometrischen Vielfachheit übereinstimmt.
+\end{satz}
+Es gilt also für das charakteristische Polynom einer diagonalisierbaren Matrix $A$
+\begin{equation*}
+	\chi_A(\lambda)=(\lambda_1-\lambda)*(\lambda_2-\lambda)*\ldots*(\lambda_k-\lambda)
+\end{equation*}
+
+\begin{satz}{Diagonalisierbarkeit von symmetrischen Matrizen}
+	Eine reelle, symmetrische Matrix ist stets diagonalisierbar.
+\end{satz}
+Was kann man machen, wenn eine (komplexe) Matrix nicht diagonalisierbar ist? Was ist eine \glqq einfachst mögliche\grqq\ Form, in die man diese Matrix mit einem Basiswechsel bringen kann?
+
+Um allgemeine, komplexe quadratische Matrizen behandeln zu können, gibt es die \emph{Jordan'sche Normalform}.
+\begin{definition}{Jordan-Matrix}
+	Sei $\lambda$ eine komplexe Zahl. Die $j\times j$-Matrix
+	\begin{equation*}
+		J_i(\lambda)=\matrix{
+			\lambda & 1 & 0 & \cdots & 0\\
+			0 & \lambda & 1 & \cdots & 0\\
+			\vdots & 0 & \lambda & \cdots & \vdots\\
+			\vdots & \vdots & \vdots & \ddots & \vdots\\
+			0 & \cdots & \cdots & 0 & \lambda
+		}
+	\end{equation*}
+\end{definition}
+
+\begin{satz}{Jordan'sche Normalform}
+	Sei $A\in M(n,\C)$ und seien $\lambda_1,\ldots,\lambda_k$ paarweise verschiedene Eigenwerte von $A$. Dann gibt es eine Basis von $\C^n$, bezüglich der die darstellende Matrix der linearen Abbildung $x\mapsto Ax$ die folgende Blockdiagonalgestalt hat
+	\begin{equation*}
+		\begin{pmatrix}
+			J_{n_{1_1}}(\lambda_1) &&&&&&\\
+			& \ddots&&&&&\\
+			&& J_{n_{1_{l_1}}}(\lambda_1)&&&&\\
+			&&& \ddots&&&\\
+			&&&& J_{n_{k_1}}(\lambda_k)&&\\
+			&&&&& \ddots&\\
+			&&&&&& J_{n_{k_{l_k}}}(\lambda_k)
+		\end{pmatrix}
+	\end{equation*}
+\end{satz}
+
+Ist $\chi_A(\lambda)=(\lambda_1-\lambda)^{n_1}*(\lambda_2-\lambda)^{n_2}*\ldots*(\lambda_k-\lambda)^{n_k}$ das charakteristische Polynom von $A$, dann gilt
+\begin{equation*}
+	\sum_{j=1}^{l_1} n_{m_j} =n_m, n_1+n_2+\ldots+n_k=n
+\end{equation*}
+und die Anzahl der Jordanblöcke zum Eigenwert $\lambda_m$ ist gleich der geometrischen Vielfachheit des Eigenwerts $\lambda_m$.
+
+\paragraph{Beispiele:}
+\begin{itemize}
+	\item $\matrix{2 & 1 & 0 & 0\\ 0 & 2 & 0 & 0\\0 & 0 & 3 & 1\\0 & 0 & 0 & 3}$ ist in JNF. $k=2, l_1=1, \lambda_2=3, \lambda_2=3, n_{11}=2, n_{21}=2$
+	\item $\matrix{2 & 0 & 0 & 0\\ 0 & 2 & 0 & 0\\0 & 0 & 3 & 1\\0 & 0 & 0 & 3}$ ist in JNF. $k=2, \lambda_1=2, \lambda_2=3, l_1=2, l_2=2, n_{11}=1, n_{12}=1, n_{21}=2$
+	\item $\matrix{1&{\color{red} 1}&0\\0&2&1&\\0&0&2}$ ist nicht in JNF.
+	\item $\matrix{1&1&0\\0&1&0&\\0&{\color{red} 1}&1}$ ist nicht in JNF.
+	\item $\matrix{1&{\color{red} 1}&0\\0&2&0&\\0&0&1}$ ist nicht in JNF.
+\end{itemize}
+
+\paragraph{Bemerkungen:}
+\begin{itemize}
+	\item Die Jordan'sche Normalform ist eindeutig bestimmt, bis auf die Reihenfolge der Jordan-Matrizen entlang der Diagonalen.
+	\item Mit der JNF hat man eine Kassifikation aller Endomorphismen eines endlich-dimensionalen Vektorraums erzielt.
+	Welche Jordan'sche Normalformen gibt es in niedrigen Dimensionen?
+	\begin{description}
+		\item[$n=1$] $\chi_A(\lambda)=\lambda_1-\lambda$ und damit ist die JNF: $(\lambda_1)$
+		\item[$n=2$] Hier müssen zwei Fälle unterschieden werden:
+		\begin{enumerate}
+			\item Zwei verschiedene Eigenwerte
+			$\chi_A(\lambda)=(\lambda_1-\lambda)(\lambda_2-\lambda)$ und damit ist die JNF: $\matrix{\lambda_1&0\\0\lambda_2}$
+			\item Nur ein Eigenwert
+			$\chi_A(\lambda)=(\lambda_1-\lambda)^2$ und damit ist die JNF: $\matrix{\lambda_1&0\\0\lambda_2}$ oder $\matrix{\lambda_1&1\\0\lambda_2}$. Diese beiden unterscheiden sich in der geometrischen Vielfachheit des Eigenwerts. Es gilt $\dim E_{\lambda_1}=2$ bzw. $\dim E_{\lambda_1}=1$.
+		\end{enumerate}
+	\end{description}
+\end{itemize}

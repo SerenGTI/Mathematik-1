@@ -1,9 +1,13 @@
 \section{Extremwerte im Mehrdimensionalen}
 \begin{definition}{Lokaler Extremwert}
-	Sei $f:D\rightarrow \R,D\subseteq \R^n$. Wir sagen $f$ hat im Punkt $a\in D$ ein lokales Maximum, falls ein $\delta>0$ existiert, so dass $K_\delta(a)\subseteq D$ ist und für alle $y\in K_\delta(a)$ gilt, dass $f(y)\leq f(a)$ ist. Falls sogar $f(y)<f(a)$ für alle $y\in K_\delta(a)\setminus\simpleset{a}$ gilt, spricht man von einem isolierten lokalen Maximum.
+	Sei $f:D\rightarrow \R,D\subseteq \R^n$ offen. Wir sagen $f$ hat im Punkt $a\in D$ ein lokales Maximum, falls ein $\delta>0$ existiert, so dass $K_\delta(a)\subseteq D$ ist und für alle $y\in K_\delta(a)$ gilt, dass $f(y)\leq f(a)$ ist. Falls sogar $f(y)<f(a)$ für alle $y\in K_\delta(a)\setminus\simpleset{a}$ gilt, spricht man von einem isolierten lokalen Maximum.
 
 	Entsprechend für lokale Minima.
 \end{definition}
+\paragraph{Bemerkung:}
+Falls $D$ nicht offen ist, kann am Rand von $D$ ein Extremum auftreten, auch wenn dort kein kritscher Punkt vorliegt.
+
+\par\medskip
 
 Im Eindimensionalen kann man lokale Extrema finden, indem man benutzt, dass die Ableitung dort eine Nullstelle hat (notw. Kriterium). Ist die Funktion zweimal stetig differenzierbar, kann man folgendes hinreichendes Kriterium benutzen: Falls
 \begin{equation*}
@@ -47,26 +51,44 @@ Wir sehen, $f$ hat ein isoliertes lokales Minimum, falls $h^T*\hess f(a)*h$ für
 		\item [indefinit,] falls es ein $v\in\R^n$ und ein $w\in\R^n$ gibt, so dass $v^T*\hess f(a)*v<0$
 
 		und $w^T*\hess f(a)*w>0$ gilt.
+
+		\item [positiv semidefinit,] falls $h^T*\hess f(a)*h\geq0$ für alle $h\in\R^n$
+		\item [negativ semidefinit,] falls $h^T*\hess f(a)*h\leq0$ für alle $h\in\R^n$
 	\end{description}
 \end{definition}
 
-\begin{satz}{}
+\begin{satz}{Hinreichende Bedingung für lokalen Extremwert}
 	Sei $f:D\rightarrow \R,D\subseteq\R^m$ dreimal stetig partiell differenzierbar und sei $a\in D$ ein kritscher Punkt, das heißt $Df(a)=0$ mit $K_\delta (a)\subseteq D$ für ein $\delta>0$.
 	\begin{itemize}
 		\item Ist $\hess f(a)$ positiv definit so liegt bei $a$ ein isoliertes lokales Minimum vor.
 		\item Ist $\hess f(a)$ negativ definit so liegt bei $a$ ein isoliertes lokales Maximum vor.
 		\item Ist $\hess f(a)$ indefinit so liegt bei $a$ ein Sattelpunkt vor.
 	\end{itemize}
+	Falls beim Versuch das Kriterium anzuwenden $\hess f(a)$ semidefinit ist, ist keine Aussage möglich!
 \end{satz}
 \begin{beweis}
 	Siehe Satz von Taylor. \hfill $\Box$
 \end{beweis}
 
-Wann ist eine symmetrische Matrix positiv definit, negativ definit beziehungsweise indefinit?
+\paragraph{Beispiel:}
+Betrachte $f_\pm:\R^2\rightarrow \R, f(x,y)=x^2\pm y^4$. Es gilt $\jacobi f_\pm(x,y)=(2x, \pm4y^3)$ und
+\begin{equation*}
+	\hess f(x,y)=\matrix{2&0\\0&\pm 12y^2}.
+\end{equation*}%
+Somit auch $Df(0,0)=0$, es liegt also ein kritischer Punkt bei $(0,0)$ vor und es gilt $\hess f_\pm(0,0)=\matrix{2&0\\0&0}$. Diese symmetrische Matrix ist positiv semidefinit, denn
+\begin{equation*}
+	(v_1,v_2)\matrix{2&0\\0&0}\vector{v_1\\v_2}=2v_1^2\geq 0.
+\end{equation*}
+Die Funktion $f_+$ hat ein isoliertes lokales Minimum bei $a=(0,0)$. Die Funktion $f_-$ hat einen Sattelpunkt.
+
+
+\par\medskip
+
+Es stellt sich also die Frage: Wann ist eine symmetrische Matrix positiv definit, negativ definit beziehungsweise indefinit?
 
 Natürlich gilt, dass falls $A$ positiv definit ist, $-A$ negativ definit ist, denn
 \begin{equation*}
-	(v_1,\ldots,v_n)A\vector{v_1\\\vdots\\v_n}=\sum_{i,j=1}^n v_iv_j a_{ij}
+	(v_1,\ldots,v_n)*A*\vector{v_1\\\vdots\\v_n}=\sum_{i,j=1}^n v_iv_j a_{ij}
 \end{equation*}
 
 \paragraph{Bemerkungen:}
@@ -76,10 +98,17 @@ Natürlich gilt, dass falls $A$ positiv definit ist, $-A$ negativ definit ist, d
 	\begin{equation*}
 		(v_1,\ldots,v_n)\matrix{\lambda_1&\cdots &0\\\vdots & \ddots & \vdots \\ 0&\cdots &\lambda_n}\vector{v_1\\\vdots\\v_n}=\lambda_1v_1^2+\ldots+\lambda_nv_n^2
 	\end{equation*}
+	Falls alle $\lambda_i<0$ sind, ist die Matrix negativ definit. Falls es positive und nagative $\lambda_i$ gibt, ist die Matrix indefinit.
 	\item Auch wenn alle Einträge einer symmetrischen Matrix positiv sind, ist die Matrix nicht notwendigerweise positiv definit, so zum Beispiel
 	\begin{equation*}
 		(1,-1)\matrix{1&2\\2&1}\vector{1\\-1}=(1,-1)\vector{-1\\1}=-2.
 	\end{equation*}
+	\item Eine symmetrische reelle Matrix ist
+	\begin{description}
+		\item [positiv definit,] falls alle Eigenwerte positiv sind
+		\item [negativ definit,] falls alle Eigenwerte negativ sind
+		\item [indefinit,] falls es positive und negative Eigenwerte gibt.
+	\end{description}
 \end{itemize}
 Um über Definitheit zu entscheiden gibt es das sogenannte Hurwitz'sche Kriterium.
 
@@ -92,5 +121,26 @@ Um über Definitheit zu entscheiden gibt es das sogenannte Hurwitz'sche Kriteriu
 \end{definition}
 
 \begin{satz}{Hurwitz'sches Kriterium}
-	$A$ ist positiv definit genau dann, wenn alle Hauptminoren positiv sind. $A$ ist negativ definit genau dann, wenn die Hauptminoren abwechselnd negativ und positiv sind.
+	$A$ ist positiv definit genau dann, wenn alle Hauptminoren positiv sind. $A$ ist negativ definit genau dann, wenn die Hauptminoren abwechselnd negativ und positiv sind (Das heißt beginnend mit negativ!).
 \end{satz}
+\paragraph{Warnung:} Das Kriterium sagt nichts über semidefinitheit aus!
+
+\paragraph{Beispiel:}
+Wir wollen alle lokalen Extrema der Funktion $f:\R^3\rightarrow \R, f(x,y,z)=x^2+y^2-\cos(z)$ bestimmen. Es gilt
+\begin{equation*}
+	\jacobi f(x,y,z)=(2x,2y,\sin(z))
+\end{equation*}
+Somit gilt $Df(x,y,z)=0$ genau dann, wenn $x=y=0, z=k\pi, k\in\Z$. Wir berechnen
+\begin{equation*}
+	\hess f(x,y,z,)=\matrix{2&0&0\\0&2&0\\0&0&\cos(z)}.
+\end{equation*}
+Somit gilt
+\begin{equation*}
+	\hess f(0,0,k\pi)=\matrix{2&0&0\\0&2&0\\0&0&\cos(k\pi)}
+\end{equation*}
+Fallunterscheidung für gerade und ungerade $k$:
+\begin{align*}
+	\matrix{2&0&0\\0&2&0\\0&0&\cos(2k\pi)} \text{ ist positiv definit}\\
+	\matrix{2&0&0\\0&2&0\\0&0&\cos(2(k+1)\pi)} \text{ ist indefinit}
+\end{align*}
+Somit liegen sind die lokalen Extrema der Funktion $f$ genau die Punkte $(0,0,2k\pi)$. Dort hat $f$ isolierte lokale Minima. (Bei $(0,0,2(k+1)\pi)$ liegen Sattelpunkte vor.)
