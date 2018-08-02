@@ -133,14 +133,21 @@ Geometrische Interpretation von $\det Dg$, Volumenverzerrung.
 	\end{equation*}
 	mit
 	\begin{equation*}
-		Dg(r,\phi)=\matrix{
+		Dg(r,\varphi)=\matrix{
 		\cos(\varphi)&-r\sin(\varphi)\\
 		\sin(\varphi)&r\cos(\varphi)}
 	\end{equation*}
 
-	$\det Dg(r,\phi)=r(\cos \varphi)^2+r(\sin\varphi)^2=r$
+	$\det Dg(r,\varphi)=r(\cos \varphi)^2+r(\sin\varphi)^2=r$
 	Flächeninhalt des Kreises mit Radius $R$, $D=(0,R)\times(0,2\pi)$
 	\begin{align*}
-		\int_{K_R(0)}1\intd x=\int\limits_0^R\int\limits_0^{2\pi} 1*\det Dg()
+		\int_{K_R(0,0)}1\intd x
+		&=\int\limits_0^R\int\limits_0^{2\pi} 1*\det Dg(r,\varphi)\intd \varphi \intd r\\
+		&=\int\limits_0^R\int\limits_0^{2\pi} r\intd \varphi \intd r\\
+		&=\int\limits_0^{2\pi}\int\limits_0^R r \intd r\intd \varphi \\
+		&=\int\limits_0^{2\pi}  \frac12 r^2\Big|_0^R  \intd \varphi\\
+		&=\int\limits_0^{2\pi}  \frac12 R^2  \intd \varphi\\
+		&=\frac12 R^2*\varphi\Big|_0^{2\pi}\\
+		&=\pi R^2
 	\end{align*}
 \end{enumerate}
