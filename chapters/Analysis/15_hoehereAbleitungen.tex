@@ -6,23 +6,23 @@
 	\end{equation*}
 	Besitzt diese wiederum eine partielle Ableitung nach der Variablen $x_i$, dann besitzt $f$ eine zweifache partielle Ableitung nach den Variablen $x_k$ und $x_i$. Wir schreiben
 	\begin{equation*}
-		\frac{\partial}{\partial x_i}\left(\frac{\partial}{\partial x_k}\right)(x)=\frac{\partial^2}{\partial x_i\partial x_k}(x).
+		\frac{\partial}{\partial x_i}\left(\frac{\partial f}{\partial x_k}\right)(x)=\frac{\partial^2 f}{\partial x_i\partial x_k}(x).
 	\end{equation*}
-	Falls $i=k$ ist, so schreiben wir $\frac{\partial^2}{\partial x_k^2}(x)$.
+	Falls $i=k$ ist, so schreiben wir $\frac{\partial^2 f}{\partial x_k^2}(x)$.
 \end{definition}
 Wichtige Frage ist, inwiefern spielt beim Bilden von höheren partiellen Ableitungen die Reihenfolge der Variablen eine Rolle?
 \begin{satz}{Satz von Schwarz}
 	Sei $f:D\rightarrow\R,D\subseteq\R^n$ eine stetige Funktion und die drei partiellen Ableitungen
 	\begin{equation*}
-		\frac{\partial f}{\partial x_i}(x),\ \frac{\partial f}{\partial x_k}(x) \text{ und } \frac{\partial^2}{\partial x_i\partial x_k}(x)
+		\frac{\partial f}{\partial x_i}(x),\ \frac{\partial f}{\partial x_k}(x) \text{ und } \frac{\partial^2 f}{\partial x_i\partial x_k}(x)
 	\end{equation*}
 	existieren und sind stetig, dann existiert auch die partielle Ableitung
 	\begin{equation*}
-		\frac{\partial^2}{\partial x_k\partial x_i}(x)
+		\frac{\partial^2 f}{\partial x_k\partial x_i}(x)
 	\end{equation*}
 	und es gilt
 	\begin{equation*}
-		\frac{\partial^2}{\partial x_i\partial x_k}(x)=\frac{\partial^2}{\partial x_k\partial x_i}(x).
+		\frac{\partial^2 f}{\partial x_i\partial x_k}(x)=\frac{\partial^2 f}{\partial x_k\partial x_i}(x).
 	\end{equation*}
 \end{satz}
 Insbesondere gilt also, ist eine Funktion zweimal stetig partiell differenzierbar, dann kommt es beim Bilden von zweifachen partiellen Ableitungen nicht auf die Reihenfolge der Variablen an.
@@ -33,8 +33,8 @@ Insbesondere kommt es beim bilden von partiellen Ableitungen $k$ter Ordnung eine
 \end{equation*}
 für die höheren Ableitungen
 \begin{equation*}
-	\frac{\partial^{|\alpha|}}{\partial x^\alpha}(x)\coloneqq
-	\frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\ldots\partial x_n^{\alpha_n}}
+	\frac{\partial^{|\alpha|}f}{\partial x^\alpha}(x)\coloneqq
+	\frac{\partial^{|\alpha|}f}{\partial x_1^{\alpha_1}\partial x_2^{\alpha_2}\ldots\partial x_n^{\alpha_n}}(x)
 \end{equation*}
 einer $|\alpha|$fach stetig partiell differenzierbaren Funktion $f:D\rightarrow\R,D\subseteq\R^n$ wobei $|\alpha|=\alpha_1+\ldots+\alpha_n$ ist.
 
