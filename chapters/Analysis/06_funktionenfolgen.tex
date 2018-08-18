@@ -52,7 +52,7 @@ mit $D\subseteq \R$ oder $\C$. Wir wollen uns natürlich mit der Frage der Konve
 		\end{center}
 	\end{multicols}
 
-	\item	\begin{multicols}{2}
+	\item	%\begin{multicols}{2}
 		$D=[-1;1], f_n=x^{2n}$
 
 		Die Funktionenfolge konvergiert punktweise gegen die Funktion
@@ -63,7 +63,7 @@ mit $D\subseteq \R$ oder $\C$. Wir wollen uns natürlich mit der Frage der Konve
 			\end{cases}
 		\end{equation*}
 
-		\columnbreak
+		%\columnbreak
 
 		\begin{center}
 			\begin{easyfunction}{-1}{1}{0}{2}{1}
@@ -72,20 +72,20 @@ mit $D\subseteq \R$ oder $\C$. Wir wollen uns natürlich mit der Frage der Konve
 				\draw[->] (0,0) -- (0,1.2) node[above] {$f(x)$};
 
 				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x*\x})
-						node[above right] {$f_1(x)$};
+						node[above right] {};
 				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x})
-						node[above right] {$f_2(x)$};
+						node[above right] {};
 				\draw[line width=0.2mm,scale=1,domain=-1:1,smooth,variable=\x,blue] plot ({\x},{\x*\x*\x*\x*\x*\x})
-						node[right] {$f_3(x)$};
+						node[right] {};
 			\end{easyfunction}
 		\end{center}
-	\end{multicols}
+	% \end{multicols}
 	Wir betrachten, dass die Grenzfunktion $f$ nicht stetig ist. Die gleichmäßige Konvergenz ist eine stärkere Eigenschaft als punktweise Konvergenz. Aus gleichmäßiger Konvergenz folgt punktweise Konvergez aber nicht umgekehrt.
 	Gleichmäßigkeit der Funktionenfolge garantiert die Stetigkeit der Limesfunktion.
 \end{itemize}
 
 \begin{satz}{Stetigkeit der Limesfunktion}
-	konvergiert eine Folge stetiget Funktionen gleichmäßig, dann ist die Limesfunktion stetig.
+	konvergiert eine Folge stetiger Funktionen gleichmäßig, dann ist die Limesfunktion stetig.
 \end{satz}
 \beweis
 Angenommen $f_n\overset{glm}\longrightarrow f$. Sei $\epsilon > 0, x_0\in\R$. Wähle $n_0\in\N$ so, dass
