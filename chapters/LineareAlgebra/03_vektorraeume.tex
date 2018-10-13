@@ -1,12 +1,13 @@
 \chapter{Vektorräume}
-\paragraph{Beispiel}
+\paragraph{Beispiele:}
 \begin{align*}
   \R^2&=\R\times\R=\set{(x,y)}{x,y\in\R}\\
   \R^3&=\set{(x,y,z)}{x,y,z\in\R}\\
   &\vdots\\
   \R^n&=\set{(x_1,x_2,\ldots,x_n)}{x_1,\ldots,x_n\in\R}\\
 \end{align*}
-Wir schreiben die Elemente von $\R^n$ auch als sogenannte Spaltenvektoren:
+\section{Vektoren}
+Wir schreiben die Elemente von $\R^n$ auch als sogenannte Spaltenvektoren
 \begin{equation*}
   \begin{pmatrix}
     x_1\\
@@ -16,8 +17,11 @@ Wir schreiben die Elemente von $\R^n$ auch als sogenannte Spaltenvektoren:
   \end{pmatrix} \text{ anstatt von } (x_1,x_2,\ldots,x_n)
 \end{equation*}
 
-Mit der komponentenweisen Addition, der Vektoraddition:
-\begin{equation*}
+Der \emph{transponierte Vektor} zu dem oben genannten ist $(x_1,x_2,\ldots,x_n)^T$.
+
+\begin{definition}{Vektoraddition}
+  Die Addition von Vektoren ist komponentenweise definiert.
+  \begin{equation*}
   \begin{pmatrix}
     x_1\\
     \vdots\\
@@ -34,25 +38,36 @@ Mit der komponentenweisen Addition, der Vektoraddition:
     x_1+y_1\\
     \vdots\\
     x_n+y_n
-  \end{pmatrix}
+  \end{pmatrix}.
 \end{equation*}
-wird $\R^n$ zu einer abel'schen Gruppe mit dem Nullvektor als neutrales Element und dem negierten Vektor als inverses Element bezüglich der Addition.
+\end{definition}
 
-In der Vektorrechnung nennt man Zahlen (z.B. Elemente aus $\R,\C,\Q$) \emph{Skalare}, um Zahlen und Vektoren deutlich zu unterscheiden.
+Mit der Vektoraddition wird $\R^n$ zu einer abel'schen Gruppe mit dem Nullvektor als neutrales Element und dem negierten Vektor als inverses Element bezüglich der Addition.
 
-Sei $x\coloneqq \begin{pmatrix}
-  x_1\\
-  \vdots\\
-  x_n
-\end{pmatrix} \in \R$ und $\lambda\in\R$. Dann ist die \emph{skalare Multiplikation} $x*\lambda$ definiert durch $x*\lambda \coloneqq \begin{pmatrix}
-  \lambda* x_1\\
-  \vdots\\
-  \lambda* x_n
-\end{pmatrix}$
+\section{Skalare}
+
+In der Vektorrechnung nennt man Elemente des zugrundeliegenden Körpers - also Zahlen - \emph{Skalare}, um Zahlen und Vektoren deutlich zu unterscheiden.
+
+\begin{definition}{Skalare Multiplikation}
+	Sei $x = \begin{pmatrix}
+	x_1\\
+	\vdots\\
+	x_n
+	\end{pmatrix} \in \R^n$ und $\lambda\in\R$. Dann ist die \emph{skalare Multiplikation} komponentenweise definiert
+	\begin{equation*}
+		x*\lambda \coloneqq \begin{pmatrix}
+		\lambda* x_1\\
+		\vdots\\
+		\lambda* x_n
+		\end{pmatrix}.
+	\end{equation*}
+\end{definition}
+
+
 
 Die beiden Operationen Vektoraddition und skalare Multiplikation sind kennzeichnend für einen Vektorraum.
 
-
+\section{Vektorräume}
 \begin{definition}{Vektorraum}
 	Sei $K$ ein Körper, dessen neutrales Element bezüglich der Multiplikation mit $1_K$ bezeichnet wird. Sei $V$ eine Menge mit einer Verknüpfung $+$, so dass $(V,+)$ eine abel'sche Gruppe bildet.
 
@@ -128,6 +143,7 @@ Die folgenden sind Untervektorräume von $\R^2$:
     &\underset{\text{\textbf{(V 1)}}}{=} 0*v+(0*v+(-0*v))\\
     0=0*v +0&=0*v
   \end{align*}
+  \item Folgt direkt aus der Assoziativität von $V$.
 \end{enumerate}
 
 \begin{definition}{Linearkombination}
@@ -141,18 +157,14 @@ Die folgenden sind Untervektorräume von $\R^2$:
 	Sind in der Linearkombination alle Koeffizienten gleich Null, handelt es sich um die \emph{triviale Linearkombination}. Gibt es hingegen mindestens einen Koeffizienten $\lambda_j \neq 0$, handelt es sich um einee \emph{nichttriviale Linearkombination}.
 \end{definition}
 
-\begin{definition}{Spann}
-	Sei $V$ ein $K$-Vektorraum, $M\subseteq V$ eine Teilmenge. Dann heißt die Menge aller Linearkombinationen
-	\begin{equation*}
-	  \set{\lambda_1v_1+\ldots+\lambda_kv_k}{v_1,v_2,\ldots,v_k \in M, \lambda_1,\lambda_2,\ldots,\lambda_k \in K}
-	\end{equation*}
-	der \emph{Spann} oder die lineare Hülle von M.
+\begin{definition}{Spann, lineare Hülle}
+	Sei $V$ ein $K$-Vektorraum, $M\subseteq V$ eine Teilmenge. Dann heißt die Menge aller Linearkombinationen mit Vektoren aus $M$
+	\begin{align*}
+	  \spann M\coloneqq&\  \set{\lambda_1v_1+\ldots+\lambda_kv_k}{v_1,v_2,\ldots,v_k \in M, \lambda_1,\lambda_2,\ldots,\lambda_k \in K}\\
+	  =&\ \set{\sum\limits_{j=1}^k\lambda_jv_j}{\lambda_j \in K, v_j\in M}
+	\end{align*}
+	der \emph{Spann} oder die \emph{lineare Hülle} von M.
 \end{definition}
-
-
-\begin{equation*}
-  \spann{M}\coloneqq \set{\sum\limits_{j=1}^k\lambda_jv_j}{\lambda_j \in K, v_j\in M}
-\end{equation*}
 
 \paragraph{Beispiele}
 \begin{itemize}
@@ -181,8 +193,8 @@ Die folgenden sind Untervektorräume von $\R^2$:
 \end{definition}
 Interessant ist die minimale Anzahl an Vektoren in einem Erzeugendensystem, bzw. ein \emph{minimales Erzeugendensystem}.
 
-\begin{definition}{Lineare Abhängigkeit}\label{satz:lineareUnabhaengigkeit}
-	Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}.
+\begin{definition}{Lineare Abhängigkeit}
+\label{satz:lineareUnabhaengigkeit} Eine Menge von Vektoren $M\subseteq V$ heißt \emph{linear abhängig}, wenn es eine nichttriviale Linearkombination gibt, die den Nullvektor ergibt. Andernfalls heißt $M$ \emph{linear unabhängig}.
 \end{definition}
 
 

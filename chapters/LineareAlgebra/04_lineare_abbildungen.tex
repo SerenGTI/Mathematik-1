@@ -1,10 +1,10 @@
 \chapter{Lineare Abbildungen}
-Lineare Abbildungen sind Strukturerhaltende Abbildungen zwischen Vektorräumen, sie werden deshalb auch Vektorraumhomomorphismen genannt.
+Lineare Abbildungen sind strukturerhaltende Abbildungen zwischen Vektorräumen, sie werden deshalb auch Vektorraumhomomorphismen genannt.
 \begin{definition}{Lineare Abbildungen}
 	Seien $V$ und $W$ Vektorräume über dem selben Körper $K$. Eine Abbildung $f:V\rightarrow W$ heißt \emph{linear}, falls
 	\begin{description}
-	  \item[L 1] $\forall u,v \in V : f(u+v)= f(u)+f(v)$ (Additivität)
-	  \item[L 2] $\forall v\in V, \lambda \in K : f(\lambda v) = \lambda * f(v)$ (Homogenität)
+	  \item[L 1] $\forall u,v \in V : f(u+v)= f(u)+f(v)\quad$ (Additivität)
+	  \item[L 2] $\forall v\in V, \lambda \in K : f(\lambda v) = \lambda * f(v)\quad$ (Homogenität)
 	\end{description}
 \end{definition}
 
@@ -14,7 +14,7 @@ Lineare Abbildungen sind Strukturerhaltende Abbildungen zwischen Vektorräumen, 
 
 \paragraph{Beispiele:}
 \begin{itemize}
-  \item Für alle $\lambda \in K$ ist $f:V\rightarrow V, v\mapsto \lambda v$ eine Lineare Abbildung
+  \item Für alle $\lambda \in K$ ist $f:V\rightarrow V, v\mapsto \lambda v$ eine Lineare Abbildung (die skalare Multiplikation).
   \item Insbesondere sind die identische Abbildung
   \begin{equation*}
     \mathrm{id}_V:V\rightarrow V, v\mapsto v
@@ -32,9 +32,9 @@ Lineare Abbildungen sind Strukturerhaltende Abbildungen zwischen Vektorräumen, 
 \end{itemize}
 
 \section{Matrizen}
-Allgemein lassen sich lineare Abbildungen durch sog. \emph{Matrizen} darstellen.
+Allgemein lassen sich lineare Abbildungen durch sog. \emph{Matrizen} darstellen. 
 
-Sei $A$ eine $m\times n$-Matrix, d.h. ein rechteckiges Zahlenschema mit $m$ Zeilen und $n$ Spalten:
+Sei $A$ eine $m\times n$-Matrix, d.h. ein rechteckiges Zahlenschema mit $m$ Zeilen und $n$ Spalten
 \newcommand{\ma}[1]{\ensuremath a_{#1}}
 \begin{equation*}
   A=
@@ -46,6 +46,7 @@ Sei $A$ eine $m\times n$-Matrix, d.h. ein rechteckiges Zahlenschema mit $m$ Zeil
   }
   = ((a_{ij}))_{\substack{1\leq i\leq m\\1\leq j\leq n}}
 \end{equation*}
+Die Menge der $m\times n$-Matrizen mit Einträgen aus $K$ wird mit $\mathrm{M}(m,n,K)$ bezeichnet.
 Dann ist durch
 \begin{equation*}
   f(x_1,x_2,\ldots,x_n)\coloneqq A*\matrix{x_1\\x_2\\\vdots\\x_n}
@@ -139,7 +140,7 @@ Umgekehrt ist durch eine beliebige $m\times n$-Matrix (m Zeilen, n Spalten) mit 
 Die Matrix $A$ heißt \emph{darstellende Matrix} der linearen Abbildung bezüglich der Basen $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$.
 
 \begin{definition}{Darstellende Matrix}
-	Seien $m,n\in\N_0$. Die Menge der $m\times n$-Matrizen mit Einträgen aus $K$ wird mit $\mathrm{M}(m,n,K)$ bezeichnet. Seien $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ jeweils eine Basis des $K$-Vektorraums $V$ bzw. $W$. Und sei $f:V\rightarrow W$ eine lineare Abbildung. Dann nennt man
+	Seien $m,n\in\N_0$. Seien $v_1,\ldots,v_n$ und $w_1,\ldots,w_m$ jeweils eine Basis des $K$-Vektorraums $V$ bzw. $W$. Und sei $f:V\rightarrow W$ eine lineare Abbildung. Dann nennt man
 	\begin{equation*}
 	  A=((a_{ij}))\in \mathrm{M}(m,n,K)
 	\end{equation*}
@@ -149,7 +150,7 @@ Die Matrix $A$ heißt \emph{darstellende Matrix} der linearen Abbildung bezügli
 	\end{equation*}
 \end{definition}
 
-\paragraph{Merkregel}
+\paragraph{Merkregel:}
 Die Spalten der darstellenden Matrix sind die Bilder der Basisvektoren.
 \par\bigskip
 
@@ -201,9 +202,9 @@ Lineare Abbildungen sind wegen der Additivität Insbesondere Gruppenhomomorphism
 \end{definition}
 \paragraph{Bemerkung:}
 \begin{itemize}
-	\item Die Automorphismen $\mathrm{Aut}(V)$ eines Vektorraums $V$ bilden eine Gruppe mit der Verkettung als Verknüpfung.
 	\item Die Menge der Endo- bzw. Automorphismen wird mit $\mathrm{End}(V)$ bzw. $\mathrm{Aut}(V)$ bezeichnet.
-	\item Die Menge der linearen Abbildungen $V\rightarrow W$ mit $\mathrm{Hom}(V,W)$.
+  \item Die Automorphismen $\mathrm{Aut}(V)$ eines Vektorraums $V$ bilden eine Gruppe mit der Verkettung als Verknüpfung.
+	\item Die Menge der linearen Abbildungen $V\rightarrow W$ wird $\mathrm{Hom}(V,W)$ bezeichnet.
 \end{itemize}
 
 
