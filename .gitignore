@@ -6,3 +6,4 @@ main.toc
 *.bat
 main.aux
 main.fdb_latexmk
+main.synctex

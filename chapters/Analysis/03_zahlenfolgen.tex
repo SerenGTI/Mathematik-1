@@ -59,14 +59,47 @@ Dann gilt mit der Dreiecksungleichung: $$\left|(x_n+y_n)-(x+y)\right|=\left|(x_n
 	Dann konvergiert auch $z_n$ mit $\lim\limits_{n\to\infty} z_n = x$.
 \end{satz}
 \beweis
-Sei $\epsilon>0$. Wähle $n_0\in\N$ so, dass $|x_n-x|<\epsilon$ und $|y_n-y|<\epsilon$. Dann gilt für alle natürlichen Zahlen $n\geq n_0$:
-\begin{equation*}
-	|x-z_n|=\begin{cases}
-		z_n-x\leq y_n-x \leq |y_n-x| <\epsilon \text{, falls $x<z_n$}\\
-		x-z_n\leq x-x_n \leq |x-x_n| <\epsilon \text{, falls $x\leq z_n$}
-	\end{cases}
-\end{equation*}
-\hfill $\Box$
+% Sei $\epsilon>0$. Wähle $n_0\in\N$ so, dass $|x_n-x|<\epsilon$ und $|y_n-y|<\epsilon$. Dann gilt für alle natürlichen Zahlen $n\geq n_0$:
+% \begin{equation*}
+% 	|x-z_n|=\begin{cases}
+% 		z_n-x\leq y_n-x \leq |y_n-x| <\epsilon \text{, falls $x<z_n$}\\
+% 		x-z_n\leq x-x_n \leq |x-x_n| <\epsilon \text{, falls $x\geq z_n$}
+% 	\end{cases}
+% \end{equation*}
+% \hfill $\Box$
+
+%new begin
+Zu zeigen ist die Konvergenz von $(c_n)$ mit $\lim\limits_{n\to\infty}(c_n)=a$, d.h.\\
+\begin{equation}
+	\forall \epsilon>0\enspace\exists k\in\N : \enspace \forall n\geq k: |c_n-a|<\epsilon\label{eq2}
+\end{equation}
+
+Sei $\epsilon>0$ beliebig. Wähle außerdem ein $m>n_0$ so, dass $|a_n-a|<\epsilon$ und $|b_n-a|<\epsilon$ für alle $n\geq m$, dieses $m$ mit den drei Einschränkungen existiert, da die Folgen $(a_n)$ und $(b_n)$ kovergieren.
+
+Dann gilt für alle natürlichen Zahlen $n\geq m$:
+
+\paragraph{Fall 1: $a<c_n$} 
+\begin{align*}
+	|a-c_n|&=c_n-a\\
+	&\leq b_n-a && \text{nach Voraussetzung, \autoref{eq1}}\\
+	&\leq |b_n-a|\\
+	&< \epsilon  && \text{da $(b_n)$ konvergent}
+\end{align*}
+
+\paragraph{Fall 2: $a\geq c_n$}
+\begin{align*}
+	|a-c_n|&=a-c_n\\
+	&\leq a-a_n && \text{nach Voraussetzung, \autoref{eq1}}\\
+	&\leq |a-a_n|\\
+	&< \epsilon  && \text{da $(a_n)$ konvergent}
+\end{align*}
+Damit ist die Behauptung aus \autoref{eq2} gezeigt, es gilt
+\begin{equation}
+	\forall \epsilon>0 \enspace \forall n\geq m: |c_n-a|<\epsilon
+\end{equation}
+ \hfill $\Box$
+
+%new end
 
 \begin{lemma}{}\label{lemma:abschaetzung}
 	Es gilt: $(1+x)^n>\frac{n^2}{4}x^2$, für $x>0, n\geq 2$
