@@ -1,10 +1,17 @@
-# Mathematik-1
-Skript zum zwei-semestrigen Modul Mathematik 1 für Informatik, Softwaretechnik und Maschinelle Sprachverarbeitung.
-Behandelte Themen sind Lineare Algebra 1 und Analysis 1.
+# Mathematik
+Skript zum zwei-semestrigen Modul Mathematik 1 & 2 für Informatik, Softwaretechnik und Maschinelle Sprachverarbeitung, gehalten von Apl. Prof. Dr. Andreas Kollross (WS 17/18 und SoSe 18).
+Das Skript ist parallel zur Vorlesung als ein Vorlesungsmitschrieb entstanden, wurde allerdings weiter ausgearbeitet.
 
-<!-- ## To-Do
-* Allgemein mehr Abbildungen hinzufügen
-* Abschnitt zu den komplexen Zahlen ausarbeiten
-* Bessere Sortierung der Abschnitte in die einzelnen Dateien
-* Zusammenfassen der verwendeten TikZ-Standards in eine Definitionsliste
- -->
+## Inhalte
+* Logik und Mengenlehre, Grundbegriffe der Algebra, 
+* Vektorräume, lineare Gleichungssysteme, euklidische Vektorräume
+* Matrizen und Determinanten, Eigenwerte und Normalformen,
+* Konvergenz, Stetigkeit, Funktionenfolgen, 
+* ein- und mehrdimensionale Differential- und Integralrechnung
+
+## ToDo
+Obwohl das Modul abgeschlossen ist, wird ab und zu noch am Skript gearbeitet.
+* Abbildungen
+* Abschnitt zu komplexen Zahlen fehlt
+* Fehler finden und beheben
+* ...
