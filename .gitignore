@@ -1,9 +1,10 @@
 
-main.fls
-main.log
-main.out
-main.toc
+*.fls
+*.log
+*.out
+*.toc
 *.bat
-main.aux
-main.fdb_latexmk
-main.synctex
+*.aux
+*.fdb_latexmk
+*.synctex
+*.DS_Store
