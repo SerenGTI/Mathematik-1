@@ -1,5 +1,5 @@
 # Mathematik
-Skript zum zwei-semestrigen Modul Mathematik 1 & 2 für Informatik, Softwaretechnik und Maschinelle Sprachverarbeitung, gehalten von Apl. Prof. Dr. Andreas Kollross (WS 17/18 und SoSe 18).
+Skript zum zwei-semestrigen Modul Mathematik für Informatik, Softwaretechnik und Maschinelle Sprachverarbeitung, gehalten von Apl. Prof. Dr. Andreas Kollross (WS 17/18 und SoSe 18).
 Das Skript ist parallel zur Vorlesung als ein Vorlesungsmitschrieb entstanden, wurde allerdings weiter ausgearbeitet.
 
 ## Inhalte
